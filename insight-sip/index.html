@@ -1,774 +1,670 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Proposition Décupler × Insight SiP — SEO & AI Search (Modules BLE)</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Proposition Décupler × Insight SiP — SEO × GEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#07080f;
-  --bg2:#0d0e1c;
-  --bg3:#111228;
-  --border:rgba(123,92,250,.15);
-  --violet:#7B5CFA;
-  --vl:#a78bfa;
-  --green:#00E5A0;
-  --red:#FF4D6D;
-  --amber:#f59e0b;
-  --text:#dde2f0;
-  --muted:#8892aa;
-  --dim:#4a5270;
-  --F:'Syne',sans-serif;
-  --B:'DM Sans',sans-serif;
-  --M:'JetBrains Mono',monospace;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--B);font-size:16px;line-height:1.7;overflow-x:hidden;-webkit-text-fill-color:var(--text)}
-h1,h2,h3,h4{font-family:var(--F);color:#fff;-webkit-text-fill-color:#fff;line-height:1.1}
-p{color:var(--muted);-webkit-text-fill-color:var(--muted)}
-a{text-decoration:none;color:inherit;-webkit-text-fill-color:inherit}
+  :root{
+    --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+    --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+    --ink:#181510; --body:#4C463A; --muted:#8A8272;
+    --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+    --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+    --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+    --decupler:#6547C9;
+    --good:#177A50; --good-soft:rgba(23,122,80,.1);
+    --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+    --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+    --disp:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --dm:"DM Sans",var(--sans);
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --maxw:1060px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--body);
+    font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.08;text-wrap:balance}
+  strong{color:var(--ink);font-weight:600}
+  em{color:var(--gold);font-style:normal}
+  a{color:var(--gold);text-decoration:none}
+  .mono{font-family:var(--mono)}
+  .decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+  .decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
 
-/* GRID */
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(123,92,250,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(123,92,250,.022) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0}
+  nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+  .navlinks{display:flex;gap:3px;flex-wrap:wrap}
+  .navlinks a{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:5px 9px;border-radius:20px;border:1px solid transparent;transition:.15s;white-space:nowrap}
+  .navlinks a:hover{color:var(--ink);border-color:var(--gold-line);background:var(--gold-soft)}
+  @media (max-width:980px){ .navlinks{display:none} }
 
-/* ORBS */
-.orb{position:fixed;border-radius:50%;filter:blur(160px);pointer-events:none;z-index:0;animation:orb 16s ease-in-out infinite}
-.o1{width:700px;height:700px;background:rgba(123,92,250,.07);top:-200px;right:-150px;animation-delay:-4s}
-.o2{width:500px;height:500px;background:rgba(0,229,160,.04);top:50%;left:-150px;animation-delay:-9s}
-.o3{width:350px;height:350px;background:rgba(123,92,250,.04);bottom:5%;right:5%;animation-delay:-2s}
-@keyframes orb{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(40px,-30px) scale(1.06)}70%{transform:translate(-25px,35px) scale(.94)}}
+  .hero{padding:74px 0 40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+  .hero h1{font-size:clamp(2.2rem,5.6vw,3.8rem);font-weight:600;color:var(--ink);margin-bottom:22px}
+  .hero h1 .seo{color:var(--seo)} .hero h1 .geo{color:var(--geo)}
+  .hero-sub{font-size:1.1rem;max-width:64ch;color:var(--body);margin-bottom:34px}
+  .hero-sub strong{color:var(--ink)}
+  .metastrip{display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:22px}
+  .metastrip b{color:var(--ink);font-weight:600}
 
-.wrap{max-width:900px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  section{padding:56px 0;border-top:1px solid var(--line);background:var(--bg)}
+  .chap{display:flex;align-items:baseline;gap:16px;margin-bottom:10px}
+  .chap .no{font-family:var(--disp);font-size:1.6rem;color:var(--gold);font-weight:600}
+  .chap .kk{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:6px 0 12px}
+  .lead{font-size:1.02rem;max-width:68ch;color:var(--body);margin-bottom:32px}
+  .lead strong{color:var(--ink)}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(7,8,15,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:var(--F);font-size:.85rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;letter-spacing:.02em}
-.nav-logo span{color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.nav-tag{font-family:var(--M);font-size:.65rem;color:var(--dim);-webkit-text-fill-color:var(--dim);background:rgba(123,92,250,.07);padding:4px 10px;border-radius:20px;border:1px solid var(--border)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  @media (max-width:760px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px 18px}
+  .tile .v{font-family:var(--disp);font-size:1.9rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+  .tile .v.gold{color:var(--gold)} .tile .v.crit{color:var(--crit)} .tile .v.good{color:var(--good)}
+  .tile .k{font-size:12.5px;color:var(--muted);margin-top:11px;line-height:1.4}
 
-/* HERO */
-.hero{padding:80px 0 64px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(123,92,250,.08);border:1px solid var(--border);color:var(--vl);-webkit-text-fill-color:var(--vl);font-family:var(--M);font-size:.65rem;padding:5px 14px;border-radius:20px;margin-bottom:24px;letter-spacing:.08em;text-transform:uppercase}
-.hero h1{font-size:clamp(2.1rem,5vw,3.2rem);font-weight:900;letter-spacing:-.03em;margin-bottom:20px;line-height:1.06}
-.hl{color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.hl2{color:var(--green);-webkit-text-fill-color:var(--green)}
-.hlr{color:var(--red);-webkit-text-fill-color:var(--red)}
-.hero-sub{font-size:1rem;max-width:620px;margin-bottom:32px;line-height:1.7;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+  .execband{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .execgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media (max-width:760px){ .execgrid{grid-template-columns:1fr 1fr;gap:20px} }
+  .execitem .v{font-family:var(--disp);font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+  .execitem .v.gold{color:var(--gold)} .execitem .v.crit{color:var(--crit)}
+  .execitem .k{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.4}
+  .execitem .k strong{color:var(--body)}
 
-/* DIAGNOSIS BOX */
-.diag{background:var(--bg2);border:1px solid rgba(255,77,109,.2);border-radius:20px;padding:32px;margin-bottom:0;position:relative;overflow:hidden}
-.diag::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--red),rgba(245,158,11,.6),transparent)}
-.diag-title{font-family:var(--F);font-size:1rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
-.diag-stat{background:rgba(255,77,109,.06);border:1px solid rgba(255,77,109,.15);border-radius:12px;padding:18px;text-align:center}
-.diag-num{font-family:var(--F);font-size:1.8rem;font-weight:900;color:var(--red);-webkit-text-fill-color:var(--red);line-height:1;display:block}
-.diag-label{font-family:var(--M);font-size:.62rem;color:var(--dim);-webkit-text-fill-color:var(--dim);margin-top:5px;letter-spacing:.05em;text-transform:uppercase;display:block}
-.diag-problems{display:flex;flex-direction:column;gap:10px}
-.problem{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:rgba(255,77,109,.04);border:1px solid rgba(255,77,109,.1);border-radius:10px;font-size:.875rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.problem-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:6px}
-.problem strong{color:#d4daf0;-webkit-text-fill-color:#d4daf0;font-weight:600}
+  .toc{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-top:6px}
+  @media (max-width:700px){ .toc{grid-template-columns:1fr} }
+  .toc-item{display:flex;gap:18px;align-items:flex-start}
+  .toc-item .no{font-family:var(--disp);font-size:2.1rem;font-weight:600;color:var(--gold);line-height:1;min-width:52px}
+  .toc-item h3{font-size:1.08rem;margin-bottom:5px}
+  .toc-item p{font-size:.88rem;color:var(--muted)}
 
-/* OPPORTUNITY */
-.opp{background:linear-gradient(135deg,rgba(0,229,160,.05),rgba(123,92,250,.04));border:1px solid rgba(0,229,160,.15);border-radius:20px;padding:32px;position:relative;overflow:hidden}
-.opp::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--violet),transparent)}
-.opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-.opp-stat{text-align:center}
-.opp-num{font-family:var(--F);font-size:2rem;font-weight:900;color:var(--green);-webkit-text-fill-color:var(--green);line-height:1;display:block}
-.opp-label{font-family:var(--M);font-size:.62rem;color:var(--dim);-webkit-text-fill-color:var(--dim);margin-top:5px;letter-spacing:.05em;text-transform:uppercase;display:block}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:760px){ .grid2,.grid3{grid-template-columns:1fr} }
+  .note{border-radius:14px;padding:18px 20px;font-size:.94rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+  .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+  .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+  .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+  .note.seo{border-left:3px solid var(--seo);background:var(--seo-soft)}
+  .note.geo{border-left:3px solid var(--geo);background:var(--geo-soft)}
+  .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:5px}
 
-/* SECTION */
-.section{padding:64px 0;border-top:1px solid rgba(123,92,250,.08)}
-.slabel{font-family:var(--M);font-size:.65rem;color:var(--violet);-webkit-text-fill-color:var(--violet);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:block}
-.stitle{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:10px;letter-spacing:-.02em;color:#fff;-webkit-text-fill-color:#fff}
-.ssub{font-size:.92rem;max-width:620px;margin-bottom:36px;line-height:1.7;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:14px 15px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:13px 15px;border-bottom:1px solid var(--line);color:var(--body);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--surface2)}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+  .you td{background:var(--gold-soft)}
+  .you td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
+  td .name{color:var(--ink);font-weight:600}
 
-/* TABLE */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--bg2)}
-table.dt{width:100%;border-collapse:collapse;font-size:.82rem;min-width:560px}
-table.dt th{background:rgba(123,92,250,.08);color:#cfd6ea;-webkit-text-fill-color:#cfd6ea;font-family:var(--M);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:12px 14px;border-bottom:1px solid var(--border)}
-table.dt td{padding:12px 14px;border-bottom:1px solid rgba(123,92,250,.07);color:var(--muted);-webkit-text-fill-color:var(--muted)}
-table.dt tr:last-child td{border-bottom:none}
-table.dt td strong{color:#dfe4f2;-webkit-text-fill-color:#dfe4f2;font-weight:600}
-table.dt .you{background:rgba(123,92,250,.08)}
-table.dt .you td{color:#e7ebf7;-webkit-text-fill-color:#e7ebf7}
-.mono{font-family:var(--M);font-size:.78rem}
-.pill{display:inline-block;padding:2px 8px;border-radius:6px;font-family:var(--M);font-size:.66rem;font-weight:700;white-space:nowrap}
-.pill-red{background:rgba(255,77,109,.12);color:#ff8098;-webkit-text-fill-color:#ff8098}
-.pill-green{background:rgba(0,229,160,.1);color:var(--green);-webkit-text-fill-color:var(--green)}
-.pill-amber{background:rgba(245,158,11,.12);color:var(--amber);-webkit-text-fill-color:var(--amber)}
-.pill-dim{background:rgba(123,92,250,.08);color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.tnote{font-family:var(--M);font-size:.68rem;color:var(--dim);-webkit-text-fill-color:var(--dim);margin-top:12px;line-height:1.5}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .pill.good{background:var(--good-soft);color:var(--good)}
+  .pill.crit{background:var(--crit-soft);color:var(--crit)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .pill.seo{background:var(--seo-soft);color:var(--seo)} .pill.geo{background:var(--geo-soft);color:var(--geo)}
 
-/* PROOF CALLOUT */
-.proof{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-.pf{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden}
-.pf::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.pf-a::before{background:linear-gradient(90deg,var(--green),rgba(0,229,160,.3))}
-.pf-b::before{background:linear-gradient(90deg,var(--amber),rgba(245,158,11,.3))}
-.pf-tag{display:inline-flex;margin-bottom:10px;padding:3px 10px;border-radius:5px;font-family:var(--M);font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.pf-a .pf-tag{background:rgba(0,229,160,.1);color:var(--green);-webkit-text-fill-color:var(--green)}
-.pf-b .pf-tag{background:rgba(245,158,11,.1);color:var(--amber);-webkit-text-fill-color:var(--amber)}
-.pf h4{font-size:.98rem;font-weight:800;margin-bottom:8px}
-.pf p{font-size:.83rem;line-height:1.6}
-.pf p strong{color:#cfd6ea;-webkit-text-fill-color:#cfd6ea;font-weight:600}
+  .blogo{display:inline-flex;align-items:center;gap:4px;font-family:var(--dm);font-weight:700;font-size:11.5px;letter-spacing:-.01em;padding:3px 9px;border-radius:7px;border:1px solid var(--line2);color:var(--body);background:var(--surface2);white-space:nowrap;line-height:1.3}
+  .blogo small{font-family:var(--sans);letter-spacing:0}
+  .blogo.you{color:#06121f;background:var(--gold);border-color:var(--gold)}
 
-/* SOLUTION CARDS */
-.solutions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.sol-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:26px;position:relative;overflow:hidden;transition:border-color .25s}
-.sol-card:hover{border-color:rgba(123,92,250,.35)}
-.sol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.sol-v::before{background:linear-gradient(90deg,var(--violet),var(--vl))}
-.sol-g::before{background:linear-gradient(90deg,var(--green),rgba(0,229,160,.3))}
-.sol-a::before{background:linear-gradient(90deg,var(--amber),rgba(245,158,11,.3))}
-.sol-b::before{background:linear-gradient(90deg,#60a5fa,rgba(96,165,250,.3))}
-.sol-icon{font-size:1.5rem;margin-bottom:12px;display:block}
-.sol-title{font-family:var(--F);font-size:1rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:6px}
-.sol-desc{font-size:.84rem;color:var(--muted);-webkit-text-fill-color:var(--muted);line-height:1.6;margin-bottom:14px}
-.sol-items{display:flex;flex-direction:column;gap:6px}
-.sol-item{font-size:.8rem;color:var(--dim);-webkit-text-fill-color:var(--dim);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.sol-check{color:var(--green);-webkit-text-fill-color:var(--green);font-size:.7rem;font-weight:800;flex-shrink:0;margin-top:2px}
-.sol-item strong{color:#b4bcda;-webkit-text-fill-color:#b4bcda;font-weight:600}
-.ai-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);border-radius:6px;padding:3px 10px;font-family:var(--M);font-size:.62rem;font-weight:700;color:var(--green);-webkit-text-fill-color:var(--green);letter-spacing:.04em;margin-top:10px}
+  .board{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+  .board table{min-width:720px}
+  .board th.llm{text-align:center}
+  .board td.q{color:var(--ink);font-weight:500;font-family:var(--sans);font-size:13.5px;max-width:280px;white-space:normal}
+  .board td.cell{text-align:center}
+  .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:13px}
+  .cited small{color:var(--muted);font-weight:400}
+  .absent{color:var(--crit);font-family:var(--mono);font-size:15px;font-weight:700}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
 
-/* PROCESS */
-.process{display:flex;flex-direction:column;gap:0;position:relative;margin-top:32px}
-.process::before{content:'';position:absolute;left:25px;top:26px;bottom:26px;width:1px;background:linear-gradient(to bottom,rgba(123,92,250,.4),rgba(0,229,160,.2));z-index:0}
-.ps{display:flex;gap:22px;padding:20px 0;position:relative;z-index:1}
-.ps-num{width:50px;height:50px;border-radius:14px;background:var(--bg2);border:1px solid rgba(123,92,250,.3);display:flex;align-items:center;justify-content:center;font-family:var(--M);font-size:.78rem;font-weight:700;color:var(--vl);-webkit-text-fill-color:var(--vl);flex-shrink:0}
-.ps-body{flex:1}
-.ps-body h4{font-weight:800;color:#fff;-webkit-text-fill-color:#fff;font-size:.95rem;margin-bottom:4px;font-family:var(--F)}
-.ps-body p{font-size:.84rem;color:var(--dim);-webkit-text-fill-color:var(--dim);line-height:1.6}
-.ps-tag{display:inline-flex;margin-top:8px;padding:3px 10px;border-radius:5px;font-family:var(--M);font-size:.62rem;font-weight:700}
-.pt-v{background:rgba(123,92,250,.1);color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.pt-g{background:rgba(0,229,160,.08);color:var(--green);-webkit-text-fill-color:var(--green)}
-.pt-a{background:rgba(245,158,11,.08);color:var(--amber);-webkit-text-fill-color:var(--amber)}
+  .sovwrap{display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center}
+  @media (max-width:760px){ .sovwrap{grid-template-columns:1fr} }
+  .donut{position:relative;width:160px;height:160px;margin:0 auto}
+  .donut svg{width:100%;height:100%}
+  .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .donut-center .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink)}
+  .donut-center .k{font-size:9.5px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;text-align:center}
+  .sovrows{display:flex;flex-direction:column;gap:9px}
+  .sov-row{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:12px}
+  .sov-row .blogo{white-space:normal;overflow-wrap:break-word}
+  .sov-row.you{background:var(--gold-soft);margin:0 -10px;padding:4px 10px;border-radius:8px}
+  .bar-track{height:16px;background:var(--surface2);border-radius:6px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--seo),var(--geo))}
+  .sov-row .val{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
 
-/* USE CASES */
-.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
-.case-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .25s}
-.case-card:hover{border-color:rgba(123,92,250,.3)}
-.case-logo{font-size:1.1rem;margin-bottom:10px;display:block}
-.case-client{font-family:var(--F);font-size:.88rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:4px}
-.case-sector{font-family:var(--M);font-size:.62rem;color:var(--dim);-webkit-text-fill-color:var(--dim);margin-bottom:10px;letter-spacing:.04em;text-transform:uppercase;display:block}
-.case-result{font-size:.8rem;color:var(--muted);-webkit-text-fill-color:var(--muted);line-height:1.55}
-.case-result strong{color:var(--green);-webkit-text-fill-color:var(--green);font-weight:700}
+  .podiums{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  @media (max-width:920px){ .podiums{grid-template-columns:1fr} }
+  .podium{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .podium .pe{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .podium .v{font-family:var(--disp);font-size:2.1rem;font-weight:600;line-height:1}
+  .podium .v.good{color:var(--good)} .podium .v.warn{color:var(--warn)} .podium .v.crit{color:var(--crit)}
+  .podium .d{font-size:12.5px;color:var(--body);margin-top:10px;line-height:1.5}
+  .podium .quote{display:block;margin-top:10px;padding:10px 12px;background:var(--surface2);border-left:2px solid var(--gold);border-radius:8px;font-style:italic;color:var(--ink);font-size:12px}
 
-/* PROJECTION */
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
-.t-block{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden}
-.t-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.t1::before{background:rgba(123,92,250,.4)}
-.t2::before{background:rgba(123,92,250,.65)}
-.t3::before{background:rgba(123,92,250,.85)}
-.t4::before{background:linear-gradient(90deg,var(--violet),var(--green))}
-.t-period{font-family:var(--M);font-size:.62rem;color:var(--dim);-webkit-text-fill-color:var(--dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
-.t-title{font-family:var(--F);font-size:.9rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:8px}
-.t-items{display:flex;flex-direction:column;gap:5px}
-.t-item{font-size:.78rem;color:var(--dim);-webkit-text-fill-color:var(--dim);display:flex;gap:7px;line-height:1.5}
-.t-dot{width:4px;height:4px;border-radius:50%;background:var(--vl);flex-shrink:0;margin-top:6px}
-.t-kpi{font-family:var(--M);font-size:.72rem;color:var(--vl);-webkit-text-fill-color:var(--vl);margin-top:10px;padding:5px 10px;background:rgba(123,92,250,.08);border-radius:6px;border:1px solid rgba(123,92,250,.15);display:inline-block}
-.t4 .t-kpi{color:var(--green);-webkit-text-fill-color:var(--green);background:rgba(0,229,160,.08);border-color:rgba(0,229,160,.2)}
+  .zonegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:760px){ .zonegrid{grid-template-columns:1fr} }
+  .zone{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .zone .flag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .zone h3{font-size:1.1rem;margin-bottom:10px}
+  .zone ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .zone li{font-size:.85rem;color:var(--body);padding-left:15px;position:relative;line-height:1.45}
+  .zone li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--crit)}
+  .zone .verdict{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 
-/* INVEST */
-.invest-card{background:linear-gradient(160deg,#111827,#0f172a);border:1px solid rgba(51,65,85,.5);border-radius:22px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4)}
-.invest-header{padding:30px 34px 22px;border-bottom:1px solid rgba(51,65,85,.3)}
-.invest-title{font-family:var(--F);font-size:1.1rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:4px}
-.invest-sub{font-size:.84rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.invest-rows{padding:0 34px}
-.invest-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(51,65,85,.2);gap:16px}
-.invest-row:last-child{border-bottom:none}
-.invest-row-left{display:flex;align-items:center;gap:14px;flex:1}
-.invest-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
-.ii-v{background:rgba(123,92,250,.1);border:1px solid rgba(123,92,250,.2)}
-.ii-g{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.15)}
-.ii-a{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15)}
-.ii-b{background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.15)}
-.invest-label{font-size:.9rem;font-weight:500;color:rgba(240,244,255,.8);-webkit-text-fill-color:rgba(240,244,255,.8);display:block;line-height:1.3}
-.invest-detail{font-size:.75rem;color:var(--dim);-webkit-text-fill-color:var(--dim);display:block}
-.invest-price{font-family:var(--M);font-size:.92rem;font-weight:700;color:#fff;-webkit-text-fill-color:#fff;white-space:nowrap;text-align:right}
-.invest-total{display:flex;align-items:center;justify-content:space-between;padding:20px 34px;background:rgba(123,92,250,.06);border-top:1px solid rgba(123,92,250,.2)}
-.invest-total-label{font-size:.9rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.invest-total-price{font-family:var(--F);font-size:2rem;font-weight:900;color:#fff;-webkit-text-fill-color:#fff;letter-spacing:-.03em}
-.invest-total-price span{font-size:.8rem;font-weight:400;color:var(--dim);-webkit-text-fill-color:var(--dim);font-family:var(--M)}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden}
-.plan-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.plan-1::before{background:linear-gradient(90deg,var(--amber),rgba(245,158,11,.3))}
-.plan-2::before{background:linear-gradient(90deg,var(--violet),var(--green))}
-.plan-tag{display:inline-flex;margin-bottom:10px;padding:3px 10px;border-radius:5px;font-family:var(--M);font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.plan-1 .plan-tag{background:rgba(245,158,11,.1);color:var(--amber);-webkit-text-fill-color:var(--amber)}
-.plan-2 .plan-tag{background:rgba(0,229,160,.1);color:var(--green);-webkit-text-fill-color:var(--green)}
-.plan-price{font-family:var(--F);font-size:1.7rem;font-weight:900;color:#fff;-webkit-text-fill-color:#fff;margin:6px 0 2px}
-.plan-price span{font-size:.72rem;font-weight:400;color:var(--dim);-webkit-text-fill-color:var(--dim);font-family:var(--M)}
-.plan-meta{font-family:var(--M);font-size:.68rem;color:var(--dim);-webkit-text-fill-color:var(--dim);margin-bottom:14px}
-.plan-items{display:flex;flex-direction:column;gap:7px}
-.plan-item{font-size:.8rem;color:var(--muted);-webkit-text-fill-color:var(--muted);display:flex;gap:8px;line-height:1.5}
-.plan-item .sol-check{margin-top:2px}
+  .solutions{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){ .solutions{grid-template-columns:1fr} }
+  .sol-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .sol-icon{font-size:1.3rem;margin-bottom:10px;display:block}
+  .sol-card h3{font-size:1.02rem;margin-bottom:6px}
+  .sol-card p{font-size:.87rem;color:var(--body);line-height:1.6;margin-bottom:10px}
+  .sol-items{display:flex;flex-direction:column;gap:6px}
+  .sol-item{font-size:.82rem;color:var(--body);display:flex;gap:8px;line-height:1.5}
+  .sol-check{color:var(--good);font-size:.7rem;font-weight:800;flex-shrink:0;margin-top:3px}
 
-/* GARANTIE */
-.garantie{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.gar-card{border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
-.gar-card.exit{background:rgba(255,77,109,.04);border:1px solid rgba(255,77,109,.15)}
-.gar-card.commit{background:rgba(0,229,160,.04);border:1px solid rgba(0,229,160,.15)}
-.gar-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
-.gar-title{font-family:var(--F);font-size:.9rem;font-weight:800;margin-bottom:4px}
-.exit .gar-title{color:#fca5a5;-webkit-text-fill-color:#fca5a5}
-.commit .gar-title{color:var(--green);-webkit-text-fill-color:var(--green)}
-.gar-desc{font-size:.8rem;line-height:1.6}
-.exit .gar-desc{color:rgba(252,165,165,.6);-webkit-text-fill-color:rgba(252,165,165,.6)}
-.commit .gar-desc{color:rgba(0,229,160,.6);-webkit-text-fill-color:rgba(0,229,160,.6)}
+  .road{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  @media (max-width:920px){ .road{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .road{grid-template-columns:1fr} }
+  .rm{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+  .rm:nth-child(4n){border-right:none}
+  @media (max-width:920px){ .rm:nth-child(2n){border-right:none} .rm:nth-child(4n){border-right:1px solid var(--line)} }
+  @media (max-width:560px){ .rm{border-right:none !important} }
+  .road .rm:nth-last-child(-n+4){border-bottom:none}
+  @media (max-width:920px){ .road .rm:nth-last-child(-n+2){border-bottom:none} }
+  .rm .mo{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .rm h3{font-size:.98rem;margin-bottom:10px}
+  .rm ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .rm li{font-size:.81rem;padding-left:16px;position:relative;color:var(--body);line-height:1.4}
+  .rm li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--geo)}
+  .rm .kpi{font-family:var(--mono);font-size:11px;color:var(--gold);margin-top:10px;padding:4px 9px;background:var(--gold-soft);border-radius:6px;display:inline-block}
 
-/* TRUST */
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
-.trust-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color .25s}
-.trust-card:hover{border-color:rgba(123,92,250,.3)}
-.trust-icon{font-size:1.2rem;margin-bottom:10px;display:block}
-.trust-title{font-family:var(--F);font-size:.88rem;font-weight:800;color:#fff;-webkit-text-fill-color:#fff;margin-bottom:5px}
-.trust-desc{font-size:.78rem;color:var(--dim);-webkit-text-fill-color:var(--dim);line-height:1.55}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:760px){ .twocol{grid-template-columns:1fr} }
+  .plan-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+  .plan-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .plan-1::before{background:var(--warn)}
+  .plan-2::before{background:linear-gradient(90deg,var(--seo),var(--geo))}
+  .plan-tag{display:inline-flex;margin-bottom:10px;padding:3px 10px;border-radius:20px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .plan-1 .plan-tag{background:var(--warn-soft);color:var(--warn)}
+  .plan-2 .plan-tag{background:var(--geo-soft);color:var(--geo)}
+  .plan-price{font-family:var(--disp);font-size:1.7rem;font-weight:600;color:var(--ink);margin:6px 0 2px}
+  .plan-price span{font-size:.72rem;font-weight:400;color:var(--muted);font-family:var(--mono)}
+  .plan-meta{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-bottom:14px}
+  .plan-items{display:flex;flex-direction:column;gap:7px}
+  .plan-item{font-size:.85rem;color:var(--body);display:flex;gap:8px;line-height:1.5}
 
-/* CTA */
-.cta-block{background:linear-gradient(135deg,rgba(123,92,250,.1),rgba(0,229,160,.05));border:1px solid rgba(123,92,250,.3);border-radius:22px;padding:52px 44px;text-align:center;position:relative;overflow:hidden}
-.cta-block::after{content:'';position:absolute;top:-1px;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,var(--violet),var(--green),transparent)}
-.cta-block h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;margin-bottom:10px;letter-spacing:-.02em;color:#fff;-webkit-text-fill-color:#fff}
-.cta-block p{font-size:.95rem;max-width:520px;margin:0 auto 28px;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;padding:14px 26px;border-radius:12px;cursor:pointer;transition:opacity .2s,transform .15s;font-family:var(--F)}
-.btn:hover{opacity:.88;transform:translateY(-2px)}
-.btn-v{background:linear-gradient(135deg,var(--violet),#9d7dff);color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 0 30px rgba(123,92,250,.25)}
-.btn-ghost{background:transparent;border:1px solid rgba(123,92,250,.35);color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.cta-validity{margin-top:20px;font-family:var(--M);font-size:.65rem;color:var(--dim);-webkit-text-fill-color:var(--dim);letter-spacing:.06em}
+  .garantie{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){ .garantie{grid-template-columns:1fr} }
+  .gar-card{border-radius:14px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line)}
+  .gar-card.exit{background:var(--crit-soft);border-color:rgba(193,51,39,.25)}
+  .gar-card.commit{background:var(--good-soft);border-color:rgba(23,122,80,.25)}
+  .gar-title{font-family:var(--disp);font-size:.95rem;font-weight:600;margin-bottom:4px}
+  .exit .gar-title{color:var(--crit)} .commit .gar-title{color:var(--good)}
+  .gar-desc{font-size:.82rem;line-height:1.6;color:var(--body)}
 
-/* AUTHOR */
-.author-bar{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:40px}
-.author-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(123,92,250,.3)}
-.author-avatar img{width:100%;height:100%;object-fit:cover}
-.author-name{font-weight:800;color:#fff;-webkit-text-fill-color:#fff;font-size:.95rem;font-family:var(--F)}
-.author-bio{font-size:.78rem;color:var(--dim);-webkit-text-fill-color:var(--dim);line-height:1.5;margin-top:3px}
-.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
-.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--M)}
-.al-li{background:rgba(123,92,250,.1);border:1px solid rgba(123,92,250,.2);color:var(--vl);-webkit-text-fill-color:var(--vl)}
-.al-sub{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:var(--amber);-webkit-text-fill-color:var(--amber)}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media (max-width:760px){ .trust-grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:480px){ .trust-grid{grid-template-columns:1fr} }
+  .trust-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .trust-icon{font-size:1.1rem;margin-bottom:9px;display:block}
+  .trust-card h3{font-size:.94rem;margin-bottom:6px}
+  .trust-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
 
-/* FOOTER */
-footer{padding:32px 0;border-top:1px solid rgba(123,92,250,.08);text-align:center}
-footer p{font-size:.75rem;color:var(--dim);-webkit-text-fill-color:var(--dim);font-family:var(--M)}
+  .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:36px 32px;text-align:center}
+  .cta h3{font-size:1.6rem;margin-bottom:10px}
+  .cta p{max-width:56ch;margin:0 auto 22px;color:var(--body)}
+  .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem;padding:13px 24px;border-radius:10px;cursor:pointer;transition:opacity .2s,transform .15s;font-family:var(--sans)}
+  .btn:hover{opacity:.9;transform:translateY(-2px)}
+  .btn-v{background:var(--gold);color:#06121f}
+  .btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+  .cta-validity{margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em}
 
-/* CALLOUT */
-.callout{margin-top:16px;background:rgba(123,92,250,.06);border:1px solid rgba(123,92,250,.15);border-radius:12px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;font-size:.84rem;color:var(--muted);-webkit-text-fill-color:var(--muted)}
-.callout strong{color:rgba(240,244,255,.85);-webkit-text-fill-color:rgba(240,244,255,.85)}
-.callout .ci{font-size:1.1rem;flex-shrink:0}
+  .author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+  .author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+  .author-avatar img{width:100%;height:100%;object-fit:cover}
+  .author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+  .author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+  .author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+  .author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
 
-/* ANIMS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fu{opacity:0;animation:fadeUp .6s ease forwards}
-.fu:nth-child(1){animation-delay:.06s}.fu:nth-child(2){animation-delay:.14s}.fu:nth-child(3){animation-delay:.22s}.fu:nth-child(4){animation-delay:.30s}.fu:nth-child(5){animation-delay:.38s}
-
-.gap{height:24px}
-
-/* RESPONSIVE */
-@media(max-width:720px){
-  .solutions{grid-template-columns:1fr}
-  .proof{grid-template-columns:1fr}
-  .twocol{grid-template-columns:1fr}
-  .cases{grid-template-columns:1fr 1fr}
-  .timeline{grid-template-columns:1fr 1fr}
-  .trust-grid{grid-template-columns:1fr 1fr}
-  .garantie{grid-template-columns:1fr}
-  .invest-rows{padding:0 20px}
-  .invest-header{padding:24px 20px 18px}
-  .invest-total{padding:18px 20px}
-  .cta-block{padding:36px 22px}
-  .author-links{margin-left:0}
-}
-@media(max-width:480px){
-  .cases{grid-template-columns:1fr}
-  .timeline{grid-template-columns:1fr}
-  .trust-grid{grid-template-columns:1fr}
-  .diag-grid{grid-template-columns:1fr}
-}
+  footer{padding:50px 0 40px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+  footer .sig{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;line-height:1.9}
+  .cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
-</head>
+
 <body>
-
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
-
-<!-- NAV -->
 <nav>
-  <div class="wrap nav-inner">
-    <div class="nav-logo">Décupler <span>×</span> Insight SiP</div>
-    <div class="nav-tag">Analyse SEO & AI Search · Juillet 2026</div>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navlinks">
+      <a href="#diagnostic">01 Diagnostic</a>
+      <a href="#zones">02 Par zone</a>
+      <a href="#benchmark">03 Benchmark</a>
+      <a href="#geo">04 Visibilité IA</a>
+      <a href="#opportunites">05 Opportunités</a>
+      <a href="#plan">06 Plan 12 mois</a>
+      <a href="#investissement">07 Investissement</a>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<header class="hero">
   <div class="wrap">
-    <div class="eyebrow fu">Pour Frédéric & Sabri · Modules BLE · Marché US/Export</div>
-    <h1 class="fu">Vos concurrents captent<br>les designers <span class="hl">avant vous.</span><br>Voici <span class="hl2">exactement où</span>, et de combien.</h1>
-    <p class="hero-sub fu">Les designers ne passent plus par les distributeurs : ils cherchent « module BLE », « nrf52840 module », « smallest bluetooth module » sur Google — et de plus en plus sur ChatGPT et Perplexity. Aujourd'hui, sur ces requêtes, Insight SiP est quasi invisible. Cette analyse chiffre l'écart, à périmètre constant, face à Ezurio, u-blox, Fanstel, Raytac et Murata — et ce qu'il faut pour le combler.</p>
+    <div class="eyebrow">Proposition SEO × GEO · Pour Frédéric &amp; Sabri · Modules BLE · Marché Europe / USA / Asie</div>
+    <h1>Sur Gemini, vous êtes déjà <span class="geo">la référence.</span><br>Sur Google et ChatGPT, vos concurrents captent <span class="seo">les designers</span> avant vous.</h1>
+    <p class="hero-sub">Insight SiP a un vrai atout technologique — Antenna-in-Package, System-in-Package, le plus petit module BLE du marché. La mesure réelle le confirme : sur Gemini, l'IA vous décrit déjà comme « the benchmark for this technology ». Mais ce succès ne s'est pas propagé : sur Google (France, USA, Japon) comme sur ChatGPT, le moteur le plus utilisé par les ingénieurs en 2026, vous êtes quasi invisible. Cette proposition chiffre l'écart, zone par zone et moteur par moteur, et propose le plan pour transférer votre avance Gemini vers le reste.</p>
+    <div class="metastrip">
+      <span>Préparé pour&nbsp; <b>Insight SiP · insightsip.com</b></span>
+      <span>Par&nbsp; <b class="decupler">Décupler</b></span>
+      <span>Marchés&nbsp; <b>Europe (FR) · USA · Asie (Japon)</b></span>
+    </div>
+  </div>
+</header>
 
-    <!-- DIAGNOSTIC -->
-    <div class="diag fu">
-      <div class="diag-title">📉 Ce que révèlent les données (US, Ubersuggest)</div>
-      <div class="diag-grid">
-        <div class="diag-stat">
-          <span class="diag-num">−55%</span>
-          <span class="diag-label">trafic organique US en ~18 mois (≈490 → ≈220 visites/mois)</span>
-        </div>
-        <div class="diag-stat">
-          <span class="diag-num">≈280</span>
-          <span class="diag-label">visites organiques US / mois aujourd'hui</span>
-        </div>
-        <div class="diag-stat">
-          <span class="diag-num">14%</span>
-          <span class="diag-label">score de visibilité IA (LLM) — mesuré en réunion</span>
-        </div>
+<div class="wrap" style="margin-bottom:12px">
+  <div class="execband">
+    <div class="execgrid">
+      <div class="execitem"><div class="v gold">43%</div><div class="k">Citée sur <strong>13/30 prompts neutres</strong> — mesure réelle, tous moteurs confondus</div></div>
+      <div class="execitem"><div class="v good">8/10</div><div class="k">Sur <strong>Gemini</strong> — citée comme référence technologique de la catégorie AiP</div></div>
+      <div class="execitem"><div class="v crit">1/10</div><div class="k">Sur <strong>ChatGPT</strong> — la marque n'apparaît quasiment jamais</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="sommaire" style="padding-top:44px">
+  <div class="wrap">
+    <div class="eyebrow">Sommaire</div>
+    <h2 style="margin-bottom:26px">Sept chapitres, un même fil : vous n'êtes pas invisible, vous êtes mal réparti — entre zones et entre moteurs.</h2>
+    <div class="toc">
+      <div class="toc-item"><span class="no">01</span><div><h3>Diagnostic</h3><p>Où en est insightsip.com aujourd'hui — trafic, position, technique.</p></div></div>
+      <div class="toc-item"><span class="no">02</span><div><h3>Focus par zone</h3><p>Europe, USA, Asie — le même écart partout, sur les mêmes mots-clés cœur.</p></div></div>
+      <div class="toc-item"><span class="no">03</span><div><h3>Benchmark SEO</h3><p>Face à Ezurio, u-blox, Fanstel, Raytac, Silicon Labs et Murata.</p></div></div>
+      <div class="toc-item"><span class="no">04</span><div><h3>Visibilité IA</h3><p>Le vrai écart : entre Gemini (référence) et ChatGPT (absent).</p></div></div>
+      <div class="toc-item"><span class="no">05</span><div><h3>Opportunités</h3><p>Ce que vous avez déjà et qui n'est pas encore exploité.</p></div></div>
+      <div class="toc-item"><span class="no">06</span><div><h3>Plan d'action · 12 mois</h3><p>Cartographie, quick wins, contenu technique, consolidation.</p></div></div>
+      <div class="toc-item"><span class="no">07</span><div><h3>Investissement</h3><p>Un pari asymétrique, dé-risqué par un pilote de 3 mois.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="methodo" style="padding-top:44px;padding-bottom:44px">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Méthodologie &amp; sources</span></div>
+    <h2 style="font-size:1.4rem;margin-bottom:20px">Trois sources de données, trois terrains de visibilité.</h2>
+    <div class="grid2">
+      <div class="note seo">
+        <span class="h">SEO · Google (données live, 3 marchés)</span>
+        Ubersuggest (autorité, trafic, mots-clés, backlinks) + DataForSEO SERP live (positions réelles, 3 requêtes cœur, 3 zones géographiques : France, USA, Japon).
       </div>
-      <div class="diag-problems">
-        <div class="problem"><span class="problem-dot"></span><div><strong>Le trafic actuel n'est pas qualifié :</strong> vos meilleures positions US pointent sur des PDF « sales assistant job description » — pas sur vos modules. Les rares leads qui arrivent tombent sur les mauvaises pages.</div></div>
-        <div class="problem"><span class="problem-dot"></span><div><strong>Invisible sur le cœur BLE :</strong> « bluetooth module » (1 600 rech/mois, difficulté 21 — facile) : non classé. « smallest bluetooth module » — votre propre argument produit — : position 29.</div></div>
-        <div class="problem"><span class="problem-dot"></span><div><strong>Absents des puces Nordic :</strong> Fanstel, dont l'autorité de domaine est <em>inférieure</em> à la vôtre (31 vs 36), est 2ᵉ sur « nrf52840 module ». Vous intégrez les mêmes puces Nordic et n'apparaissez sur aucune.</div></div>
+      <div class="note geo">
+        <span class="h">GEO · Moteurs génératifs (appel API direct)</span>
+        <strong>10 prompts neutres</strong> en anglais (langue de l'audience réelle : ingénieurs/designers, marché mondial), joués en mémoire sur <strong>ChatGPT (gpt-4o), Claude (sonnet-4.5) et Gemini</strong>, sans jamais nommer la marque dans le prompt.
+      </div>
+    </div>
+    <p class="cap">Data first, results always. 30 appels API réels sauvegardés verbatim (aucune case remplie par estimation) — remplace l'ancienne mention « ~14% mesuré en réunion » de la v1 de cette analyse, qui n'était pas une mesure API.</p>
+  </div>
+</section>
+
+<section id="diagnostic">
+  <div class="wrap">
+    <div class="chap"><span class="no">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Un vrai actif technique, un trafic qui s'érode.</h2>
+    <p class="lead">État des lieux organique d'insightsip.com — données globales Ubersuggest (le domaine ne segmente pas ses pages par langue/zone, cf. chapitre 02 pour le détail par marché).</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="v crit">−55%</div><div class="k">Trafic organique US en ~18 mois (≈490 → ≈220 visites/mois)</div></div>
+      <div class="tile"><div class="v gold">36</div><div class="k">Autorité de domaine — <strong>équivalente à Fanstel/Raytac</strong>, pas aux géants</div></div>
+      <div class="tile"><div class="v">6 254</div><div class="k">Backlinks · 780 domaines référents (Ubersuggest, tous marchés)</div></div>
+    </div>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="note crit">
+        <span class="h">Le trafic actuel n'est pas qualifié</span>
+        Vos meilleures positions pointent vers un PDF « sales assistant job description » — pas vers vos modules. Les designers qui cherchent « bluetooth module » (1 600 rech./mois, difficulté 21, facile) ne vous trouvent pas : non classé.
+      </div>
+      <div class="note warn">
+        <span class="h">Votre propre argument produit, enterré</span>
+        « smallest bluetooth module » — votre USP n°1 — vous positionne en <strong>29e</strong> position. Volume modeste (70/mois) mais difficulté faible (21) : un quick win resté sur la table depuis longtemps.
       </div>
     </div>
   </div>
 </section>
 
-<!-- BENCHMARK CONCURRENTIEL -->
-<section class="section">
+<section id="zones">
   <div class="wrap">
-    <span class="slabel">// Le benchmark, à périmètre constant</span>
-    <h2 class="stitle">Où en sont vos concurrents — factuellement</h2>
-    <p class="ssub">Exactement ce que Frédéric a demandé : sur le terrain des modules BLE, ce que les concurrents captent en mots-clés et en trafic, comparé à vous. Données US (Ubersuggest, marché principal d'export). Pas d'estimation marketing — des chiffres discutables et vérifiables.</p>
+    <div class="chap"><span class="no">02</span><span class="kk">Focus par zone</span></div>
+    <h2>Le même écart, sur Google, dans les 3 zones.</h2>
+    <p class="lead">Contrôle SERP live réel (DataForSEO, desktop) sur 3 requêtes cœur, sur les 3 Google nationaux qui comptent pour vous : <strong>google.fr</strong> (Europe/France, votre R&amp;D), <strong>google.com</strong> (USA, votre plus gros marché déclaré), <strong>google.co.jp</strong> (Asie, votre bureau commercial). Top 20 contrôlé pour chaque requête × zone.</p>
 
-    <div class="tbl-wrap">
-      <table class="dt">
-        <thead>
-          <tr>
-            <th>Acteur</th>
-            <th>Autorité domaine</th>
-            <th>Trafic organique US / mois</th>
-            <th>Mots-clés classés (US)</th>
-            <th>Domaines référents</th>
-          </tr>
-        </thead>
+    <div class="zonegrid">
+      <div class="zone">
+        <div class="flag">Europe · France</div>
+        <h3>Absent des 3 requêtes cœur</h3>
+        <ul>
+          <li>« bluetooth module » — non classé top 20. <span class="blogo">Ezurio</span> 6e.</li>
+          <li>« nrf52840 module » — non classé top 20, aucun concurrent suivi non plus.</li>
+          <li>« smallest bluetooth module » — non classé. <span class="blogo">Silicon Labs</span> 1er, <span class="blogo">u-blox</span> 4e.</li>
+        </ul>
+        <div class="verdict">Marché de votre propre R&amp;D (Sophia Antipolis) — et pourtant aucune des 3 requêtes ne vous ramène.</div>
+      </div>
+      <div class="zone">
+        <div class="flag">USA</div>
+        <h3>Identique à la France</h3>
+        <ul>
+          <li>« bluetooth module » — non classé top 20.</li>
+          <li>« nrf52840 module » — non classé top 20.</li>
+          <li>« smallest bluetooth module » — non classé. Même duo <span class="blogo">Silicon Labs</span> / <span class="blogo">u-blox</span> en tête.</li>
+        </ul>
+        <div class="verdict">Marché où vous avez une filiale depuis 2008 — le SERP ne le sait pas.</div>
+      </div>
+      <div class="zone">
+        <div class="flag">Asie · Japon</div>
+        <h3>Le seul écart local détecté</h3>
+        <ul>
+          <li>« bluetooth module » — non classé. <span class="blogo">Murata</span> 2e (acteur japonais, logique locale).</li>
+          <li>« nrf52840 module » — non classé top 20.</li>
+          <li>« smallest bluetooth module » — non classé, Silicon Labs 1er, u-blox 5e.</li>
+        </ul>
+        <div class="verdict">Seule vraie spécificité zone observée : Murata gagne du terrain local au Japon (effet marque domestique).</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:16px">
+      <span class="h">La bonne nouvelle dans la mauvaise nouvelle</span>
+      Ce n'est <strong>pas un problème de ciblage géographique</strong> : le même vide se répète dans les 3 zones sur les mêmes requêtes. Le chantier est donc unique et mutualisable — un travail de fond sur le contenu produit et l'autorité, qui profite aux 3 marchés à la fois, pas 3 stratégies SEO séparées à financer.
+    </div>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="chap"><span class="no">03</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Où en sont vos concurrents, factuellement</h2>
+    <p class="lead">Données US (Ubersuggest, marché principal d'export). Panasonic volontairement écarté : géant grand public ultra-diversifié, non comparable sur le seul terrain des modules BLE.</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th class="num">Autorité domaine</th><th class="num">Trafic US/mois</th><th class="num">Mots-clés (US)</th><th class="num">Domaines référents</th></tr></thead>
         <tbody>
-          <tr class="you">
-            <td><strong>Insight SiP</strong></td>
-            <td><span class="pill pill-amber">36</span></td>
-            <td><strong>≈ 280</strong></td>
-            <td>≈ 700</td>
-            <td>737</td>
-          </tr>
-          <tr>
-            <td><strong>Ezurio</strong> <span class="mono" style="color:var(--dim)">(ex-Laird)</span></td>
-            <td><span class="pill pill-green">46</span></td>
-            <td><strong>≈ 9 000</strong> <span class="pill pill-red">×32</span></td>
-            <td>≈ 8 500</td>
-            <td>2 832</td>
-          </tr>
-          <tr>
-            <td><strong>u-blox</strong></td>
-            <td><span class="pill pill-green">57</span></td>
-            <td><strong>≈ 30 000</strong> <span class="pill pill-red">×107</span></td>
-            <td>≈ 18 000</td>
-            <td>10 856</td>
-          </tr>
-          <tr>
-            <td><strong>Fanstel</strong></td>
-            <td><span class="pill pill-amber">31</span></td>
-            <td>≈ 300</td>
-            <td>≈ 330</td>
-            <td>449</td>
-          </tr>
-          <tr>
-            <td><strong>Raytac</strong></td>
-            <td><span class="pill pill-amber">33</span></td>
-            <td>≈ 300</td>
-            <td>≈ 200</td>
-            <td>517</td>
-          </tr>
-          <tr>
-            <td><strong>Murata</strong></td>
-            <td><span class="pill pill-green">61</span></td>
-            <td><strong>≈ 150 000+</strong></td>
-            <td>≈ 40 000</td>
-            <td>18 825</td>
-          </tr>
+          <tr class="you"><td><span class="name">Insight SiP</span></td><td class="num">36</td><td class="num"><strong>≈ 280</strong></td><td class="num">≈ 700</td><td class="num">737</td></tr>
+          <tr><td><span class="name">Ezurio</span> <span class="mono" style="color:var(--muted);font-size:11px">(ex-Laird)</span></td><td class="num">46</td><td class="num"><strong>≈ 9 000</strong> <span class="pill crit">×32</span></td><td class="num">≈ 8 500</td><td class="num">2 832</td></tr>
+          <tr><td><span class="name">u-blox</span></td><td class="num">57</td><td class="num"><strong>≈ 30 000</strong> <span class="pill crit">×107</span></td><td class="num">≈ 18 000</td><td class="num">10 856</td></tr>
+          <tr><td><span class="name">Fanstel</span></td><td class="num">31</td><td class="num">≈ 300</td><td class="num">≈ 330</td><td class="num">449</td></tr>
+          <tr><td><span class="name">Raytac</span></td><td class="num">33</td><td class="num">≈ 300</td><td class="num">≈ 200</td><td class="num">517</td></tr>
+          <tr><td><span class="name">Silicon Labs</span></td><td class="num">69</td><td class="num"><strong>≈ 50 400</strong></td><td class="num">≈ 4 700</td><td class="num">25 663</td></tr>
+          <tr><td><span class="name">Murata</span></td><td class="num">61</td><td class="num"><strong>≈ 150 000+</strong></td><td class="num">≈ 40 000</td><td class="num">18 825</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="tnote">Panasonic est volontairement écarté de cette ligne de comparaison : géant grand public ultra-diversifié, son trafic (millions de visites) ne porte quasiment pas sur les modules BLE. Le comparer en global brouillerait le message plutôt que de l'éclairer. Autorité de domaine sur 100. Trafic & mots-clés = marché US, mois récent représentatif (Ubersuggest, T4 2025 – 2026).</p>
+    <p class="cap">Autorité de domaine sur 100. Trafic &amp; mots-clés = marché US, mois récent représentatif (Ubersuggest). Silicon Labs ajouté au benchmark (mentionné par le client) — fabricant de puces qui vend aussi ses propres modules SiP, positionné entre Ezurio et Murata en trafic mais devant tout le monde en autorité (69).</p>
 
-    <div class="callout">
-      <span class="ci">🎯</span>
-      <div><strong>La lecture pour le management :</strong> vous n'êtes pas en concurrence frontale avec Murata ou Panasonic. Vos vrais pairs sont <strong>Fanstel et Raytac</strong> (autorité équivalente à la vôtre) et <strong>Ezurio</strong> (même modèle, cible à rattraper). Et sur ce terrain-là, l'écart n'est pas une fatalité de taille — c'est un écart de travail SEO. La preuve juste en dessous.</div>
-    </div>
-
-    <div class="proof">
-      <div class="pf pf-a">
-        <div class="pf-tag">Preuve n°1 · Puces Nordic</div>
-        <h4>Fanstel gagne avec MOINS d'autorité que vous</h4>
-        <p>Fanstel (autorité 31, sous vos 36) est <strong>2ᵉ sur « nrf52840 module »</strong>, <strong>2ᵉ sur « nrf52805 »</strong>, <strong>3ᵉ sur « nrf5340 module »</strong>, présent sur « nrf52833 », « nrf54h20 »… Leur recette : <strong>une page produit par référence Nordic</strong>. Vous intégrez ces mêmes puces — et vous ne rankez sur aucune. C'est l'angle « chipset Nordic » de Frédéric, gagnable dès maintenant, à autorité égale.</p>
-      </div>
-      <div class="pf pf-b">
-        <div class="pf-tag">Preuve n°2 · Contenu technique</div>
-        <h4>Ezurio ne gagne pas sur « ble module »</h4>
-        <p>Les ≈9 000 visites/mois d'Ezurio viennent surtout de <strong>contenu technique</strong> : « how to extend bluetooth range » (2ᵉ, ~117 visites/mois à lui seul), « bluetooth 5.4 », « bluetooth classes », « classic bluetooth vs ble ». Or vous avez déjà ce type d'actifs — vos <strong>white papers</strong> (Angle of Arrival, Channel Sounding, BLE Audio) — mais ils ne sont pas optimisés pour ranker. Le gisement est là.</p>
-      </div>
+    <div class="note good" style="margin-top:16px">
+      <span class="h">La lecture pour le management</span>
+      Vos vrais pairs de taille sont <strong>Fanstel et Raytac</strong> (autorité équivalente) — pas Murata ou Silicon Labs. Sur ce terrain-là, l'écart n'est pas une fatalité de taille : c'est un écart de travail SEO, rattrapable à autorité égale.
     </div>
   </div>
 </section>
 
-<!-- L'ECART MOT-CLE PAR MOT-CLE -->
-<section class="section">
+<section id="geo">
   <div class="wrap">
-    <span class="slabel">// « Nous 0, eux 100 » — les mots-clés</span>
-    <h2 class="stitle">Le détail des requêtes qui ramènent des designers</h2>
-    <p class="ssub">La stratégie n'est pas d'attaquer les grosses têtes de suite. C'est de prendre d'abord les requêtes qualifiées à faible difficulté où vous partez de zéro (ou d'une position enterrée) alors que le potentiel est réel. Volumes et difficulté US (Ubersuggest).</p>
+    <div class="chap"><span class="no">04</span><span class="kk">Visibilité IA</span></div>
+    <h2>Le vrai diagnostic : pas absent, mal réparti</h2>
+    <p class="lead">30 appels API réels (10 prompts neutres × ChatGPT, Claude, Gemini). Résultat : <strong>43% de citation globale</strong> — très loin de la vieille estimation « ~14% mesuré en réunion ». Mais la moyenne cache un écart massif entre moteurs.</p>
 
-    <div class="tbl-wrap">
-      <table class="dt">
-        <thead>
-          <tr>
-            <th>Mot-clé (US)</th>
-            <th>Volume/mois</th>
-            <th>Difficulté</th>
-            <th>Insight SiP</th>
-            <th>Opportunité</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>bluetooth module</strong></td>
-            <td>1 600</td>
-            <td><span class="pill pill-green">21 · facile</span></td>
-            <td><span class="pill pill-red">non classé</span></td>
-            <td>Gros volume, difficulté faible</td>
-          </tr>
-          <tr>
-            <td><strong>smallest bluetooth module</strong> <span class="mono" style="color:var(--vl)">· votre USP</span></td>
-            <td>70</td>
-            <td><span class="pill pill-green">21 · facile</span></td>
-            <td><span class="pill pill-amber">P29</span></td>
-            <td>Votre argument n°1, enterré</td>
-          </tr>
-          <tr>
-            <td><strong>system in package</strong> <span class="mono" style="color:var(--vl)">· votre techno</span></td>
-            <td>320</td>
-            <td><span class="pill pill-amber">38</span></td>
-            <td><span class="pill pill-red">non classé</span></td>
-            <td>Votre cœur technique, absent</td>
-          </tr>
-          <tr>
-            <td><strong>nrf52840 module</strong></td>
-            <td>110</td>
-            <td><span class="pill pill-amber">42</span></td>
-            <td><span class="pill pill-red">non classé</span></td>
-            <td>Fanstel P2 — rattrapable</td>
-          </tr>
-          <tr>
-            <td><strong>nrf5340 module</strong></td>
-            <td>30</td>
-            <td><span class="pill pill-amber">32</span></td>
-            <td><span class="pill pill-red">non classé</span></td>
-            <td>Fanstel P3 — rattrapable</td>
-          </tr>
-          <tr>
-            <td><strong>nordic ble module</strong></td>
-            <td>30</td>
-            <td><span class="pill pill-green">28</span></td>
-            <td><span class="pill pill-red">non classé</span></td>
-            <td>Intention transactionnelle</td>
-          </tr>
-          <tr>
-            <td><strong>bluetooth le module</strong></td>
-            <td>170</td>
-            <td><span class="pill pill-amber">40</span></td>
-            <td><span class="pill pill-amber">≈P20</span></td>
-            <td>Déjà présent, à faire remonter</td>
-          </tr>
-          <tr>
-            <td><strong>bluetooth low energy module</strong></td>
-            <td>70</td>
-            <td><span class="pill pill-red">59</span></td>
-            <td><span class="pill pill-amber">P17</span></td>
-            <td>CPC élevé (5,71 $) = intention d'achat</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="sovwrap">
+      <div class="donut">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="var(--surface2)" stroke-width="16"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="var(--good)" stroke-width="16"
+            stroke-dasharray="314.16" stroke-dashoffset="178.13" transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="donut-center"><div class="v">43%</div><div class="k">citée / 30 mesures</div></div>
+      </div>
+      <div class="sovrows">
+        <div class="sov-row you"><span class="blogo you">Gemini</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--good)"></div></div><span class="val">8/10</span></div>
+        <div class="sov-row"><span class="blogo">Claude</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--warn)"></div></div><span class="val">4/10</span></div>
+        <div class="sov-row"><span class="blogo">ChatGPT</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--crit)"></div></div><span class="val">1/10</span></div>
+      </div>
     </div>
-    <p class="tnote">« Difficulté » = SEO difficulty Ubersuggest sur 100. « Non classé » = absent du top 100 sur cette requête à la date de l'analyse. Vos atouts existants : <span class="mono">isp1807</span> 1ᵉ, « bluetooth low energy nordic » 7ᵉ — sous-exploités.</p>
 
-    <div class="callout">
-      <span class="ci">💡</span>
-      <div><strong>Le vrai sujet n'est pas le volume, c'est la qualification.</strong> On ne cherche pas 10 000 visites : on cherche que les 5-6 designers/mois qui comptent tombent sur la bonne page. Aujourd'hui vous en captez 2-3 « par accident ». En occupant ces requêtes précises, on transforme un trafic subi en pipeline choisi.</div>
+    <div class="podiums" style="margin-top:26px">
+      <div class="podium">
+        <div class="pe">Gemini · P10</div>
+        <div class="v good">#1</div>
+        <div class="d">« <strong>The AiP Specialist</strong> » — Insight SiP cité en tête, avant Silicon Labs, KAGA FEI, u-blox, Renesas et Murata.</div>
+        <span class="quote">"Widely considered the benchmark for this technology."</span>
+      </div>
+      <div class="podium">
+        <div class="pe">Claude · P2, P3, P4, P7</div>
+        <div class="v warn">4/10</div>
+        <div class="d">Cité, mais quasi systématiquement en fin de liste — jamais dans le « Top Tier », toujours sous « Others to Consider ».</div>
+        <span class="quote">"Others to Consider: Insight SIP — ISP1507 series (ultra-compact)"</span>
+      </div>
+      <div class="podium">
+        <div class="pe">ChatGPT · 9 prompts sur 10</div>
+        <div class="v crit">absent</div>
+        <div class="d">Sur les manufacturers BLE, System-in-Package, antenna-in-package, combo modules — jamais mentionné. Cité une seule fois, en 5e position sur 6.</div>
+        <span class="quote">Le moteur le plus utilisé par les ingénieurs en 2026 ne vous connaît quasiment pas.</span>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.02rem;margin:30px 0 14px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-weight:600">Part de voix — citations sur 30 mesures, tous concurrents</h3>
+    <div class="sovrows" style="gap:8px">
+      <div class="sov-row"><span class="blogo">Nordic Semi. <small>(chipset)</small></span><div class="bar-track"><div class="bar-fill" style="width:93%"></div></div><span class="val">28/30</span></div>
+      <div class="sov-row"><span class="blogo">Murata</span><div class="bar-track"><div class="bar-fill" style="width:87%"></div></div><span class="val">26/30</span></div>
+      <div class="sov-row"><span class="blogo">u-blox</span><div class="bar-track"><div class="bar-fill" style="width:83%"></div></div><span class="val">25/30</span></div>
+      <div class="sov-row"><span class="blogo">Silicon Labs</span><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div><span class="val">23/30</span></div>
+      <div class="sov-row"><span class="blogo">Laird / Ezurio</span><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><span class="val">17/30</span></div>
+      <div class="sov-row you"><span class="blogo you">Insight SiP</span><div class="bar-track"><div class="bar-fill" style="width:43%;background:var(--gold)"></div></div><span class="val">13/30</span></div>
+      <div class="sov-row"><span class="blogo">Dialog / Renesas</span><div class="bar-track"><div class="bar-fill" style="width:37%"></div></div><span class="val">11/30</span></div>
+      <div class="sov-row"><span class="blogo">Taiyo Yuden / KAGA FEI</span><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div><span class="val">10/30</span></div>
+      <div class="sov-row"><span class="blogo">Fanstel</span><div class="bar-track"><div class="bar-fill" style="width:27%"></div></div><span class="val">8/30</span></div>
+      <div class="sov-row"><span class="blogo">Raytac</span><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div><span class="val">5/30</span></div>
+    </div>
+    <p class="cap">Nordic Semiconductor est un fabricant de puces (pas de modules) — cité en tant que socle technique dans presque toutes les réponses, à part du classement « fabricants de modules ». Vous êtes déjà devant Dialog/Renesas, Taiyo Yuden/KAGA FEI, Fanstel et Raytac — mais loin derrière Murata, u-blox et Silicon Labs.</p>
+
+    <div class="note geo" style="margin-top:18px">
+      <span class="h">Ce qui rend Insight SiP « citable » — et pourquoi ça marche déjà sur Gemini</span>
+      Fully integrated, fully certified, antenna-in-package, System-in-Package, smallest on the market, chipset Nordic intégré : ce sont exactement les critères qu'un designer donne à l'IA. Gemini les a déjà appris et vous cite comme référence. Le chantier n'est pas d'inventer un positionnement — c'est de le rendre aussi lisible pour ChatGPT et Claude qu'il l'est déjà pour Gemini : contenu structuré, citations tierces (presse spécialisée, comparatifs techniques), pages produit optimisées pour l'extraction.
     </div>
   </div>
 </section>
 
-<!-- VISIBILITE IA -->
-<section class="section">
+<section id="opportunites">
   <div class="wrap">
-    <span class="slabel">// L'autre moteur de recherche : les IA</span>
-    <h2 class="stitle">ChatGPT, Perplexity & Gemini recommandent déjà des fabricants</h2>
-    <p class="ssub">Frédéric l'a dit lui-même : les designers demandent désormais aux IA « un module BLE miniature, chipset Nordic — suggère-moi des fabricants ». La question n'est plus <em>si</em> l'IA répond, mais <em>qui</em> elle cite. Aujourd'hui, ce n'est pas systématiquement vous.</p>
-
-    <div class="opp">
-      <p style="font-size:.9rem;line-height:1.65;color:var(--muted);-webkit-text-fill-color:var(--muted);">Le premier relevé fait en réunion place Insight SiP à un <strong style="color:#e7ebf7;-webkit-text-fill-color:#e7ebf7">score de visibilité IA de ~14%</strong> : vous apparaissez ponctuellement (Gemini, Claude) mais pas de façon fiable, et rarement en tête. Or les leviers qui font qu'une IA vous recommande sont exactement vos arguments produit — encore faut-il qu'ils soient écrits, structurés et cités quelque part.</p>
-      <div class="opp-grid">
-        <div class="opp-stat">
-          <span class="opp-num">~14%</span>
-          <span class="opp-label">visibilité IA aujourd'hui — beaucoup de marge</span>
-        </div>
-        <div class="opp-stat">
-          <span class="opp-num">4</span>
-          <span class="opp-label">moteurs à suivre : ChatGPT · Perplexity · Gemini · Google AIO</span>
-        </div>
-        <div class="opp-stat">
-          <span class="opp-num">3</span>
-          <span class="opp-label">accroches à marteler : fully integrated · fully certified · Nordic</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="proof" style="margin-top:22px">
-      <div class="pf pf-a">
-        <div class="pf-tag">Ce qui vous rend « citable »</div>
-        <h4>Vos différenciateurs sont des accroches parfaites pour les LLM</h4>
-        <p><strong>Fully integrated</strong> (tous les composants, rien à ajouter), <strong>fully certified</strong> (CE/FCC, antenne comprise), <strong>antenna-in-package</strong>, <strong>System-in-Package</strong>, <strong>smallest on the market</strong>, <strong>chipset Nordic intégré</strong>. Ce sont précisément les critères qu'un designer donne à l'IA. Bien formulés et sourcés, ils deviennent les phrases que l'IA reprend.</p>
-      </div>
-      <div class="pf pf-b">
-        <div class="pf-tag">La méthode</div>
-        <h4>On mesure, on suit, on optimise — chaque mois</h4>
-        <p>Cartographie des <strong>prompts</strong> réellement tapés par vos ICP (par géo : US, DE, UK), relevé de votre position et de celle d'Ezurio / u-blox / Fanstel sur ChatGPT, Perplexity, Gemini et les AI Overviews Google, puis optimisation on-page (formats extractibles) + citations off-site (là où les IA vont chercher). Suivi mensuel, comme pour le SEO.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CE QUE VOUS AVEZ -->
-<section class="section">
-  <div class="wrap">
-    <span class="slabel">// Votre avantage</span>
-    <h2 class="stitle">Vous avez ce que les gros n'ont pas : la niche</h2>
-    <p class="ssub">Murata et u-blox sont énormes mais génériques. Votre force, c'est une spécialité pointue et défendable — exactement le type de terrain où un petit acteur bien référencé bat un géant sur ses propres requêtes.</p>
+    <div class="chap"><span class="no">05</span><span class="kk">Opportunités</span></div>
+    <h2>Ce que vous avez déjà, sous-exploité</h2>
+    <p class="lead">Murata et u-blox sont énormes mais génériques. Votre force : une spécialité pointue, déjà reconnue par au moins un moteur IA sur trois — exactement le terrain où un petit acteur bien référencé bat un géant.</p>
 
     <div class="solutions">
-      <div class="sol-card sol-v">
+      <div class="sol-card">
         <span class="sol-icon">📦</span>
-        <div class="sol-title">Fully integrated + fully certified</div>
-        <div class="sol-desc">Le module fait toute la fonction BLE, antenne comprise, déjà certifié CE/FCC. Pour un designer pressé, c'est l'argument qui fait gagner des mois — et une requête à occuper.</div>
-        <div class="sol-items">
-          <div class="sol-item"><span class="sol-check">✓</span><div>Aucun composant à ajouter, aucune certif à refaire côté client</div></div>
-          <div class="sol-item"><span class="sol-check">✓</span><div>Angle « time-to-market » quasi absent chez les concurrents</div></div>
-        </div>
+        <h3>Fully integrated + fully certified</h3>
+        <p>Le module fait toute la fonction BLE, antenne comprise, déjà certifié CE/FCC. Argument « time-to-market » quasi absent chez les concurrents.</p>
+        <div class="sol-items"><div class="sol-item"><span class="sol-check">✓</span><div>Angle sous-exploité en contenu, alors qu'il fonctionne déjà sur Gemini</div></div></div>
       </div>
-      <div class="sol-card sol-g">
+      <div class="sol-card">
         <span class="sol-icon">🔬</span>
-        <div class="sol-title">System-in-Package & antenna-in-package</div>
-        <div class="sol-desc">Une expertise technique de niche, avec un volume de recherche réel (« system in package » : 320/mois, difficulté 38) et quasi aucun concurrent direct dessus.</div>
-        <div class="sol-items">
-          <div class="sol-item"><span class="sol-check">✓</span><div>Terrain sémantique défendable où vous êtes légitime</div></div>
-          <div class="sol-item"><span class="sol-check">✓</span><div>Alimente aussi la citabilité IA</div></div>
-        </div>
+        <h3>System-in-Package &amp; antenna-in-package</h3>
+        <p>« system in package » : 320 rech./mois, difficulté 38, quasi aucun concurrent direct dessus en SEO classique.</p>
+        <div class="sol-items"><div class="sol-item"><span class="sol-check">✓</span><div>C'est le terrain où Gemini vous place déjà #1</div></div></div>
       </div>
-      <div class="sol-card sol-a">
+      <div class="sol-card">
         <span class="sol-icon">📐</span>
-        <div class="sol-title">Le plus petit du marché</div>
-        <div class="sol-desc">« Smallest / small form factor » est un argument fort ET une requête (difficulté seulement 21). Vous y êtes 29ᵉ. C'est une remontée à portée de main.</div>
-        <div class="sol-items">
-          <div class="sol-item"><span class="sol-check">✓</span><div>USP + mot-clé facile = quick win prioritaire</div></div>
-          <div class="sol-item"><span class="sol-check">✓</span><div>À décliner par cas d'usage (wearable, medical, IoT)</div></div>
-        </div>
+        <h3>Le plus petit du marché</h3>
+        <p>« smallest / small form factor » : difficulté SEO seulement 21. Vous y êtes 29e — remontée à portée de main.</p>
+        <div class="sol-items"><div class="sol-item"><span class="sol-check">✓</span><div>USP + mot-clé facile = quick win prioritaire</div></div></div>
       </div>
-      <div class="sol-card sol-b">
+      <div class="sol-card">
         <span class="sol-icon">🛠️</span>
-        <div class="sol-title">Ingénierie sur mesure + Nordic inside</div>
-        <div class="sol-desc">Service custom à forte valeur, sur base de puces Nordic reconnues. On capitalise sur la notoriété Nordic (comme Fanstel) tout en poussant votre valeur ajoutée d'intégrateur.</div>
-        <div class="sol-items">
-          <div class="sol-item"><span class="sol-check">✓</span><div>Une page par référence Nordic que vous supportez</div></div>
-          <div class="sol-item"><span class="sol-check">✓</span><div>Capte l'intention transactionnelle des designers</div></div>
-        </div>
+        <h3>Nordic inside + ingénierie sur mesure</h3>
+        <p>Fanstel (autorité 31, sous vos 36) est 2e sur « nrf52840 module ». Vous intégrez les mêmes puces et ne rankez sur aucune.</p>
+        <div class="sol-items"><div class="sol-item"><span class="sol-check">✓</span><div>Une page par référence Nordic que vous supportez</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLAN -->
-<section class="section">
+<section id="plan">
   <div class="wrap">
-    <span class="slabel">// La méthode</span>
-    <h2 class="stitle">Comment on avance — et ce que ça vous coûte en temps</h2>
-    <p class="ssub">De votre côté : ~1 h par mois. On travaille, vous validez. On commence par un pilote court pour prouver par les faits avant tout engagement long — c'est fait pour lever la prudence légitime du management.</p>
+    <div class="chap"><span class="no">06</span><span class="kk">Plan d'action</span></div>
+    <h2>12 mois pour transférer l'avance Gemini vers le reste</h2>
+    <p class="lead">~1h/mois de votre côté. On travaille, vous validez. Pilote court d'abord, pour prouver par les faits avant tout engagement long.</p>
 
-    <div class="process">
-      <div class="ps">
-        <div class="ps-num">01</div>
-        <div class="ps-body">
-          <h4>Mois 1 — Cartographie & fondations</h4>
-          <p>Cartographie complète des mots-clés (Google) ET des prompts (IA) par géo. Audit technique et corrections (crawl, indexation, sitemap, Core Web Vitals). Premier relevé de votre position vs Ezurio / u-blox / Fanstel sur les LLM. On part sur une base propre et un plan chiffré.</p>
-          <span class="ps-tag pt-v">Cartographie · Technique · Audit IA</span>
-        </div>
+    <div class="road">
+      <div class="rm">
+        <div class="mo">T1 · Mois 1-3</div>
+        <h3>Cartographie &amp; quick wins</h3>
+        <ul>
+          <li>Cartographie mots-clés (3 zones) + prompts IA</li>
+          <li>Audit technique (crawl, indexation, CWV)</li>
+          <li>Pages par référence Nordic, optimisation « smallest »</li>
+          <li>1er relevé de position vs Ezurio/u-blox/Fanstel sur les 3 LLM</li>
+        </ul>
+        <span class="kpi">Pilote · porte de sortie</span>
       </div>
-      <div class="ps">
-        <div class="ps-num">02</div>
-        <div class="ps-body">
-          <h4>Mois 2-3 — Quick wins (pilote)</h4>
-          <p>Pages par référence Nordic (nrf52840, nrf5340, nrf52833…), optimisation de vos pages USP (« smallest », « low energy module », « system in package »), remontée des positions déjà acquises mais enterrées. Objectif : premières preuves de mouvement en 90 jours.</p>
-          <span class="ps-tag pt-a">Pages produit · On-page · Premiers gains</span>
-        </div>
+      <div class="rm">
+        <div class="mo">T2 · Mois 4-6</div>
+        <h3>Contenu technique &amp; ChatGPT</h3>
+        <ul>
+          <li>White papers (AoA, channel sounding, BLE audio) transformés en contenu qui ranke</li>
+          <li>Formats extractibles ciblant spécifiquement ChatGPT</li>
+          <li>Netlinking ciblé (presse spécialisée, annuaires composants)</li>
+        </ul>
+        <span class="kpi">Cible : sortir ChatGPT de 1/10</span>
       </div>
-      <div class="ps">
-        <div class="ps-num">03</div>
-        <div class="ps-body">
-          <h4>Mois 4-8 — Contenu technique & autorité</h4>
-          <p>On active le levier « Ezurio » : transformer vos white papers et sujets techniques (AoA, channel sounding, BLE audio, BLE vs classic) en contenu qui ranke. Netlinking ciblé (annuaires composants, presse spécialisée déjà acquise). Optimisation citabilité IA.</p>
-          <span class="ps-tag pt-v">Contenu · Netlinking · GEO</span>
-        </div>
+      <div class="rm">
+        <div class="mo">T3 · Mois 7-9</div>
+        <h3>Autorité &amp; citations tierces</h3>
+        <ul>
+          <li>Citations off-site là où les IA vont chercher (comparatifs, presse électronique)</li>
+          <li>Consolidation des positions déjà acquises mais enterrées</li>
+          <li>Suivi mensuel du board GEO 3 moteurs</li>
+        </ul>
+        <span class="kpi">Cible : Claude hors « Others to consider »</span>
       </div>
-      <div class="ps">
-        <div class="ps-num">04</div>
-        <div class="ps-body">
-          <h4>Mois 9-12 — Consolidation & leads</h4>
-          <p>Le contenu prend de l'autorité, les positions se stabilisent, la présence IA monte. On double sur ce qui convertit, on suit les premiers leads SEO qualifiés. Reporting mensuel simple : positions, trafic qualifié, citations IA, leads.</p>
-          <span class="ps-tag pt-g">Scale · Leads qualifiés · Reporting</span>
-        </div>
+      <div class="rm">
+        <div class="mo">T4 · Mois 10-12</div>
+        <h3>Consolidation &amp; leads</h3>
+        <ul>
+          <li>Le contenu prend de l'autorité, les positions se stabilisent</li>
+          <li>On double sur ce qui convertit, suivi des premiers leads SEO qualifiés</li>
+          <li>Reporting : positions, trafic qualifié, citations IA (3 moteurs), leads</li>
+        </ul>
+        <span class="kpi">Scale · leads qualifiés</span>
       </div>
     </div>
 
-    <div class="callout">
-      <span class="ci">⏳</span>
-      <div><strong>À dire au management, honnêtement :</strong> le SEO n'est pas une régie. Comptez ~6 mois pour des positions solides et un cycle de vente de 18-24 mois avant le chiffre. C'est justement pour ça qu'on démarre petit et qu'on prouve tôt — pas pour vendre du rêve.</div>
+    <div class="note warn" style="margin-top:16px">
+      <span class="h">À dire au management, honnêtement</span>
+      Comptez ~6 mois pour des positions solides et un cycle de vente de 18-24 mois avant le chiffre. On démarre petit et on prouve tôt — pas pour vendre du rêve.
     </div>
   </div>
 </section>
 
-<!-- INVESTISSEMENT -->
-<section class="section">
+<section id="investissement">
   <div class="wrap">
-    <span class="slabel">// Investissement</span>
-    <h2 class="stitle">Un pari asymétrique</h2>
-    <p class="ssub">Un panier client se compte en dizaines à centaines de milliers d'euros, avec un cycle de 18-24 mois. Face à ça, l'investissement SEO/IA est modeste — et volontairement construit pour dé-risquer la décision.</p>
+    <div class="chap"><span class="no">07</span><span class="kk">Investissement</span></div>
+    <h2>Un pari asymétrique</h2>
+    <p class="lead">Un panier client se compte en dizaines à centaines de milliers d'euros, cycle 18-24 mois. Face à ça, l'investissement SEO/IA est modeste — et construit pour dé-risquer la décision.</p>
 
     <div class="twocol">
       <div class="plan-card plan-1">
         <span class="plan-tag">Étape 1 · dé-risquer</span>
         <div class="plan-price">900 € <span>HT/mois · 3 mois</span></div>
-        <div class="plan-meta">Pilote « Cartographie & Quick Wins » · porte de sortie après le Mois 1</div>
+        <div class="plan-meta">Pilote « Cartographie &amp; Quick Wins » · porte de sortie après le Mois 1</div>
         <div class="plan-items">
-          <div class="plan-item"><span class="sol-check">✓</span><div>Cartographie mots-clés + prompts IA, par géo</div></div>
+          <div class="plan-item"><span class="sol-check">✓</span><div>Cartographie mots-clés + prompts IA, 3 zones</div></div>
           <div class="plan-item"><span class="sol-check">✓</span><div>Corrections techniques prioritaires</div></div>
           <div class="plan-item"><span class="sol-check">✓</span><div>Pages Nordic + optimisation des pages USP</div></div>
-          <div class="plan-item"><span class="sol-check">✓</span><div>Premier relevé de visibilité IA vs concurrents</div></div>
+          <div class="plan-item"><span class="sol-check">✓</span><div>1er relevé de visibilité IA vs concurrents, 3 moteurs</div></div>
         </div>
       </div>
       <div class="plan-card plan-2">
         <span class="plan-tag">Étape 2 · si le pilote convainc</span>
         <div class="plan-price">900 € <span>HT/mois · 12 mois</span></div>
-        <div class="plan-meta">Accompagnement complet · ≈ 10,8 k€/an · ~1 h/mois de votre temps</div>
+        <div class="plan-meta">Accompagnement complet · ≈ 10,8 k€/an · ~1h/mois de votre temps</div>
         <div class="plan-items">
-          <div class="plan-item"><span class="sol-check">✓</span><div>Contenu technique récurrent (levier Ezurio)</div></div>
-          <div class="plan-item"><span class="sol-check">✓</span><div>Netlinking & autorité de domaine</div></div>
-          <div class="plan-item"><span class="sol-check">✓</span><div>Optimisation & suivi visibilité IA (GEO)</div></div>
+          <div class="plan-item"><span class="sol-check">✓</span><div>Contenu technique récurrent (levier white papers)</div></div>
+          <div class="plan-item"><span class="sol-check">✓</span><div>Netlinking &amp; autorité de domaine</div></div>
+          <div class="plan-item"><span class="sol-check">✓</span><div>Optimisation &amp; suivi visibilité IA sur les 3 moteurs</div></div>
           <div class="plan-item"><span class="sol-check">✓</span><div>Reporting mensuel + 1 call de pilotage</div></div>
         </div>
       </div>
     </div>
 
-    <div class="garantie">
+    <div class="garantie" style="margin-top:16px">
       <div class="gar-card exit">
-        <span class="gar-icon">🚪</span>
-        <div>
-          <div class="gar-title">Porte de sortie — Mois 1</div>
-          <div class="gar-desc">Si après le premier mois la méthode ou le feeling ne conviennent pas, on s'arrête, sans condition. Le management teste avec une exposition minimale avant tout engagement annuel.</div>
-        </div>
+        <div><div class="gar-title">Porte de sortie — Mois 1</div><div class="gar-desc">Si après le premier mois la méthode ou le feeling ne conviennent pas, on s'arrête, sans condition.</div></div>
       </div>
       <div class="gar-card commit">
-        <span class="gar-icon">📈</span>
-        <div>
-          <div class="gar-title">L'équation ROI</div>
-          <div class="gar-desc">≈ 10,8 k€/an face à un seul client à 100 k€+. Le point mort, c'est une fraction d'un contrat sur la durée du programme. Un client signé grâce au canal, et l'année est très largement rentabilisée.</div>
-        </div>
+        <div><div class="gar-title">L'équation ROI</div><div class="gar-desc">≈ 10,8 k€/an face à un seul client à 100 k€+. Un client signé grâce au canal rentabilise largement l'année.</div></div>
       </div>
     </div>
 
-    <div class="callout">
-      <span class="ci">🧭</span>
-      <div><strong>Ma recommandation (Nathan) :</strong> viser un budget de l'ordre de 10 k€/an est ce qui permet réellement de bouger les positions dans votre secteur — 5 k€ serait un pari trop léger pour un résultat. Mais on y entre par un pilote de 3 mois à faible exposition : le management décide sur des faits à 90 jours, pas sur une promesse à 12 mois.</div>
+    <div class="note" style="margin-top:16px">
+      <span class="h">Ma recommandation (Nathan)</span>
+      Un budget de l'ordre de 10 k€/an est ce qui permet réellement de bouger les positions dans votre secteur. On y entre par un pilote de 3 mois à faible exposition : le management décide sur des faits à 90 jours.
     </div>
   </div>
 </section>
 
-<!-- POURQUOI DECUPLER -->
-<section class="section">
+<section>
   <div class="wrap">
-    <span class="slabel">// Pourquoi Décupler</span>
-    <h2 class="stitle">Le bon profil pour un SEO B2B technique de niche</h2>
-
+    <div class="chap"><span class="kk">Pourquoi Décupler</span></div>
+    <h2 style="font-size:1.4rem;margin-bottom:20px">Le bon profil pour un SEO B2B technique de niche</h2>
     <div class="trust-grid">
-      <div class="trust-card">
-        <span class="trust-icon">🎯</span>
-        <div class="trust-title">Spécialiste B2B à fort ticket</div>
-        <div class="trust-desc">Pas une agence de masse. On travaille les secteurs où le SEO générique ne fonctionne pas : niche, technique, panier élevé, cycle long. Insight SiP, c'est exactement ce terrain.</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">🤖</span>
-        <div class="trust-title">Pionnier GEO (visibilité IA)</div>
-        <div class="trust-desc">On a une vraie méthode pour apparaître dans ChatGPT, Perplexity et Gemini. Vos concurrents ne s'en occupent pas encore : c'est une fenêtre à prendre maintenant.</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">⚡</span>
-        <div class="trust-title">Humain + IA = production ×10</div>
-        <div class="trust-desc">Nos agents IA automatisent 80% des tâches chronophages, supervisés par un expert SEO. Plus de contenu technique publié, pour un budget maîtrisé.</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">📊</span>
-        <div class="trust-title">Data, pas de jargon</div>
-        <div class="trust-desc">Cette analyse est bâtie sur des chiffres vérifiables (Ubersuggest/Semrush). Chaque mois : positions, trafic qualifié, citations IA, leads. Rien d'illisible.</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">🔧</span>
-        <div class="trust-title">Références industrie & tech</div>
-        <div class="trust-desc">Société Générale, Decathlon, Le Point, Pluxee/Sodexo, BeTomorrow, Stirweld (industrie B2B, outreach presse spécialisée internationale).</div>
-      </div>
-      <div class="trust-card">
-        <span class="trust-icon">🕐</span>
-        <div class="trust-title">~1 h/mois de votre côté</div>
-        <div class="trust-desc">On sait que vous n'avez pas d'équipe marketing dédiée. Le dispositif est pensé pour tourner avec un minimum de votre temps : un call de pilotage mensuel, et on avance.</div>
-      </div>
+      <div class="trust-card"><span class="trust-icon">🎯</span><h3>Spécialiste B2B à fort ticket</h3><p>Niche, technique, panier élevé, cycle long — exactement le terrain d'Insight SiP.</p></div>
+      <div class="trust-card"><span class="trust-icon">🤖</span><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — vos concurrents ne s'en occupent pas encore.</p></div>
+      <div class="trust-card"><span class="trust-icon">📊</span><h3>Data, pas de jargon</h3><p>Chiffres vérifiables (Ubersuggest/DataForSEO/API réelles). Chaque mois : positions, trafic, citations IA, leads.</p></div>
+      <div class="trust-card"><span class="trust-icon">🔧</span><h3>Références industrie &amp; tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo, BeTomorrow, Stirweld.</p></div>
+      <div class="trust-card"><span class="trust-icon">🕐</span><h3>~1h/mois de votre côté</h3><p>Pensé pour tourner sans équipe marketing dédiée : un call mensuel, et on avance.</p></div>
+      <div class="trust-card"><span class="trust-icon">⚡</span><h3>Humain + IA = production ×10</h3><p>Agents IA supervisés par un expert SEO. Plus de contenu technique publié, budget maîtrisé.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section">
+<section>
   <div class="wrap">
-    <div class="cta-block">
-      <div class="eyebrow" style="justify-content:center;margin-bottom:18px">Factuel, chiffré, discutable — comme demandé</div>
-      <h2>On en discute à la rentrée ?</h2>
-      <p>Cette analyse pose les faits pour le management : où vous en êtes, où sont vos concurrents à périmètre constant, et le chemin réaliste pour capter les designers qui vous cherchent. La prochaine étape : caler ensemble le périmètre exact du pilote.</p>
+    <div class="cta">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:14px">Factuel, chiffré, discutable</div>
+      <h3>On en discute ?</h3>
+      <p>Cette analyse pose les faits : où vous en êtes, zone par zone et moteur par moteur, et le chemin réaliste pour transférer votre avance Gemini vers Google et ChatGPT.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver un créneau</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
       </div>
-      <div class="cta-validity">Analyse préparée pour Frédéric & Sabri · Données US · Juillet 2026</div>
+      <div class="cta-validity">Analyse préparée pour Insight SiP · Europe / USA / Asie · Août 2026</div>
     </div>
 
     <div class="author-bar">
       <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
       <div>
         <div class="author-name">Nathan Fenina</div>
-        <div class="author-bio">Fondateur Décupler · SEO & AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur SEO AI Systems™</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur SEO AI Systems™</div>
       </div>
       <div class="author-links">
-        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link al-li">LinkedIn</a>
-        <a href="https://decupler.substack.com" target="_blank" class="author-link al-sub">Substack</a>
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
       </div>
     </div>
   </div>
@@ -776,7 +672,7 @@ footer p{font-size:.75rem;color:var(--dim);-webkit-text-fill-color:var(--dim);fo
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Décupler · SEO Humain + IA · Analyse confidentielle pour Insight SiP · Données SEO : Ubersuggest (marché US)</p>
+    <p class="mono" style="font-size:11.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Analyse confidentielle pour Insight SiP · SEO : Ubersuggest + DataForSEO · GEO : ChatGPT/Claude/Gemini, appels API réels</p>
   </div>
 </footer>
 
