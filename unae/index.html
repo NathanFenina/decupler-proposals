@@ -65,16 +65,18 @@ section h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:4px 0 10px}
 .tile .k{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.4}
 .execband{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .execgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media (max-width:760px){ .execgrid{grid-template-columns:1fr} }
-.execitem .v{font-family:var(--disp);font-size:1.7rem;font-weight:600;color:var(--ink);line-height:1}
+@media (max-width:760px){ .execgrid{grid-template-columns:1fr 1fr;gap:20px} }
+.execitem .v{font-family:var(--disp);font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .execitem .v.gold{color:var(--gold)} .execitem .v.crit{color:var(--crit)} .execitem .v.good{color:var(--good)}
-.execitem .k{font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.4}
+.execitem .k{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.4}
 .execitem .k strong{color:var(--body)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.seo{border-left:3px solid var(--seo);background:var(--seo-soft)}
 .note.geo{border-left:3px solid var(--geo);background:var(--geo-soft)}
-.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
 .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
 .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px}
@@ -85,6 +87,16 @@ tr:last-child td{border-bottom:none}
 .you td{background:var(--gold-soft)}
 .you td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
 td .name{color:var(--ink);font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}
+.board{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.board table{min-width:640px}
+.board th.llm{text-align:center}
+.board td.q{color:var(--ink);font-weight:500;font-family:var(--sans);font-size:13px;max-width:280px;white-space:normal}
+.board td.cell{text-align:center}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:13px;font-weight:700}
 .sovwrap{display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center}
 @media (max-width:700px){ .sovwrap{grid-template-columns:1fr} }
 .donut{position:relative;width:132px;height:132px;margin:0 auto}
@@ -92,34 +104,44 @@ td .name{color:var(--ink);font-weight:600}
 .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .donut-center .v{font-family:var(--disp);font-size:1.3rem;font-weight:600;color:var(--ink)}
 .donut-center .k{font-size:9px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;text-align:center}
-.sovrows{display:flex;flex-direction:column;gap:8px}
-.sov-row{display:grid;grid-template-columns:76px 1fr 34px;align-items:center;gap:10px;font-family:var(--mono);font-size:12px}
+.sovrows{display:flex;flex-direction:column;gap:9px}
+.blogo{display:inline-flex;align-items:center;gap:4px;font-family:var(--dm);font-weight:700;font-size:11.5px;letter-spacing:-.01em;padding:3px 9px;border-radius:7px;border:1px solid var(--line2);color:var(--body);background:var(--surface2);white-space:nowrap;line-height:1.3}
+.blogo.you{color:#06121f;background:var(--gold);border-color:var(--gold)}
+.sov-row{display:grid;grid-template-columns:150px 1fr 40px;align-items:center;gap:10px}
 .bar-track{height:15px;background:var(--surface2);border-radius:6px;overflow:hidden}
 .bar-fill{height:100%;border-radius:6px}
-.sov-row .val{color:var(--ink);text-align:right}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media (max-width:760px){ .steps{grid-template-columns:1fr} }
-.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
-.step .tag{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.03em;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:12px;background:var(--geo-soft);color:var(--geo)}
-.step h3{font-size:1.02rem;margin-bottom:7px}
-.step p{font-size:.85rem;color:var(--body)}
-.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:32px 28px;text-align:center}
-.cta h3{font-size:1.4rem;margin-bottom:8px}
-.cta p{max-width:54ch;margin:0 auto 20px;color:var(--body)}
+.sov-row .val{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right}
+.prompt-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:10px}
+.prompt-card .pn{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.prompt-card .ptext{font-size:.92rem;color:var(--ink);font-weight:500;margin-bottom:10px}
+.prompt-card .erow{display:flex;gap:10px;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.prompt-card .erow:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.prompt-card .eng{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;min-width:64px;flex-shrink:0}
+.prompt-card .equote{font-size:.86rem;color:var(--body);font-style:italic}
+.prompt-card .eabsent{font-size:.84rem;color:var(--muted)}
+.solutions{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.sol-icon{font-size:1.3rem;margin-bottom:10px;display:block}
+.sol-card h3{font-size:1.02rem;margin-bottom:6px}
+.sol-card p{font-size:.87rem;color:var(--body);line-height:1.6}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:36px 32px;text-align:center}
+.cta h3{font-size:1.6rem;margin-bottom:10px}
+.cta p{max-width:56ch;margin:0 auto 22px;color:var(--body)}
 .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.86rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem;padding:13px 24px;border-radius:10px;font-family:var(--sans)}
 .btn-v{background:var(--gold);color:#06121f}
 .btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
-.cta-validity{margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:26px}
-.author-avatar{width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.cta-validity{margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
 .author-avatar img{width:100%;height:100%;object-fit:cover}
-.author-name{font-weight:700;color:var(--ink);font-size:.9rem;font-family:var(--disp)}
-.author-bio{font-size:.76rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
 .author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
-.author-link{padding:5px 12px;border-radius:8px;font-size:.72rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
-footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
-.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:10px}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:50px 0 40px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 
@@ -140,8 +162,8 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">Pré-audit SEO × GEO · Compléments alimentaires · Août 2026</div>
-    <h1>UNAE, citée sur <span class="geo">3/30</span><br>par les <span class="geo">IA génératives.</span></h1>
-    <p class="hero-sub">Sur 10 questions neutres que poserait un consommateur — jamais votre marque nommée — UNAE est citée 3 fois sur 30 réponses mesurées sur ChatGPT, Claude et Gemini. Ce pré-audit croise cette mesure réelle avec votre référencement Google classique et votre position face aux 19 autres marques du panel.</p>
+    <h1>UNAE, citée sur 3/30<br>par les <span class="geo">IA génératives.</span></h1>
+    <p class="hero-sub">Sur 10 questions neutres que poserait un consommateur — jamais votre marque nommée — UNAE est citée 3 fois sur 30 réponses mesurées sur ChatGPT, Claude et Gemini, avec le détail exact de ce que chaque IA a dit, ci-dessous. Ce pré-audit croise cette mesure réelle avec votre référencement Google classique et votre position face aux 19 autres marques du panel.</p>
     <div class="metastrip">
       <span>Préparé pour&nbsp; <b>UNAE · unae.fr</b></span>
       <span>Par&nbsp; <b class="decupler">Décupler</b></span>
@@ -164,7 +186,7 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="chap"><span class="kk">Méthodologie</span></div>
     <div class="card">
-      <p style="font-size:.92rem;color:var(--body)"><strong style="color:var(--ink)">SEO</strong> — Ubersuggest (autorité, trafic, mots-clés, backlinks), données réelles. <strong style="color:var(--ink)">GEO</strong> — 10 prompts neutres en français (jamais la marque nommée), joués une fois sur ChatGPT (gpt-4o), Claude (sonnet-4.5) et Gemini, mesurés pour les 20 marques du panel à partir des mêmes 30 réponses. Aucune case de citation n'est estimée — uniquement mesurée dans les réponses brutes sauvegardées.</p>
+      <p style="font-size:.92rem;color:var(--body)"><strong style="color:var(--ink)">SEO</strong> — Ubersuggest (autorité, trafic, mots-clés, backlinks), données réelles, un appel par domaine. <strong style="color:var(--ink)">GEO</strong> — 10 prompts neutres en français (jamais la marque nommée), joués une fois sur ChatGPT (gpt-4o), Claude (sonnet-4.5) et Gemini, et mesurés pour les 20 marques du panel à partir des mêmes 30 réponses (mutualisation : un seul run pour toute la catégorie). Aucune case de citation n'est estimée — chaque citation ci-dessous est extraite verbatim de la réponse brute sauvegardée.</p>
     </div>
   </div>
 </section>
@@ -177,8 +199,8 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
     
     <div class="tiles">
       <div class="tile"><div class="v gold">302</div><div class="k">Mots-clés positionnés (Ubersuggest)</div></div>
-      <div class="tile"><div class="v">3 099</div><div class="k">Visites organiques estimées / mois</div></div>
-      <div class="tile"><div class="v">33<span style="font-size:1rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+      <div class="tile"><div class="v">3 099</div><div class="k">Visites organiques estimées / mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v">33<span style="font-size:1rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest — score propre à l'outil, non comparable à un autre outil sans le préciser)</div></div>
     </div>
     
   </div>
@@ -188,10 +210,10 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="chap"><span class="no">02</span><span class="kk">Benchmark</span></div>
     <h2>Face aux marques les plus visibles du panel</h2>
-    <p class="lead">Comparaison sur les 20 marques de compléments alimentaires mesurées cette session (mêmes sources, même protocole).</p>
+    <p class="lead">Comparaison sur les 20 marques de compléments alimentaires mesurées cette session (mêmes sources, même protocole), triée par trafic.</p>
     <div class="scroller">
       <table>
-        <thead><tr><th>Marque</th><th class="num">Autorité</th><th class="num">Trafic/mois</th><th class="num">Mots-clés</th><th class="num">Citations IA</th></tr></thead>
+        <thead><tr><th>Marque</th><th class="num">Autorité (Ubersuggest)</th><th class="num">Trafic/mois</th><th class="num">Mots-clés</th><th class="num">Citations IA</th></tr></thead>
         <tbody><tr class=""><td><span class="name">Nutripure</span></td><td class="num">49</td><td class="num">656 204</td><td class="num">47 454</td><td class="num">2/30</td></tr>
 <tr class=""><td><span class="name">Nutri&Co</span></td><td class="num">45</td><td class="num">352 761</td><td class="num">32 314</td><td class="num">15/30</td></tr>
 <tr class=""><td><span class="name">Laboratoire Lescuyer</span></td><td class="num">48</td><td class="num">143 251</td><td class="num">20 248</td><td class="num">5/30</td></tr>
@@ -208,7 +230,7 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="chap"><span class="no">03</span><span class="kk">Visibilité IA</span></div>
     <h2>UNAE face à ChatGPT, Claude et Gemini</h2>
-    <p class="lead">Citée sur 3 des 30 mesures — largement derrière le groupe de tête (PiLeJe et Nutri&Co, 15/30 chacune).</p>
+    <p class="lead">Citée sur 3 des 30 mesures neutres testées (répartition ci-dessous, prompt par prompt, avec les phrases exactes utilisées par chaque IA quand elle vous cite).</p>
     <div class="sovwrap">
       <div class="donut"><svg viewBox="0 0 120 120">
   <circle cx="60" cy="60" r="50" fill="none" stroke="var(--surface2)" stroke-width="15"/>
@@ -217,17 +239,42 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
 </svg><div class="donut-center"><div class="v">10%</div><div class="k">des 30 mesures</div></div></div>
       
     <div class="sovrows" style="margin-top:14px">
-      <div class="sov-row"><span>ChatGPT</span><div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--geo)"></div></div><span class="val">0/10</span></div>
-      <div class="sov-row"><span>Claude</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--geo)"></div></div><span class="val">1/10</span></div>
-      <div class="sov-row"><span>Gemini</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:var(--geo)"></div></div><span class="val">2/10</span></div>
+      <div class="sov-row"><span class="blogo">ChatGPT</span><div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--geo)"></div></div><span class="val">0/10</span></div>
+      <div class="sov-row"><span class="blogo">Claude</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--geo)"></div></div><span class="val">1/10</span></div>
+      <div class="sov-row"><span class="blogo">Gemini</span><div class="bar-track"><div class="bar-fill" style="width:20%;background:var(--geo)"></div></div><span class="val">2/10</span></div>
     </div>
     </div>
+
+    <h3 style="font-size:.95rem;margin:26px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Board — prompt par prompt, moteur par moteur</h3>
+    <div class="board" style="margin-top:10px">
+      <table>
+        <thead><tr><th style="min-width:240px">Prompt</th><th class="llm">ChatGPT</th><th class="llm">Claude</th><th class="llm">Gemini</th></tr></thead>
+        <tbody><tr><td class="q">Quelles sont les meilleures marques françaises de compléments alimentaires ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Quelle marque choisir pour des compléments de micronutrition/nutrithérapie fiables ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="cited">citée</span></td></tr>
+<tr><td class="q">Meilleures marques de compléments alimentaires pour la digestion et le microbiote ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Quelles marques de compléments minceur sont sérieuses et efficaces ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Meilleures marques de compléments pour le sommeil, le stress et l'anti-fatigue ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="cited">citée</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Quelles marques de compléments alimentaires pour sportifs (protéines, récupération, performance) recommandez-vous ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Meilleures marques de gummies ou compléments beauté (peau, cheveux, ongles) ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Quelles marques de compléments alimentaires vendues en pharmacie recommandez-vous ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Quelles marques de compléments alimentaires 100% naturels, bio ou clean label choisir ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td></tr>
+<tr><td class="q">Meilleures marques françaises de magnésium et de minéraux/oligo-éléments ?</td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="absent">absente</span></td><td class="cell"><span class="cited">citée</span></td></tr>
+</tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:.95rem;margin:26px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Détail — ce que chaque IA dit exactement quand elle vous cite</h3>
+    <div class="prompt-card"><div class="pn">P2</div><div class="ptext">« Quelle marque choisir pour des compléments de micronutrition/nutrithérapie fiables ? »</div><div class="erow"><span class="eng">ChatGPT</span><span class="eabsent">non citée</span></div><div class="erow"><span class="eng">Claude</span><span class="eabsent">non citée</span></div><div class="erow"><span class="eng">Gemini</span><span class="equote">« Unae : Le haut de gamme écoresponsable. Ingrédients bio ou issus de la chimie verte, zéro plastique (flacons en verre/aluminium), formulations d'une exigence rare. »</span></div></div>
+<div class="prompt-card"><div class="pn">P5</div><div class="ptext">« Meilleures marques de compléments pour le sommeil, le stress et l'anti-fatigue ? »</div><div class="erow"><span class="eng">ChatGPT</span><span class="eabsent">non citée</span></div><div class="erow"><span class="eng">Claude</span><span class="equote">« Unae - formules énergisantes »</span></div><div class="erow"><span class="eng">Gemini</span><span class="eabsent">non citée</span></div></div>
+<div class="prompt-card"><div class="pn">P10</div><div class="ptext">« Meilleures marques françaises de magnésium et de minéraux/oligo-éléments ? »</div><div class="erow"><span class="eng">ChatGPT</span><span class="eabsent">non citée</span></div><div class="erow"><span class="eng">Claude</span><span class="eabsent">non citée</span></div><div class="erow"><span class="eng">Gemini</span><span class="equote">« UNAE : Une marque ultra-premium et éco-responsable fondée par un expert en nutrition. Leurs formules (dont le magnésium) sont pensées selon les dernières études scientifiques, avec des matières premières d'exception et… »</span></div></div>
+
+
     <h3 style="font-size:.95rem;margin:26px 0 12px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;font-weight:600">Repères — les 4 marques les plus citées du panel</h3>
-    <div class="sovrows"><div class="sov-row "><span>PiLeJe</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--geo)"></div></div><span class="val">15/30</span></div>
-<div class="sov-row "><span>Nutri&Co</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--geo)"></div></div><span class="val">15/30</span></div>
-<div class="sov-row "><span>Arkopharma</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--geo)"></div></div><span class="val">12/30</span></div>
-<div class="sov-row "><span>Nutergia</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--geo)"></div></div><span class="val">12/30</span></div>
-<div class="sov-row you"><span>UNAE</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--gold)"></div></div><span class="val">3/30</span></div>
+    <div class="sovrows"><div class="sov-row "><span class="blogo">PiLeJe</span><div class="bar-track"><div class="bar-fill" style="width:53%;background:var(--geo)"></div></div><span class="val">16/30</span></div>
+<div class="sov-row "><span class="blogo">Nutri&Co</span><div class="bar-track"><div class="bar-fill" style="width:50%;background:var(--geo)"></div></div><span class="val">15/30</span></div>
+<div class="sov-row "><span class="blogo">Arkopharma</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--geo)"></div></div><span class="val">12/30</span></div>
+<div class="sov-row "><span class="blogo">Nutergia</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--geo)"></div></div><span class="val">12/30</span></div>
+<div class="sov-row you"><span class="blogo you">UNAE</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--gold)"></div></div><span class="val">3/30</span></div>
 </div>
   </div>
 </section>
@@ -237,10 +284,10 @@ footer{padding:44px 0 36px;border-top:1px solid var(--line);text-align:center;ba
     <div class="chap"><span class="no">04</span><span class="kk">Opportunités</span></div>
     <h2>Une présence IA fragile, à consolider</h2>
     <p class="lead">UNAE apparaît ponctuellement (3/30) mais loin du groupe de tête. Le travail consiste à identifier les 2-3 angles où votre légitimité produit est la plus forte et à les rendre lisibles pour les IA.</p>
-    <div class="steps">
-      <div class="step"><span class="tag">SEO</span><h3>Cartographie mots-clés</h3><p>Identifier les requêtes de la catégorie où UNAE est absente malgré une autorité suffisante pour rivaliser.</p></div>
-      <div class="step"><span class="tag">GEO</span><h3>Contenu extractible</h3><p>Structurer 3-5 pages clés (formats Q/R, données sourcées) sur les angles où votre légitimité produit est la plus forte.</p></div>
-      <div class="step"><span class="tag">GEO</span><h3>Citations tierces</h3><p>Presse spécialisée, comparatifs indépendants, avis structurés — les sources que les IA reprennent pour construire leurs réponses.</p></div>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographie mots-clés</h3><p>Identifier les requêtes de la catégorie où UNAE est absente malgré une autorité suffisante pour rivaliser.</p></div>
+      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer 3-5 pages clés (formats Q/R, données sourcées) sur les angles où votre légitimité produit est la plus forte.</p></div>
+      <div class="sol-card"><span class="sol-icon">📰</span><h3>Citations tierces</h3><p>Presse spécialisée, comparatifs indépendants, avis structurés — les sources que les IA reprennent pour construire leurs réponses.</p></div>
     </div>
   </div>
 </section>
