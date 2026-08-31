@@ -1,156 +1,511 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Motralec — Cartographie SEO/GEO express (Decupler)</title></head><body>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Proposition · Motralec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
-  :root{
-    --bg:#f8fafc; --card:#ffffff; --ink:#1e293b; --ink2:#475569; --ink3:#64748b;
-    --line:#e2e8f0; --violet:#6366f1; --violet2:#8b5cf6; --violet-deep:#6204d1;
-    --violet-ink:#4f46e5; --violet-soft:#eef2ff; --violet-soft2:#e0e7ff;
-    --good:#10b981; --good-soft:#ecfdf5; --crit:#e11d48; --crit-soft:#fff1f3;
-    --warn:#d97706; --warn-soft:#fffbeb;
-    --grad:linear-gradient(135deg,#6366f1,#8b5cf6);
-    --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --mono:ui-monospace,"SF Mono",Menlo,monospace;
-  }
-  @media (prefers-color-scheme:dark){
-    :root{--bg:#0e1020;--card:#171a2e;--ink:#eef1fb;--ink2:#c3c8de;--ink3:#9aa1c0;
-      --line:#2a2f4a;--violet:#818cf8;--violet2:#a78bfa;--violet-deep:#a855f7;
-      --violet-ink:#c7d2fe;--violet-soft:#1e2140;--violet-soft2:#252a4d;
-      --good:#34d399;--good-soft:#0f2a22;--crit:#fb7185;--crit-soft:#2a1620;--warn:#fbbf24;--warn-soft:#271f10;}
-  }
-  :root[data-theme="dark"]{--bg:#0e1020;--card:#171a2e;--ink:#eef1fb;--ink2:#c3c8de;--ink3:#9aa1c0;
-    --line:#2a2f4a;--violet:#818cf8;--violet2:#a78bfa;--violet-deep:#a855f7;--violet-ink:#c7d2fe;
-    --violet-soft:#1e2140;--violet-soft2:#252a4d;--good:#34d399;--good-soft:#0f2a22;--crit:#fb7185;--crit-soft:#2a1620;--warn:#fbbf24;--warn-soft:#271f10;}
-  :root[data-theme="light"]{--bg:#f8fafc;--card:#fff;--ink:#1e293b;--ink2:#475569;--ink3:#64748b;--line:#e2e8f0;
-    --violet:#6366f1;--violet2:#8b5cf6;--violet-deep:#6204d1;--violet-ink:#4f46e5;--violet-soft:#eef2ff;--violet-soft2:#e0e7ff;
-    --good:#10b981;--good-soft:#ecfdf5;--crit:#e11d48;--crit-soft:#fff1f3;--warn:#d97706;--warn-soft:#fffbeb;}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:840px;margin:0 auto;padding:40px 22px 64px}
-  .eyebrow{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  h1{font-size:31px;line-height:1.12;margin:12px 0 10px;letter-spacing:-.025em;font-weight:800}
-  h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{font-size:17px;color:var(--ink2);margin:0 0 8px;max-width:92%}
-  .meta{font:12.5px/1.5 var(--mono);color:var(--ink3)}
-  section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;margin:18px 0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-  h2{font-size:20px;margin:0 0 4px;letter-spacing:-.01em;font-weight:750}
-  h2 .n{font:14px var(--mono);color:var(--violet);margin-right:8px}
-  .lede{font-size:15px;color:var(--ink2);margin:6px 0 16px}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:14px 0}
-  .stat{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--violet-soft)}
-  .stat .k{font:600 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink3)}
-  .stat .v{font-size:25px;font-weight:800;margin-top:4px;color:var(--violet-ink)}
-  .stat .v.crit{color:var(--crit)}.stat .v.good{color:var(--good)} .stat .n{font-size:11px;color:var(--ink3);margin-top:2px}
-  table{width:100%;border-collapse:collapse;font-size:13.5px}.scroller{overflow-x:auto}
-  th{text-align:left;font:600 11px/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
-  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}td.q{font-weight:650}
-  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .pill{display:inline-block;font:700 11px/1.5 var(--sans);padding:2px 10px;border-radius:20px;white-space:nowrap}
-  .pill.crit{background:var(--crit-soft);color:var(--crit)} .pill.good{background:var(--good-soft);color:var(--good)}
-  .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.v{background:var(--violet-soft2);color:var(--violet-ink)}
-  .pull{font-size:18px;font-weight:700;line-height:1.35;margin:16px 0 2px;letter-spacing:-.01em}
-  .pull .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .note{border-left:3px solid var(--violet);background:var(--violet-soft);padding:12px 15px;border-radius:0 10px 10px 0;font-size:13.5px;margin-top:14px}
-  .steps{counter-reset:s;list-style:none;padding:0;margin:0}
-  .steps li{position:relative;padding:15px 0 15px 48px;border-bottom:1px solid var(--line)}.steps li:last-child{border-bottom:0}
-  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:13px;width:32px;height:32px;border-radius:10px;background:var(--grad);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
-  .steps h4{margin:0 0 3px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .steps p{margin:0;font-size:13.5px;color:var(--ink2)}
-  .cta{background:var(--grad);color:#fff;border-radius:16px;padding:26px;margin-top:22px;text-align:center}
-  .cta h2{color:#fff}.cta p{margin:8px 0 0;font-size:14.5px;opacity:.96}
-  .cta a{display:inline-block;margin-top:16px;background:#fff;color:var(--violet-deep);font-weight:800;text-decoration:none;padding:12px 24px;border-radius:10px;font-size:14.5px}
-  .foot{font-size:11.5px;color:var(--ink3);margin-top:22px;line-height:1.55}
-  .brand{font:800 15px var(--sans);letter-spacing:-.01em}.brand .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  a{color:var(--violet-ink)}
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+tr.win td{background:var(--good-soft)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.invest{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:700px){.invest{grid-template-columns:1fr}}
+.invest-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;border-top:3px solid var(--gold-line)}
+.invest-card.step2{border-top-color:var(--geo)}
+.invest-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:6px}
+.invest-card.step2 .invest-tag{color:var(--geo)}
+.invest-card h3{font-size:.95rem;margin-bottom:4px}
+.invest-card .sub{font-size:.78rem;color:var(--muted);margin-bottom:14px}
+.invest-card ul{list-style:none;padding:0;margin:0}
+.invest-card li{font-size:.85rem;color:var(--body);line-height:1.5;padding-left:20px;position:relative;margin-bottom:8px}
+.invest-card li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:700}
+.invest2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:700px){.invest2{grid-template-columns:1fr}}
+.roi-card{border-radius:14px;padding:18px 20px}
+.roi-card.exit{background:var(--crit-soft);border:1px solid rgba(193,51,39,.2)}
+.roi-card.roi{background:var(--good-soft);border:1px solid rgba(23,122,80,.2)}
+.roi-card h3{font-size:.86rem;margin-bottom:8px}
+.roi-card.exit h3{color:var(--crit)}
+.roi-card.roi h3{color:var(--good)}
+.roi-card p{font-size:.86rem;color:var(--body);line-height:1.55}
+.reco{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-top:16px}
+.reco h3{font-size:.9rem;margin-bottom:8px}
+.reco p{font-size:.88rem;color:var(--body);line-height:1.6}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 
-<div class="wrap">
-  <div class="eyebrow">Decupler · Cartographie SEO / GEO express · Motralec</div>
-  <h1>Vous êtes à <span class="hl">un cran de la page 1</span> — sur des mots-clés à 18 000 recherches.</h1>
-  <p class="sub">Votre blog fait déjà vivre votre trafic (~57 000 visites/mois). Plusieurs gros volumes sont bloqués en page 2, à portée de main. Voici les quick wins les plus rapides — et le trou à colmater.</p>
-  <p class="meta">Données réelles · Ubersuggest (France) + inspection live · 11 août 2026</p>
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Proposition SEO × GEO</div>
+  </div>
+</nav>
 
-  <section>
-    <h2><span class="n">01</span>Votre moteur : les guides d'achat (et c'est le bon)</h2>
-    <div class="stats">
-      <div class="stat"><div class="k">Trafic organique</div><div class="v">~57 500/mo</div><div class="n">France</div></div>
-      <div class="stat"><div class="k">Autorité (DA)</div><div class="v">37</div><div class="n">2 530 domaines référents</div></div>
-      <div class="stat"><div class="k">Guide n°1</div><div class="v good">4 730/mo</div><div class="n">« quel groupe électrogène choisir »</div></div>
-      <div class="stat"><div class="k">Catalogue</div><div class="v">16 579</div><div class="n">pages indexables</div></div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Proposition Décupler · Motralec · Août 2026</div>
+    <h1>Vous êtes à un cran de la page 1 — sur des mots-clés à 18 000 recherches</h1>
+    <p class="hero-sub">Votre guide « groupe électrogène » (74 000 rech./mois) est déjà en position 7. Quatre autres pages, déjà publiées, sont en page 2 sur des volumes réels — le rattrapage le plus rapide qu'on ait vu. Le trou à colmater : -84% de mots-clés positionnés en 2 ans, un schéma partagé par les 4 distributeurs mesurés cette session.</p>
+    <p class="hero-meta">Préparé pour <b>Damien Cytwinski</b> · Motralec (motralec.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">-84%</div><div class="k">Mots-clés positionnés — 2024-08 → 2026-07 (20 084 → 3 131, Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">1/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">93.6%</div><div class="k">Backlinks en dofollow — 58 587 liens totaux</div></div>
+      <div class="tile"><div class="v good">#7</div><div class="k">Position sur « groupe électrogène » — 74 000 rech./mois, votre plus gros actif SEO</div></div>
     </div>
-    <p class="pull">Vos <span class="hl">guides « comment choisir »</span> sont votre plus gros actif — et c'est exactement le format que Google <em>et</em> l'IA citent. On part d'une base solide, pas de zéro.</p>
-  </section>
+  </div>
+</header>
 
-  <section>
-    <h2><span class="n">02</span>Les quick wins : page 2 → page 1, sur du gros volume</h2>
-    <p class="lede">Vous êtes <strong>déjà positionné</strong> sur ces requêtes, mais en 10-16ᵉ position. Un travail on-page ciblé les fait basculer en page 1 — c'est le gain le plus rapide en SEO.</p>
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Ce qui marche déjà, ce qui a décroché — chiffré.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face à 4 distributeurs réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un acheteur pro demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, sur quels prompts.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#investissement"><span class="tn">07</span><h3>Investissement</h3><p>Un pilote à faible exposition, avant tout engagement long.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Deux terrains de visibilité, mesurés en direct</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel sur 24 mois, backlinks. Benchmark contre 4 distributeurs réels identifiés par les IA elles-mêmes (chapitre 04).</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (jamais « Motralec » nommé) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong> — pour isoler ce que le modèle recommande spontanément sur ce marché.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest (appels réels de cette session) ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
+
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Un socle qui a marché, un trou à colmater</h2>
+    <p class="lead">Vos guides d'achat sont votre plus gros actif SEO — exactement le format que Google et l'IA citent. Le trafic tient sur quelques pages fortes, mais le nombre de mots-clés positionnés s'est effondré en deux ans.</p>
+    
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">37<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v">57 550</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v crit">3 131</div><div class="k">Mots-clés indexés (contre 20 084 il y a 2 ans)</div></div>
+      <div class="tile"><div class="v">58 587</div><div class="k">Backlinks · 2 599 domaines référents</div></div>
+    </div>
+    
     <div class="scroller">
       <table>
-        <thead><tr><th>Mot-clé</th><th class="num">Volume/mois</th><th class="num">Position</th><th>Page concernée</th></tr></thead>
-        <tbody>
-          <tr style="background:var(--violet-soft)"><td class="q">condensateur</td><td class="num">18 100</td><td class="num">16</td><td>blog · condensateur permanent</td></tr>
-          <tr style="background:var(--violet-soft)"><td class="q">surpresseur eau</td><td class="num">9 900</td><td class="num">13</td><td>blog · quel surpresseur pour une maison</td></tr>
-          <tr style="background:var(--violet-soft)"><td class="q">moteur électrique</td><td class="num">8 100</td><td class="num">12</td><td>blog · qu'est-ce qu'un moteur électrique</td></tr>
-          <tr><td class="q">leroy somer</td><td class="num">4 400</td><td class="num">10</td><td>/leroy-somer</td></tr>
-          <tr><td class="q">chauvin arnoux</td><td class="num">4 400</td><td class="num">13</td><td>/chauvin-arnoux</td></tr>
-          <tr><td class="q">skf</td><td class="num">1 600</td><td class="num">16</td><td>/skf</td></tr>
-        </tbody>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest, marché France)</th><th>Volume/mois</th><th>Position</th><th>Trafic estimé</th></tr></thead>
+        <tbody><tr><td>groupe électrogène</td><td>74 000</td><td>7</td><td>4 730</td></tr><tr><td>pompe a eau</td><td>18 100</td><td>12</td><td>70</td></tr><tr><td>condensateur</td><td>18 100</td><td>16</td><td>47</td></tr><tr><td>surpresseur eau</td><td>9 900</td><td>13</td><td>93</td></tr><tr><td>moteur electrique</td><td>8 100</td><td>12</td><td>118</td></tr><tr><td>leroy somer</td><td>4 400</td><td>10</td><td>88</td></tr></tbody>
       </table>
     </div>
-    <div class="note"><strong>Pourquoi c'est rapide :</strong> pas besoin de créer, ni d'attendre 12 mois — les pages existent et sont déjà en page 2. On optimise (intention, structure Hn, maillage interne, richesse) et on remonte. Sur « condensateur » (18 100/mo), passer de la 16ᵉ à la 1ʳᵉ page multiplie le trafic de la page.</div>
-  </section>
-
-  <section>
-    <h2><span class="n">03</span>Le trou à colmater : une chute de visibilité à diagnostiquer</h2>
-    <div class="stats">
-      <div class="stat"><div class="k">Mots-clés positionnés</div><div class="v crit">20 000 → 3 100</div><div class="n">2024 → 2026</div></div>
-      <div class="stat"><div class="k">Pages du site</div><div class="v">16 579</div><div class="n">beaucoup de pages fines ?</div></div>
+    <div class="note good"><span class="h">Ce qui marche déjà</span>« Groupe électrogène » (74 000 rech./mois) est en position 7 — votre plus gros actif, hérité du guide d'achat déjà publié. Les 4 mots-clés suivants sont en <strong>page 2</strong> (positions 10-16) sur des volumes réels (4 400 à 18 100 rech./mois) : c'est le rattrapage le plus rapide, les pages existent déjà.</div>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution des mots-clés positionnés — 2024-08 → 2026-07 (Ubersuggest, réel)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">10 042</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">20 084</text>
+  <path d="M 46.0,16.0 L 77.2,20.4 L 108.4,27.7 L 139.7,33.6 L 170.9,68.2 L 202.1,84.3 L 233.3,78.4 L 264.5,92.1 L 295.7,103.3 L 327.0,106.3 L 358.2,101.6 L 389.4,106.5 L 420.6,103.5 L 451.8,117.0 L 483.0,103.3 L 514.3,79.4 L 545.5,82.9 L 576.7,114.6 L 607.9,90.1 L 639.1,90.4 L 670.3,131.4 L 701.6,136.1 L 732.8,146.9 L 764.0,147.7 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,16.0 L 77.2,20.4 L 108.4,27.7 L 139.7,33.6 L 170.9,68.2 L 202.1,84.3 L 233.3,78.4 L 264.5,92.1 L 295.7,103.3 L 327.0,106.3 L 358.2,101.6 L 389.4,106.5 L 420.6,103.5 L 451.8,117.0 L 483.0,103.3 L 514.3,79.4 L 545.5,82.9 L 576.7,114.6 L 607.9,90.1 L 639.1,90.4 L 670.3,131.4 L 701.6,136.1 L 732.8,146.9 L 764.0,147.7" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="147.7" r="4" fill="#A9711C"/><text x="758.0" y="137.7" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">3 131</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="lede">Votre nombre de mots-clés positionnés a fondu sur 18 mois, pendant que le trafic tenait grâce à quelques gros guides. Sur un catalogue de 16 500 pages, c'est le symptôme classique d'un <strong>problème de qualité/indexation</strong> : pages produit trop fines, quasi-doublons, ou budget de crawl gaspillé.</p>
-    <div class="note"><strong>C'est souvent LE déblocage.</strong> Un diagnostic technique (indexation, contenu fin, maillage) peut récupérer une partie de cette visibilité perdue — sans créer une seule page. À confirmer avec vos données Search Console.</div>
-  </section>
-
-  <section>
-    <h2><span class="n">04</span>GEO : devenir la réponse que donne l'IA</h2>
-    <p class="lede">Vos guides sont déjà #1 sur Google — <strong>exactement le format que ChatGPT, Gemini et l'Aperçu IA citent</strong>. On ne part pas de zéro : on rend ce contenu <em>citable</em> et on verrouille la place.</p>
-    <ol class="steps">
-      <li><h4>Format « réponse directe » + FAQ/HowTo <span class="pill v">Citabilité</span></h4><p>Réécrire l'intro de chaque guide pour répondre à la question en 2-3 phrases (ce que l'IA extrait mot pour mot) + balisage <span style="font-family:var(--mono);font-size:12px">FAQPage</span>/<span style="font-family:var(--mono);font-size:12px">HowTo</span>. « Quelle pompe pour un puits de 15 m ? » doit avoir sa réponse nette dès le début.</p></li>
-      <li><h4>Tableaux de décision <span class="pill v">Comparatif</span></h4><p>« Quelle pompe selon le débit / la hauteur / l'usage » en tableau (<span style="font-family:var(--mono);font-size:12px">ItemList</span>). L'IA privilégie les comparatifs structurés — et vous y nommez honnêtement modèles &amp; marques.</p></li>
-      <li><h4>Fiches produit citables <span class="pill v">Product / Offer</span></h4><p><span style="font-family:var(--mono);font-size:12px">Product</span> + <span style="font-family:var(--mono);font-size:12px">Offer</span> + <span style="font-family:var(--mono);font-size:12px">AggregateRating</span> + specs claires (débit, HMT, puissance) → l'IA peut recommander un modèle précis avec prix, et vous devenez la source.</p></li>
-      <li><h4>Autorité &amp; entité (E-E-A-T) <span class="pill v">Confiance</span></h4><p>Auteur expert (atelier de réparation depuis 1976), avis clients, mentions sur les sources que l'IA lit. Les moteurs citent en priorité les sources d'autorité reconnues — c'est votre point fort.</p></li>
-    </ol>
-    <div class="note"><strong>Mesure honnête :</strong> le score de citation IA se mesure sur des requêtes propres à votre métier (pompe = eau 💧). On lance la mesure, on optimise, on <strong>remesure</strong> — pour objectiver les gains, pas les promettre.</div>
-  </section>
-
-  <section>
-    <h2><span class="n">05</span>Ce qu'on ferait en premier</h2>
-    <ol class="steps">
-      <li><h4>Pousser les 5 pages « page 2 » en page 1 <span class="pill good">Semaines</span></h4><p>Optimisation on-page ciblée sur condensateur, surpresseur eau, moteur électrique, leroy somer, chauvin arnoux — le trafic le plus rapide à récupérer.</p></li>
-      <li><h4>Diagnostiquer la chute de visibilité <span class="pill warn">Technique</span></h4><p>Audit d'indexation sur les 16 500 pages : identifier les pages fines/dupliquées qui ont décroché, et les traiter (regroupement, enrichissement, no-index).</p></li>
-      <li><h4>Enrichir les guides + schéma <span class="pill v">SEO + IA</span></h4><p>Déployer <span style="font-family:var(--mono);font-size:12px">FAQPage</span>/<span style="font-family:var(--mono);font-size:12px">HowTo</span> sur les guides et <span style="font-family:var(--mono);font-size:12px">Product</span>/<span style="font-family:var(--mono);font-size:12px">AggregateRating</span> sur les fiches → rich snippets Google + éligibilité aux réponses IA.</p></li>
-    </ol>
-  </section>
-
-  <section>
-    <h2><span class="n">06</span>Ce qu'on met en place, concrètement</h2>
-    <p class="lede">Deux façons de démarrer, selon ce que tu veux valider en premier. Les deux s'appuient sur les mêmes constats ci-dessus — rien de nouveau à mesurer, on passe direct à l'exécution.</p>
-    <ol class="steps">
-      <li><h4>Palier « Quick wins » <span class="pill v">3 mois</span></h4><p>Optimisation on-page des 5 pages page 2 → page 1 (condensateur, surpresseur eau, moteur électrique, leroy somer, chauvin arnoux) + diagnostic technique express (indexation, pages fines) sur le catalogue de 16 579 pages. Objectif : débloquer le trafic le plus rapide à récupérer, sans attendre un chantier de 12 mois.</p></li>
-      <li><h4>Accompagnement complet <span class="pill v">12 mois</span></h4><p>Le plan entier : remédiation technique (indexation, maillage, pages fines), enrichissement des guides + schéma (FAQPage/HowTo/Product), mise en place et suivi de la mesure GEO sur vos requêtes métier, avec point mensuel et priorisation continue.</p></li>
-    </ol>
-    <div class="note"><strong>Ordre de grandeur :</strong> ce type d'accompagnement se situe généralement <strong>de l'ordre de 800 à 1 500 €/mois</strong> selon le palier choisi — à ajuster ensemble une fois le périmètre exact validé. Le chiffrage précis du <strong>ROI</strong> (trafic récupéré × votre taux de conversion réel sur devis/contact) se fait au débrief, avec vos chiffres, pas les nôtres.</div>
-    <div class="note"><strong>Garantie de sortie :</strong> sans engagement de durée — tu arrêtes à la fin de n'importe quel mois, sur simple préavis. Le premier mois sert justement à vérifier que le rythme et les résultats te conviennent avant d'aller plus loin.</div>
-  </section>
-
-  <div class="cta">
-    <h2>On regarde ça ensemble ?</h2>
-    <p>20 minutes pour valider le palier qui te correspond, chiffrer le ROI sur tes vrais chiffres, et caler un point de départ. Sans engagement.</p>
-    <a href="https://calendly.com/fenina-nathan/consultationstrategique">Débriefer 20 minutes →</a>
+    <div class="note warn"><span class="h">Le trou à colmater</span>De 20 084 à 3 131 mots-clés positionnés en 2 ans (-84%), sur un catalogue de 16 579 pages. <strong>Ce recul n'est pas propre à Motralec</strong> : les 4 distributeurs mesurés cette session (chapitre 02) montrent le même schéma, -68% à -95% sur la même période — un effet probable de catégorie ou de méthodologie de mesure, pas une pénalité spécifique à votre site. Reste un point réel à diagnostiquer : sur 16 500 pages, combien sont fines ou quasi-doublons ?</div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights, réel)</h3>
+        <p>Score Performance : <span class="pw-badge warn">71/100 · moyen</span>. LCP 3,5s · FCP 3,2s · TBT 380ms · CLS 0,061. Schema.org : WebSite + Organization présents, <strong>aucun Product/Offer/AggregateRating</strong> détecté — vos fiches produit ne sont pas structurées pour être extraites par l'IA.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest, réel)</h3>
+        <p>58 587 backlinks, 2 599 domaines référents, <strong>93.6% en dofollow</strong> (3 756 liens nofollow) — profil sain pour un acteur B2B de cette taille.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <p class="foot">
-    <span class="brand"><span class="hl">DECUPLER</span></span> · Agence SEO &amp; GEO — cartographie express pour Motralec · 11 août 2026.<br>
-    Sources : Ubersuggest (positions &amp; volumes, marché France), inspection live motralec.com (données structurées). Volet GEO : plan d'actions ci-dessus ; la mesure de citation IA sera lancée sur des requêtes propres à votre métier. Estimations = hypothèses de travail, pas une garantie de résultat.
-  </p>
-</div>
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face à 4 distributeurs réellement cités par les IA</h2>
+    <p class="lead">Distributeurs identifiés par ChatGPT/Claude/Gemini eux-mêmes (chapitre 04) — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Motralec (vous)</td><td>37</td><td>57 550</td><td>58 587</td></tr><tr><td>RS Components</td><td>69</td><td>90 826</td><td>298 629 471</td></tr><tr><td>Manutan</td><td>47</td><td>67 289</td><td>943 191</td></tr><tr><td>Rexel</td><td>45</td><td>65 935</td><td>535 790</td></tr><tr><td>Sonepar</td><td>44</td><td>18 756</td><td>1 160 216</td></tr></tbody>
+      </table>
+    </div>
+    
+    <div class="note"><span class="h">Petite note</span>Sur les 4 distributeurs réellement cités par les IA (chapitre 04) sur ce marché, Motralec arrive en position 4/5 en trafic organique — face à des généralistes multi-catégories (Rexel, RS Components, Manutan, Sonepar), pas des spécialistes de niche. Le combat n'est pas à armes égales sur le volume, mais votre spécialisation (pompes, moteurs, condensateurs) reste un angle qu'eux ne travaillent pas.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest, réel) — « condensateur permanent moteur électrique »</p>
+      <div class="scroller" style="margin-top:8px">
+        <table>
+          <thead><tr><th>Position</th><th>Site</th><th>DA</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>moteur-electrique-pro.fr</td><td>24</td></tr>
+            <tr><td>2</td><td>pompe-moteur.fr</td><td>29</td></tr>
+            <tr class="self"><td>3</td><td>motralec.com (vous)</td><td>37</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="note good"><span class="h">Petite note</span>Sur cette requête précise, vous êtes déjà 3ᵉ — devancé par deux sites à autorité <em>inférieure</em> à la vôtre (DA24 et DA29 contre DA37). C'est un signal de contenu/structure, pas d'autorité : gagnable sans netlinking.</div>
+  </div>
+</section>
 
-</body></html>
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Un acheteur professionnel demande de plus en plus « quel fournisseur pour X » directement à l'IA avant Google. On a joué <strong>10 prompts neutres</strong> — jamais Motralec nommé — sur les 3 modèles.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">1/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">11.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v">4</div><div class="k">Concurrents réels comparés</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Moteurs testés : ChatGPT, Claude, Gemini</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · Quel groupe électrogène choisir pour une utilisation professionnelle ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P2 · Où acheter des composants électriques industriels (moteurs, condensateurs, var…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #11</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · Quel surpresseur d'eau choisir pour une maison ou un site industriel ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · Meilleur site pour acheter du matériel électrique industriel de marque Leroy S…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P5 · Où trouver un distributeur agréé Chauvin Arnoux en France ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P6 · Quel fournisseur pour des roulements SKF en ligne ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P7 · Meilleur site e-commerce pour du matériel électrotechnique professionnel en Fr…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P8 · Comment choisir un moteur électrique industriel adapté à son besoin ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · Quelles sont les meilleures boutiques en ligne pour l'équipement électrique Bt…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Où acheter une pompe de relevage ou un surpresseur pour un usage professionnel…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Motralec est cité 1 fois sur 30, en position moyenne 11.0.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Qui l'IA recommande à votre place</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Motralec est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="29.66 447.86" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="23.73 453.79" stroke-dashoffset="-29.66" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="14.83 462.69" stroke-dashoffset="-53.39" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#177A50" stroke-width="22" stroke-dasharray="8.90 468.62" stroke-dashoffset="-68.22" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="400.41 77.12" stroke-dashoffset="-77.12" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">161 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">RS Components</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:6.2%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">6.2%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Rexel</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:5.0%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">5.0%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Sonepar</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:3.1%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">3.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Manutan</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.9%;height:100%;background:#177A50;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.9%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres marques citées</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:83.9%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">83.9%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Motralec totalise <strong>0.0% de part de voix</strong> sur les 161 mentions relevées sur ce panel de 10 prompts.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT · « Où acheter des composants électriques industriels (moteurs, condensate… » · appel API réel, 31/08/2026</span>
+      <p class="q">RS Components, Farnell, Conrad, Rexel, Sonepar — Motralec absente de ce classement.</p>
+    </div>
+    <div class="geo-card"><div class="pr">« Où acheter des composants électriques industriels (moteurs, condensateurs, variateurs) en … »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="num">1.</span><span class="nm">RS Components</span></div><div class="rank-row"><span class="num">2.</span><span class="nm">Farnell</span></div><div class="rank-row"><span class="num">3.</span><span class="nm">Conrad</span></div><div class="rank-row"><span class="num">4.</span><span class="nm">Rexel</span></div><div class="rank-row"><span class="num">5.</span><span class="nm">Sonepar</span></div><div class="rank-row"><span class="num">6.</span><span class="nm">Manutan</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Motralec absente du classement.</p></div><div class="geo-card"><div class="pr">« Quelles sont les meilleures boutiques en ligne pour l'équipement électrique BtoB en France… »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="num">1.</span><span class="nm">Rexel</span></div><div class="rank-row"><span class="num">2.</span><span class="nm">Sonepar</span></div><div class="rank-row"><span class="num">3.</span><span class="nm">Manutan</span></div><div class="rank-row"><span class="num">4.</span><span class="nm">Cdiscount Pro</span></div><div class="rank-row"><span class="num">5.</span><span class="nm">Conrad Pro</span></div><div class="rank-row"><span class="num">6.</span><span class="nm">RS Components</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Motralec absente du classement.</p></div><div class="geo-card"><div class="pr">« Meilleur site pour acheter du matériel électrique industriel de marque Leroy Somer ? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><span class="num">1.</span><span class="nm">Rexel / Hagemeyer</span></div><div class="rank-row"><span class="num">2.</span><span class="nm">Sonepar</span></div><div class="rank-row"><span class="num">3.</span><span class="nm">RS Components</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Motralec absente du classement.</p></div><div class="geo-card"><div class="pr">« Meilleur site e-commerce pour du matériel électrotechnique professionnel en France ? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="num">1.</span><span class="nm">Rexel</span></div><div class="rank-row"><span class="num">2.</span><span class="nm">Sonepar</span></div><div class="rank-row"><span class="num">3.</span><span class="nm">RS Components</span></div><div class="rank-row"><span class="num">4.</span><span class="nm">Automation24</span></div><div class="rank-row"><span class="num">5.</span><span class="nm">Materiel</span></div><div class="rank-row"><span class="num">6.</span><span class="nm">Bis</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Motralec absente du classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-tag">Semaines</span><h3>Pousser les 5 pages « page 2 » en page 1</h3><p>Optimisation on-page ciblée sur condensateur, surpresseur eau, moteur électrique, leroy somer — le trafic le plus rapide à récupérer, les pages existent déjà.</p></div>
+      <div class="sol-card"><span class="sol-tag">Technique</span><h3>Diagnostiquer la chute de mots-clés</h3><p>Audit d'indexation sur les 16 500 pages : pages fines, quasi-doublons, budget de crawl. À croiser avec les données Search Console.</p></div>
+      <div class="sol-card"><span class="sol-tag">SEO + IA</span><h3>Enrichir guides + fiches produit</h3><p>FAQPage/HowTo sur les guides, Product/Offer/AggregateRating sur les fiches → rich snippets Google + éligibilité aux réponses IA.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Pousser les quick wins, diagnostiquer la chute, structurer pour l'IA — puis mesurer à nouveau.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Quick wins</div>
+        <h3>Pousser les pages page 2</h3>
+        <ul>
+          <li>Optimisation on-page des 5 pages identifiées (intention, Hn, maillage)</li>
+          <li>Diagnostic d'indexation sur le catalogue 16 500 pages</li>
+          <li>1er relevé de citation IA sur le panel de 10 prompts</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Contenu</div>
+        <h3>Structurer pour l'IA</h3>
+        <ul>
+          <li>FAQPage/HowTo sur les guides prioritaires</li>
+          <li>Product/Offer/AggregateRating sur les fiches produit phares</li>
+          <li>Correction des pages fines/dupliquées identifiées en T1</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Autorité</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu comparatif face aux 4 distributeurs identifiés</li>
+          <li>Renforcement E-E-A-T (auteur expert, avis, sources citées par l'IA)</li>
+          <li>2ᵉ relevé de citation IA pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Bilan</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline août 2026</li>
+          <li>Bilan trafic récupéré vs. objectif chiffré ensemble</li>
+          <li>Priorisation de l'année suivante</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investissement">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Investissement</span></div>
+    <h2>Un pilote à faible exposition</h2>
+    <p class="lead">On démarre petit et on prouve tôt — pas pour vendre du rêve.</p>
+    
+    <div class="invest">
+      <div class="invest-card">
+        <span class="invest-tag">Étape 1 · Dé-risquer</span>
+        <h3>Pilote « Quick wins & diagnostic »</h3>
+        <div class="sub">3 mois · porte de sortie après le mois 1</div>
+        <ul>
+          <li>Optimisation des 5 pages « page 2 » identifiées</li>
+          <li>Audit d'indexation sur le catalogue 16 500 pages</li>
+          <li>1er relevé de citation IA (10 prompts × 3 moteurs)</li>
+          <li>Point mensuel, chiffré</li>
+        </ul>
+      </div>
+      <div class="invest-card step2">
+        <span class="invest-tag">Étape 2 · Si le pilote convainc</span>
+        <h3>Accompagnement complet</h3>
+        <div class="sub">12 mois · suivi mensuel</div>
+        <ul>
+          <li>Contenu FAQPage/HowTo + Product/Offer sur les pages piliers</li>
+          <li>Correction continue des pages fines/dupliquées</li>
+          <li>Renforcement E-E-A-T et comparatifs face aux 4 distributeurs</li>
+          <li>Ré-audit SEO + GEO trimestriel</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cap" style="margin-top:14px">Tarif à caler ensemble selon le périmètre retenu.</p>
+    <div class="invest2">
+      <div class="roi-card exit">
+        <h3>Porte de sortie — Mois 1</h3>
+        <p>Si après le premier mois la méthode ou le feeling ne conviennent pas, on s'arrête, sans condition.</p>
+      </div>
+      <div class="roi-card roi">
+        <h3>L'équation ROI</h3>
+        <p>Un panier moyen B2B se compte en centaines à milliers d'euros par commande, cycle court. Face à ça, l'investissement SEO/GEO est modeste — et construit pour se rembourser sur quelques commandes récupérées.</p>
+      </div>
+    </div>
+    <div class="reco">
+      <h3>Ma recommandation (Nathan)</h3>
+      <p>Tu as déjà le plus dur : un guide qui rank en position 7 sur 74 000 recherches/mois, un profil de liens sain, une équipe qui publie déjà. Le pilote de 3 mois attaque les 5 pages « page 2 » — c'est le gain le plus rapide et le moins risqué, pas un pari. On regarde les chiffres à 90 jours, et tu décides pour la suite avec des faits, pas une promesse.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Pourquoi Décupler</span></div>
+    <h2>Le bon profil pour un SEO B2B technique</h2>
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Spécialiste B2B technique</h3><p>Catalogues denses, cycle de vente B2B, contenu produit — exactement le terrain de Motralec.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — vos concurrents ne s'en occupent pas encore.</p></div>
+      <div class="trust-card"><h3>Data, pas de jargon</h3><p>Chiffres vérifiables (Ubersuggest, appels API réels). Chaque mois : positions, trafic, citations IA.</p></div>
+      <div class="trust-card"><h3>Références industrie & tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo.</p></div>
+      <div class="trust-card"><h3>~1h/mois de votre côté</h3><p>Pensé pour tourner sans équipe marketing dédiée : un point mensuel, et on avance.</p></div>
+      <div class="trust-card"><h3>Humain + IA = production ×10</h3><p>Agents IA supervisés par un expert SEO. Plus de contenu technique publié, budget maîtrisé.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On priorise ça ensemble ?</h3>
+      <p>Cette analyse pose les faits : où vous en êtes, et le chemin réaliste pour récupérer le trafic perdu. 20 minutes pour valider les 5 pages « page 2 » et lancer le pilote.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver un créneau</a>
+        <a href="mailto:fenina.nathan@gmail.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Analyse préparée pour Motralec · France · Août 2026</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur SEO AI Systems™</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Analyse confidentielle pour Motralec · SEO : Ubersuggest (appels réels) · GEO : ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>
