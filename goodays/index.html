@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Cartographie GEO express · Goodays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:820px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:56px 0 30px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
+section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
+.chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
+.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+tr:last-child td{border-bottom:none}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
+.quote .who{font-family:var(--mono);font-size:10px;color:var(--muted);font-style:normal;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-icon{font-size:1.1rem;margin-bottom:8px;display:block}
+.sol-card h3{font-size:.92rem;margin-bottom:5px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Cartographie GEO express</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Cartographie GEO express · préparé pour Laura</div>
+    <h1>Un rebrand pas encore digéré par toutes les IA</h1>
+    <p class="hero-sub">ChatGPT ne cite Goodays que sous son ancien nom (Critizr), jamais sous son nom actuel — quand Gemini vous positionne en tête, avec vos clients réels nommés (Carrefour, Decathlon, Monoprix, H&M).</p>
+  </div>
+</header>
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Diagnostic SEO</span></div>
+    <h2>Ce que capte Goodays aujourd'hui sur Google</h2>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v gold">45<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v ">1 482</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v">256 304</div><div class="k">Backlinks · 1 096 domaines référents</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="preuve">
+  <div class="wrap">
+    <div class="chap"><span class="kk">La preuve</span></div>
+    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
+    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
+        <tbody><tr><td>Quelles sont les meilleures plateformes de gestion de l'expérience client et des avis clients pour les enseignes de retail physique en France ?</td><td><span class="absent">absente</span></td><td><span class="cited">citée</span></td></tr></tbody>
+      </table>
+    </div>
+    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
+    
+    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>"Critizr : spécialisée dans le retail, se concentre sur le lien direct entre les clients et les équipes en magasin" — jamais mentionnée sous le nom Goodays.</div>
+    <div class="quote"><span class="who">Gemini</span>"Goodays (ex-Critizr) – Le leader de l'interaction client-magasin (...) Clients type : Carrefour, Decathlon, Monoprix, H&M."</div>
+  </div>
+</section>
+
+<section id="vitesse">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Check vitesse</span></div>
+    <h2>Performance mobile (PageSpeed Insights)</h2>
+    
+    <div class="tiles" style="grid-template-columns:1fr">
+      <div class="tile"><div class="v good">89<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
+    </div>
+    <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="chap"><span class="kk">3 opportunités</span></div>
+    <h2>Par où commencer</h2>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Partoo se creuse vraiment.</p></div>
+      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
+      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On en discute ?</h3>
+      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
+        <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Mesure probabiliste sur panel constant — aucune garantie de position, citation ou vente. Réponses génératives, elles varient dans le temps.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Goodays · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+  </div>
+</footer>
+
+</body>
+</html>
