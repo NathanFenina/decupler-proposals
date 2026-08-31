@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO express · Bugali</title>
+<title>Décupler · Cartographie GEO express · Bugali</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,11 +22,11 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:820px;
+  --maxw:780px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
   background-attachment:fixed;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -40,42 +40,57 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:56px 0 30px}
+.hero{padding:52px 0 28px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
-section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
-.chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-.chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
+.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
+.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
 .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
-.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
-.quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
-.quote .who{font-family:var(--mono);font-size:10px;color:var(--muted);font-style:normal;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
-.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
 .sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.sol-icon{font-size:1.1rem;margin-bottom:8px;display:block}
-.sol-card h3{font-size:.92rem;margin-bottom:5px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
 .sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
 .pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
@@ -104,65 +119,62 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO express · préparé pour Ludivine</div>
+    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Ludivine</div>
     <h1>Trafic effondré et absence totale, sur un marché que l'IA connaît par cœur</h1>
     <p class="hero-sub">Trafic organique tombé à 0 visite/mois (contre ~2 000/mois il y a un an) et absence totale des 2 IA — Gemini cartographie pourtant le marché français en détail (Lunii, Yoto, Toniebox, Merlin, Bookinou) sans jamais vous citer.</p>
+    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
   </div>
 </header>
 
+
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="chap"><span class="kk">Diagnostic SEO</span></div>
-    <h2>Ce que capte Bugali aujourd'hui sur Google</h2>
+    <div class="secnum"><span class="n">01</span><h2>De 2 000 visites par mois à zéro</h2></div>
+    <p class="lead">Août-septembre 2025 : environ 2 000 visites/mois. Aujourd'hui : 0 mot-clé indexé, 0 visite. Le site a disparu de l'index Google — ce n'est pas un déclin progressif, c'est une coupure nette.</p>
     
     <div class="tiles">
-      <div class="tile"><div class="v gold">30<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v crit">0</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v gold">30<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+      <div class="tile"><div class="v crit">0</div><div class="k">Visites organiques/mois</div></div>
       <div class="tile"><div class="v">300</div><div class="k">Backlinks · 102 domaines référents</div></div>
     </div>
+    
+    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge crit">47/100 · lent</span></p>
   </div>
 </section>
 
-<section id="preuve">
+<section id="visibilite">
   <div class="wrap">
-    <div class="chap"><span class="kk">La preuve</span></div>
-    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
-    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
+    <div class="secnum"><span class="n">02</span><h2>L'IA connaît le marché français par cœur — sans vous</h2></div>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">"1. Lunii – La Fabrique à Histoires (Le grand classique)... 2. Yoto... 3. Toniebox..." — 6 marques françaises du marché détaillées, Bugali absente.</p>
+    </div>
+    <p class="postquote">ChatGPT, lui, ne connaît même pas le marché français réel : il liste des marques américaines génériques (LeapFrog, VTech, Fisher-Price). Aucune des deux IA ne mentionne Bugali.</p>
+    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
+    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · Gemini — classement complet</p><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">Lunii</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">Yoto Player / Yoto Mini</span></div><div class="rank-row"><img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3OjouLzdLREI4QzQ5OisBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc1LTUrNzU3NTU1KzUtNzIxLTU1NTc1K//AABEIACAAIAMBEQACEQEDEQH/xAAbAAABBAMAAAAAAAAAAAAAAAAHAgMECAAFBv/EAC4QAAIBAwIDBQgDAAAAAAAAAAECAwQFEQASBiFhMXF0obIHEzZBVIGRsRQyUf/EABsBAAEEAwAAAAAAAAAAAAAAAAABBQYHAgME/8QAKREAAgIBAQcCBwAAAAAAAAAAAQIAAxEEBRIhMTI0QXGxBhRRYXLB8P/aAAwDAQACEQMRAD8A4fTTLTj9TSz0pjFRC8RkjEiBlI3KRybqOujBHOa67EszunOOEk2Sz1l8r0o6CLfI3Mk/1Rf9PTSohY4E1arVV6asvYeH9yjV1onttyqaGV1Z6eVoyy5wSD26CN0kTPT3C6pbB5GYigpZK+up6ODHvZ5FjTPZljgfvSBd44mV1gqraxuQGYf73wha75Q0dLXK4NKoSOSIhWAAxjODy5dmnJ6lcAGV/pto36Z2evz9ZI4c4ct3DtK0FujYbzl5JCC795xpa61QcJr1etu1b71hgK4z+Lbv4yT1HTdb1tJ3s3tKvQRHCBA4qtBP1kXqGivrEXaPaWfifaWGq6v+LsLwTPGchnjTfs7wOf4B66cycSu0r384Iz94qlrYqvd7kS4XHN4WQHu3AZ0A5g9ZTn7j9SvXGnxZd/GSeo6bLOtpYezuzr9BNRFI8MqSxOVkjYMrDtBB5eesZ1soYEHkYQ6b2tXOOFVqLfTTSAYMgdl3dca6BqW8iR5/hyknKuQJlT7WrnJCywW6licjAcuzbft89HzLeBBPhykHLOSIPZ5pKiaSeZy8kjF3ZvmSefnrnkhRAihVHAT/2Q==" alt=""><span class="num">3.</span><span class="nm">Toniebox de Tonies</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Merlin</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Bookinou</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">La Conteuse Merveilleuse (Joyuse)</span></div></div>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
       <table>
-        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
-        <tbody><tr><td>Quelles sont les meilleures tablettes sans écran pour enfants ?</td><td><span class="absent">absente</span></td><td><span class="absent">absente</span></td></tr></tbody>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Bugali (vous)</td><td>30</td><td>0</td><td>300</td></tr><tr><td>Lunii</td><td>50</td><td>21 861</td><td>79 137</td></tr><tr><td>Yoto</td><td>53</td><td>661</td><td>28 622</td></tr><tr><td>Tonies</td><td>56</td><td>787 255</td><td>92 570</td></tr></tbody>
       </table>
     </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
-    
-    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>Liste des marques américaines génériques (LeapFrog, VTech, Fisher-Price) — ni le marché français réel, ni Bugali.</div>
-    <div class="quote"><span class="who">Gemini</span>"1. Lunii – La Fabrique à Histoires (Le grand classique)... 2. Yoto... 3. Toniebox..." — 6 marques françaises du marché détaillées, Bugali absente.</div>
+    <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Bugali arrive en position 4 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
   </div>
 </section>
 
-<section id="vitesse">
+<section id="actions">
   <div class="wrap">
-    <div class="chap"><span class="kk">Check vitesse</span></div>
-    <h2>Performance mobile (PageSpeed Insights)</h2>
-    
-    <div class="tiles" style="grid-template-columns:1fr">
-      <div class="tile"><div class="v crit">47<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
-    </div>
-    <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
-  </div>
-</section>
-
-<section id="opportunites">
-  <div class="wrap">
-    <div class="chap"><span class="kk">3 opportunités</span></div>
-    <h2>Par où commencer</h2>
-    <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Lunii se creuse vraiment.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
-    </div>
+    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Urgence absolue</span><h3>Diagnostic technique immédiat</h3><p>Vérifier pourquoi le site a disparu de l'index Google — priorité avant tout autre chantier, y compris le contenu.</p></div><div class="sol-card"><span class="sol-tag">Une fois réindexé</span><h3>Se positionner sur le marché français réel</h3><p>Celui que Gemini détaille déjà (Lunii, Yoto, Toniebox) — pas la catégorie générique que voit ChatGPT.</p></div><div class="sol-card"><span class="sol-tag">Mesure</span><h3>Re-tester après résolution technique</h3><p>Confirmer le retour dans l'index avant d'investir en contenu.</p></div></div>
   </div>
 </section>
 
@@ -170,8 +182,8 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
-      <h3>On en discute ?</h3>
-      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <h3>On priorise ça ensemble ?</h3>
+      <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -183,7 +195,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Bugali · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Bugali · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
   </div>
 </footer>
 

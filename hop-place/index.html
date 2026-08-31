@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO · Hop-place</title>
+<title>Décupler · Cartographie GEO express · Hop-place</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,11 +22,11 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:860px;
+  --maxw:780px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
   background-attachment:fixed;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -40,17 +40,18 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:56px 0 30px}
+.hero{padding:52px 0 28px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:66ch;color:var(--body)}
-section{padding:40px 0;border-top:1px solid var(--line);background:var(--bg)}
-.chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-.chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:68ch;color:var(--body);margin-bottom:20px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
+.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
+.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
@@ -62,8 +63,8 @@ section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
 .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
-.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
 td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
@@ -71,13 +72,25 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
-.quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
-.quote .who{font-family:var(--mono);font-size:10px;color:var(--muted);font-style:normal;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
-.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
 .sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.sol-icon{font-size:1.1rem;margin-bottom:8px;display:block}
-.sol-card h3{font-size:.92rem;margin-bottom:5px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
 .sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
 .pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
@@ -93,36 +106,6 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
 .cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
-/* v2 additions */
-.sommaire{display:flex;flex-wrap:wrap;gap:8px 18px}
-.sommaire a{font-family:var(--mono);font-size:11.5px;color:var(--body);border-bottom:1px dotted var(--line2);padding-bottom:1px}
-.sommaire a:hover{color:var(--gold)}
-.meth{font-size:.87rem;color:var(--body);line-height:1.65}
-.meth ul{margin:10px 0 0 18px}
-.meth li{margin-bottom:4px}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-@media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.board-cell .eng{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px;display:block}
-.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:18px 20px;margin-bottom:12px}
-.geo-card .pr{font-size:.86rem;color:var(--ink);font-weight:600;margin-bottom:10px}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
-.rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
-.rank-row.self .nm{font-weight:700;color:var(--gold)}
-.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media (max-width:760px){.roadmap{grid-template-columns:1fr 1fr}}
-.rm-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.rm-card .t{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
-.rm-card h3{font-size:.9rem;margin-bottom:6px}
-.rm-card p{font-size:.8rem;color:var(--body);line-height:1.5}
-.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-@media (max-width:700px){.trust{grid-template-columns:1fr}}
-.trust-card{padding:14px 4px}
-.trust-card h3{font-size:.92rem;margin-bottom:6px}
-.trust-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 
@@ -130,68 +113,58 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 <nav>
   <div class="navrow">
     <div class="brand"><span class="decupler">Décupler</span></div>
-    <div class="navtag">Cartographie GEO</div>
+    <div class="navtag">Cartographie GEO express</div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO · préparé pour Guillaume</div>
+    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Guillaume</div>
     <h1>Un marché de niche déjà cartographié par l'IA, sans vous</h1>
     <p class="hero-sub">Absente des 2 IA — ATAL est nommé "le leader incontournable en France" par Gemini, avec un classement détaillé par taille de collectivité qui ne mentionne jamais Hop-place.</p>
-    
-    <div class="sommaire">
-      <a href="#diagnostic">Diagnostic</a><a href="#benchmark">Benchmark</a><a href="#visibilite">Visibilité IA</a>
-      <a href="#opportunites">Opportunités</a><a href="#roadmap">Roadmap</a><a href="#pourquoi">Pourquoi Décupler</a>
-    </div>
+    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
   </div>
 </header>
 
-<section id="methodologie" style="padding-top:26px">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Méthodologie</span></div>
-    <h2>D'où viennent ces chiffres</h2>
-    
-    <p class="meth">Cette cartographie combine deux couches de données réelles, aucune ne provient d'une estimation ou d'une extrapolation :</p>
-    <ul class="meth">
-      <li><strong>SEO</strong> — Ubersuggest : autorité de domaine, trafic organique, backlinks, mots-clés indexés.</li>
-      <li><strong>GEO</strong> — 5 prompts de découverte neutres (jamais la marque nommée) × 3 moteurs IA (ChatGPT, Claude, Gemini), appels API réels et horodatés.</li>
-      <li><strong>Performance</strong> — Google PageSpeed Insights, score réel sur la page d'accueil.</li>
-    </ul>
-  </div>
-</section>
 
-<section id="diagnostic">
+<section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="chap"><span class="kk">Diagnostic SEO</span></div>
-    <h2>Ce que capte Hop-place aujourd'hui sur Google</h2>
+    <div class="secnum"><span class="n">01</span><h2>Le trafic s'est effondré en un mois</h2></div>
+    <p class="lead">384 visites en juin, 34 en juillet — une chute de 91% en 30 jours. Autorité de domaine 14/100, 15 mots-clés indexés au total. Sur un marché de niche (GMAO collectivités), c'est un signal d'alarme technique, pas une baisse de tendance normale.</p>
     
     <div class="tiles">
-      <div class="tile"><div class="v gold">14<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v crit">34</div><div class="k">Visites organiques estimées/mois</div></div>
+      <div class="tile"><div class="v gold">14<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+      <div class="tile"><div class="v crit">34</div><div class="k">Visites organiques/mois</div></div>
       <div class="tile"><div class="v">295</div><div class="k">Backlinks · 99 domaines référents</div></div>
     </div>
     
-    <div class="scroller" style="margin-top:14px">
+    <div class="scroller">
       <table>
         <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
         <tbody><tr><td>cahier des charges gmao</td><td>40</td><td>8</td></tr><tr><td>services techniques municipaux</td><td>30</td><td>10</td></tr></tbody>
       </table>
     </div>
-    <div class="note warn"><span class="h">Ce que ça veut dire</span>Empreinte SEO quasi nulle (15 mots-clés, DA14) : chute de 384 à 34 visites/mois entre juin et juillet.</div>
-    <h3 style="font-size:.88rem;margin:24px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Performance mobile</h3>
-    
-    <div class="tiles" style="grid-template-columns:1fr;margin-top:14px">
-      <div class="tile"><div class="v gold">58<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
+    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge warn">58/100 · moyen</span></p>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><h2>ATAL cartographie le marché à votre place</h2></div>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">"ATAL (par Berger-Levrault) — Profil : Le leader incontournable en France pour les collectivités de toutes tailles."</p>
     </div>
-    <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
+    <p class="postquote">ChatGPT liste 8 logiciels concurrents (Carl Source, INFOR EAM, DIMO Maint, IBM Maximo, Siveco, eMaint, Ultimo, Hetmi) — Hop-place absente des deux réponses.</p>
+    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
+    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Carl Source</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">INFOR EAM</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">DIMO Maint</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">IBM Maximo</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Siveco CMMS</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">eMaint</span></div></div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="chap"><span class="kk">Benchmark</span></div>
-    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
@@ -200,66 +173,14 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr class="self"><td>Hop-place (vous)</td><td>14</td><td>34</td><td>295</td></tr><tr><td>Bob Desk</td><td>17</td><td>221</td><td>795</td></tr><tr><td>Altair Enterprise</td><td>14</td><td>0</td><td>170</td></tr></tbody>
       </table>
     </div>
-    <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Hop-place arrive en position 2 en trafic organique. Le terrain SEO existe pour appuyer une stratégie GEO.</div>
+    <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Hop-place arrive en position 2 en trafic organique. Le terrain SEO existe pour appuyer une remontée dans les réponses IA.</div>
   </div>
 </section>
 
-<section id="visibilite">
+<section id="actions">
   <div class="wrap">
-    <div class="chap"><span class="kk">Visibilité IA</span></div>
-    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
-    <p class="lead">5 questions neutres de découverte, jamais la marque nommée, posées en appels API réels le 31/08/2026.</p>
-    
-    <div class="tiles">
-      <div class="tile"><div class="v crit">0/15</div><div class="k">Citations sur 15 réponses IA testées (5 prompts × 3 moteurs)</div></div>
-      <div class="tile"><div class="v crit">—</div><div class="k">Position moyenne quand cité</div></div>
-      <div class="tile"><div class="v">2</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
-    </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Tableau complet — 5 prompts × 3 moteurs</h3>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
-    <h3 style="font-size:.88rem;margin:24px 0 10px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Classement réel dans les réponses</h3>
-    <div class="geo-card"><div class="pr">P1 · ChatGPT — "Quels sont les meilleurs logiciels de GMAO pour les collectivités et services techniques m…"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Carl Source</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">INFOR EAM</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">DIMO Maint</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">IBM Maximo</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Siveco CMMS</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">eMaint</span></div></div><div class="geo-card"><div class="pr">P2 · Gemini — "Quel logiciel GMAO choisir pour une petite commune ?"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">MaintainX</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Pourquoi le choisir</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Prix</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Organilog</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">5.</span><span class="nm">Bob Desk</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">OpenMairie</span></div></div>
-    <div class="note crit"><span class="h">Petite note</span>Hop-place n'apparaît dans aucune des 15 réponses testées — le terrain GEO est totalement ouvert, mais aussi totalement absent.</div>
-  </div>
-</section>
-
-<section id="opportunites">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Opportunités</span></div>
-    <h2>Par où commencer</h2>
-    
-    <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Combler le vide sémantique</h3><p>Seulement 15 mots-clés indexés — prioriser 10-15 pages sur les requêtes de découverte de la catégorie, avant même de penser citation IA.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où la légitimité produit est la plus forte, dans un format que les IA peuvent citer directement (définitions, comparatifs, données chiffrées).</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Score PageSpeed correct — un point à surveiller mais pas la priorité actuelle.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Roadmap 12 mois</span></div>
-    <h2>Trajectoire proposée</h2>
-    
-    <div class="roadmap">
-      <div class="rm-card"><div class="t">T1</div><h3>Fondations</h3><p>Cartographie complète des mots-clés de catégorie (pas 1, un panel) + audit technique/vitesse.</p></div>
-      <div class="rm-card"><div class="t">T2</div><h3>Contenu</h3><p>Publication des pages prioritaires sur les requêtes de découverte identifiées en Diagnostic.</p></div>
-      <div class="rm-card"><div class="t">T3</div><h3>GEO</h3><p>Re-mesure du panel de prompts × 3 IA pour suivre l'évolution de la citation, ajustement du contenu.</p></div>
-      <div class="rm-card"><div class="t">T4</div><h3>Consolidation</h3><p>Backlinks ciblés sur les pages qui convertissent, bilan chiffré vs. l'état actuel.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="pourquoi">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Pourquoi Décupler</span></div>
-    <h2>Ce qui change avec nous</h2>
-    
-    <div class="trust">
-      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
-      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — vous pouvez vérifier chaque citation vous-même.</p></div>
-      <div class="trust-card"><h3>Actif vivant, pas un PDF</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
-    </div>
+    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Urgence technique</span><h3>Diagnostiquer la chute de trafic</h3><p>Désindexation, erreur technique, pénalité — identifier la cause avant tout travail de contenu.</p></div><div class="sol-card"><span class="sol-tag">Positionnement</span><h3>Cibler un segment qu'ATAL couvre mal</h3><p>Petites communes, budgets serrés — un angle où le "leader incontournable" est moins pertinent.</p></div><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Comparatif "GMAO petites collectivités"</h3><p>Pour exister dans les réponses IA sur un segment précis, pas la catégorie large.</p></div></div>
   </div>
 </section>
 
@@ -267,8 +188,8 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
-      <h3>On en discute ?</h3>
-      <p>Cette cartographie pose les faits, pas une promesse. 20 min pour prioriser ça — elle est à vous, gratuitement.</p>
+      <h3>On priorise ça ensemble ?</h3>
+      <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -280,7 +201,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO pour Hop-place · SEO : Ubersuggest · GEO : ChatGPT/Claude/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Hop-place · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
   </div>
 </footer>
 

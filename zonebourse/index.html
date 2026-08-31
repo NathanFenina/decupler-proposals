@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO express · Zonebourse</title>
+<title>Décupler · Cartographie GEO express · Zonebourse</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,11 +22,11 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:820px;
+  --maxw:780px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
   background-attachment:fixed;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -40,42 +40,57 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:56px 0 30px}
+.hero{padding:52px 0 28px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
-section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
-.chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-.chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
+.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
+.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
 .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
-.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
-.quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
-.quote .who{font-family:var(--mono);font-size:10px;color:var(--muted);font-style:normal;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
-.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
 .sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.sol-icon{font-size:1.1rem;margin-bottom:8px;display:block}
-.sol-card h3{font-size:.92rem;margin-bottom:5px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
 .sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
 .pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
@@ -104,65 +119,68 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO express · préparé pour Maxime</div>
+    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Maxime</div>
     <h1>Bien citée, mais un site qui ralentit 382 000 visiteurs/mois</h1>
     <p class="hero-sub">Citée par les 2 IA (Boursorama reste n°1, vous êtes cité n°2 pour l'analyse fondamentale) — mais votre site charge en 13,4 secondes sur mobile (score PageSpeed 43/100), sur 382 000 visites/mois.</p>
+    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
   </div>
 </header>
 
+
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="chap"><span class="kk">Diagnostic SEO</span></div>
-    <h2>Ce que capte Zonebourse aujourd'hui sur Google</h2>
+    <div class="secnum"><span class="n">01</span><h2>382 000 visites par mois, un site qui charge en 13,4 secondes</h2></div>
+    <p class="lead">Autorité de domaine 76/100, 76 millions de backlinks — un profil massif. Mais le score PageSpeed mobile est de 43/100, et le trafic organique recule : 1,24M de visites/mois en février, 518 000 en juillet.</p>
     
     <div class="tiles">
-      <div class="tile"><div class="v gold">76<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v ">382 233</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v gold">76<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+      <div class="tile"><div class="v ">382 233</div><div class="k">Visites organiques/mois</div></div>
       <div class="tile"><div class="v">76 035 621</div><div class="k">Backlinks · 22 617 domaines référents</div></div>
     </div>
-  </div>
-</section>
-
-<section id="preuve">
-  <div class="wrap">
-    <div class="chap"><span class="kk">La preuve</span></div>
-    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
-    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
     
     <div class="scroller">
       <table>
-        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
-        <tbody><tr><td>Quels sont les meilleurs sites pour suivre les cours de bourse et l'actualité financière en France ?</td><td><span class="cited">citée</span></td><td><span class="cited">citée</span></td></tr></tbody>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
+        <tbody><tr><td>cours ing</td><td>2 900</td><td>5</td></tr><tr><td>imerys company</td><td>5 400</td><td>37</td></tr><tr><td>actu bourse</td><td>40</td><td>1</td></tr><tr><td>boursorama bourse</td><td>590</td><td>22</td></tr></tbody>
       </table>
     </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
-    
-    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>"Zonebourse — Ce site est très utilisé par les investisseurs pour sa combinaison de nouvelles financières, d'analyses de marché et de forums..."</div>
-    <div class="quote"><span class="who">Gemini</span>"Zonebourse — Le + : L'analyse fondamentale et la qualité des données financières. (...) leurs outils de sélection d'actions (screeners) et leurs articles d'analyse sont d'excellente qualité."</div>
+    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge crit">43/100 · lent</span></p>
   </div>
 </section>
 
-<section id="vitesse">
+<section id="visibilite">
   <div class="wrap">
-    <div class="chap"><span class="kk">Check vitesse</span></div>
-    <h2>Performance mobile (PageSpeed Insights)</h2>
-    
-    <div class="tiles" style="grid-template-columns:1fr">
-      <div class="tile"><div class="v crit">43<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
+    <div class="secnum"><span class="n">02</span><h2>Bien citée — juste derrière Boursorama</h2></div>
+    <div class="quotecard">
+      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
+      <p class="q">"Zonebourse — Ce site est très utilisé par les investisseurs pour sa combinaison de nouvelles financières, d'analyses de marché et de forums..."</p>
     </div>
-    <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
+    <p class="postquote">Gemini confirme et précise votre différenciateur : "Le + : L'analyse fondamentale et la qualité des données financières (...) leurs outils de sélection d'actions (screeners) sont d'excellente qualité."</p>
+    <p class="cap" style="margin-top:20px">Preuve complète — 5/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="cited">✓ cité #4</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="cited">✓ cité #4</span></div></div>
+    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">1.</span><span class="nm">Boursorama</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">Investing.com</span></div><div class="rank-row self"><span class="num">3.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Yahoo Finance</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Bloomberg</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">La Tribune</span></div></div>
   </div>
 </section>
 
-<section id="opportunites">
+<section id="benchmark">
   <div class="wrap">
-    <div class="chap"><span class="kk">3 opportunités</span></div>
-    <h2>Par où commencer</h2>
-    <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Boursorama se creuse vraiment.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
+    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Zonebourse (vous)</td><td>76</td><td>382 233</td><td>76 035 621</td></tr><tr><td>Boursorama</td><td>83</td><td>8 312 174</td><td>5 872 979</td></tr><tr><td>Investing.com</td><td>91</td><td>10 379 631</td><td>27 189 938</td></tr></tbody>
+      </table>
     </div>
+    <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Zonebourse arrive en position 3 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+  </div>
+</section>
+
+<section id="actions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Priorité</span><h3>Diagnostic de performance mobile</h3><p>13,4s → cible sous 4s. À cette échelle (382k visites/mois), chaque seconde gagnée a un impact direct mesurable.</p></div><div class="sol-card"><span class="sol-tag">Renforcement</span><h3>Capitaliser sur "l'analyse fondamentale"</h3><p>Différenciateur déjà reconnu par les deux IA — à structurer en contenu citable pour verrouiller la place.</p></div><div class="sol-card"><span class="sol-tag">Diagnostic parallèle</span><h3>Investiguer la baisse de trafic</h3><p>-58% en 6 mois — à croiser avec les données Search Console pour identifier la cause.</p></div></div>
   </div>
 </section>
 
@@ -170,8 +188,8 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
-      <h3>On en discute ?</h3>
-      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <h3>On priorise ça ensemble ?</h3>
+      <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -183,7 +201,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Zonebourse · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Zonebourse · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
   </div>
 </footer>
 

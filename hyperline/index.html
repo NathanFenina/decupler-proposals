@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO express · Hyperline</title>
+<title>Décupler · Cartographie GEO express · Hyperline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,11 +22,11 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:820px;
+  --maxw:780px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
   background-attachment:fixed;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -40,42 +40,57 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:56px 0 30px}
+.hero{padding:52px 0 28px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
-section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
-.chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-.chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
+.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
+.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
 .note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
-.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
-.quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
-.quote .who{font-family:var(--mono);font-size:10px;color:var(--muted);font-style:normal;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:block}
-.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
 .sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.sol-icon{font-size:1.1rem;margin-bottom:8px;display:block}
-.sol-card h3{font-size:.92rem;margin-bottom:5px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
 .sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
 .pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
@@ -104,65 +119,68 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO express · préparé pour Quentin</div>
+    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Quentin</div>
     <h1>Absente sur sa niche exacte, pas juste sur la catégorie large</h1>
     <p class="hero-sub">Absente des 2 IA sur sa niche exacte (usage-based billing B2B) — Gemini cite en détail Orb, Metronome et Lago comme "Modern Usage-First Infrastructure", la catégorie même où se positionne Hyperline.</p>
+    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
   </div>
 </header>
 
+
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="chap"><span class="kk">Diagnostic SEO</span></div>
-    <h2>Ce que capte Hyperline aujourd'hui sur Google</h2>
+    <div class="secnum"><span class="n">01</span><h2>Le trafic a chuté de 68% en un mois</h2></div>
+    <p class="lead">1 359 visites en juin, 429 en juillet. Autorité de domaine 28/100, 726 mots-clés indexés dont la plupart sur des glossaires génériques ("recurring revenue", "pricing change") plutôt que sur la catégorie produit.</p>
     
     <div class="tiles">
-      <div class="tile"><div class="v gold">28<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v ">429</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v gold">28<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+      <div class="tile"><div class="v warn">429</div><div class="k">Visites organiques/mois</div></div>
       <div class="tile"><div class="v">2 876</div><div class="k">Backlinks · 507 domaines référents</div></div>
     </div>
-  </div>
-</section>
-
-<section id="preuve">
-  <div class="wrap">
-    <div class="chap"><span class="kk">La preuve</span></div>
-    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
-    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
     
     <div class="scroller">
       <table>
-        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
-        <tbody><tr><td>What are the best subscription billing platforms for B2B SaaS companies with complex usage-based pricing?</td><td><span class="absent">absente</span></td><td><span class="absent">absente</span></td></tr></tbody>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
+        <tbody><tr><td>hyperline</td><td>480</td><td>1</td></tr><tr><td>pricing change</td><td>1 300</td><td>8</td></tr><tr><td>recurring revenue</td><td>880</td><td>9</td></tr></tbody>
       </table>
     </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
-    
-    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>Liste 8 plateformes (Zuora, Chargebee, Recurly, Chargify/Maxio, Stripe Billing, Aria Systems, SAP, SaaSOptics) — Hyperline absente.</div>
-    <div class="quote"><span class="who">Gemini</span>"Category 1: Modern Usage-First Infrastructure (...) Orb (...) Metronome (...) Lago" — exactement le segment de Hyperline, jamais mentionnée.</div>
+    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge warn">68/100 · moyen</span></p>
   </div>
 </section>
 
-<section id="vitesse">
+<section id="visibilite">
   <div class="wrap">
-    <div class="chap"><span class="kk">Check vitesse</span></div>
-    <h2>Performance mobile (PageSpeed Insights)</h2>
-    
-    <div class="tiles" style="grid-template-columns:1fr">
-      <div class="tile"><div class="v gold">68<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
+    <div class="secnum"><span class="n">02</span><h2>Absente sur sa niche exacte — pas juste la catégorie large</h2></div>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">"Category 1: Modern Usage-First Infrastructure (...) Orb (...) Metronome (...) Lago" — exactement le segment de Hyperline, jamais mentionnée.</p>
     </div>
-    <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
+    <p class="postquote">ChatGPT liste 8 plateformes généralistes (Zuora, Chargebee, Recurly, Chargify, Stripe Billing, Aria Systems, SAP, SaaSOptics) — Hyperline absente aussi de cette liste plus large.</p>
+    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
+    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Zuora</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Chargebee</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Recurly</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Chargify</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Stripe Billing</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Aria Systems</span></div></div>
   </div>
 </section>
 
-<section id="opportunites">
+<section id="benchmark">
   <div class="wrap">
-    <div class="chap"><span class="kk">3 opportunités</span></div>
-    <h2>Par où commencer</h2>
-    <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Orb se creuse vraiment.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
+    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Hyperline (vous)</td><td>28</td><td>429</td><td>2 876</td></tr><tr><td>Orb</td><td>33</td><td>12 261</td><td>6 610</td></tr><tr><td>Metronome</td><td>38</td><td>2 060</td><td>8 030</td></tr><tr><td>Lago</td><td>33</td><td>5 345</td><td>36 188</td></tr></tbody>
+      </table>
     </div>
+    <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Hyperline arrive en position 4 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+  </div>
+</section>
+
+<section id="actions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Page "usage-based billing B2B SaaS"</h3><p>Positionnée exactement sur le segment cité par Gemini (Orb/Metronome/Lago), pas la catégorie billing générale.</p></div><div class="sol-card"><span class="sol-tag">Urgence</span><h3>Diagnostiquer la chute juin→juillet</h3><p>-68% en un mois mérite une vérification technique avant tout travail de contenu.</p></div><div class="sol-card"><span class="sol-tag">Comparatif</span><h3>Hyperline vs Orb/Metronome/Lago</h3><p>Avec specs réelles — pour entrer dans le comparatif que Gemini construit déjà sans vous.</p></div></div>
   </div>
 </section>
 
@@ -170,8 +188,8 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
   <div class="wrap">
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
-      <h3>On en discute ?</h3>
-      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <h3>On priorise ça ensemble ?</h3>
+      <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -183,7 +201,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Hyperline · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Hyperline · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
   </div>
 </footer>
 
