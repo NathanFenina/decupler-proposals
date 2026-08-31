@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO express · Emersya</title>
+<title>Cartographie GEO · Emersya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:820px;
+  --maxw:860px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -44,12 +44,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
 .hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
-section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
+.hero-sub{font-size:1rem;max-width:66ch;color:var(--body)}
+section{padding:40px 0;border-top:1px solid var(--line);background:var(--bg)}
 .chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
 .chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
+.lead{font-size:.95rem;max-width:68ch;color:var(--body);margin-bottom:20px}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
@@ -57,7 +57,7 @@ section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
@@ -65,8 +65,10 @@ section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
 .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
 .quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
@@ -91,6 +93,36 @@ tr:last-child td{border-bottom:none}
 .cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
 .cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+/* v2 additions */
+.sommaire{display:flex;flex-wrap:wrap;gap:8px 18px}
+.sommaire a{font-family:var(--mono);font-size:11.5px;color:var(--body);border-bottom:1px dotted var(--line2);padding-bottom:1px}
+.sommaire a:hover{color:var(--gold)}
+.meth{font-size:.87rem;color:var(--body);line-height:1.65}
+.meth ul{margin:10px 0 0 18px}
+.meth li{margin-bottom:4px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.board-cell .eng{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px;display:block}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:18px 20px;margin-bottom:12px}
+.geo-card .pr{font-size:.86rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:760px){.roadmap{grid-template-columns:1fr 1fr}}
+.rm-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.rm-card .t{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
+.rm-card h3{font-size:.9rem;margin-bottom:6px}
+.rm-card p{font-size:.8rem;color:var(--body);line-height:1.5}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.92rem;margin-bottom:6px}
+.trust-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 
@@ -98,70 +130,135 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 <nav>
   <div class="navrow">
     <div class="brand"><span class="decupler">Décupler</span></div>
-    <div class="navtag">Cartographie GEO express</div>
+    <div class="navtag">Cartographie GEO</div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO express · préparé pour Patrice</div>
+    <div class="eyebrow">Cartographie GEO · préparé pour Patrice</div>
     <h1>Un concurrent verrouille la recommandation n°1 partout</h1>
     <p class="hero-sub">Absente des 2 IA — Threekit est cité en position n°1 par ChatGPT ET Gemini (seul acteur mentionné par les deux), verrouillant la recommandation par défaut sur ce marché.</p>
+    
+    <div class="sommaire">
+      <a href="#diagnostic">Diagnostic</a><a href="#benchmark">Benchmark</a><a href="#visibilite">Visibilité IA</a>
+      <a href="#opportunites">Opportunités</a><a href="#roadmap">Roadmap</a><a href="#pourquoi">Pourquoi Décupler</a>
+    </div>
   </div>
 </header>
 
-<section id="diagnostic" style="padding-top:30px">
+<section id="methodologie" style="padding-top:26px">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Méthodologie</span></div>
+    <h2>D'où viennent ces chiffres</h2>
+    
+    <p class="meth">Cette cartographie combine deux couches de données réelles, aucune ne provient d'une estimation ou d'une extrapolation :</p>
+    <ul class="meth">
+      <li><strong>SEO</strong> — Ubersuggest : autorité de domaine, trafic organique, backlinks, mots-clés indexés.</li>
+      <li><strong>GEO</strong> — 5 prompts de découverte neutres (jamais la marque nommée) × 3 moteurs IA (ChatGPT, Claude, Gemini), appels API réels et horodatés.</li>
+      <li><strong>Performance</strong> — Google PageSpeed Insights, score réel sur la page d'accueil.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="diagnostic">
   <div class="wrap">
     <div class="chap"><span class="kk">Diagnostic SEO</span></div>
     <h2>Ce que capte Emersya aujourd'hui sur Google</h2>
     
     <div class="tiles">
       <div class="tile"><div class="v gold">33<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v ">469</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">469</div><div class="k">Visites organiques estimées/mois</div></div>
       <div class="tile"><div class="v">42 497</div><div class="k">Backlinks · 1 853 domaines référents</div></div>
     </div>
-  </div>
-</section>
-
-<section id="preuve">
-  <div class="wrap">
-    <div class="chap"><span class="kk">La preuve</span></div>
-    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
-    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
     
-    <div class="scroller">
+    <div class="scroller" style="margin-top:14px">
       <table>
-        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
-        <tbody><tr><td>What are the best 3D product configurator software platforms for e-commerce brands?</td><td><span class="absent">absente</span></td><td><span class="absent">absente</span></td></tr></tbody>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
+        <tbody><tr><td>define configurator</td><td>4 400</td><td>36</td></tr><tr><td>emersya</td><td>50</td><td>1</td></tr><tr><td>configurator meaning</td><td>5 400</td><td>31</td></tr></tbody>
       </table>
     </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>42k backlinks pour seulement 469 visites/mois : profil de liens largement sous-exploité par le contenu.</div>
+    <h3 style="font-size:.88rem;margin:24px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Performance mobile</h3>
     
-    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>"Threekit provides an extensive suite of tools for creating 3D, augmented reality (AR), and virtual photography experiences..."</div>
-    <div class="quote"><span class="who">Gemini</span>"Threekit (Best for Enterprise & Complex Products) — Threekit is an enterprise-grade platform known for its ability to handle millions of product variations..."</div>
-  </div>
-</section>
-
-<section id="vitesse">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Check vitesse</span></div>
-    <h2>Performance mobile (PageSpeed Insights)</h2>
-    
-    <div class="tiles" style="grid-template-columns:1fr">
+    <div class="tiles" style="grid-template-columns:1fr;margin-top:14px">
       <div class="tile"><div class="v gold">65<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
     </div>
     <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
   </div>
 </section>
 
+<section id="benchmark">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Benchmark</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Emersya (vous)</td><td>33</td><td>469</td><td>42 497</td></tr><tr><td>Threekit</td><td>46</td><td>3 084</td><td>38 504</td></tr><tr><td>Cylindo</td><td>37</td><td>678</td><td>70 096</td></tr><tr><td>Vectary</td><td>49</td><td>14 101</td><td>154 432</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Emersya arrive en position 4 en trafic organique. Un rattrapage réaliste avant d'espérer une citation IA cohérente.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Visibilité IA</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">5 questions neutres de découverte, jamais la marque nommée, posées en appels API réels le 31/08/2026.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">0/15</div><div class="k">Citations sur 15 réponses IA testées (5 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v crit">—</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Tableau complet — 5 prompts × 3 moteurs</h3>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
+    <h3 style="font-size:.88rem;margin:24px 0 10px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Classement réel dans les réponses</h3>
+    <div class="geo-card"><div class="pr">P1 · Gemini — "What are the best 3D product configurator software platforms for e-commerce brands?"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Visual CPQ</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Virtual Photography</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">WebAR</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Parametric Configuration</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Integrations</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">No</span></div></div><div class="geo-card"><div class="pr">P2 · Gemini — "Best virtual photography software for e-commerce product images?"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">How it works</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Skill Level</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Modelry</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Threedium</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Browzwear / Clo3D</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">If you are selling hard products</span></div></div>
+    <div class="note crit"><span class="h">Petite note</span>Emersya n'apparaît dans aucune des 15 réponses testées — le terrain GEO est totalement ouvert, mais aussi totalement absent.</div>
+  </div>
+</section>
+
 <section id="opportunites">
   <div class="wrap">
-    <div class="chap"><span class="kk">3 opportunités</span></div>
+    <div class="chap"><span class="kk">Opportunités</span></div>
     <h2>Par où commencer</h2>
+    
     <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Threekit se creuse vraiment.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
+      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Combler le vide sémantique</h3><p>Seulement 247 mots-clés indexés — prioriser 10-15 pages sur les requêtes de découverte de la catégorie, avant même de penser citation IA.</p></div>
+      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où la légitimité produit est la plus forte, dans un format que les IA peuvent citer directement (définitions, comparatifs, données chiffrées).</p></div>
+      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Score PageSpeed correct — un point à surveiller mais pas la priorité actuelle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Roadmap 12 mois</span></div>
+    <h2>Trajectoire proposée</h2>
+    
+    <div class="roadmap">
+      <div class="rm-card"><div class="t">T1</div><h3>Fondations</h3><p>Cartographie complète des mots-clés de catégorie (pas 1, un panel) + audit technique/vitesse.</p></div>
+      <div class="rm-card"><div class="t">T2</div><h3>Contenu</h3><p>Publication des pages prioritaires sur les requêtes de découverte identifiées en Diagnostic.</p></div>
+      <div class="rm-card"><div class="t">T3</div><h3>GEO</h3><p>Re-mesure du panel de prompts × 3 IA pour suivre l'évolution de la citation, ajustement du contenu.</p></div>
+      <div class="rm-card"><div class="t">T4</div><h3>Consolidation</h3><p>Backlinks ciblés sur les pages qui convertissent, bilan chiffré vs. l'état actuel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pourquoi">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Pourquoi Décupler</span></div>
+    <h2>Ce qui change avec nous</h2>
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — vous pouvez vérifier chaque citation vous-même.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un PDF</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
     </div>
   </div>
 </section>
@@ -171,7 +268,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On en discute ?</h3>
-      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <p>Cette cartographie pose les faits, pas une promesse. 20 min pour prioriser ça — elle est à vous, gratuitement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -183,7 +280,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Emersya · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO pour Emersya · SEO : Ubersuggest · GEO : ChatGPT/Claude/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
   </div>
 </footer>
 

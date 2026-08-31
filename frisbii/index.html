@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Cartographie GEO express · Frisbii</title>
+<title>Cartographie GEO · Frisbii</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
 <style>
 :root{
@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:820px;
+  --maxw:860px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -44,12 +44,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
 .hero h1{font-size:clamp(1.7rem,4.4vw,2.5rem);margin-bottom:16px}
-.hero-sub{font-size:1rem;max-width:64ch;color:var(--body)}
-section{padding:36px 0;border-top:1px solid var(--line);background:var(--bg)}
+.hero-sub{font-size:1rem;max-width:66ch;color:var(--body)}
+section{padding:40px 0;border-top:1px solid var(--line);background:var(--bg)}
 .chap{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
 .chap .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
-.lead{font-size:.95rem;max-width:66ch;color:var(--body);margin-bottom:20px}
+.lead{font-size:.95rem;max-width:68ch;color:var(--body);margin-bottom:20px}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
@@ -57,7 +57,7 @@ section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface)}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
 .note.good{border-left:3px solid var(--good);background:var(--good-soft)}
 .note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
@@ -65,8 +65,10 @@ section h2{font-size:clamp(1.25rem,2.6vw,1.5rem);margin:4px 0 10px}
 .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
 th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
-td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
 tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
 .quote{font-size:.86rem;color:var(--body);font-style:italic;padding:12px 14px;background:var(--surface2);border-radius:10px;margin-top:8px}
@@ -91,6 +93,36 @@ tr:last-child td{border-bottom:none}
 .cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
 .cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+/* v2 additions */
+.sommaire{display:flex;flex-wrap:wrap;gap:8px 18px}
+.sommaire a{font-family:var(--mono);font-size:11.5px;color:var(--body);border-bottom:1px dotted var(--line2);padding-bottom:1px}
+.sommaire a:hover{color:var(--gold)}
+.meth{font-size:.87rem;color:var(--body);line-height:1.65}
+.meth ul{margin:10px 0 0 18px}
+.meth li{margin-bottom:4px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.board-cell .eng{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px;display:block}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:18px 20px;margin-bottom:12px}
+.geo-card .pr{font-size:.86rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
+.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:760px){.roadmap{grid-template-columns:1fr 1fr}}
+.rm-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.rm-card .t{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
+.rm-card h3{font-size:.9rem;margin-bottom:6px}
+.rm-card p{font-size:.8rem;color:var(--body);line-height:1.5}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.92rem;margin-bottom:6px}
+.trust-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 
@@ -98,70 +130,135 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 <nav>
   <div class="navrow">
     <div class="brand"><span class="decupler">Décupler</span></div>
-    <div class="navtag">Cartographie GEO express</div>
+    <div class="navtag">Cartographie GEO</div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Cartographie GEO express · préparé pour Sonia</div>
+    <div class="eyebrow">Cartographie GEO · préparé pour Sonia</div>
     <h1>Invisible sur son propre marché européen</h1>
     <p class="hero-sub">Absente des 2 IA testées sur sa propre catégorie — Stripe, Adyen, Paddle, Chargebee, Recurly, Mollie captent 100% des recommandations sur le marché européen du subscription billing.</p>
+    
+    <div class="sommaire">
+      <a href="#diagnostic">Diagnostic</a><a href="#benchmark">Benchmark</a><a href="#visibilite">Visibilité IA</a>
+      <a href="#opportunites">Opportunités</a><a href="#roadmap">Roadmap</a><a href="#pourquoi">Pourquoi Décupler</a>
+    </div>
   </div>
 </header>
 
-<section id="diagnostic" style="padding-top:30px">
+<section id="methodologie" style="padding-top:26px">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Méthodologie</span></div>
+    <h2>D'où viennent ces chiffres</h2>
+    
+    <p class="meth">Cette cartographie combine deux couches de données réelles, aucune ne provient d'une estimation ou d'une extrapolation :</p>
+    <ul class="meth">
+      <li><strong>SEO</strong> — Ubersuggest : autorité de domaine, trafic organique, backlinks, mots-clés indexés.</li>
+      <li><strong>GEO</strong> — 5 prompts de découverte neutres (jamais la marque nommée) × 3 moteurs IA (ChatGPT, Claude, Gemini), appels API réels et horodatés.</li>
+      <li><strong>Performance</strong> — Google PageSpeed Insights, score réel sur la page d'accueil.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="diagnostic">
   <div class="wrap">
     <div class="chap"><span class="kk">Diagnostic SEO</span></div>
     <h2>Ce que capte Frisbii aujourd'hui sur Google</h2>
     
     <div class="tiles">
       <div class="tile"><div class="v gold">42<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
-      <div class="tile"><div class="v ">1 227</div><div class="k">Visites organiques estimées/mois (Ubersuggest)</div></div>
+      <div class="tile"><div class="v ">1 227</div><div class="k">Visites organiques estimées/mois</div></div>
       <div class="tile"><div class="v">46 539</div><div class="k">Backlinks · 1 368 domaines référents</div></div>
     </div>
-  </div>
-</section>
-
-<section id="preuve">
-  <div class="wrap">
-    <div class="chap"><span class="kk">La preuve</span></div>
-    <h2>Ce qu'ont vraiment répondu ChatGPT et Gemini</h2>
-    <p class="lead">Une question neutre de découverte — jamais votre marque nommée — posée en mémoire à ChatGPT (gpt-4o) et Gemini, appels API réels du 31/08/2026.</p>
     
-    <div class="scroller">
+    <div class="scroller" style="margin-top:14px">
       <table>
-        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais la marque nommée)</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
-        <tbody><tr><td>What are the best subscription billing and payment platforms for SaaS and e-commerce businesses in Europe?</td><td><span class="absent">absente</span></td><td><span class="absent">absente</span></td></tr></tbody>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
+        <tbody><tr><td>frisbi</td><td>590</td><td>5</td></tr><tr><td>revenue insight</td><td>40</td><td>8</td></tr><tr><td>rolling reserve</td><td>40</td><td>8</td></tr><tr><td>payment acquirer</td><td>70</td><td>16</td></tr><tr><td>best saas billing software</td><td>40</td><td>8</td></tr></tbody>
       </table>
     </div>
-    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Extrait réel de chaque réponse</h3>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>421 mots-clés indexés mais aucun sur les requêtes commerciales "billing platform"/"merchant of record" — que du contenu de blog longue traîne à faible volume.</div>
+    <h3 style="font-size:.88rem;margin:24px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Performance mobile</h3>
     
-    <div class="quote"><span class="who">ChatGPT (gpt-4o)</span>Liste 9 plateformes (Stripe, Adyen, Paddle, Recurly, Chargify, Zoho, Braintree, 2Checkout, GoCardless) — Frisbii absente.</div>
-    <div class="quote"><span class="who">Gemini</span>Classement détaillé par catégorie (MoR, Specialized, Gateways, Direct Debit) citant Paddle, Chargebee, Stripe, Adyen, Mollie, GoCardless — Frisbii absente.</div>
-  </div>
-</section>
-
-<section id="vitesse">
-  <div class="wrap">
-    <div class="chap"><span class="kk">Check vitesse</span></div>
-    <h2>Performance mobile (PageSpeed Insights)</h2>
-    
-    <div class="tiles" style="grid-template-columns:1fr">
+    <div class="tiles" style="grid-template-columns:1fr;margin-top:14px">
       <div class="tile"><div class="v gold">60<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Score Performance mobile (Google PageSpeed Insights, page d'accueil)</div></div>
     </div>
     <p class="cap">Check homepage uniquement (PageSpeed Insights, API Google directe) — pas un audit technique complet du site.</p>
   </div>
 </section>
 
+<section id="benchmark">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Benchmark</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Frisbii (vous)</td><td>42</td><td>1 227</td><td>46 539</td></tr><tr><td>Stripe</td><td>92</td><td>2 526 261</td><td>131 464 569</td></tr><tr><td>Recurly</td><td>56</td><td>17 408</td><td>181 324</td></tr><tr><td>Chargebee</td><td>55</td><td>70 508</td><td>213 588</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Frisbii arrive en position 4 en trafic organique. Un rattrapage réaliste avant d'espérer une citation IA cohérente.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Visibilité IA</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">5 questions neutres de découverte, jamais la marque nommée, posées en appels API réels le 31/08/2026.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">0/15</div><div class="k">Citations sur 15 réponses IA testées (5 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v crit">—</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <h3 style="font-size:.88rem;margin:20px 0 6px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Tableau complet — 5 prompts × 3 moteurs</h3>
+    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
+    <h3 style="font-size:.88rem;margin:24px 0 10px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Classement réel dans les réponses</h3>
+    <div class="geo-card"><div class="pr">P1 · Gemini — "What are the best subscription billing and payment platforms for SaaS and e-commerce busin…"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Paddle</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Lemon Squeezy</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAG1BMVEVHcEz/MgD/MgD/MgD/MwD/MgD/MwD/MwD/MwATQH5EAAAACHRSTlMAQB1twJbd8sXwh0cAAARKSURBVHicxVtZloQgDFRA6PufeMRxA7MCGv76tUglVYSAYZpamnOzI/4OP3lrGH32IaYfAWBWjK8FMPvIdnTpLQBuuXwb8McWzfhyAO60fWsL+qCKADEAt8Syn0cf1ShQCmB+eDXN2LM6AkQA3PJUVcQmgVOOzwNwHuqGalBJAA9gjmA3TIMg2g4ADjMI0aCaAAYAYv7aEAloFcgAIPyp7tACgNBThHuoYjAHAHf/D9NgAwE4gJm0BtQg3UUJgGYTjoOUy7QAGDUlaBK0KBADwJEJxcE2AmAArC2QBtUxGAfA+xLQYCMBEABBQvGUgGtTIARA8qpxBEDv4p2ZWrwmB8Bb89CgLg9mAbAT6qHBphiMA2BJqONgBwFIIKJ1+IiD7QrEANAk1HGwhwBsLSDfWQFoSMN4ACQJlQa7CEABULoqNdgcg2kAFAkjCSBSMlSHZRzsUyAFACWh0GAvAVRWjNlWaLAjBrMAJqTHXYPdBJAAYPfe42BrGiYEANsXbgCasxAhAHCK3TTYr0AGADjCpcERBHDbcyDMztSfwwEAM+GUwBACWADPUY5/2vNgFYCHnwP2R0OLYUEP285Wz4QjIe1Kw3JbB6fOu69WBYMdck8enGLwsrEBXx8b8+YYnBYvtPxsBQn7AWUTASvliOUMpLu1AfCKbHSK8vBLnpLjbbjlAUliOfn2fUangJ9/3xy+vUmThgUB5aeiA/bsZbGrPEI0udhvBkY4MlxRL/+SxGCV2H3VFcBwYMwa5AgQxbei1ZKC5LA/swCPF00c3ygA24sq+nYSZpwAbXy7NVhTlRw2EnIcBGNwkogdbei6Wsghw1zj4MNdMWLxTdyodeWSQ56soU7DcnzrHH1C8/9zkPmM/8vNW3qxtwI4qQi/+VBgF+V6ADsGl3zqEXsXgOxzv4QhlDcDWNbGrGsvAsi2J59nvAEF68qSn4s//44ImfzysHibhtezbJohb9QO4xGIyr9zFOx3BZpfFKE4x2AsFHcCgNfXGAoPb+y/tBhBC+yny3Gd5CfgTTtN7yQk5QrXnZIl9Sp122gPS0qjagd2TIPBaTm6EwPfb7kxWX1quzWbHP3/+5tTBl7xno7teRZFC4BiqTA4oKgm3XFE03FGpouZrxxS5cgnjZnWx3TWB5VAyCGwvQDA+rAaMvL6dv/BcT3U4VY88PoHC/aTzQgXKAkoq6i6T6xpAIh9n322ExVTvvjh0vzTLdrjo4/X0nLOtz7fmxcwWJdwWBexmJfxWBcyWZdymRezsR591LT2pGd6AqDC7pEFjfYlnQJrnsn0wKJW+7LexsLmVhdAAMxLu1kfgJd8Rha3s28Dt3RtLkAANF1wGArA/IrHZH7JhbYI7jD4mo/9RadJuDu52uirXhMa5L+67DbZX/fLzfbCY27GVz43w7zppdcNQjknv772+4/B9OLzbp7k6rcqN1EC+AdhePn9MHLc9f8/tw4pqL0ddM4AAAAASUVORK5CYII=" alt=""><span class="num">3.</span><span class="nm">Chargebee</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">4.</span><span class="nm">Recurly</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAJ1BMVEVHcExONu5UOv5TOftTOv7///9MLv34+P9fSf49Ev7W0/+tpf+Fd/5IiRS5AAAABHRSTlMAOdeWTzzdLAAAAchJREFUeJzt21GagyAMBGCpGFF7//Mugeq23a61Epg+TC4wfyD0oX7puq2c6y++QV1657q/1Sh9Mzzn9+3Sc/WP7Tfsfq2Lw+bfCzD5dwJQfhSA5u+30iQ6XL73DnsA6QhQE5grziH0BvQOoDegdwC9AX2J2HzvCSCAAAIIIICAqgCJNaEAMk3iw3WZxyDNATF8kpg9j8MwtAVIalyzY7LGtwSk8LA2vlUTgA7bi+w2gFvfy4vs6gA99ClN+j/hFQF65vmVDdu4NQNo3z4sqfG96AoASbU2fqzMAE+v7LDABLCF7952HcDDtJ2pIoDkV3Y6vPwEtPETx24FkFAUbQEoa54AAggggAACCCCAAAIIIIAAAggggAACcoEB4wwDjOO8XK/6RysAkMKDj+n78TUAKdvrhzvx79KtAfnQ8zfLo2UGGGdtPH3QOBxuBUjZ4fCh2wLWYfvg0K0AedBlej/oFQD50OXcoRcC1sY/HTYLwPrTdv7CSwD50A/8tNkCtgu//bTZ1/5Hq1D8ygoB4s2G7RygQRFAAAEEEEAAAfglF/iaD3zRCb7qBV92w6/7wRce8Suf+KVX+NovfvEZv/r9BcvvHWr9/we+9RME8MgsBQAAAABJRU5ErkJggg==" alt=""><span class="num">5.</span><span class="nm">Stripe</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Adyen</span></div></div><div class="geo-card"><div class="pr">P2 · ChatGPT — "What's the best merchant of record platform for European SaaS companies?"</div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Paddle</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">FastSpring</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">2Checkout</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Digital River</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAG1BMVEVHcEz/MgD/MgD/MgD/MwD/MgD/MwD/MwD/MwATQH5EAAAACHRSTlMAQB1twJbd8sXwh0cAAARKSURBVHicxVtZloQgDFRA6PufeMRxA7MCGv76tUglVYSAYZpamnOzI/4OP3lrGH32IaYfAWBWjK8FMPvIdnTpLQBuuXwb8McWzfhyAO60fWsL+qCKADEAt8Syn0cf1ShQCmB+eDXN2LM6AkQA3PJUVcQmgVOOzwNwHuqGalBJAA9gjmA3TIMg2g4ADjMI0aCaAAYAYv7aEAloFcgAIPyp7tACgNBThHuoYjAHAHf/D9NgAwE4gJm0BtQg3UUJgGYTjoOUy7QAGDUlaBK0KBADwJEJxcE2AmAArC2QBtUxGAfA+xLQYCMBEABBQvGUgGtTIARA8qpxBEDv4p2ZWrwmB8Bb89CgLg9mAbAT6qHBphiMA2BJqONgBwFIIKJ1+IiD7QrEANAk1HGwhwBsLSDfWQFoSMN4ACQJlQa7CEABULoqNdgcg2kAFAkjCSBSMlSHZRzsUyAFACWh0GAvAVRWjNlWaLAjBrMAJqTHXYPdBJAAYPfe42BrGiYEANsXbgCasxAhAHCK3TTYr0AGADjCpcERBHDbcyDMztSfwwEAM+GUwBACWADPUY5/2vNgFYCHnwP2R0OLYUEP285Wz4QjIe1Kw3JbB6fOu69WBYMdck8enGLwsrEBXx8b8+YYnBYvtPxsBQn7AWUTASvliOUMpLu1AfCKbHSK8vBLnpLjbbjlAUliOfn2fUangJ9/3xy+vUmThgUB5aeiA/bsZbGrPEI0udhvBkY4MlxRL/+SxGCV2H3VFcBwYMwa5AgQxbei1ZKC5LA/swCPF00c3ygA24sq+nYSZpwAbXy7NVhTlRw2EnIcBGNwkogdbei6Wsghw1zj4MNdMWLxTdyodeWSQ56soU7DcnzrHH1C8/9zkPmM/8vNW3qxtwI4qQi/+VBgF+V6ADsGl3zqEXsXgOxzv4QhlDcDWNbGrGsvAsi2J59nvAEF68qSn4s//44ImfzysHibhtezbJohb9QO4xGIyr9zFOx3BZpfFKE4x2AsFHcCgNfXGAoPb+y/tBhBC+yny3Gd5CfgTTtN7yQk5QrXnZIl9Sp122gPS0qjagd2TIPBaTm6EwPfb7kxWX1quzWbHP3/+5tTBl7xno7teRZFC4BiqTA4oKgm3XFE03FGpouZrxxS5cgnjZnWx3TWB5VAyCGwvQDA+rAaMvL6dv/BcT3U4VY88PoHC/aTzQgXKAkoq6i6T6xpAIh9n322ExVTvvjh0vzTLdrjo4/X0nLOtz7fmxcwWJdwWBexmJfxWBcyWZdymRezsR591LT2pGd6AqDC7pEFjfYlnQJrnsn0wKJW+7LexsLmVhdAAMxLu1kfgJd8Rha3s28Dt3RtLkAANF1wGArA/IrHZH7JhbYI7jD4mo/9RadJuDu52uirXhMa5L+67DbZX/fLzfbCY27GVz43w7zppdcNQjknv772+4/B9OLzbp7k6rcqN1EC+AdhePn9MHLc9f8/tw4pqL0ddM4AAAAASUVORK5CYII=" alt=""><span class="num">5.</span><span class="nm">Chargebee</span></div></div>
+    <div class="note crit"><span class="h">Petite note</span>Frisbii n'apparaît dans aucune des 15 réponses testées — le terrain GEO est totalement ouvert, mais aussi totalement absent.</div>
+  </div>
+</section>
+
 <section id="opportunites">
   <div class="wrap">
-    <div class="chap"><span class="kk">3 opportunités</span></div>
+    <div class="chap"><span class="kk">Opportunités</span></div>
     <h2>Par où commencer</h2>
+    
     <div class="solutions">
-      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Cartographier les prompts</h3><p>Mesurer un panel de 10 questions neutres × 3 IA sur votre catégorie, pas une seule question — pour voir où l'écart avec Recurly se creuse vraiment.</p></div>
-      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où votre légitimité produit est la plus forte, dans un format que les IA peuvent citer directement.</p></div>
-      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Un score PageSpeed sous 50 freine la conversion — même quand le trafic ou la citation IA est déjà là.</p></div>
+      <div class="sol-card"><span class="sol-icon">🔎</span><h3>Combler le vide sémantique</h3><p>Seulement 421 mots-clés indexés — prioriser 10-15 pages sur les requêtes de découverte de la catégorie, avant même de penser citation IA.</p></div>
+      <div class="sol-card"><span class="sol-icon">🤖</span><h3>Contenu extractible</h3><p>Structurer les pages où la légitimité produit est la plus forte, dans un format que les IA peuvent citer directement (définitions, comparatifs, données chiffrées).</p></div>
+      <div class="sol-card"><span class="sol-icon">⚡</span><h3>Vitesse du site</h3><p>Score PageSpeed correct — un point à surveiller mais pas la priorité actuelle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Roadmap 12 mois</span></div>
+    <h2>Trajectoire proposée</h2>
+    
+    <div class="roadmap">
+      <div class="rm-card"><div class="t">T1</div><h3>Fondations</h3><p>Cartographie complète des mots-clés de catégorie (pas 1, un panel) + audit technique/vitesse.</p></div>
+      <div class="rm-card"><div class="t">T2</div><h3>Contenu</h3><p>Publication des pages prioritaires sur les requêtes de découverte identifiées en Diagnostic.</p></div>
+      <div class="rm-card"><div class="t">T3</div><h3>GEO</h3><p>Re-mesure du panel de prompts × 3 IA pour suivre l'évolution de la citation, ajustement du contenu.</p></div>
+      <div class="rm-card"><div class="t">T4</div><h3>Consolidation</h3><p>Backlinks ciblés sur les pages qui convertissent, bilan chiffré vs. l'état actuel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pourquoi">
+  <div class="wrap">
+    <div class="chap"><span class="kk">Pourquoi Décupler</span></div>
+    <h2>Ce qui change avec nous</h2>
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — vous pouvez vérifier chaque citation vous-même.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un PDF</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
     </div>
   </div>
 </section>
@@ -171,7 +268,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
     <div class="cta">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On en discute ?</h3>
-      <p>Cette mesure pose les faits, pas une promesse. 20 min pour prioriser ça — la cartographie est à vous.</p>
+      <p>Cette cartographie pose les faits, pas une promesse. 20 min pour prioriser ça — elle est à vous, gratuitement.</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
@@ -183,7 +280,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <footer>
   <div class="wrap">
-    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Frisbii · SEO : Ubersuggest · GEO : ChatGPT/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO pour Frisbii · SEO : Ubersuggest · GEO : ChatGPT/Claude/Gemini, appels API réels · Perf : Google PageSpeed Insights</p>
   </div>
 </footer>
 
