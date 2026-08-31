@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:780px;
+  --maxw:1060px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -40,23 +40,39 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:52px 0 28px}
+.hero{padding:52px 0 8px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
-.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
-.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
-.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
-.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
-.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
@@ -72,19 +88,27 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
 .quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
 .quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
 .postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 @media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
 .rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row img{width:18px;height:18px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
 .rank-row.self .nm{font-weight:700;color:var(--gold)}
 .solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
@@ -96,6 +120,20 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
 .pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
 .pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
 .cta h3{font-size:1.35rem;margin-bottom:8px}
 .cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
@@ -119,22 +157,67 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Stephen</div>
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
     <h1>Absente sur son propre terrain de conformité</h1>
     <p class="hero-sub">Absente des 2 IA — Siteimprove est cité par les deux moteurs comme solution "enterprise" de référence pour le monitoring de conformité WCAG/ADA.</p>
-    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
+    <p class="hero-meta">Préparé pour <b>Stephen</b> · Allyable (allyable.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">-36%</div><div class="k">Évolution du trafic organique — 2024-08 → 2026-07 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">59.3%</div><div class="k">Backlinks en dofollow — 760 liens totaux</div></div>
+      <div class="tile"><div class="v">#2.0</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
   </div>
 </header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
 
 
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="secnum"><span class="n">01</span><h2>47 visites par mois sur un marché réglementaire porteur</h2></div>
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>47 visites par mois sur un marché réglementaire porteur</h2>
     <p class="lead">Autorité de domaine 18/100, 760 backlinks, 174 mots-clés indexés — une empreinte quasi résiduelle sur un marché (conformité WCAG/ADA) où la demande réglementaire ne cesse de croître.</p>
     
-    <div class="tiles">
-      <div class="tile"><div class="v gold">18<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">18<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
       <div class="tile"><div class="v crit">47</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">174</div><div class="k">Mots-clés indexés</div></div>
       <div class="tile"><div class="v">760</div><div class="k">Backlinks · 376 domaines référents</div></div>
     </div>
     
@@ -144,27 +227,36 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr><td>allyable</td><td>70</td><td>1</td></tr><tr><td>wcag accessibility</td><td>6 600</td><td>28</td></tr></tbody>
       </table>
     </div>
-    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge warn">56/100 · moyen</span></p>
-  </div>
-</section>
-
-<section id="visibilite">
-  <div class="wrap">
-    <div class="secnum"><span class="n">02</span><h2>Absente sur son propre terrain de conformité</h2></div>
-    <div class="quotecard">
-      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
-      <p class="q">"Siteimprove: This is a comprehensive digital management solution that includes accessibility testing along with other features..."</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-08 → 2026-07 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">92</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">184</text>
+  <path d="M 46.0,109.3 L 77.2,55.8 L 108.4,117.7 L 139.7,140.6 L 170.9,122.0 L 202.1,134.7 L 233.3,116.0 L 264.5,139.8 L 295.7,132.2 L 327.0,116.9 L 358.2,115.2 L 389.4,88.1 L 420.6,110.1 L 451.8,131.3 L 483.0,148.3 L 514.3,116.9 L 545.5,120.3 L 576.7,139.8 L 607.9,114.3 L 639.1,16.0 L 670.3,96.5 L 701.6,79.6 L 732.8,156.7 L 764.0,132.2 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,109.3 L 77.2,55.8 L 108.4,117.7 L 139.7,140.6 L 170.9,122.0 L 202.1,134.7 L 233.3,116.0 L 264.5,139.8 L 295.7,132.2 L 327.0,116.9 L 358.2,115.2 L 389.4,88.1 L 420.6,110.1 L 451.8,131.3 L 483.0,148.3 L 514.3,116.9 L 545.5,120.3 L 576.7,139.8 L 607.9,114.3 L 639.1,16.0 L 670.3,96.5 L 701.6,79.6 L 732.8,156.7 L 764.0,132.2" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="132.2" r="4" fill="#A9711C"/><text x="758.0" y="122.2" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">47</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="postquote">Gemini confirme : "Siteimprove — Best for: Marketing teams, enterprise management, and combined SEO/Accessibility monitoring." Un positionnement enterprise qui laisse le segment PME ouvert.</p>
-    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
-    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · Gemini — classement complet</p><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">axe DevTools</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Platform</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">WAVE</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Accessibility Insights</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Google Lighthouse</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">6.</span><span class="nm">Siteimprove</span></div></div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights)</h3>
+        <p>Score Performance : <span class="pw-badge warn">56/100 · moyen</span>. Check homepage réel (API Google directe) — pas un audit technique complet du site.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>760 backlinks, 376 domaines référents, <strong>59.3% en dofollow</strong> (309 liens nofollow).</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>Trafic résiduel (47 visites/mois), DA18 : quasi invisible sur les requêtes "accessibility compliance".</div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
@@ -174,19 +266,133 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
       </table>
     </div>
     <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Allyable arrive en position 3 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « web accessibility compliance tool WCAG »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> W3.org (w3.org, DA94) · <strong>Allyable :</strong> <span class="absent">hors top 10</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Siteimprove ferme le top 10 en position 10 — Allyable absente.</div>
   </div>
 </section>
 
-<section id="actions">
+<section id="visibilite">
   <div class="wrap">
-    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Allyable est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">2.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v crit">9/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">2</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · What are the best web accessibility compliance tools for WCAG and ADA?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P2 · Best automated accessibility scanning tool for enterprise websites?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · How to avoid ADA lawsuits with accessibility compliance software?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · Siteimprove alternatives for web accessibility monitoring?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P5 · Best accessibility tool that integrates into CI/CD pipelines?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P6 · Best tool to automatically fix accessibility issues on a website?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P7 · Siteimprove vs Allyable, which accessibility tool is better for SMBs?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #1</span></div><div class="board-row-label">P8 · How to avoid an ADA lawsuit as a small e-commerce business?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · Best WCAG scanning tool that integrates with CI/CD?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Best accessibility overlay alternative that actually fixes code?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Allyable est cité 2 fois sur 30, en position moyenne 2.0 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Absente sur son propre terrain de conformité</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Allyable est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="24.01 453.51" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="8.00 469.52" stroke-dashoffset="-24.01" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="445.51 32.01" stroke-dashoffset="-32.01" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">179 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Siteimprove</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:5.0%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">5.0%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Allyable (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.7%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.7%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:93.3%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">93.3%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Allyable totalise <strong>1.7% de part de voix</strong> sur les 179 mentions relevées — quasi invisible face au panel de concurrents cités.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
+      <p class="q">"Siteimprove: This is a comprehensive digital management solution that includes accessibility testing along with other features..."</p>
+    </div>
+    <p class="postquote">Gemini confirme : "Siteimprove — Best for: Marketing teams, enterprise management, and combined SEO/Accessibility monitoring." Un positionnement enterprise qui laisse le segment PME ouvert.</p>
+    <div class="geo-card"><div class="pr">« Siteimprove vs Allyable, which accessibility tool is better for SMBs? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row self"><span class="num">1.</span><span class="nm">Choose Allyable if</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">Choose Siteimprove if</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Automated Remediation</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Cost</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Low Developer Reliance</span></div><div class="rank-row self"><span class="num">6.</span><span class="nm">All</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Allyable présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« What are the best web accessibility compliance tools for WCAG and ADA? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">Siteimprove</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Manual Testing Essentials</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Best Practice</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Allyable absente du classement.</p></div><div class="geo-card"><div class="pr">« Best automated accessibility scanning tool for enterprise websites? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Strong Alternatives</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">Siteimprove</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Tenon.io</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Allyable absente du classement.</p></div><div class="geo-card"><div class="pr">« Best tool to automatically fix accessibility issues on a website? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">axe by Deque</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">WAVE by WebAIM</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Lighthouse</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">AccessiBe</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">UserWay</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">6.</span><span class="nm">Siteimprove</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Allyable absente du classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
     <div class="solutions"><div class="sol-card"><span class="sol-tag">Positionnement</span><h3>Se différencier sur le segment PME</h3><p>Siteimprove verrouille l'enterprise — un angle "conformité accessible aux PME" reste ouvert.</p></div><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Checklist et glossaire WCAG/ADA citables</h3><p>Le format structuré que les IA extraient directement dans leurs réponses.</p></div><div class="sol-card"><span class="sol-tag">Mesure</span><h3>Re-tester après publication</h3><p>Sur le même prompt de découverte pour objectiver le gain de citation.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Siteimprove</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 47 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 2/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 1.7% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 56/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>59.3% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — chaque citation est vérifiable.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Priorisation par impact</h3><p>Chaque chantier est classé par vitesse de rendement, pas par facilité à vendre.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On priorise ça ensemble ?</h3>
       <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>

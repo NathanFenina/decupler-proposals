@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:780px;
+  --maxw:1060px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -40,23 +40,39 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:52px 0 28px}
+.hero{padding:52px 0 8px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
-.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
-.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
-.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
-.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
-.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
@@ -72,19 +88,27 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
 .quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
 .quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
 .postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 @media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
 .rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row img{width:18px;height:18px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
 .rank-row.self .nm{font-weight:700;color:var(--gold)}
 .solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
@@ -96,6 +120,20 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
 .pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
 .pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
 .cta h3{font-size:1.35rem;margin-bottom:8px}
 .cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
@@ -119,22 +157,67 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Quentin</div>
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
     <h1>Absente sur sa niche exacte, pas juste sur la catégorie large</h1>
     <p class="hero-sub">Absente des 2 IA sur sa niche exacte (usage-based billing B2B) — Gemini cite en détail Orb, Metronome et Lago comme "Modern Usage-First Infrastructure", la catégorie même où se positionne Hyperline.</p>
-    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
+    <p class="hero-meta">Préparé pour <b>Quentin</b> · Hyperline (hyperline.co)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">+34%</div><div class="k">Évolution du trafic organique — 2024-08 → 2026-07 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">56.4%</div><div class="k">Backlinks en dofollow — 2 876 liens totaux</div></div>
+      <div class="tile"><div class="v">#2.0</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
   </div>
 </header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
 
 
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="secnum"><span class="n">01</span><h2>Le trafic a chuté de 68% en un mois</h2></div>
-    <p class="lead">1 359 visites en juin, 429 en juillet. Autorité de domaine 28/100, 726 mots-clés indexés dont la plupart sur des glossaires génériques ("recurring revenue", "pricing change") plutôt que sur la catégorie produit.</p>
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Le trafic a chuté de 78% en un mois</h2>
+    <p class="lead">1 805 visites en mai 2026, 395 en juin — puis 429 en juillet, sans rebond réel. Autorité de domaine 28/100, 726 mots-clés indexés dont la plupart sur des glossaires génériques ("recurring revenue", "pricing change") plutôt que sur la catégorie produit.</p>
     
-    <div class="tiles">
-      <div class="tile"><div class="v gold">28<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">28<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
       <div class="tile"><div class="v warn">429</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">726</div><div class="k">Mots-clés indexés</div></div>
       <div class="tile"><div class="v">2 876</div><div class="k">Backlinks · 507 domaines référents</div></div>
     </div>
     
@@ -144,49 +227,172 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr><td>hyperline</td><td>480</td><td>1</td></tr><tr><td>pricing change</td><td>1 300</td><td>8</td></tr><tr><td>recurring revenue</td><td>880</td><td>9</td></tr></tbody>
       </table>
     </div>
-    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge warn">68/100 · moyen</span></p>
-  </div>
-</section>
-
-<section id="visibilite">
-  <div class="wrap">
-    <div class="secnum"><span class="n">02</span><h2>Absente sur sa niche exacte — pas juste la catégorie large</h2></div>
-    <div class="quotecard">
-      <span class="who">Gemini · appel API réel, 31/08/2026</span>
-      <p class="q">"Category 1: Modern Usage-First Infrastructure (...) Orb (...) Metronome (...) Lago" — exactement le segment de Hyperline, jamais mentionnée.</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-08 → 2026-07 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">985</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">1 970</text>
+  <path d="M 46.0,146.7 L 77.2,148.0 L 108.4,117.0 L 139.7,108.7 L 170.9,102.6 L 202.1,86.6 L 233.3,64.8 L 264.5,42.5 L 295.7,59.6 L 327.0,84.7 L 358.2,64.4 L 389.4,17.3 L 420.6,42.6 L 451.8,90.5 L 483.0,103.3 L 514.3,61.2 L 545.5,37.0 L 576.7,16.7 L 607.9,28.7 L 639.1,16.0 L 670.3,19.0 L 701.6,29.1 L 732.8,140.7 L 764.0,138.0 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,146.7 L 77.2,148.0 L 108.4,117.0 L 139.7,108.7 L 170.9,102.6 L 202.1,86.6 L 233.3,64.8 L 264.5,42.5 L 295.7,59.6 L 327.0,84.7 L 358.2,64.4 L 389.4,17.3 L 420.6,42.6 L 451.8,90.5 L 483.0,103.3 L 514.3,61.2 L 545.5,37.0 L 576.7,16.7 L 607.9,28.7 L 639.1,16.0 L 670.3,19.0 L 701.6,29.1 L 732.8,140.7 L 764.0,138.0" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="138.0" r="4" fill="#A9711C"/><text x="758.0" y="128.0" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">429</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="postquote">ChatGPT liste 8 plateformes généralistes (Zuora, Chargebee, Recurly, Chargify, Stripe Billing, Aria Systems, SAP, SaaSOptics) — Hyperline absente aussi de cette liste plus large.</p>
-    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
-    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Zuora</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Chargebee</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Recurly</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Chargify</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Stripe Billing</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Aria Systems</span></div></div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights)</h3>
+        <p>Score Performance : <span class="pw-badge warn">68/100 · moyen</span>. Check homepage réel (API Google directe) — pas un audit technique complet du site.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>2 876 backlinks, 507 domaines référents, <strong>56.4% en dofollow</strong> (1 254 liens nofollow).</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>Chute de 1 805 à 395 visites entre mai et juin 2026 (-78%), sans rebond significatif depuis (429 en juillet).</div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
       <table>
         <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
-        <tbody><tr class="self"><td>Hyperline (vous)</td><td>28</td><td>429</td><td>2 876</td></tr><tr><td>Orb</td><td>33</td><td>12 261</td><td>6 610</td></tr><tr><td>Metronome</td><td>38</td><td>2 060</td><td>8 030</td></tr><tr><td>Lago</td><td>33</td><td>5 345</td><td>36 188</td></tr></tbody>
+        <tbody><tr class="self"><td>Hyperline (vous)</td><td>28</td><td>429</td><td>2 876</td></tr><tr><td>Orb</td><td>33</td><td>12 261</td><td>6 610</td></tr><tr><td>Lago</td><td>33</td><td>5 345</td><td>36 188</td></tr><tr><td>Metronome</td><td>38</td><td>2 060</td><td>8 030</td></tr></tbody>
       </table>
     </div>
     <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Hyperline arrive en position 4 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « usage based billing software »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> Stripe / Metronome (stripe.com, DA92) · <strong>Hyperline :</strong> <span class="absent">hors top 10</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Orb (withorb.com) apparaît en position 11 — Hyperline absente même en élargissant à 13 résultats.</div>
   </div>
 </section>
 
-<section id="actions">
+<section id="visibilite">
   <div class="wrap">
-    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
-    <div class="solutions"><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Page "usage-based billing B2B SaaS"</h3><p>Positionnée exactement sur le segment cité par Gemini (Orb/Metronome/Lago), pas la catégorie billing générale.</p></div><div class="sol-card"><span class="sol-tag">Urgence</span><h3>Diagnostiquer la chute juin→juillet</h3><p>-68% en un mois mérite une vérification technique avant tout travail de contenu.</p></div><div class="sol-card"><span class="sol-tag">Comparatif</span><h3>Hyperline vs Orb/Metronome/Lago</h3><p>Avec specs réelles — pour entrer dans le comparatif que Gemini construit déjà sans vous.</p></div></div>
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Hyperline est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">2.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v crit">9/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · What are the best subscription billing platforms for B2B SaaS companies with c…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P2 · Best usage-based billing infrastructure for AI SaaS companies?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · Orb vs Metronome vs Lago — which usage billing platform is best?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · How to bill enterprise SaaS customers with custom contracts and usage overages…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P5 · Best billing platform for API-first B2B SaaS companies?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P6 · Best billing platform for AI or API-first SaaS companies?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P7 · Orb vs Hyperline, which usage-based billing platform is better?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P8 · How to bill enterprise customers with hybrid seat and usage pricing?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · Best alternative to Stripe Billing for complex B2B contracts?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Best billing infrastructure for a Series A SaaS startup?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Hyperline est cité 2 fois sur 30, en position moyenne 2.0 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Absente sur sa niche exacte — pas juste la catégorie large</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Hyperline est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="27.60 449.92" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="24.84 452.68" stroke-dashoffset="-27.60" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="22.08 455.44" stroke-dashoffset="-52.44" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="5.52 472.00" stroke-dashoffset="-74.53" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="397.48 80.05" stroke-dashoffset="-80.05" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">173 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Orb</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:5.8%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">5.8%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Metronome</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:5.2%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">5.2%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Lago</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:4.6%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">4.6%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Hyperline (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.2%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.2%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:83.2%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">83.2%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Hyperline totalise <strong>1.2% de part de voix</strong> sur les 173 mentions relevées — quasi invisible face au panel de concurrents cités.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">"Category 1: Modern Usage-First Infrastructure (...) Orb (...) Metronome (...) Lago" — exactement le segment de Hyperline, jamais mentionnée.</p>
+    </div>
+    <p class="postquote">ChatGPT liste 8 plateformes généralistes (Zuora, Chargebee, Recurly, Chargify, Stripe Billing, Aria Systems, SAP, SaaSOptics) — Hyperline absente aussi de cette liste plus large.</p>
+    <div class="geo-card"><div class="pr">« Orb vs Metronome vs Lago — which usage billing platform is best? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEXu7u5ycnKwsLAgICDx8fFvb2/n5+esrKy9vb3r6+vi4uLOzs52dnZsbGz09PTX19fIyMh+fn4VFRUAAACNjY0oKCiTk5Obm5u2trYMDAxVVVWEhIRfX19LS0svLy9kZGSjo6M/Pz8VmultAAAEKElEQVR4nO1a23KrOBDEIKEbQoJgg+04Jv//k6sLxDESxFUS3tot9VMqlTrd6pnpkeWTZQkJCQkJCQkJCQkJCQkJCf9VAI2SKpTmxzezEyoYztGEHDNByds0gKxkeMhR/gsoHzAr3+IDIELmK8DvsIHiNXorYV92UG7SGwnljiYQMfzFr8DIbgJWi78wYR8FYLv6D6CdOoH+bb8eRiyZEGV8evACv46jkmT7pMEf/Mjm0I4DsFl/lLOdI4hsp494tL1ygRCzo2I2ImCb9BmYybNSyGHsr5VCI+N5Uq43wCAm79XRKR67puIQwoMCbOLNwnoB5EyfCdlxbqkn8DESPaBrvTeI6S+A6K9P5AaNiFOE1Q6Udu8Awk4Hl14V4RQlk4FY4WeT+6KvPOxGAYthAfAbMNmv6tNwP70SMMYQUPr5qf23xXWVXqGiERR4M2AwMQNA3qy4P1mQhwvwtuBg2g/Qfuv4WkAXnoe+LWT9B6LbPL5G+CT6ZmDyX2zbbxGcx4AhR4A5FWCv8PPgJvAMIXv9/CqL6lABDr80v3+NX1kQLGBZgUHvOED/7j+Le6iAcinAtvXpRf4DD40iuhAgzX5Bm/MPOdc3kuqg9jMPXQdLAZofiGqLHHbqhqoh8dh8RhagCwDo2vY7wOo0iroGM+o6+Gr4LACbDlwrAIR9/DeC5yY0BjB/AeDhxB73QxDr3eZpDLGR5J8A2GBLD2oiGNaQoqyDNfwOImQMkN7z8yub6EXPL99Hje/b/RS+jH5HsRmBq88APk4LGlcf57YtLNr24xachI9lhPQSANLLj4z9NePFTG5x7oIFPNax2cLeDuCj5gfk9PVMrzwIvxI9LiR6BtUS9PRfR2w8nIslvsI/nz2uZKYCg2sAbGw8XZbHVwZcwm+ljw+mOoSILwSl5XfPX7RdhCiYr+WDCSE3BGGfGWXu+YviGOWTyfQ2Zs45elJYF6DuPecv2uDbgMY8B5qHuDMAkfmbLw9/8YFiCJjbkOpCuxcx04GltwDtLc4riX0g01cxIJ09BHui4/LoM+CIoxigIJF9/gSD0wIc6w5ovAbc4z2RDFYA6Z0KcDOcHz4DikjvE5npQ6Rv46VzF4ZX5XI9egX0sQqgwZCeaOq0AEf6lL4WPMOo77W1FCbtnR7ULUA/fSEc+XsDooeAOSFUKWOAuDkC2mPEV8IfrAlg3w7/t4zZABsCdAy5KbDP+V8XcL7scn4twBvEAC8WAdzteys68oUEtwfaot/xezMgF3fi5RS0x7vYx/5ZAR2q3y7wpxxQt/BdvzY0ClQsXw8/ErjZ+CYJW3V6RHc9/iyB4FMDrQ/zLji3X5eO1W+gtxpKIcfrnSt86sQvb10u6Vv/D4H+6F8L/QphVo55Engj/Y+Kf4U2ISEhISEhISEhISEhIeH/hn8AuNM66QMbVccAAAAASUVORK5CYII=" alt=""><span class="num">1.</span><span class="nm">Lago: The Open-Source Alternative</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEX7+PATDwsAAAD///v///f//PT///mFg34QDAjDwLkLBAAIAACSj4oNCAAeGxc4NTJEQj7V0svk4dqsqqRwbWkzMC2enJbu6+O9urNgXlo9OjdXVVF9e3YmIh9RT0uysKosKSVoZmH6LvcdAAAD5ElEQVR4nO2Y2bKjIBCGTUsT1xjNYraT5f1fclDZFBTPzFSdqpn+b1JRmv5omgaMIhKJRCKRSCQSiUQikUgkEulfEpPCn/K/LQZdfoggBqkt+ymATS8CIAAC+HsAyBgXWiptaDQFWGG97J1HaXG9JUl1LdKI+3oRTepUC20Aab3b3Trr32BAXh+7opYlSdb9HmsHAfH1BEvcAHBpnSflnHVArL0CJBsjgHsznlmeioemQbIzAEV7H1knANfmW3kRH+y+FcI5tv1vobRfWwDl3md9iGfdueN/jEavO/mYUcTHiQ8LYFM6pp31cXUM+NUZgOzjrvpg52kTG2DG+rqSIH7MdgTHIY7YOE3CANo6FP+X6UcluJ4QOLCZGLkAmTQ2EyKtl4WtdgfwSFvENn2YpIIWrQCU3mUoX53OdYttfX7rDpPeOiCuswuOLcfOHfLWPLxykwFllaaeQtS3yy68Lz/I+EXzw4cHA6BnV6wbjYuxnhdoMGKf4R9sY18p7t7cIhNt1p5s62WxraomhxGsGIZ8/mARf5cSYDSnBiA/oe0Io6/MWAcA5IQ5GavWRgJWoxkAZ651XBMIRABr42Yq5TXFEAAU03FyHdh0mUCll2dLZwWo3oMArTOwFubYJl5kukPtgKrgiHUQAIC7m+vxPpfrYBmAP2U7zzsc+s+qIMDZdaLil92WF6LM7yTzcMa73m2yC00BvNx5ZgeZXJsAwFcpnczDJUEAz90QFUAZALhlwyLwAQxuy3dwCg6eCKji+bUMwOQu46lYKpHzZxDAU210dj8DAHK9egaBshaK7gMA5c51wpVJoBQqL/nN2brjp2IL1wFnEWO6kKCjhrpgpBNSVQa62QkB5PspPq8ybb0IoAtGmUejlhjthg0or3hwLxCVYDwJsawCwjp0KEK174oN1SJAfFopHgQQK9EmsDZzzwKZEqgzLbwbdZtA3lT2dhYG6GKgXCFX498kefhEpNJQhAu2bdx99IrbAnI9BLYKQEQwZeJeyDheTmZqXisOhfxu2sNtez5v9+ZUCvsutGsABD98inMhbliZ7i9QBGQIWusc259sc/23HE4aqwD6G5l9olbWYYLaey/qexwW+EqAGeuwWG2iZqtUxeG3ADKoV9/NWLPz9AWluuEGK6HPevOd+zFGj2kn4pKvC0NwM1q0Xide3630Fbn4rE0GM8izTg5A3ktcF6bW93pN/o+DwJuiUreuU9HYnzjwVPV6j0+Y/LTvdStYZ31S1tXYej0Ci6P68npd6iiefOThUpNZtR8r67SO+B98v5eXrh+xJpFIJBKJRCKRSCQSiUQikUik/0W/AGG3LrYmm6xAAAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">Orb: The Flexible, Developer-First SaaS</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAANlBMVEVHcEwAFBMAAAaz7XTX/ovD83+u5nG06XWo325JcjS++HqGtlpnikV9pVMAEhKYymWQwGFhg0GF1mf2AAAACnRSTlMA////LHz/uvYR/ESLiAAAAWFJREFUeJzt22FvgjAUhWHGlVJEnP7/PytW6ra6AMO1J9H3xC+m1j65OGZtblWFdE3rXcH4tumqb2mt5Oq3WHtffidYPhB22vXvAtn6oyBcf936zo2fg05YgLEEXdUo13eu0V6B6zUoev95jK+06zsHAAAAAAAAAAAAAACAWYD/nLLtvePs2a3HHMDO9ZR+wwbS+jj7PDd7FnCoP0I2AVwfZx80AFMDqAAVeMUK7OOdpd6vEeQA3J4eVwGyVOAvACrwjhWI//9PpgEkf6UKwHF6OQAAAAC8DcCfpngNwIZ47x9MBZiGAQAAAABAOcDPL/7FATbEmAbgLMaJAMkwAAAPgNzb8wWAZf+BYgGQRg2gAlSAClCB/6jAwtFtsj1P8/zR7dfh9e/HzwvDzx9eX2PhkWl4DSB7AAAAAAAAAAAAAADQA+TNbvJ2P3nDo7zlU970qm/71Tc+y1u/9c3v0vb/C0S9aC/Ip+8+AAAAAElFTkSuQmCC" alt=""><span class="num">3.</span><span class="nm">Metronome: The Enterprise & High-Volume Titan</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Hyperline absente du classement.</p></div><div class="geo-card"><div class="pr">« Best usage-based billing infrastructure for AI SaaS companies? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Stripe Billing</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEX7+PATDwsAAAD///v///f//PT///mFg34QDAjDwLkLBAAIAACSj4oNCAAeGxc4NTJEQj7V0svk4dqsqqRwbWkzMC2enJbu6+O9urNgXlo9OjdXVVF9e3YmIh9RT0uysKosKSVoZmH6LvcdAAAD5ElEQVR4nO2Y2bKjIBCGTUsT1xjNYraT5f1fclDZFBTPzFSdqpn+b1JRmv5omgaMIhKJRCKRSCQSiUQikUgkEulfEpPCn/K/LQZdfoggBqkt+ymATS8CIAAC+HsAyBgXWiptaDQFWGG97J1HaXG9JUl1LdKI+3oRTepUC20Aab3b3Trr32BAXh+7opYlSdb9HmsHAfH1BEvcAHBpnSflnHVArL0CJBsjgHsznlmeioemQbIzAEV7H1knANfmW3kRH+y+FcI5tv1vobRfWwDl3md9iGfdueN/jEavO/mYUcTHiQ8LYFM6pp31cXUM+NUZgOzjrvpg52kTG2DG+rqSIH7MdgTHIY7YOE3CANo6FP+X6UcluJ4QOLCZGLkAmTQ2EyKtl4WtdgfwSFvENn2YpIIWrQCU3mUoX53OdYttfX7rDpPeOiCuswuOLcfOHfLWPLxykwFllaaeQtS3yy68Lz/I+EXzw4cHA6BnV6wbjYuxnhdoMGKf4R9sY18p7t7cIhNt1p5s62WxraomhxGsGIZ8/mARf5cSYDSnBiA/oe0Io6/MWAcA5IQ5GavWRgJWoxkAZ651XBMIRABr42Yq5TXFEAAU03FyHdh0mUCll2dLZwWo3oMArTOwFubYJl5kukPtgKrgiHUQAIC7m+vxPpfrYBmAP2U7zzsc+s+qIMDZdaLil92WF6LM7yTzcMa73m2yC00BvNx5ZgeZXJsAwFcpnczDJUEAz90QFUAZALhlwyLwAQxuy3dwCg6eCKji+bUMwOQu46lYKpHzZxDAU210dj8DAHK9egaBshaK7gMA5c51wpVJoBQqL/nN2brjp2IL1wFnEWO6kKCjhrpgpBNSVQa62QkB5PspPq8ybb0IoAtGmUejlhjthg0or3hwLxCVYDwJsawCwjp0KEK174oN1SJAfFopHgQQK9EmsDZzzwKZEqgzLbwbdZtA3lT2dhYG6GKgXCFX498kefhEpNJQhAu2bdx99IrbAnI9BLYKQEQwZeJeyDheTmZqXisOhfxu2sNtez5v9+ZUCvsutGsABD98inMhbliZ7i9QBGQIWusc259sc/23HE4aqwD6G5l9olbWYYLaey/qexwW+EqAGeuwWG2iZqtUxeG3ADKoV9/NWLPz9AWluuEGK6HPevOd+zFGj2kn4pKvC0NwM1q0Xide3630Fbn4rE0GM8izTg5A3ktcF6bW93pN/o+DwJuiUreuU9HYnzjwVPV6j0+Y/LTvdStYZ31S1tXYej0Ci6P68npd6iiefOThUpNZtR8r67SO+B98v5eXrh+xJpFIJBKJRCKRSCQSiUQikUik/0W/AGG3LrYmm6xAAAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">Orb</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEXu7u5ycnKwsLAgICDx8fFvb2/n5+esrKy9vb3r6+vi4uLOzs52dnZsbGz09PTX19fIyMh+fn4VFRUAAACNjY0oKCiTk5Obm5u2trYMDAxVVVWEhIRfX19LS0svLy9kZGSjo6M/Pz8VmultAAAEKElEQVR4nO1a23KrOBDEIKEbQoJgg+04Jv//k6sLxDESxFUS3tot9VMqlTrd6pnpkeWTZQkJCQkJCQkJCQkJCQkJCf9VAI2SKpTmxzezEyoYztGEHDNByds0gKxkeMhR/gsoHzAr3+IDIELmK8DvsIHiNXorYV92UG7SGwnljiYQMfzFr8DIbgJWi78wYR8FYLv6D6CdOoH+bb8eRiyZEGV8evACv46jkmT7pMEf/Mjm0I4DsFl/lLOdI4hsp494tL1ygRCzo2I2ImCb9BmYybNSyGHsr5VCI+N5Uq43wCAm79XRKR67puIQwoMCbOLNwnoB5EyfCdlxbqkn8DESPaBrvTeI6S+A6K9P5AaNiFOE1Q6Udu8Awk4Hl14V4RQlk4FY4WeT+6KvPOxGAYthAfAbMNmv6tNwP70SMMYQUPr5qf23xXWVXqGiERR4M2AwMQNA3qy4P1mQhwvwtuBg2g/Qfuv4WkAXnoe+LWT9B6LbPL5G+CT6ZmDyX2zbbxGcx4AhR4A5FWCv8PPgJvAMIXv9/CqL6lABDr80v3+NX1kQLGBZgUHvOED/7j+Le6iAcinAtvXpRf4DD40iuhAgzX5Bm/MPOdc3kuqg9jMPXQdLAZofiGqLHHbqhqoh8dh8RhagCwDo2vY7wOo0iroGM+o6+Gr4LACbDlwrAIR9/DeC5yY0BjB/AeDhxB73QxDr3eZpDLGR5J8A2GBLD2oiGNaQoqyDNfwOImQMkN7z8yub6EXPL99Hje/b/RS+jH5HsRmBq88APk4LGlcf57YtLNr24xachI9lhPQSANLLj4z9NePFTG5x7oIFPNax2cLeDuCj5gfk9PVMrzwIvxI9LiR6BtUS9PRfR2w8nIslvsI/nz2uZKYCg2sAbGw8XZbHVwZcwm+ljw+mOoSILwSl5XfPX7RdhCiYr+WDCSE3BGGfGWXu+YviGOWTyfQ2Zs45elJYF6DuPecv2uDbgMY8B5qHuDMAkfmbLw9/8YFiCJjbkOpCuxcx04GltwDtLc4riX0g01cxIJ09BHui4/LoM+CIoxigIJF9/gSD0wIc6w5ovAbc4z2RDFYA6Z0KcDOcHz4DikjvE5npQ6Rv46VzF4ZX5XI9egX0sQqgwZCeaOq0AEf6lL4WPMOo77W1FCbtnR7ULUA/fSEc+XsDooeAOSFUKWOAuDkC2mPEV8IfrAlg3w7/t4zZABsCdAy5KbDP+V8XcL7scn4twBvEAC8WAdzteys68oUEtwfaot/xezMgF3fi5RS0x7vYx/5ZAR2q3y7wpxxQt/BdvzY0ClQsXw8/ErjZ+CYJW3V6RHc9/iyB4FMDrQ/zLji3X5eO1W+gtxpKIcfrnSt86sQvb10u6Vv/D4H+6F8L/QphVo55Engj/Y+Kf4U2ISEhISEhISEhISEhIeH/hn8AuNM66QMbVccAAAAASUVORK5CYII=" alt=""><span class="num">3.</span><span class="nm">Lago</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAANlBMVEVHcEwAFBMAAAaz7XTX/ovD83+u5nG06XWo325JcjS++HqGtlpnikV9pVMAEhKYymWQwGFhg0GF1mf2AAAACnRSTlMA////LHz/uvYR/ESLiAAAAWFJREFUeJzt22FvgjAUhWHGlVJEnP7/PytW6ra6AMO1J9H3xC+m1j65OGZtblWFdE3rXcH4tumqb2mt5Oq3WHtffidYPhB22vXvAtn6oyBcf936zo2fg05YgLEEXdUo13eu0V6B6zUoev95jK+06zsHAAAAAAAAAAAAAACAWYD/nLLtvePs2a3HHMDO9ZR+wwbS+jj7PDd7FnCoP0I2AVwfZx80AFMDqAAVeMUK7OOdpd6vEeQA3J4eVwGyVOAvACrwjhWI//9PpgEkf6UKwHF6OQAAAAC8DcCfpngNwIZ47x9MBZiGAQAAAABAOcDPL/7FATbEmAbgLMaJAMkwAAAPgNzb8wWAZf+BYgGQRg2gAlSAClCB/6jAwtFtsj1P8/zR7dfh9e/HzwvDzx9eX2PhkWl4DSB7AAAAAAAAAAAAAADQA+TNbvJ2P3nDo7zlU970qm/71Tc+y1u/9c3v0vb/C0S9aC/Ip+8+AAAAAElFTkSuQmCC" alt=""><span class="num">4.</span><span class="nm">Metronome</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Hyperline absente du classement.</p></div><div class="geo-card"><div class="pr">« Best billing platform for AI or API-first SaaS companies? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Stripe Billing</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEX7+PATDwsAAAD///v///f//PT///mFg34QDAjDwLkLBAAIAACSj4oNCAAeGxc4NTJEQj7V0svk4dqsqqRwbWkzMC2enJbu6+O9urNgXlo9OjdXVVF9e3YmIh9RT0uysKosKSVoZmH6LvcdAAAD5ElEQVR4nO2Y2bKjIBCGTUsT1xjNYraT5f1fclDZFBTPzFSdqpn+b1JRmv5omgaMIhKJRCKRSCQSiUQikUgkEulfEpPCn/K/LQZdfoggBqkt+ymATS8CIAAC+HsAyBgXWiptaDQFWGG97J1HaXG9JUl1LdKI+3oRTepUC20Aab3b3Trr32BAXh+7opYlSdb9HmsHAfH1BEvcAHBpnSflnHVArL0CJBsjgHsznlmeioemQbIzAEV7H1knANfmW3kRH+y+FcI5tv1vobRfWwDl3md9iGfdueN/jEavO/mYUcTHiQ8LYFM6pp31cXUM+NUZgOzjrvpg52kTG2DG+rqSIH7MdgTHIY7YOE3CANo6FP+X6UcluJ4QOLCZGLkAmTQ2EyKtl4WtdgfwSFvENn2YpIIWrQCU3mUoX53OdYttfX7rDpPeOiCuswuOLcfOHfLWPLxykwFllaaeQtS3yy68Lz/I+EXzw4cHA6BnV6wbjYuxnhdoMGKf4R9sY18p7t7cIhNt1p5s62WxraomhxGsGIZ8/mARf5cSYDSnBiA/oe0Io6/MWAcA5IQ5GavWRgJWoxkAZ651XBMIRABr42Yq5TXFEAAU03FyHdh0mUCll2dLZwWo3oMArTOwFubYJl5kukPtgKrgiHUQAIC7m+vxPpfrYBmAP2U7zzsc+s+qIMDZdaLil92WF6LM7yTzcMa73m2yC00BvNx5ZgeZXJsAwFcpnczDJUEAz90QFUAZALhlwyLwAQxuy3dwCg6eCKji+bUMwOQu46lYKpHzZxDAU210dj8DAHK9egaBshaK7gMA5c51wpVJoBQqL/nN2brjp2IL1wFnEWO6kKCjhrpgpBNSVQa62QkB5PspPq8ybb0IoAtGmUejlhjthg0or3hwLxCVYDwJsawCwjp0KEK174oN1SJAfFopHgQQK9EmsDZzzwKZEqgzLbwbdZtA3lT2dhYG6GKgXCFX498kefhEpNJQhAu2bdx99IrbAnI9BLYKQEQwZeJeyDheTmZqXisOhfxu2sNtez5v9+ZUCvsutGsABD98inMhbliZ7i9QBGQIWusc259sc/23HE4aqwD6G5l9olbWYYLaey/qexwW+EqAGeuwWG2iZqtUxeG3ADKoV9/NWLPz9AWluuEGK6HPevOd+zFGj2kn4pKvC0NwM1q0Xide3630Fbn4rE0GM8izTg5A3ktcF6bW93pN/o+DwJuiUreuU9HYnzjwVPV6j0+Y/LTvdStYZ31S1tXYej0Ci6P68npd6iiefOThUpNZtR8r67SO+B98v5eXrh+xJpFIJBKJRCKRSCQSiUQikUik/0W/AGG3LrYmm6xAAAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">Orb</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEXu7u5ycnKwsLAgICDx8fFvb2/n5+esrKy9vb3r6+vi4uLOzs52dnZsbGz09PTX19fIyMh+fn4VFRUAAACNjY0oKCiTk5Obm5u2trYMDAxVVVWEhIRfX19LS0svLy9kZGSjo6M/Pz8VmultAAAEKElEQVR4nO1a23KrOBDEIKEbQoJgg+04Jv//k6sLxDESxFUS3tot9VMqlTrd6pnpkeWTZQkJCQkJCQkJCQkJCQkJCf9VAI2SKpTmxzezEyoYztGEHDNByds0gKxkeMhR/gsoHzAr3+IDIELmK8DvsIHiNXorYV92UG7SGwnljiYQMfzFr8DIbgJWi78wYR8FYLv6D6CdOoH+bb8eRiyZEGV8evACv46jkmT7pMEf/Mjm0I4DsFl/lLOdI4hsp494tL1ygRCzo2I2ImCb9BmYybNSyGHsr5VCI+N5Uq43wCAm79XRKR67puIQwoMCbOLNwnoB5EyfCdlxbqkn8DESPaBrvTeI6S+A6K9P5AaNiFOE1Q6Udu8Awk4Hl14V4RQlk4FY4WeT+6KvPOxGAYthAfAbMNmv6tNwP70SMMYQUPr5qf23xXWVXqGiERR4M2AwMQNA3qy4P1mQhwvwtuBg2g/Qfuv4WkAXnoe+LWT9B6LbPL5G+CT6ZmDyX2zbbxGcx4AhR4A5FWCv8PPgJvAMIXv9/CqL6lABDr80v3+NX1kQLGBZgUHvOED/7j+Le6iAcinAtvXpRf4DD40iuhAgzX5Bm/MPOdc3kuqg9jMPXQdLAZofiGqLHHbqhqoh8dh8RhagCwDo2vY7wOo0iroGM+o6+Gr4LACbDlwrAIR9/DeC5yY0BjB/AeDhxB73QxDr3eZpDLGR5J8A2GBLD2oiGNaQoqyDNfwOImQMkN7z8yub6EXPL99Hje/b/RS+jH5HsRmBq88APk4LGlcf57YtLNr24xachI9lhPQSANLLj4z9NePFTG5x7oIFPNax2cLeDuCj5gfk9PVMrzwIvxI9LiR6BtUS9PRfR2w8nIslvsI/nz2uZKYCg2sAbGw8XZbHVwZcwm+ljw+mOoSILwSl5XfPX7RdhCiYr+WDCSE3BGGfGWXu+YviGOWTyfQ2Zs45elJYF6DuPecv2uDbgMY8B5qHuDMAkfmbLw9/8YFiCJjbkOpCuxcx04GltwDtLc4riX0g01cxIJ09BHui4/LoM+CIoxigIJF9/gSD0wIc6w5ovAbc4z2RDFYA6Z0KcDOcHz4DikjvE5npQ6Rv46VzF4ZX5XI9egX0sQqgwZCeaOq0AEf6lL4WPMOo77W1FCbtnR7ULUA/fSEc+XsDooeAOSFUKWOAuDkC2mPEV8IfrAlg3w7/t4zZABsCdAy5KbDP+V8XcL7scn4twBvEAC8WAdzteys68oUEtwfaot/xezMgF3fi5RS0x7vYx/5ZAR2q3y7wpxxQt/BdvzY0ClQsXw8/ErjZ+CYJW3V6RHc9/iyB4FMDrQ/zLji3X5eO1W+gtxpKIcfrnSt86sQvb10u6Vv/D4H+6F8L/QphVo55Engj/Y+Kf4U2ISEhISEhISEhISEhIeH/hn8AuNM66QMbVccAAAAASUVORK5CYII=" alt=""><span class="num">3.</span><span class="nm">Lago</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAANlBMVEVHcEwAFBMAAAaz7XTX/ovD83+u5nG06XWo325JcjS++HqGtlpnikV9pVMAEhKYymWQwGFhg0GF1mf2AAAACnRSTlMA////LHz/uvYR/ESLiAAAAWFJREFUeJzt22FvgjAUhWHGlVJEnP7/PytW6ra6AMO1J9H3xC+m1j65OGZtblWFdE3rXcH4tumqb2mt5Oq3WHtffidYPhB22vXvAtn6oyBcf936zo2fg05YgLEEXdUo13eu0V6B6zUoev95jK+06zsHAAAAAAAAAAAAAACAWYD/nLLtvePs2a3HHMDO9ZR+wwbS+jj7PDd7FnCoP0I2AVwfZx80AFMDqAAVeMUK7OOdpd6vEeQA3J4eVwGyVOAvACrwjhWI//9PpgEkf6UKwHF6OQAAAAC8DcCfpngNwIZ47x9MBZiGAQAAAABAOcDPL/7FATbEmAbgLMaJAMkwAAAPgNzb8wWAZf+BYgGQRg2gAlSAClCB/6jAwtFtsj1P8/zR7dfh9e/HzwvDzx9eX2PhkWl4DSB7AAAAAAAAAAAAAADQA+TNbvJ2P3nDo7zlU970qm/71Tc+y1u/9c3v0vb/C0S9aC/Ip+8+AAAAAElFTkSuQmCC" alt=""><span class="num">4.</span><span class="nm">Metronome</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Hyperline absente du classement.</p></div><div class="geo-card"><div class="pr">« What are the best subscription billing platforms for B2B SaaS companies with complex usage… »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEX7+PATDwsAAAD///v///f//PT///mFg34QDAjDwLkLBAAIAACSj4oNCAAeGxc4NTJEQj7V0svk4dqsqqRwbWkzMC2enJbu6+O9urNgXlo9OjdXVVF9e3YmIh9RT0uysKosKSVoZmH6LvcdAAAD5ElEQVR4nO2Y2bKjIBCGTUsT1xjNYraT5f1fclDZFBTPzFSdqpn+b1JRmv5omgaMIhKJRCKRSCQSiUQikUgkEulfEpPCn/K/LQZdfoggBqkt+ymATS8CIAAC+HsAyBgXWiptaDQFWGG97J1HaXG9JUl1LdKI+3oRTepUC20Aab3b3Trr32BAXh+7opYlSdb9HmsHAfH1BEvcAHBpnSflnHVArL0CJBsjgHsznlmeioemQbIzAEV7H1knANfmW3kRH+y+FcI5tv1vobRfWwDl3md9iGfdueN/jEavO/mYUcTHiQ8LYFM6pp31cXUM+NUZgOzjrvpg52kTG2DG+rqSIH7MdgTHIY7YOE3CANo6FP+X6UcluJ4QOLCZGLkAmTQ2EyKtl4WtdgfwSFvENn2YpIIWrQCU3mUoX53OdYttfX7rDpPeOiCuswuOLcfOHfLWPLxykwFllaaeQtS3yy68Lz/I+EXzw4cHA6BnV6wbjYuxnhdoMGKf4R9sY18p7t7cIhNt1p5s62WxraomhxGsGIZ8/mARf5cSYDSnBiA/oe0Io6/MWAcA5IQ5GavWRgJWoxkAZ651XBMIRABr42Yq5TXFEAAU03FyHdh0mUCll2dLZwWo3oMArTOwFubYJl5kukPtgKrgiHUQAIC7m+vxPpfrYBmAP2U7zzsc+s+qIMDZdaLil92WF6LM7yTzcMa73m2yC00BvNx5ZgeZXJsAwFcpnczDJUEAz90QFUAZALhlwyLwAQxuy3dwCg6eCKji+bUMwOQu46lYKpHzZxDAU210dj8DAHK9egaBshaK7gMA5c51wpVJoBQqL/nN2brjp2IL1wFnEWO6kKCjhrpgpBNSVQa62QkB5PspPq8ybb0IoAtGmUejlhjthg0or3hwLxCVYDwJsawCwjp0KEK174oN1SJAfFopHgQQK9EmsDZzzwKZEqgzLbwbdZtA3lT2dhYG6GKgXCFX498kefhEpNJQhAu2bdx99IrbAnI9BLYKQEQwZeJeyDheTmZqXisOhfxu2sNtez5v9+ZUCvsutGsABD98inMhbliZ7i9QBGQIWusc259sc/23HE4aqwD6G5l9olbWYYLaey/qexwW+EqAGeuwWG2iZqtUxeG3ADKoV9/NWLPz9AWluuEGK6HPevOd+zFGj2kn4pKvC0NwM1q0Xide3630Fbn4rE0GM8izTg5A3ktcF6bW93pN/o+DwJuiUreuU9HYnzjwVPV6j0+Y/LTvdStYZ31S1tXYej0Ci6P68npd6iiefOThUpNZtR8r67SO+B98v5eXrh+xJpFIJBKJRCKRSCQSiUQikUik/0W/AGG3LrYmm6xAAAAAAElFTkSuQmCC" alt=""><span class="num">1.</span><span class="nm">Orb</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAANlBMVEVHcEwAFBMAAAaz7XTX/ovD83+u5nG06XWo325JcjS++HqGtlpnikV9pVMAEhKYymWQwGFhg0GF1mf2AAAACnRSTlMA////LHz/uvYR/ESLiAAAAWFJREFUeJzt22FvgjAUhWHGlVJEnP7/PytW6ra6AMO1J9H3xC+m1j65OGZtblWFdE3rXcH4tumqb2mt5Oq3WHtffidYPhB22vXvAtn6oyBcf936zo2fg05YgLEEXdUo13eu0V6B6zUoev95jK+06zsHAAAAAAAAAAAAAACAWYD/nLLtvePs2a3HHMDO9ZR+wwbS+jj7PDd7FnCoP0I2AVwfZx80AFMDqAAVeMUK7OOdpd6vEeQA3J4eVwGyVOAvACrwjhWI//9PpgEkf6UKwHF6OQAAAAC8DcCfpngNwIZ47x9MBZiGAQAAAABAOcDPL/7FATbEmAbgLMaJAMkwAAAPgNzb8wWAZf+BYgGQRg2gAlSAClCB/6jAwtFtsj1P8/zR7dfh9e/HzwvDzx9eX2PhkWl4DSB7AAAAAAAAAAAAAADQA+TNbvJ2P3nDo7zlU970qm/71Tc+y1u/9c3v0vb/C0S9aC/Ip+8+AAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">Metronome</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAZlBMVEXu7u5ycnKwsLAgICDx8fFvb2/n5+esrKy9vb3r6+vi4uLOzs52dnZsbGz09PTX19fIyMh+fn4VFRUAAACNjY0oKCiTk5Obm5u2trYMDAxVVVWEhIRfX19LS0svLy9kZGSjo6M/Pz8VmultAAAEKElEQVR4nO1a23KrOBDEIKEbQoJgg+04Jv//k6sLxDESxFUS3tot9VMqlTrd6pnpkeWTZQkJCQkJCQkJCQkJCQkJCf9VAI2SKpTmxzezEyoYztGEHDNByds0gKxkeMhR/gsoHzAr3+IDIELmK8DvsIHiNXorYV92UG7SGwnljiYQMfzFr8DIbgJWi78wYR8FYLv6D6CdOoH+bb8eRiyZEGV8evACv46jkmT7pMEf/Mjm0I4DsFl/lLOdI4hsp494tL1ygRCzo2I2ImCb9BmYybNSyGHsr5VCI+N5Uq43wCAm79XRKR67puIQwoMCbOLNwnoB5EyfCdlxbqkn8DESPaBrvTeI6S+A6K9P5AaNiFOE1Q6Udu8Awk4Hl14V4RQlk4FY4WeT+6KvPOxGAYthAfAbMNmv6tNwP70SMMYQUPr5qf23xXWVXqGiERR4M2AwMQNA3qy4P1mQhwvwtuBg2g/Qfuv4WkAXnoe+LWT9B6LbPL5G+CT6ZmDyX2zbbxGcx4AhR4A5FWCv8PPgJvAMIXv9/CqL6lABDr80v3+NX1kQLGBZgUHvOED/7j+Le6iAcinAtvXpRf4DD40iuhAgzX5Bm/MPOdc3kuqg9jMPXQdLAZofiGqLHHbqhqoh8dh8RhagCwDo2vY7wOo0iroGM+o6+Gr4LACbDlwrAIR9/DeC5yY0BjB/AeDhxB73QxDr3eZpDLGR5J8A2GBLD2oiGNaQoqyDNfwOImQMkN7z8yub6EXPL99Hje/b/RS+jH5HsRmBq88APk4LGlcf57YtLNr24xachI9lhPQSANLLj4z9NePFTG5x7oIFPNax2cLeDuCj5gfk9PVMrzwIvxI9LiR6BtUS9PRfR2w8nIslvsI/nz2uZKYCg2sAbGw8XZbHVwZcwm+ljw+mOoSILwSl5XfPX7RdhCiYr+WDCSE3BGGfGWXu+YviGOWTyfQ2Zs45elJYF6DuPecv2uDbgMY8B5qHuDMAkfmbLw9/8YFiCJjbkOpCuxcx04GltwDtLc4riX0g01cxIJ09BHui4/LoM+CIoxigIJF9/gSD0wIc6w5ovAbc4z2RDFYA6Z0KcDOcHz4DikjvE5npQ6Rv46VzF4ZX5XI9egX0sQqgwZCeaOq0AEf6lL4WPMOo77W1FCbtnR7ULUA/fSEc+XsDooeAOSFUKWOAuDkC2mPEV8IfrAlg3w7/t4zZABsCdAy5KbDP+V8XcL7scn4twBvEAC8WAdzteys68oUEtwfaot/xezMgF3fi5RS0x7vYx/5ZAR2q3y7wpxxQt/BdvzY0ClQsXw8/ErjZ+CYJW3V6RHc9/iyB4FMDrQ/zLji3X5eO1W+gtxpKIcfrnSt86sQvb10u6Vv/D4H+6F8L/QphVo55Engj/Y+Kf4U2ISEhISEhISEhISEhIeH/hn8AuNM66QMbVccAAAAASUVORK5CYII=" alt=""><span class="num">3.</span><span class="nm">Lago</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Amberflo</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Maxio</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Zuora</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Hyperline absente du classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Page "usage-based billing B2B SaaS"</h3><p>Positionnée exactement sur le segment cité par Gemini (Orb/Metronome/Lago), pas la catégorie billing générale.</p></div><div class="sol-card"><span class="sol-tag">Urgence</span><h3>Diagnostiquer la chute mai→juin</h3><p>-78% en un mois mérite une vérification technique avant tout travail de contenu.</p></div><div class="sol-card"><span class="sol-tag">Comparatif</span><h3>Hyperline vs Orb/Metronome/Lago</h3><p>Avec specs réelles — pour entrer dans le comparatif que Gemini construit déjà sans vous.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Orb</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 429 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 2/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 1.2% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 68/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>56.4% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — chaque citation est vérifiable.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Priorisation par impact</h3><p>Chaque chantier est classé par vitesse de rendement, pas par facilité à vendre.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On priorise ça ensemble ?</h3>
       <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>

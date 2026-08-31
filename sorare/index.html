@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:780px;
+  --maxw:1060px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -40,23 +40,39 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:52px 0 28px}
+.hero{padding:52px 0 8px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
-.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
-.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
-.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
-.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
-.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
@@ -72,19 +88,27 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
 .quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
 .quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
 .postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 @media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
 .rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row img{width:18px;height:18px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
 .rank-row.self .nm{font-weight:700;color:var(--gold)}
 .solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
@@ -96,6 +120,20 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
 .pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
 .pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
 .cta h3{font-size:1.35rem;margin-bottom:8px}
 .cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
@@ -119,22 +157,67 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Mika</div>
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
     <h1>Référence IA n°1, mais un site 4x trop lent pour convertir</h1>
     <p class="hero-sub">Sorare est déjà la référence n°1 citée par les 2 IA sur sa catégorie ("the undisputed giant") — mais son site charge en 20,3 secondes sur mobile (score PageSpeed 25/100), un frein direct pour les nouveaux joueurs qui arrivent via ces recommandations.</p>
-    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
+    <p class="hero-meta">Préparé pour <b>Mika</b> · Sorare (sorare.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">+57%</div><div class="k">Évolution du trafic organique — 2024-08 → 2026-07 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v good">11/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">41.1%</div><div class="k">Backlinks en dofollow — 4 443 771 liens totaux</div></div>
+      <div class="tile"><div class="v">#1.4</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
   </div>
 </header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
 
 
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="secnum"><span class="n">01</span><h2>Le paradoxe : 433 000 visites/mois, presque aucune ne convertit</h2></div>
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Le paradoxe : 433 000 visites/mois, presque aucune ne convertit</h2>
     <p class="lead">156 000 mots-clés indexés — mais dominés par des fiches joueurs (Mbappé, Neymar…), pas par du contenu produit. Et le vrai frein est ailleurs : le site charge en 20,3 secondes sur mobile (score PageSpeed 25/100). Le trafic généré par une recommandation IA arrive sur un site trop lent pour convertir.</p>
     
-    <div class="tiles">
-      <div class="tile"><div class="v gold">57<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">57<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
       <div class="tile"><div class="v ">433 179</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">156 377</div><div class="k">Mots-clés indexés</div></div>
       <div class="tile"><div class="v">4 443 771</div><div class="k">Backlinks · 9 392 domaines référents</div></div>
     </div>
     
@@ -144,49 +227,172 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr><td>korean footballer</td><td>246 000</td><td>11</td></tr><tr><td>morocco football squad</td><td>201 000</td><td>8</td></tr><tr><td>card games nba</td><td>480</td><td>2</td></tr><tr><td>mbappé age</td><td>40 500</td><td>15</td></tr></tbody>
       </table>
     </div>
-    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge crit">25/100 · lent</span></p>
-  </div>
-</section>
-
-<section id="visibilite">
-  <div class="wrap">
-    <div class="secnum"><span class="n">02</span><h2>L'IA vous cite déjà n°1 — rare, à verrouiller</h2></div>
-    <div class="quotecard">
-      <span class="who">Gemini · appel API réel, 31/08/2026</span>
-      <p class="q">"Sorare is the undisputed giant of NFT fantasy sports. It holds official licenses for over 300 global soccer clubs..."</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-08 → 2026-07 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">292 860</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">585 720</text>
+  <path d="M 46.0,98.4 L 77.2,90.5 L 108.4,76.7 L 139.7,54.0 L 170.9,59.7 L 202.1,84.2 L 233.3,57.3 L 264.5,60.4 L 295.7,65.9 L 327.0,49.8 L 358.2,39.1 L 389.4,50.0 L 420.6,67.0 L 451.8,87.8 L 483.0,69.8 L 514.3,31.4 L 545.5,16.0 L 576.7,90.7 L 607.9,60.6 L 639.1,59.4 L 670.3,76.0 L 701.6,72.0 L 732.8,80.5 L 764.0,56.6 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,98.4 L 77.2,90.5 L 108.4,76.7 L 139.7,54.0 L 170.9,59.7 L 202.1,84.2 L 233.3,57.3 L 264.5,60.4 L 295.7,65.9 L 327.0,49.8 L 358.2,39.1 L 389.4,50.0 L 420.6,67.0 L 451.8,87.8 L 483.0,69.8 L 514.3,31.4 L 545.5,16.0 L 576.7,90.7 L 607.9,60.6 L 639.1,59.4 L 670.3,76.0 L 701.6,72.0 L 732.8,80.5 L 764.0,56.6" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="56.6" r="4" fill="#A9711C"/><text x="758.0" y="46.6" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">433 179</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="postquote">ChatGPT confirme dans les mêmes termes. Sur les 10 pilotes testés, c'est le seul cas où la recommandation IA n°1 est déjà acquise — le chantier n'est pas la citation, c'est la conversion.</p>
-    <p class="cap" style="margin-top:20px">Preuve complète — 7/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="cited">✓ cité #1</span></div></div>
-    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row self"><span class="num">1.</span><span class="nm">Sorare</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAACiElEQVQ4EaVTzU8TURCf2tJuS7tQtlRb6UKBIkQwkRRSEzkQgyEc6lkOKgcOph78Y+CgjXjDs2i44FXY9AMTlQRUELZapVlouy3d7kKtb0Zr0MSLTvL2zb75eL838xtTvV6H/xELBptMJojeXLCXyobnyog4YhzXYvmCFi6qVSfaeRdXdrfaU1areV5KykmX06rcvzumjY/1ggkR3Jh+bNf1mr8v1D5bLuvR3qDgFbvbBJYIrE1mCIoCrKxsHuzK+Rzvsi29+6DEbTZz9unijEYI8ObBgXOzlcrx9OAlXyDYKUCzwwrDQx1wVDGg089Dt+gR3mxmhcUnaWeoxwMbm/vzDFzmDEKMMNhquRqduT1KwXiGt0vre6iSeAUHNDE0d26NBtAXY9BACQyjFusKuL2Ry+IPb/Y9ZglwuVscdHaknUChqLF/O4jn3V5dP4mhgRJgwSYm+gV0Oi3XrvYB30yvhGa7BS70eGFHPoTJyQHhMK+F0ZesRVVznvXw5Ixv7/C10moEo6OZXbWvlFAF9FVZDOqEABUMRIkMd8GnLwVWg9/RkJF9sA4oDfYQAuzzjqzwvnaRUFxn/X2ZlmGLXAE7AL52B4xHgqAUqrC1nSNuoJkQtLkdqReszz/9aRvq90NOKdOS1nch8TpL555WDp49f3uAMXhACRjD5j4ykuCtf5PP7Fm1b0DIsl/VHGezzP1KwOiZQobFF9YyjSRYQETRENSlVzI8iK9mWlzckpSSCQHVALmN9Az1euDho9Xo8vKGd2rqooA8yBcrwHgCqYR0kMkWci08t/R+W4ljDCanWTg9TJGwGNaNk3vYZ7VUdeKsYJGFNkfSzjXNrSX20s4/h6kB81/271ghG17l+rPTAAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">ZED RUN</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">3.</span><span class="nm">NBA Top Shot</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">MLB Champions</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Chiliz and Socios.com</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Fantasy Labs</span></div></div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights)</h3>
+        <p>Score Performance : <span class="pw-badge crit">25/100 · lent</span>. Check homepage réel (API Google directe) — pas un audit technique complet du site.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>4 443 771 backlinks, 9 392 domaines référents, <strong>41.1% en dofollow</strong> (2 616 514 liens nofollow).</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>156k mots-clés indexés mais dominés par des fiches joueurs (SEO de contenu, pas de conversion) — quasi aucune requête "fantasy football"/"nft game" dans le top.</div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
       <table>
         <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
-        <tbody><tr class="self"><td>Sorare (vous)</td><td>57</td><td>433 179</td><td>4 443 771</td></tr><tr><td>ZED RUN</td><td>43</td><td>324</td><td>6 358 719</td></tr><tr><td>NBA Top Shot</td><td>58</td><td>7 638</td><td>2 101 329</td></tr></tbody>
+        <tbody><tr class="self"><td>Sorare (vous)</td><td>57</td><td>433 179</td><td>4 443 771</td></tr><tr><td>NBA Top Shot</td><td>58</td><td>7 638</td><td>2 101 329</td></tr><tr><td>ZED RUN</td><td>43</td><td>324</td><td>6 358 719</td></tr></tbody>
       </table>
     </div>
     <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Sorare arrive en position 1 en trafic organique. Le trafic organique n'est pas le problème — l'écart se joue ailleurs (vitesse, citation IA).</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « NFT fantasy sports games »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> Wikipedia (en.wikipedia.org, DA97) · <strong>Sorare :</strong> <span class="absent">hors top 10</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sorare absente du top 10 Google alors qu'elle est citée n°1 par ChatGPT et Gemini — écart net entre SEO et GEO.</div>
   </div>
 </section>
 
-<section id="actions">
+<section id="visibilite">
   <div class="wrap">
-    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Sorare est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">11/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">1.4</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v warn">5/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">2</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · What are the best NFT fantasy sports games?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #1</span></div><div class="board-row-label">P2 · What is the best fantasy football game with real rewards?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · Best web3 games with real utility in 2026?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · How does Sorare compare to NBA Top Shot?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P5 · Best blockchain games for football fans?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #1</span></div><div class="board-row-label">P6 · Best web3 game to invest in for football fans?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P7 · How does Sorare's tokenomics work compared to other NFT games?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #2</span></div><div class="board-row-label">P8 · Best fantasy football platform with real financial upside?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · Is Sorare worth playing in 2026?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Best licensed sports NFT platform?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Sorare est cité 11 fois sur 30, en position moyenne 1.4 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>L'IA vous cite déjà n°1 — rare, à verrouiller</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Sorare est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="40.52 437.01" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="14.47 463.05" stroke-dashoffset="-40.52" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="2.89 474.63" stroke-dashoffset="-54.99" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="419.64 57.88" stroke-dashoffset="-57.88" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">165 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Sorare (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:8.5%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">8.5%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">NBA Top Shot</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:3.0%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">3.0%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">ZED RUN</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:0.6%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">0.6%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:87.9%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">87.9%</span></div></div>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Sorare totalise <strong>8.5% de part de voix</strong> sur les 165 mentions relevées — loin derrière le ou les leaders du panel.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">"Sorare is the undisputed giant of NFT fantasy sports. It holds official licenses for over 300 global soccer clubs..."</p>
+    </div>
+    <p class="postquote">ChatGPT confirme dans les mêmes termes. Sur les 10 pilotes testés, c'est le seul cas où la recommandation IA n°1 est déjà acquise — le chantier n'est pas la citation, c'est la conversion.</p>
+    <div class="geo-card"><div class="pr">« What are the best NFT fantasy sports games? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row self"><span class="num">1.</span><span class="nm">Sorare</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">NBA Top Shot</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">UFC Strike</span></div><div class="rank-row self"><span class="num">4.</span><span class="nm">Sorare MLB</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Sorare présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Best blockchain games for football fans? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row self"><span class="num">1.</span><span class="nm">Sorare</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">FootballCoin</span></div><div class="rank-row self"><span class="num">3.</span><span class="nm">Sorare Data & Analysis Tools</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Ultimate Champions</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">GoalTycoon</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Sorare présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Best licensed sports NFT platform? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">NBA Top Shot</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">NFL All Day</span></div><div class="rank-row self"><span class="num">3.</span><span class="nm">Sorare</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Candy Digital</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">DraftKings Marketplace</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Sorare présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« How does Sorare's tokenomics work compared to other NFT games? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Most NFT Games</span></div><div class="rank-row self"><span class="num">2.</span><span class="nm">Sorare</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Why this matters</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Limited</span></div><div class="rank-row self"><span class="num">5.</span><span class="nm">Rare</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Super Rare</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Sorare présente dans ce classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
     <div class="solutions"><div class="sol-card"><span class="sol-tag">Priorité absolue</span><h3>Diagnostic de charge mobile</h3><p>20,3s → cible sous 3s, avant tout autre chantier. C'est ce qui empêche la recommandation IA de se transformer en inscription.</p></div><div class="sol-card"><span class="sol-tag">Vérification</span><h3>Tracker la conversion du trafic "joueurs"</h3><p>Confirmer si ces 433k visites/mois génèrent réellement des inscriptions ou passent à côté.</p></div><div class="sol-card"><span class="sol-tag">Consolidation</span><h3>Élargir le panel de mesure IA</h3><p>Verrouiller la position n°1 sur davantage de prompts de découverte, pas juste celui testé.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à NBA Top Shot</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 433 179 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 11/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 8.5% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 25/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>41.1% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — chaque citation est vérifiable.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Priorisation par impact</h3><p>Chaque chantier est classé par vitesse de rendement, pas par facilité à vendre.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On priorise ça ensemble ?</h3>
       <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>

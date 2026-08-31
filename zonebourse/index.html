@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:780px;
+  --maxw:1060px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -40,23 +40,39 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:52px 0 28px}
+.hero{padding:52px 0 8px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
-.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
-.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
-.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
-.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
-.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
@@ -72,19 +88,27 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
 .quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
 .quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
 .postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 @media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
 .rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row img{width:18px;height:18px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
 .rank-row.self .nm{font-weight:700;color:var(--gold)}
 .solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
@@ -96,6 +120,20 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
 .pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
 .pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
 .cta h3{font-size:1.35rem;margin-bottom:8px}
 .cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
@@ -119,22 +157,67 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Maxime</div>
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
     <h1>Bien citée, mais un site qui ralentit 382 000 visiteurs/mois</h1>
     <p class="hero-sub">Citée par les 2 IA (Boursorama reste n°1, vous êtes cité n°2 pour l'analyse fondamentale) — mais votre site charge en 13,4 secondes sur mobile (score PageSpeed 43/100), sur 382 000 visites/mois.</p>
-    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
+    <p class="hero-meta">Préparé pour <b>Maxime</b> · Zonebourse (zonebourse.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">-83%</div><div class="k">Évolution du trafic organique — 2024-08 → 2026-07 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v good">11/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">99.4%</div><div class="k">Backlinks en dofollow — 76 035 621 liens totaux</div></div>
+      <div class="tile"><div class="v">#2.5</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
   </div>
 </header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
 
 
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="secnum"><span class="n">01</span><h2>382 000 visites par mois, un site qui charge en 13,4 secondes</h2></div>
-    <p class="lead">Autorité de domaine 76/100, 76 millions de backlinks — un profil massif. Mais le score PageSpeed mobile est de 43/100, et le trafic organique recule : 1,24M de visites/mois en février, 518 000 en juillet.</p>
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>382 000 visites par mois, un site qui charge en 13,4 secondes</h2>
+    <p class="lead">Autorité de domaine 76/100, 76 millions de backlinks — un profil massif. Mais le score PageSpeed mobile est de 43/100, et le trafic organique recule : 738 702 visites/mois en février 2026, 382 233 en juillet (-48%).</p>
     
-    <div class="tiles">
-      <div class="tile"><div class="v gold">76<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">76<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
       <div class="tile"><div class="v ">382 233</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">68 471</div><div class="k">Mots-clés indexés</div></div>
       <div class="tile"><div class="v">76 035 621</div><div class="k">Backlinks · 22 617 domaines référents</div></div>
     </div>
     
@@ -144,49 +227,172 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr><td>cours ing</td><td>2 900</td><td>5</td></tr><tr><td>imerys company</td><td>5 400</td><td>37</td></tr><tr><td>actu bourse</td><td>40</td><td>1</td></tr><tr><td>boursorama bourse</td><td>590</td><td>22</td></tr></tbody>
       </table>
     </div>
-    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge crit">43/100 · lent</span></p>
-  </div>
-</section>
-
-<section id="visibilite">
-  <div class="wrap">
-    <div class="secnum"><span class="n">02</span><h2>Bien citée — juste derrière Boursorama</h2></div>
-    <div class="quotecard">
-      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
-      <p class="q">"Zonebourse — Ce site est très utilisé par les investisseurs pour sa combinaison de nouvelles financières, d'analyses de marché et de forums..."</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-08 → 2026-07 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">1 127 670</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">2 255 341</text>
+  <path d="M 46.0,16.0 L 77.2,32.5 L 108.4,44.8 L 139.7,66.1 L 170.9,105.2 L 202.1,96.3 L 233.3,86.4 L 264.5,104.5 L 295.7,108.0 L 327.0,125.5 L 358.2,112.4 L 389.4,136.2 L 420.6,141.2 L 451.8,147.4 L 483.0,143.5 L 514.3,137.5 L 545.5,131.0 L 576.7,135.4 L 607.9,120.9 L 639.1,105.3 L 670.3,112.5 L 701.6,119.2 L 732.8,135.8 L 764.0,145.6 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,16.0 L 77.2,32.5 L 108.4,44.8 L 139.7,66.1 L 170.9,105.2 L 202.1,96.3 L 233.3,86.4 L 264.5,104.5 L 295.7,108.0 L 327.0,125.5 L 358.2,112.4 L 389.4,136.2 L 420.6,141.2 L 451.8,147.4 L 483.0,143.5 L 514.3,137.5 L 545.5,131.0 L 576.7,135.4 L 607.9,120.9 L 639.1,105.3 L 670.3,112.5 L 701.6,119.2 L 732.8,135.8 L 764.0,145.6" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="145.6" r="4" fill="#A9711C"/><text x="758.0" y="135.6" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">382 233</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="postquote">Gemini confirme et précise votre différenciateur : "Le + : L'analyse fondamentale et la qualité des données financières (...) leurs outils de sélection d'actions (screeners) sont d'excellente qualité."</p>
-    <p class="cap" style="margin-top:20px">Preuve complète — 5/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="cited">✓ cité #4</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="cited">✓ cité #4</span></div></div>
-    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">1.</span><span class="nm">Boursorama</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">2.</span><span class="nm">Investing.com</span></div><div class="rank-row self"><span class="num">3.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Yahoo Finance</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Bloomberg</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">La Tribune</span></div></div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights)</h3>
+        <p>Score Performance : <span class="pw-badge crit">43/100 · lent</span>. Check homepage réel (API Google directe) — pas un audit technique complet du site.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>76 035 621 backlinks, 22 617 domaines référents, <strong>99.4% en dofollow</strong> (420 797 liens nofollow).</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>76M backlinks, DA76 : profil massif, mais baisse de trafic organique -48% depuis février 2026 (738 702 → 382 233).</div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
       <table>
         <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
-        <tbody><tr class="self"><td>Zonebourse (vous)</td><td>76</td><td>382 233</td><td>76 035 621</td></tr><tr><td>Boursorama</td><td>83</td><td>8 312 174</td><td>5 872 979</td></tr><tr><td>Investing.com</td><td>91</td><td>10 379 631</td><td>27 189 938</td></tr></tbody>
+        <tbody><tr class="self"><td>Zonebourse (vous)</td><td>76</td><td>382 233</td><td>76 035 621</td></tr><tr><td>Investing.com</td><td>91</td><td>10 379 631</td><td>27 189 938</td></tr><tr><td>Boursorama</td><td>83</td><td>8 312 174</td><td>5 872 979</td></tr></tbody>
       </table>
     </div>
     <div class="note"><span class="h">Petite note</span>Sur 3 acteurs comparés (vous + concurrents cités par les IA), Zonebourse arrive en position 3 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « suivre cours de bourse actualité financière »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> Boursorama (boursorama.com, DA83) · <strong>Zonebourse :</strong> <span class="cited">✓ position 2</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Zonebourse.com classée en position 2, juste derrière Boursorama — confirmation SEO de la position n°2 observée en GEO.</div>
   </div>
 </section>
 
-<section id="actions">
+<section id="visibilite">
   <div class="wrap">
-    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
-    <div class="solutions"><div class="sol-card"><span class="sol-tag">Priorité</span><h3>Diagnostic de performance mobile</h3><p>13,4s → cible sous 4s. À cette échelle (382k visites/mois), chaque seconde gagnée a un impact direct mesurable.</p></div><div class="sol-card"><span class="sol-tag">Renforcement</span><h3>Capitaliser sur "l'analyse fondamentale"</h3><p>Différenciateur déjà reconnu par les deux IA — à structurer en contenu citable pour verrouiller la place.</p></div><div class="sol-card"><span class="sol-tag">Diagnostic parallèle</span><h3>Investiguer la baisse de trafic</h3><p>-58% en 6 mois — à croiser avec les données Search Console pour identifier la cause.</p></div></div>
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Zonebourse est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">11/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">2.5</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v warn">3/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">2</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · Quels sont les meilleurs sites pour suivre les cours de bourse et l'actualité …</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #4</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P2 · Meilleur site pour l'analyse fondamentale d'actions en France ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · Quel outil pour un screener d'actions gratuit ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #3</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · Boursorama ou Zonebourse, lequel choisir pour investir en bourse ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #4</span></div><div class="board-row-label">P5 · Meilleur site pour suivre le consensus des analystes sur une action ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #4</span></div><div class="board-row-label">P6 · Quel site pour l'analyse technique d'actions en France ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #4</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #3</span></div><div class="board-row-label">P7 · Zonebourse ou Boursorama, lequel est le plus complet pour investir ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #1</span></div><div class="board-cell"><span class="eng">Claude</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #1</span></div><div class="board-row-label">P8 · Meilleur outil gratuit pour suivre son portefeuille d'actions ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · Quel site pour les résultats trimestriels des entreprises cotées ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Meilleure plateforme pour débuter en bourse en France ?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Zonebourse est cité 11 fois sur 30, en position moyenne 2.5 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Bien citée — juste derrière Boursorama</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Zonebourse est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="37.21 440.31" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="34.11 443.41" stroke-dashoffset="-37.21" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="31.01 446.51" stroke-dashoffset="-71.32" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="375.20 102.33" stroke-dashoffset="-102.33" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">154 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Boursorama</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.8%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.8%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Investing.com</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.1%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Zonebourse (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:6.5%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">6.5%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:78.6%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">78.6%</span></div></div>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Zonebourse totalise <strong>6.5% de part de voix</strong> sur les 154 mentions relevées — loin derrière le ou les leaders du panel.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
+      <p class="q">"Zonebourse — Ce site est très utilisé par les investisseurs pour sa combinaison de nouvelles financières, d'analyses de marché et de forums..."</p>
+    </div>
+    <p class="postquote">Gemini confirme et précise votre différenciateur : "Le + : L'analyse fondamentale et la qualité des données financières (...) leurs outils de sélection d'actions (screeners) sont d'excellente qualité."</p>
+    <div class="geo-card"><div class="pr">« Meilleur site pour l'analyse fondamentale d'actions en France ? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row self"><span class="num">1.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">2.</span><span class="nm">Boursorama</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">3.</span><span class="nm">Investing.com</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">TradingSat</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Zonebourse présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Quel site pour l'analyse technique d'actions en France ? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">TradingView</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">ProRealTime</span></div><div class="rank-row self"><span class="num">3.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAKlBMVEUvLy9KSkpFRUUpKSk/Pz82Njb///8UFBXY2Nj9pAG4uLiVlZVtbGq5fRt2+KUnAAAIvklEQVR4nO1Zi5LrqA4UCGJf2/n/370YkJCEyDi7VXu2aoekJhj0aLXEIxkIf7jBL4BfAL8AfgH8AvhvA4g3gNg6MfBnHwljkB8iP9ZeJIn+JDSi7IYxYJ/BWI5klj+GH9aXuGLQWGNw8EugQ0gzIMcF1iE6XtKsMT8TYoQGJ10KZNAcblS+YlSY6K0oEPZHJkY6Yxx/NUWgAJHn+ni3wH/aTP0U5poOIe9YB8KqQeIhisi6wRChj1ML44HUw7AhVMmy1YnS1hAcA8YPRHYzopZ9qRekbhAeho4sFqElBoLWMQyEqS+pE2nQ0awIMAyM7vADzpghwGorBnSZTEme/Cq9xoDnY26LKD8oznKmHFoDObDyLlQ+inxsC03LwD/Xxir4s+2fApDSHwSQYrje7z9VAymF9/t/pX0FIC0Z+8532b6r8+8ApByv85zlV5iWWK83e38KIKUM+Tr212sPwm6qL+1Ju03iTc/S+w0gacXEAHikRF6d320P3fHkNpFyUlMsSX4sgCGf2AAxUCNMxXn3/hoMJCaAXmOMP4TpMTozwKJJSDIDMJxLAHOKmQEREKNcM/AOd2Uro/URCNYMIHHqDQUmElUhY9RhIEnP3fIHBsh8iydVo2n4GlYMB20Np2wApNwnKOW9BrrVZAGwu+ZZpDtx1EnEaxhJCwAtjL413z0gH+gAiOwnCT9Jw+AxHmx9CyDn7lgrQncxAeiAJQvCJzsliIKWLg2mCKtBibbxCWTIA7AwPhDFURjiVVtWAN7vBJkMic+CsxvILgOGAMNJlL5lixrAO2TcsAJgRdYFKpnNT4GiXjoTC2MioTKAFcD7wu1u2AEMhF0QaMwFIGmeYhQEOLOpAHgH2LbunwBEoZwqA+3JZ2DEGIeuByiJlLRWTjXszm/3iDnPGoKBFQDRpIUMtU0yUhput1t/FQJ8YSDxGUBW5lK5I/Qyyimc5eDa9+O8YublmmW74RX33fudgQJXNgPAYyBL50cZawDydUrR4yKuTt1SZ4DcX3o6PARAF5RXB5Dx1IJF9GoIzPCFo5Xo8dDTzwAEFW0BkC/rvk7cVrLxcCCA4D5qxeNRDeRT+8n5cty/Ojda+LVTobZ2zRrfA0A3/m7PkrMH8p1meHv4Swws4r/FY5E26E4Y5Z6TTtCBjwCAAbCKv3lDk4NDbhNB616gU5CdIiz4DYAP/l+vIp31yI5prGRDHvJOsGQgzwA+thPBmHgloj9ZLo+6MeYO4O45KSgiltRPrdi04hc07+WPOezPG0CuMz0XPgPfANgjYrCYuvtiXsuGdjTknoKbgL8N4BXKnmNtdCcZdAnsKFLQPl0AE6d14rhCCsdckGXr3WwOiAGzD5+bSEFLwGMGjtgP+WnqLADsdge9wJI2jihT0DaqhwycG7djmioIzIbf1xroTXLfEJ4wMG8t0v8W7Ma3TTnYY820Xc6cgftNDNhF7DKwY79ibXfHADhuAOZMDi1MYyd0ALkxkFerAOaFze5vACbhNwCbgxOrbb0L7EAXtCwAOAzMANr9amtXvc2u+g3mHNxX0fLWqJiACqDm4hkD+7aJW862eQAMLfVANLvAJTNw10CrkwcAjo3ulwsAZTzPp565je3tilxzc1NfKXqWgpplrLeceuX1AGz23L8pUKbPtgh7BiqAG4u7CjZ7hiHSFcsHADYH+5yBvgZ64BnaxzMG2g5GCFwAZvS+l2krIgO9CNcpyDMD/Zb1CYDZ9ksODi0mrVQGVinwGADB3QKAJryc/PpCftE+3FciEBAPwMSA9O8yUBBEs+/rEthTP4p/ZgAdBgR34DGQ5xygNsIZGAz075LfMND21xlAW51a6dpsBkYhNwZWRYgLAKzpMlAyE42SetyQS6BFQibtMfIRwKoGcqNAF8GlhQwBDMAycDgAdqnr1UBuRaDXvbsGMkfylxjoGg4DNQeadNXCAJA+M7AAAKy5YmDKgbaACH4KHjIwlN19IHvrQLRzWwFwluFPANxV0E6p5bfoONUgA/i6BhYMtCJY5GCfCVgy4K2CZwzMmyE3JwPfMvBjDTQAei/ilr9gwAeAPzPgXZbI5oZTCXzJAKvD4jTsReCvg54BbxXA81UATQnWNbBcBxdlABT3zZ7HgF3Qh1T/xED5huSsg73/ZCkgdOceA/4qwKH+sQbcdXBwCYAmoGd0YmDa0o7GYH2vGKDN0MlB3YVEEomBtoN7NbAAkH9KwQ3AOZA2/t12YqCamxnwUkCYPQA06+fg3FAyyLEzA+ch21m/fl16rNcQLTY1eVw9Bf0/BeE47DxlQDjPMEBvuhVpb4yKyNEAFFVoJ0ldMEDFBD1taIRxMkOrCKAn2jHfjC78I1VptdAqgN7GGToIUHAIc5j9eyuAM0cW2+/3nfkWBwBlTTsj/6jHgJVhnqR9apoUAHuRwICQgRkYSg1uA6XHZKEJDewpUPFIfOKbvSj9AYZV6DcY+hlijBEDrONMAuVX/MOuoUTcWDsL7gcOohwZAiNQ//ziGhgaYpKNj19yZu1hJINoaJoY28ZQdjWYYJsEa1ByDnZgkraDQslo3D+8oZryAxIe83gQIUGtPEA92GekAaGBYBSECFoB1+037aHuQiz7j7YYntn/O2H8tt/22/6tDedndIZX4uCJ40rUWkElh6572lIRRmcoohFHNa4dcVdu89wXWtxHbQFlR2urP4MBnPDPcMeRIbEIv1KN5mzsHpNoTHOX9Ac+1AwIHzipzY7bFN0jhKQh1wbXL39skI/4Bmk8qVGgWwDdnPgcH2e/vC4MFfEIZK9D76qEj1FVEe51XpDeoIxIiKqkcFweBgHkjxEIzSlqGDGAGAThC8WT5GiSEwISFGoM0qxQZCZRyJrX3BFzsuJQGpTOzG3P5NJjYMyPAJUla13pi9BlCTJTigshpzSN4ESQtS7CU5EZ3BoW51XZtAzQzFMGlK5kUQTCfpW4Dkv+mcC5ETmOXbmPQnb6B2ElUXr/B64f1Kvk9GubAAAAAElFTkSuQmCC" alt=""><span class="num">4.</span><span class="nm">Investing.com (Version France)</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">5.</span><span class="nm">Boursorama / ABC Bourse</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Zonebourse présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Quels sont les meilleurs sites pour suivre les cours de bourse et l'actualité financière e… »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">1.</span><span class="nm">Boursorama</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Les Échos</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">3.</span><span class="nm">Investing.com</span></div><div class="rank-row self"><span class="num">4.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Yahoo Finance</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Bloomberg</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Zonebourse présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Meilleur site pour suivre le consensus des analystes sur une action ? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">1.</span><span class="nm">Pourquoi c'est le meilleur</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Ce que vous y trouverez</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Prix</span></div><div class="rank-row self"><span class="num">4.</span><span class="nm">Zonebourse</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAARVBMVEVHcEwHm98INoPSAnPLBXQCneDOBnQIXKQAm94IOIQEOoUBneDRAXMCOIPRAnPLA3MHOYQDa7FuJn13O4wAOIMAneDSAHO2knPmAAAAFHRSTlMANsZG558bGdzmbWCcnnHEQt7gVdOnPb4AAALiSURBVHic7Zdtc4MgEIQPTYJok9gU+/9/avE1iiAE4W46w/O9s3fZ3ZMCZDKZTCaDQVuTyvO7lJxQvxZSCjr5tpCKgky/X19xJ5JvR3kpiUJYy5mWQp6LRV8QlKDv3kKBP0Ar5HoAbPnN+gQZrIWkHIAXUgc1AvedvJSI8u1+fcwvgR6+CbRDXJvWx8ugZX2JdYh33XtHAKMEhu4tIBxiXtvlMQ7x0foyfQns4ZtIXALj6Vkj0pbAtX7iEhyGbx4gnbzT/YF0GbSfng2pMsiunZd+qkPcdF3l9wskySCrOsW3j36SDF67znuABId4XF9R+QwQPYNsWt/3J4g9wLK+7wBxS7Bev8fdg7iHuKm2+h4/QczXCNPlvQaIJs+vO3mfWxQtg4b1vX6CnzjyxvW9BogTgV343rgGiCGvd2+D40EW40twsL7bg/OvEUv4Fhw9OFsC3hzLd65jePIQu9Z3enDuEFu7t/XgaIBTh/g4fH4enDjEfuu7PAgvge/6dg9ET+gh9l9/54EQheL1+r30lAjyVfUtxGvg+bz8brmF6Pt0r9e9KpqmYexHl124hOhb16+UaDWIMs45rAr2tA3w9bm8Fr5q1lSLcmunH7YBHh/rs0l3XJQdqa642Qb4PIOcsY//RmELQVAGQ/iyZBBtgNI8wBNLH27mHgSUIBSzB5+XIBizB2GHOAxTDwK/BGGYPMArAZg9wCuB4mbwALEEYPQAMwLGDxJmBIweoOobPAh6jZxg5wFuBhX6AIiHeET/IOGWAHYeoN7BAa0H+ANoHqAe4pGtB+gl0B/H6CUAzQP0EoDmAX4Gtx5gH+JxgJUHBCWAjQcEJVCU71tEkUFY94Aig7DygOAQDyw9oMkgvP9BockgvD2gOMQD8z8oRCVYbhFVBmF+HBMOUNKWAKYekJUAJg/ISgCTB3QRmB7HhPqDBySvkYWSNoODB5QZhN4DskM8UlIPAA/KFmYymUzm3/EHm/PcYhVVzogAAAAASUVORK5CYII=" alt=""><span class="num">5.</span><span class="nm">Boursorama</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Yahoo Finance</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Zonebourse présente dans ce classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Priorité</span><h3>Diagnostic de performance mobile</h3><p>13,4s → cible sous 4s. À cette échelle (382k visites/mois), chaque seconde gagnée a un impact direct mesurable.</p></div><div class="sol-card"><span class="sol-tag">Renforcement</span><h3>Capitaliser sur "l'analyse fondamentale"</h3><p>Différenciateur déjà reconnu par les deux IA — à structurer en contenu citable pour verrouiller la place.</p></div><div class="sol-card"><span class="sol-tag">Diagnostic parallèle</span><h3>Investiguer la baisse de trafic</h3><p>-48% depuis février 2026 — à croiser avec les données Search Console pour identifier la cause.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Investing.com</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 382 233 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 11/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 6.5% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 43/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>99.4% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — chaque citation est vérifiable.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Priorisation par impact</h3><p>Chaque chantier est classé par vitesse de rendement, pas par facilité à vendre.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On priorise ça ensemble ?</h3>
       <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>

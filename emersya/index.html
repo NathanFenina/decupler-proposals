@@ -22,7 +22,7 @@
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:780px;
+  --maxw:1060px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -40,23 +40,39 @@ nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-f
 .navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
 .navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-.hero{padding:52px 0 28px}
+.hero{padding:52px 0 8px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
-.hero h1{font-size:clamp(1.7rem,4.6vw,2.6rem);margin-bottom:16px}
-.hero-sub{font-size:1.02rem;max-width:66ch;color:var(--body)}
-.hero-meta{margin-top:20px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
-.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
-.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
-section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:0}
-.lead{font-size:.96rem;max-width:68ch;color:var(--body);margin:14px 0 18px;line-height:1.65}
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-@media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} }
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
 .tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
 .tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
 .tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
 .note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
@@ -72,19 +88,27 @@ tr.self td{background:var(--gold-soft)}
 tr.self td:first-child{font-weight:700;color:var(--ink)}
 .cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
 .absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
 .quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
 .quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
 .quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
 .postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
 @media (max-width:640px){.board{grid-template-columns:1fr}}
-.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 12px}
-.board-cell .eng{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px;display:block}
-.rank-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
 .rank-row:last-child{border-bottom:none}
-.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:18px;flex-shrink:0}
-.rank-row img{width:20px;height:20px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
-.rank-row .nm{font-size:.85rem;color:var(--body)}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row img{width:18px;height:18px;border-radius:5px;object-fit:contain;background:#fff;border:1px solid var(--line);flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
 .rank-row.self .nm{font-weight:700;color:var(--gold)}
 .solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
 @media (max-width:700px){ .solutions{grid-template-columns:1fr} }
@@ -96,6 +120,20 @@ tr.self td:first-child{font-weight:700;color:var(--ink)}
 .pw-badge.good{background:var(--good-soft);color:var(--good)}
 .pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
 .pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
 .cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
 .cta h3{font-size:1.35rem;margin-bottom:8px}
 .cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
@@ -119,22 +157,67 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Decupler · Cartographie GEO express · préparé pour Patrice</div>
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
     <h1>Un concurrent verrouille la recommandation n°1 partout</h1>
     <p class="hero-sub">Absente des 2 IA — Threekit est cité en position n°1 par ChatGPT ET Gemini (seul acteur mentionné par les deux), verrouillant la recommandation par défaut sur ce marché.</p>
-    <p class="hero-meta">Données réelles · Ubersuggest + appels API ChatGPT/Claude/Gemini + Google PageSpeed · 31 août 2026</p>
+    <p class="hero-meta">Préparé pour <b>Patrice</b> · Emersya (emersya.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">-57%</div><div class="k">Évolution du trafic organique — 2024-08 → 2026-07 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">97.3%</div><div class="k">Backlinks en dofollow — 42 497 liens totaux</div></div>
+      <div class="tile"><div class="v">#2.0</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
   </div>
 </header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
 
 
 <section id="diagnostic" style="padding-top:30px">
   <div class="wrap">
-    <div class="secnum"><span class="n">01</span><h2>42 000 backlinks, 469 visites/mois : le ratio ne colle pas</h2></div>
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>42 000 backlinks, 469 visites/mois : le ratio ne colle pas</h2>
     <p class="lead">Autorité de domaine 33/100 avec une base de liens conséquente (42 497 backlinks, 1 853 domaines référents) — largement sous-exploitée. Le contenu indexé reste centré sur des démonstrations techniques (configurateurs de casques, chaussures) plutôt que sur les pages qui convertissent.</p>
     
-    <div class="tiles">
-      <div class="tile"><div class="v gold">33<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine</div></div>
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">33<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
       <div class="tile"><div class="v warn">469</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">247</div><div class="k">Mots-clés indexés</div></div>
       <div class="tile"><div class="v">42 497</div><div class="k">Backlinks · 1 853 domaines référents</div></div>
     </div>
     
@@ -144,49 +227,172 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <tbody><tr><td>define configurator</td><td>4 400</td><td>36</td></tr><tr><td>emersya</td><td>50</td><td>1</td></tr><tr><td>configurator meaning</td><td>5 400</td><td>31</td></tr></tbody>
       </table>
     </div>
-    <p class="cap">Performance mobile (Google PageSpeed Insights, page d'accueil) : <span class="pw-badge warn">65/100 · moyen</span></p>
-  </div>
-</section>
-
-<section id="visibilite">
-  <div class="wrap">
-    <div class="secnum"><span class="n">02</span><h2>Threekit verrouille la recommandation n°1 partout</h2></div>
-    <div class="quotecard">
-      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
-      <p class="q">"Threekit provides an extensive suite of tools for creating 3D, augmented reality (AR), and virtual photography experiences..."</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-08 → 2026-07 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">564</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">1 129</text>
+  <path d="M 46.0,22.1 L 77.2,16.0 L 108.4,22.4 L 139.7,17.4 L 170.9,29.8 L 202.1,38.4 L 233.3,38.9 L 264.5,50.8 L 295.7,36.3 L 327.0,45.3 L 358.2,48.1 L 389.4,35.2 L 420.6,63.0 L 451.8,80.4 L 483.0,92.3 L 514.3,46.8 L 545.5,64.9 L 576.7,103.3 L 607.9,85.8 L 639.1,76.1 L 670.3,90.9 L 701.6,49.3 L 732.8,77.2 L 764.0,107.2 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,22.1 L 77.2,16.0 L 108.4,22.4 L 139.7,17.4 L 170.9,29.8 L 202.1,38.4 L 233.3,38.9 L 264.5,50.8 L 295.7,36.3 L 327.0,45.3 L 358.2,48.1 L 389.4,35.2 L 420.6,63.0 L 451.8,80.4 L 483.0,92.3 L 514.3,46.8 L 545.5,64.9 L 576.7,103.3 L 607.9,85.8 L 639.1,76.1 L 670.3,90.9 L 701.6,49.3 L 732.8,77.2 L 764.0,107.2" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="107.2" r="4" fill="#A9711C"/><text x="758.0" y="97.2" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">469</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-08</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-07</text>
+</svg>
     </div>
-    <p class="postquote">Gemini confirme dans les mêmes termes ("Best for Enterprise & Complex Products") — Threekit est le seul acteur cité par les deux moteurs, verrouillant la recommandation par défaut.</p>
-    <p class="cap" style="margin-top:20px">Preuve complète — 0/15 citations sur 5 prompts neutres × 3 moteurs (ChatGPT, Claude, Gemini) :</p>
-    <div class="board"><div class="board-cell"><span class="eng">P1 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P1 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P2 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P3 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P4 · Gemini</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">P5 · Gemini</span><span class="absent">absent</span></div></div>
-    <div class="card" style="margin-top:14px"><p class="cap" style="margin-bottom:10px">P1 · ChatGPT — classement complet</p><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">Threekit</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEUAsL3///8ArLqR2N636ezC6u3X8/USucVFxM5/09rF6u5gytTc8/W14ue+5en0/P2d4OXr+vpTw805v8lGvceI1Nut4OVqytOk3uTT7O/M6+7k9fd10dgqtcF7zNSY2N4IyrXaAAADzElEQVR4nO1a2RaiMAzFKiCL7Mim4///5QwKiG1SaGnhnDm9j0qbS0iTNIllGRgYGBgYGBgYGMiDTDhEtnv1XreobaPby7u6+7IogsQ5UXCSoLD2IEHys53S0j9I7VeunULgx7D0D2I/0KgG4nqM5lk4pauLghcui+8RelrEZyvefqKQKRfv1txvTyOuXbXy85XanykhVym/FHr9QQmlMvHkLC6+R61IvGtzhKRh2Ph+FDVN2DFqslUcSGLh8p26zNwhJlluXr0uFAdbgVdC3787531Q+iX77GgdbJVPEPn+A365C/0VNqqA1KD4tMIW0ARO520ESlB8iX9ahsBp02nMofPfZhy1sgTiDR7JhfzfnbuEJXAK5Q0RMID4zLcqgIC8Q8qAD/BYWAMRiGVjIxt/44r7/sQqwKDlSIknHrsT70wRktctEjQ9GW8AWGDN2edZcSK2jB0CCuBp8sHPl2SSNGbHFD//z/tCwiBhBQGzSYnJJ7Dp/SAQlU98eosOfTTrIJG/8EXNkHXC2AkkM3cRhwlyaxJ1yORF79A+kSdnp8UOgIUDRKMikwagdjz5vrRPEdD80RaTX9CaxCyATAE7fF9MUQJpIUSgotejPmg0gI98TgaN5jDgeyX0cuzePQbMbvB1OIFE5BwQ2guFyIP5eAIDskTAESJAr8aykNECbtNK/BIjQsClF2OJ3XBY0inicwiIBKQrtTZGLOg5/N9Ov3AIXNfLZyJhh5yhMWAEk3o5BASSAsadIfF8Ivr9m0PgJUDgRq1Foim5f/5Ov1tzCNwFCETU2gZ5rh34rSIQCRCgYzFGYIhDl1UEBCLy8QQO/wSMESKnQJsRHn4MGUeEJFS6HNF6VzxkA6pd8fHBSDgcX1YQ2JSQYCmhtoRkbUo2FbFGM1WUkrEXs52TUjYtT5EHdaXlwMUEU8HkNZVeTNgblo89qelqJnA5nX0udZdT6HqOWrGW6zlUoEDJFsv9LOEChViJxlpqaUmUaIAiVct5ulJfpALKdDxnprxMZ5GH2IvwCpX8Aiu6I1CqDbg7qS3VwsXqJY+utFgNlusXEiul5Xq4YZFwW3FqGxZwy8YvdmvZYE0rTtdCcdPKsuDo6qCelW3bbW0cYo1LZFZEdeMSb93G3fm5R+t2oXn957d5bWtoXv/TAXS2R6Sh0zTRzdfXvrfkBxi22t8MciMcKseJjh5ikRjjUSu+x8GDTD1Wj3LJ5R/LWDnM5mkbZutx6DjfG0cPNL5RVNBIZ7XPSOcH86HW+/5DrV8Wh431GhgYGBgYGBgY/Ef4C5v4MGMl2JQvAAAAAElFTkSuQmCC" alt=""><span class="num">2.</span><span class="nm">Cylindo</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">Zakeke</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Expivi</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Sketchfab</span></div><div class="rank-row"><span style="width:20px;height:20px;flex-shrink:0"></span><span class="num">6.</span><span class="nm">Vertebrae</span></div></div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights)</h3>
+        <p>Score Performance : <span class="pw-badge warn">65/100 · moyen</span>. Check homepage réel (API Google directe) — pas un audit technique complet du site.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>42 497 backlinks, 1 853 domaines référents, <strong>97.3% en dofollow</strong> (1 162 liens nofollow).</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>42k backlinks pour seulement 469 visites/mois : profil de liens largement sous-exploité par le contenu.</div>
   </div>
 </section>
 
 <section id="benchmark">
   <div class="wrap">
-    <div class="secnum"><span class="n">03</span><h2>Face aux concurrents réellement cités par les IA</h2></div>
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
     <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
     
     <div class="scroller">
       <table>
         <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
-        <tbody><tr class="self"><td>Emersya (vous)</td><td>33</td><td>469</td><td>42 497</td></tr><tr><td>Threekit</td><td>46</td><td>3 084</td><td>38 504</td></tr><tr><td>Cylindo</td><td>37</td><td>678</td><td>70 096</td></tr><tr><td>Vectary</td><td>49</td><td>14 101</td><td>154 432</td></tr></tbody>
+        <tbody><tr class="self"><td>Emersya (vous)</td><td>33</td><td>469</td><td>42 497</td></tr><tr><td>Vectary</td><td>49</td><td>14 101</td><td>154 432</td></tr><tr><td>Threekit</td><td>46</td><td>3 084</td><td>38 504</td></tr><tr><td>Cylindo</td><td>37</td><td>678</td><td>70 096</td></tr></tbody>
       </table>
     </div>
     <div class="note"><span class="h">Petite note</span>Sur 4 acteurs comparés (vous + concurrents cités par les IA), Emersya arrive en position 4 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « 3D product configurator software »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> VividWorks (vividworks.com, DA37) · <strong>Emersya :</strong> <span class="cited">✓ position 6</span></p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Emersya.com classée en position 6 (Vectary en 4) — pas d'AI Overview sur cette requête, une image/vidéo occupe la position 5.</div>
   </div>
 </section>
 
-<section id="actions">
+<section id="visibilite">
   <div class="wrap">
-    <div class="secnum"><span class="n">04</span><h2>Ce qu'on ferait en premier</h2></div>
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Emersya est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">2/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">2.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v crit">9/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    <div class="board"><div class="board-row-label">P1 · What are the best 3D product configurator software platforms for e-commerce br…</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P2 · Best virtual photography software for e-commerce product images?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P3 · How to reduce product photography costs with 3D rendering?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P4 · Best WebAR product visualization tools for online stores?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P5 · Threekit alternatives for 3D product configuration?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P6 · Best software to create 3D product configurators without coding?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P7 · Threekit vs Emersya, which 3D configurator platform is better?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="cited">✓ cité #2</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="cited">✓ cité #2</span></div><div class="board-row-label">P8 · Best virtual photography tool for furniture e-commerce?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P9 · How to reduce product photography costs with 3D rendering software?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div><div class="board-row-label">P10 · Best WebAR tool for showing products in customers' homes?</div><div class="board-cell"><span class="eng">ChatGPT</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Claude</span><span class="absent">absent</span></div><div class="board-cell"><span class="eng">Gemini</span><span class="absent">absent</span></div></div>
+    <div class="note warn"><span class="h">Petite note</span>Emersya est cité 2 fois sur 30, en position moyenne 2.0 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Threekit verrouille la recommandation n°1 partout</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Emersya est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="23.74 453.78" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="18.47 459.05" stroke-dashoffset="-23.74" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="5.28 472.25" stroke-dashoffset="-42.21" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#177A50" stroke-width="22" stroke-dasharray="5.28 472.25" stroke-dashoffset="-47.49" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="424.76 52.76" stroke-dashoffset="-52.76" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">181 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Threekit</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:5.0%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">5.0%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Cylindo</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:3.9%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">3.9%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Emersya (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.1%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Vectary</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.1%;height:100%;background:#177A50;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:89.0%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">89.0%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Emersya totalise <strong>1.1% de part de voix</strong> sur les 181 mentions relevées — quasi invisible face au panel de concurrents cités.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
+      <p class="q">"Threekit provides an extensive suite of tools for creating 3D, augmented reality (AR), and virtual photography experiences..."</p>
+    </div>
+    <p class="postquote">Gemini confirme dans les mêmes termes ("Best for Enterprise & Complex Products") — Threekit est le seul acteur cité par les deux moteurs, verrouillant la recommandation par défaut.</p>
+    <div class="geo-card"><div class="pr">« What are the best 3D product configurator software platforms for e-commerce brands? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">Threekit</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAhFBMVEXu8fVhAP/1+/RbAP/w9PXy9/VUAP/3/vT0+fTv7/Xk3vbc0fbr6fWiffvEr/jt7PVvFP7Jtvjf1/aIUfyMWfx0JP7Wx/eed/uvkvqxlfqGTf3Qv/euj/qbc/uAQP2RYvy9pvl7Mv20mvnWzfeXZ/t2K/2phPrAqviFR/1+Of25oPnMu/gxwH65AAADcElEQVR4nO2Z63qiMBCGCZMEVKx4qLWtVlGxtr3/+1sOoggzFklk99ln3r+azOSbQw44DsMwDMMwDMMwDMMwDPOPI5WbopS8a5hSfjbOv3NcDXf3Eodh/DbcDLzGcyk3eFqsozAMo/XruOca+OCvNIAQAgC0GM69BlNJN9jGOhlWjNPHXWsP3L0WF0DH419d8IOTz6VxodvSvpxrcT2VjiY3J5Peq762no6atnVAvdQn00vvxoAg0tURQugn1dIB96PmQDLdVFJhUDtABgjht7Tv+F/YfBD1cA/UO7L85P/btgI4/gxdEMSoA6qaMYVkvbb2HbVFHRBwRPJA9nH78NI6Agn4nEIf6nnth7i3um/Sh4b4pELXeotbr5hcgNY1mELJKkRY0VVOKLHmRpuBi6dhMu9GNfojPN9oGw2o9cILVxOTUunP1jWY48WUBOOytD6RAQZN6IR6IpYG0/LUPepfC0MBkuBSIdAlBdQrpdPI1P6NuUsxoLyElUkNnmigLhknPTE8kKVQ+QWz8+qoTIU3CwLQFXY+55C1qt8tCJAEeEpkQeEA2a1CsyZUIPFtXuiTA3QT2hjXYI4X3nSA3LHAtAkVqE/8pFOEgLK/tCRAskbcQu4AdWoROrCSgpmNJWIDjrkDHm5ewN5GDZ4YITGAQ6awHFMpOLAmQFJoq7oEp9O+FxFN6MNODeZg5x0dZL/sKAF+LAqQSHCsrhO+shC7a+ogYDEDEuRPdaF5l5EBtVV9W6vBnFozgkxhdaCagNUApJY2lSt33mUkZf9gqwtePKiYkphblwDZa0JnB67ELmoQNy9gbTcFU67SDaZZkddTs/Cv/aMMjbs/SwAiv/B62PtB+ntkswkVlLZ9yO+bckAJMH6AANn9P1swwCSv8ZImFR4hQOpBf621hlWR4WQTav8k8gvSVYOJX1Q4uklnEXiQ+dyHS3SrneEswNB6E0IhDmqGTyJ3QBxVyxeWh0Id1k2fRBrjvt3xgvYA6DchG/fRBmCnxMz+spsMQM/JHQbAUQv8ETfsRn/qrgSh/XMIDt6EIB51JYD3jH1I2Ptd2ceaEMC4o/xz0n2w6gDoYe9RezCCnISlL2PpF73FqJsd8OyBN9jOhM4IZ98Dr8PVFy6kn2aDfn/kmX+dNXHj75lmGIZhGIZhGIZhGOY/4g9g3yLXmLcvKAAAAABJRU5ErkJggg==" alt=""><span class="num">2.</span><span class="nm">Vectary</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEUAsL3///8ArLqR2N636ezC6u3X8/USucVFxM5/09rF6u5gytTc8/W14ue+5en0/P2d4OXr+vpTw805v8lGvceI1Nut4OVqytOk3uTT7O/M6+7k9fd10dgqtcF7zNSY2N4IyrXaAAADzElEQVR4nO1a2RaiMAzFKiCL7Mim4///5QwKiG1SaGnhnDm9j0qbS0iTNIllGRgYGBgYGBgYGMiDTDhEtnv1XreobaPby7u6+7IogsQ5UXCSoLD2IEHys53S0j9I7VeunULgx7D0D2I/0KgG4nqM5lk4pauLghcui+8RelrEZyvefqKQKRfv1txvTyOuXbXy85XanykhVym/FHr9QQmlMvHkLC6+R61IvGtzhKRh2Ph+FDVN2DFqslUcSGLh8p26zNwhJlluXr0uFAdbgVdC3787531Q+iX77GgdbJVPEPn+A365C/0VNqqA1KD4tMIW0ARO520ESlB8iX9ahsBp02nMofPfZhy1sgTiDR7JhfzfnbuEJXAK5Q0RMID4zLcqgIC8Q8qAD/BYWAMRiGVjIxt/44r7/sQqwKDlSIknHrsT70wRktctEjQ9GW8AWGDN2edZcSK2jB0CCuBp8sHPl2SSNGbHFD//z/tCwiBhBQGzSYnJJ7Dp/SAQlU98eosOfTTrIJG/8EXNkHXC2AkkM3cRhwlyaxJ1yORF79A+kSdnp8UOgIUDRKMikwagdjz5vrRPEdD80RaTX9CaxCyATAE7fF9MUQJpIUSgotejPmg0gI98TgaN5jDgeyX0cuzePQbMbvB1OIFE5BwQ2guFyIP5eAIDskTAESJAr8aykNECbtNK/BIjQsClF2OJ3XBY0inicwiIBKQrtTZGLOg5/N9Ov3AIXNfLZyJhh5yhMWAEk3o5BASSAsadIfF8Ivr9m0PgJUDgRq1Foim5f/5Ov1tzCNwFCETU2gZ5rh34rSIQCRCgYzFGYIhDl1UEBCLy8QQO/wSMESKnQJsRHn4MGUeEJFS6HNF6VzxkA6pd8fHBSDgcX1YQ2JSQYCmhtoRkbUo2FbFGM1WUkrEXs52TUjYtT5EHdaXlwMUEU8HkNZVeTNgblo89qelqJnA5nX0udZdT6HqOWrGW6zlUoEDJFsv9LOEChViJxlpqaUmUaIAiVct5ulJfpALKdDxnprxMZ5GH2IvwCpX8Aiu6I1CqDbg7qS3VwsXqJY+utFgNlusXEiul5Xq4YZFwW3FqGxZwy8YvdmvZYE0rTtdCcdPKsuDo6qCelW3bbW0cYo1LZFZEdeMSb93G3fm5R+t2oXn957d5bWtoXv/TAXS2R6Sh0zTRzdfXvrfkBxi22t8MciMcKseJjh5ikRjjUSu+x8GDTD1Wj3LJ5R/LWDnM5mkbZutx6DjfG0cPNL5RVNBIZ7XPSOcH86HW+/5DrV8Wh431GhgYGBgYGBgY/Ef4C5v4MGMl2JQvAAAAAElFTkSuQmCC" alt=""><span class="num">3.</span><span class="nm">Cylindo (by Chaos)</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">Expivi</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Angle 3D Configurator</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Emersya absente du classement.</p></div><div class="geo-card"><div class="pr">« Threekit vs Emersya, which 3D configurator platform is better? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">Threekit</span></div><div class="rank-row self"><span class="num">2.</span><span class="nm">Emersya</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Emersya présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Best software to create 3D product configurators without coding? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGkAAABpCAYAAAA5gg06AAAHj0lEQVR4nO3dz08jZRzH8c93pkB31S1EV8W4LmtUFn9kWU3UjcUt3jy5ehfa0yZwWC4G3cRtBxPdeoIDm+ypgP4BGE9GE0CJejCR9SBy0Ro1XoxCooFdOvP1wD4GaqdMZ56n8/N9o9N5ZuCVaadPp4UQkopLle6dlDYBIE9EJ/9bwPiIQdPlodeXfds5xZHfO3BYAoeACRBl7O7HwAqYSlHECiySU5z6oogVOCS3OPVFCSswSLJw6osClu9IqnDqCzOW5ufGL69WBm/peg4pa+7q0Gg36+YpBgrM/LPsbRFwnoiXJlcXlie/+CAne3yV+X4k2TW5upAHc+nA6bbEwnRkBRZJlGCFAEkUZ6zQIIniiKUE6cATc6pWLZ8rVKVvI0ZY0pCanUqr/IXjgOUZqZXXOQmWu1wjeXkRmmC1VstIMmcIEixnOUZSOX2TYDXvUKTXPnznZPexzExXZ+fplEbpO44eUfLLAgmWXU2RBozxUu/xnjd+/+Ovo+K2jpSORx56YOuRE/d3arp2RPYOAQlWfbZIA1NjcwCN2i1PsJonc98bIvVPjeU1UMXJAB0pHS8PPWOofKsh7lgNkU4bY2tEdMbpIOtXZqkd7wvFFash0sDUOLcyyPqV2f/GSbCa52bfpSOJEqzD4pmr2dEJJ/dUhiRKsOxjYL6cHckfdj/lSCKBxcxvaprW1cr4TgsjlhOotiGJnn5/4urJ3vsmHz5xPzpSeiubcVzYsMjCq++9OLJot7ztF6Jsb+/u/PDTr/j0y2+x8dNv2K2Z0reh8qKTcnZkrjw02ifzghmLeLrZct+uFtqtmUiw9iKik5OrC3m75b5e0gVEAytdswYZmPcyDjEu2C3zHUkUZixjuLBZzo7kGSh42LlX7BYFBklUj2VZ1k3Z21CFVc6OzDGz4Xb9y6uVwUa3Bw5JJLA++3ptmpkNMG/J3oYKrPLQaImBFTfrmpzqbnR7YJFE29u7O+Wh0VJXzeoLDZZu5j2Psa/AI4mM4cJmW7G+qvS5Had8rlAF4yNZ+xUaJFHbsGraWrPT4kPHYMzJ2p/QIYmUYxFlCKi4heo0zWVZuxJaJJFqLAIqbp6njOHCpqwZidAjiVRiEazF4lKl4ZlX8xWpKmP7kUESKcEiytz+egJfihySSDYWAQmSqgQWp6xBgG+4Hogo89bnC7bzayqLPJKofK5Q7dq1cl4mQi3ihtM2qosNErB3VKV3zQm3RxSBEqR2ZAwXNjVYeTfrMqH1MzwJxQ4JAN7NFta8vv/TzmKJBADQzZLfu+C02CLtfY7Xw9leG4stEgAww/YKnSAVayRZ0zaqizcSJ0hJkkqQQlCCFIISpBAUeCQG+zIVE6QCj0Tkz6RmkAo8EoDzZ4qXYn00hQEJt7Sab++KBqFQIAGYiPPRFA4kQuamtlvyezf8KhxIAIjoUv/UWN7v/fCjtiNZGpbdrquBKnGEajvSxtuzy2C4vrxKA1VOT40vxuk5yp+HO2JP7+MQ8MotrVYdMMZLccDyBckyJbx1TciAUIwDli9IG8b1KhiuP7Z4oBhgSUFy84dZL86W4PJjiw2LMJYUpFu6mXOzXqeZugCZUEAksSQ93FmurpG+Ycxsrl+ZzUl76NtfhLDkIDFd8PJHWC/Oliyzdgpg+RcsRgBLDpKEaZsN43p1/cq1fIL1/6Sd3RHRpf53xnNex2kn1ncbP+alj68gqafgmoXFx4tjUt6kawfW39s7tt/WHKTskNydcREyrNGyLCigDVghqCGSp8tvCRnW6VvZj/txxmqI1GWl5rxMggKAqifpOGI1RLphzGwCaPptho5SeEYVJyzbE4dOKzXNLOmjIQmWp2yRbhgzm5qFvOeHvf0lWK5qegr+vXFtjSzOMUPuf1BOsFrq0NdJ3xvX1rqs1GDYZgGihOXoxezeRGg4p2zChJWu1dYa3d7SjEOY59eCjsXAijFc2Gy0zNW0UFSw0h0dn8ga11PMWzpM26t0Pc3dhR3r6ScevSprPNcxb2lk5d7NFho+1AGSJljDjOVnDMx31ay+ZkCA5FnwBOtgZPPZKgbmWTdPlbMjebvnoYPjKKy/eLFP0/VSs3/g6Km9F9rTnVZq+vZUVktNfvFBjoiXnG8OK+XsSM7JfYtLle6bHfpfdevPQzdLe1/04Tyll3TF+cja/02T+4+cVoEAxUdSfUE7slQdSZdXK4MWa8tMtOjmyKmvrUiioGCpQJpcXcgTeJB1a9orjsgXJJHfWLKRikuV7p00umXhiHxFEvmFpfLEQWaB+BBZWE4wiL19GsRtgTiS6mvXkfXSc2e+uevO9MeOV9PNU7IfypwUSCSRaqx7eo7988LZgTuc3JeBQjk7MqdiPw4r0EgiVVj39BzDC2cHmt+JeYuJJvwCAkKCJJKNdRiS2xkC2YUKSSQL66He49tnBx4+Un97UHBEoUQSecV6/sxjv9x3d88J8XPQcEShRhK5wcrceRS5Z58CEFwcUSSQRE6xOlI6zj/75J9H0+mPg4wjihSSqBlW7/EePHjv3Su9D3S7mpH2o0giifqLF/s0LZUHcR8AMNMaW7XFDeN61d89a61/AeGE53wRF8pVAAAAAElFTkSuQmCC" alt=""><span class="num">1.</span><span class="nm">Threekit</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">Zakeke</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEUAsL3///8ArLqR2N636ezC6u3X8/USucVFxM5/09rF6u5gytTc8/W14ue+5en0/P2d4OXr+vpTw805v8lGvceI1Nut4OVqytOk3uTT7O/M6+7k9fd10dgqtcF7zNSY2N4IyrXaAAADzElEQVR4nO1a2RaiMAzFKiCL7Mim4///5QwKiG1SaGnhnDm9j0qbS0iTNIllGRgYGBgYGBgYGMiDTDhEtnv1XreobaPby7u6+7IogsQ5UXCSoLD2IEHys53S0j9I7VeunULgx7D0D2I/0KgG4nqM5lk4pauLghcui+8RelrEZyvefqKQKRfv1txvTyOuXbXy85XanykhVym/FHr9QQmlMvHkLC6+R61IvGtzhKRh2Ph+FDVN2DFqslUcSGLh8p26zNwhJlluXr0uFAdbgVdC3787531Q+iX77GgdbJVPEPn+A365C/0VNqqA1KD4tMIW0ARO520ESlB8iX9ahsBp02nMofPfZhy1sgTiDR7JhfzfnbuEJXAK5Q0RMID4zLcqgIC8Q8qAD/BYWAMRiGVjIxt/44r7/sQqwKDlSIknHrsT70wRktctEjQ9GW8AWGDN2edZcSK2jB0CCuBp8sHPl2SSNGbHFD//z/tCwiBhBQGzSYnJJ7Dp/SAQlU98eosOfTTrIJG/8EXNkHXC2AkkM3cRhwlyaxJ1yORF79A+kSdnp8UOgIUDRKMikwagdjz5vrRPEdD80RaTX9CaxCyATAE7fF9MUQJpIUSgotejPmg0gI98TgaN5jDgeyX0cuzePQbMbvB1OIFE5BwQ2guFyIP5eAIDskTAESJAr8aykNECbtNK/BIjQsClF2OJ3XBY0inicwiIBKQrtTZGLOg5/N9Ov3AIXNfLZyJhh5yhMWAEk3o5BASSAsadIfF8Ivr9m0PgJUDgRq1Foim5f/5Ov1tzCNwFCETU2gZ5rh34rSIQCRCgYzFGYIhDl1UEBCLy8QQO/wSMESKnQJsRHn4MGUeEJFS6HNF6VzxkA6pd8fHBSDgcX1YQ2JSQYCmhtoRkbUo2FbFGM1WUkrEXs52TUjYtT5EHdaXlwMUEU8HkNZVeTNgblo89qelqJnA5nX0udZdT6HqOWrGW6zlUoEDJFsv9LOEChViJxlpqaUmUaIAiVct5ulJfpALKdDxnprxMZ5GH2IvwCpX8Aiu6I1CqDbg7qS3VwsXqJY+utFgNlusXEiul5Xq4YZFwW3FqGxZwy8YvdmvZYE0rTtdCcdPKsuDo6qCelW3bbW0cYo1LZFZEdeMSb93G3fm5R+t2oXn957d5bWtoXv/TAXS2R6Sh0zTRzdfXvrfkBxi22t8MciMcKseJjh5ikRjjUSu+x8GDTD1Wj3LJ5R/LWDnM5mkbZutx6DjfG0cPNL5RVNBIZ7XPSOcH86HW+/5DrV8Wh431GhgYGBgYGBgY/Ef4C5v4MGMl2JQvAAAAAElFTkSuQmCC" alt=""><span class="num">3.</span><span class="nm">Cylindo</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">4.</span><span class="nm">ConfigureID</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">Roomle</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Emersya absente du classement.</p></div><div class="geo-card"><div class="pr">« Best virtual photography tool for furniture e-commerce? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><img src="data:image/png;base64,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" alt=""><span class="num">1.</span><span class="nm">[Threekit](https://www.threekit.com/) ⭐ Best Overall</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">2.</span><span class="nm">[CGTrader](https://www.cgtrader.com/) 💰 Best for Budget</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">3.</span><span class="nm">[KeyShot](https://www.keyshot.com/) 🎨 Best for In-House Teams</span></div><div class="rank-row"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEUAsL3///8ArLqR2N636ezC6u3X8/USucVFxM5/09rF6u5gytTc8/W14ue+5en0/P2d4OXr+vpTw805v8lGvceI1Nut4OVqytOk3uTT7O/M6+7k9fd10dgqtcF7zNSY2N4IyrXaAAADzElEQVR4nO1a2RaiMAzFKiCL7Mim4///5QwKiG1SaGnhnDm9j0qbS0iTNIllGRgYGBgYGBgYGMiDTDhEtnv1XreobaPby7u6+7IogsQ5UXCSoLD2IEHys53S0j9I7VeunULgx7D0D2I/0KgG4nqM5lk4pauLghcui+8RelrEZyvefqKQKRfv1txvTyOuXbXy85XanykhVym/FHr9QQmlMvHkLC6+R61IvGtzhKRh2Ph+FDVN2DFqslUcSGLh8p26zNwhJlluXr0uFAdbgVdC3787531Q+iX77GgdbJVPEPn+A365C/0VNqqA1KD4tMIW0ARO520ESlB8iX9ahsBp02nMofPfZhy1sgTiDR7JhfzfnbuEJXAK5Q0RMID4zLcqgIC8Q8qAD/BYWAMRiGVjIxt/44r7/sQqwKDlSIknHrsT70wRktctEjQ9GW8AWGDN2edZcSK2jB0CCuBp8sHPl2SSNGbHFD//z/tCwiBhBQGzSYnJJ7Dp/SAQlU98eosOfTTrIJG/8EXNkHXC2AkkM3cRhwlyaxJ1yORF79A+kSdnp8UOgIUDRKMikwagdjz5vrRPEdD80RaTX9CaxCyATAE7fF9MUQJpIUSgotejPmg0gI98TgaN5jDgeyX0cuzePQbMbvB1OIFE5BwQ2guFyIP5eAIDskTAESJAr8aykNECbtNK/BIjQsClF2OJ3XBY0inicwiIBKQrtTZGLOg5/N9Ov3AIXNfLZyJhh5yhMWAEk3o5BASSAsadIfF8Ivr9m0PgJUDgRq1Foim5f/5Ov1tzCNwFCETU2gZ5rh34rSIQCRCgYzFGYIhDl1UEBCLy8QQO/wSMESKnQJsRHn4MGUeEJFS6HNF6VzxkA6pd8fHBSDgcX1YQ2JSQYCmhtoRkbUo2FbFGM1WUkrEXs52TUjYtT5EHdaXlwMUEU8HkNZVeTNgblo89qelqJnA5nX0udZdT6HqOWrGW6zlUoEDJFsv9LOEChViJxlpqaUmUaIAiVct5ulJfpALKdDxnprxMZ5GH2IvwCpX8Aiu6I1CqDbg7qS3VwsXqJY+utFgNlusXEiul5Xq4YZFwW3FqGxZwy8YvdmvZYE0rTtdCcdPKsuDo6qCelW3bbW0cYo1LZFZEdeMSb93G3fm5R+t2oXn957d5bWtoXv/TAXS2R6Sh0zTRzdfXvrfkBxi22t8MciMcKseJjh5ikRjjUSu+x8GDTD1Wj3LJ5R/LWDnM5mkbZutx6DjfG0cPNL5RVNBIZ7XPSOcH86HW+/5DrV8Wh431GhgYGBgYGBgY/Ef4C5v4MGMl2JQvAAAAAElFTkSuQmCC" alt=""><span class="num">4.</span><span class="nm">[Cylindo]</span></div><div class="rank-row"><span style="width:18px;height:18px;flex-shrink:0"></span><span class="num">5.</span><span class="nm">[Pacshot](https://pacshot.com/) or [Orbitvu]</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Emersya absente du classement.</p></div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
     <div class="solutions"><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Comparatif direct Emersya vs Threekit</h3><p>Sur les critères réels : prix, cas d'usage PME vs enterprise — là où Threekit est vulnérable.</p></div><div class="sol-card"><span class="sol-tag">Levier existant</span><h3>Exploiter l'autorité de lien inutilisée</h3><p>42k backlinks pour appuyer du contenu structuré et citable, pas juste des démos.</p></div><div class="sol-card"><span class="sol-tag">Positionnement</span><h3>Cibler le segment PME</h3><p>Threekit domine l'enterprise ; le marché PME reste ouvert dans les réponses IA.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Vectary</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 469 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 2/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 1.1% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 65/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>97.3% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Méthode transparente</h3><p>Les prompts testés et les réponses complètes sont conservés — chaque citation est vérifiable.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Priorisation par impact</h3><p>Chaque chantier est classé par vitesse de rendement, pas par facilité à vendre.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
       <h3>On priorise ça ensemble ?</h3>
       <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
