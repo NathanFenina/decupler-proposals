@@ -256,6 +256,10 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
         <h3>Technical — two bugs found while checking the above</h3>
         <p>1) <code>/blog/5-ways-to-upgrade-your-home-decor-with-google-search</code> is listed in your own BlogPosting schema (dated Aug 25) but returns the <strong>homepage shell</strong>, not the post, when fetched without JavaScript — a soft-404 that both Google and any AI crawler that doesn't render JS will see as duplicate homepage content. 2) Your FAQPage schema claims a <strong>"5-star Clutch rating" and 32 reviews</strong> — verified: no link to a Clutch profile exists on the homepage, blog, or case-studies page. An unverifiable trust claim is worse than no claim.</p>
       </div>
+      <div class="meth-card" style="grid-column:1/-1">
+        <h3>AI-crawler access — robots.txt (verified, confiatech.com)</h3>
+        <p><span class="pw-badge good">allowed by default</span> No rule specific to an AI crawler (GPTBot, ClaudeBot, Google-Extended, PerplexityBot...) — the generic <code>User-agent: *</code> applies (only <code>/cgi-bin/</code> disallowed), which allows these bots by default. Robots.txt access isn't the reason confiatech.com is absent from the 30 GEO responses tested.</p>
+      </div>
     </div>
   </div>
 </section>
