@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Pre-Audit · ConfiaTech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+code{font-family:var(--mono);font-size:.9em;background:var(--surface2);padding:1px 5px;border-radius:4px}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+tr.win td{background:var(--good-soft)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.rank-row .lg{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.rank-row .lg img{width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}
+.rank-row .lg.ph{background:var(--bg);font-size:9px;color:var(--gold)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">SEO × GEO Pre-Audit</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Décupler Pre-Audit · ConfiaTech · September 2026</div>
+    <h1>Your engineering is real. Your search visibility hasn't started yet.</h1>
+    <p class="hero-sub">Your homepage carries some of the most complete schema.org markup we've checked on an agency site — Organization, two FAQPage blocks, a 12-service ItemList. But Google only has 17 keywords indexed for confiatech.com, all of them accidental, and none of the 30 AI answers we tested named ConfiaTech once. The foundation is genuinely solid. Nothing is feeding it yet.</p>
+    <p class="hero-meta">Prepared for <b>ConfiaTech</b> (confiatech.com)<span class="sep">·</span>By <span class="decupler">Décupler</span><span class="sep">·</span>Market <b>US / UK / EU (English)</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">0 → 17</div><div class="k">Indexed keywords, last 12 months (Ubersuggest) — first real indexation Dec 2025</div></div>
+      <div class="tile"><div class="v crit">0/30</div><div class="k">Citations across 10 neutral prompts × 3 engines (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">72.9%</div><div class="k">Backlinks in dofollow — 516 links total (Ubersuggest)</div></div>
+      <div class="tile"><div class="v good">91/100</div><div class="k">Mobile PageSpeed performance — the site itself is genuinely fast</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Contents</span></div>
+    <h2 style="margin-bottom:18px">Six chapters, one thread</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>What's built vs. what search engines can actually see.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>SEO Benchmark</h3><p>Against 4 real agencies the AI itself named as competitors.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>AI Visibility</h3><p>Are you named when a buyer asks an AI instead of Google?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions &amp; Citations</h3><p>Who the AI recommends in your place, on which prompts.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunities</h3><p>Verified against the live site — not generic assumptions.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>12-Month Roadmap</h3><p>The same system, sequenced quarter by quarter.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Methodology &amp; sources</span></div>
+    <h2>Two visibility surfaces, measured live</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (live data, US market)</h3>
+        <p>Ubersuggest. Domain authority, indexed keywords, organic traffic, 12-month history, backlinks. Benchmarked against 4 agencies the AI itself named (chapter 04) — not a list picked in advance.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Generative engines</h3>
+        <p>Protocol of <strong>10 neutral prompts</strong> (ConfiaTech never named) played from memory (web_search off) on <strong>ChatGPT, Claude and Gemini</strong> — to isolate what each model recommends on its own.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. All SEO data comes from Ubersuggest (real calls, this session); AI citations are logged prompt by prompt, engine by engine. No citation cell without a real measurement.</p>
+  </div>
+</section>
+
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>The engineering is real. The visibility hasn't started.</h2>
+    <p class="lead">Your delivery record is genuine — 20 real case studies, thorough schema markup, a fast site. None of it has translated into search or AI visibility yet, because almost nothing has been built to be found.</p>
+    
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">4<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Domain authority (Ubersuggest)</div></div>
+      <div class="tile"><div class="v">5</div><div class="k">Organic visits/month</div></div>
+      <div class="tile"><div class="v crit">17</div><div class="k">Indexed keywords — none of them a buyer-intent term</div></div>
+      <div class="tile"><div class="v">516</div><div class="k">Backlinks · 82 referring domains</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Indexed keyword (real, Ubersuggest, US market)</th><th>Volume/mo</th><th>Position</th><th>Est. traffic</th></tr></thead>
+        <tbody><tr><td>islamabad software house</td><td>50</td><td>24</td><td>1</td></tr><tr><td>anthropic index</td><td>50</td><td>19</td><td>1</td></tr><tr><td>anthropic economic futures</td><td>50</td><td>16</td><td>1</td></tr><tr><td>islamabad software houses</td><td>50</td><td>28</td><td>0</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">The only real signal — and it's accidental</span>Every one of ConfiaTech's 4 indexed keywords is either a location term (<code>islamabad software house</code>) or a side effect of a single blog post about Anthropic's Economic Index (<code>anthropic index</code>, <code>anthropic economic futures</code>). Nothing ranks for a buyer-intent term — no "AI-augmented software development," no "staff augmentation Pakistan," no "MVP development agency." The site hasn't been found yet for what it actually sells.</div>
+    
+    <div class="chartcard">
+      <div class="ct">Indexed keywords over time — 2025-09 → 2026-08 (Ubersuggest, real)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">8</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">17</text>
+  <path d="M 46.0,172.0 L 111.3,172.0 L 176.5,172.0 L 241.8,162.8 L 307.1,172.0 L 372.4,172.0 L 437.6,172.0 L 502.9,144.5 L 568.2,135.3 L 633.5,153.6 L 698.7,61.9 L 764.0,16.0 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,172.0 L 111.3,172.0 L 176.5,172.0 L 241.8,162.8 L 307.1,172.0 L 372.4,172.0 L 437.6,172.0 L 502.9,144.5 L 568.2,135.3 L 633.5,153.6 L 698.7,61.9 L 764.0,16.0" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="16.0" r="4" fill="#A9711C"/><text x="758.0" y="6.0" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">17</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-09</text><text x="437.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-03</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-08</text>
+</svg>
+    </div>
+    <div class="note"><span class="h">Reading it correctly</span>This isn't a decline — it's a <strong>launch curve</strong>. Google indexed essentially nothing for 8 of the last 12 months, then started picking up pages from December 2025 (1 keyword), accelerating to 17 by August 2026. confiatech.com is a genuinely young domain in Google's eyes, whatever its actual delivery history. The question isn't "why did we lose visibility" — it's "how do we feed this curve on purpose instead of by accident."</div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technical — schema.org (verified on the live site)</h3>
+        <p>Genuinely thorough for a site this size: <strong>Organization, ProfessionalService, WebSite, WebPage</strong>, two <strong>ItemList</strong> blocks (12 services), two <strong>FAQPage</strong> blocks, <strong>BlogPosting</strong> on every article. Mobile PageSpeed <span class="pw-badge good">91/100 · good</span>. This is not the gap.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Technical — two bugs found while checking the above</h3>
+        <p>1) <code>/blog/5-ways-to-upgrade-your-home-decor-with-google-search</code> is listed in your own BlogPosting schema (dated Aug 25) but returns the <strong>homepage shell</strong>, not the post, when fetched without JavaScript — a soft-404 that both Google and any AI crawler that doesn't render JS will see as duplicate homepage content. 2) Your FAQPage schema claims a <strong>"5-star Clutch rating" and 32 reviews</strong> — verified: no link to a Clutch profile exists on the homepage, blog, or case-studies page. An unverifiable trust claim is worse than no claim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">SEO Benchmark</span></div>
+    <h2>Against 4 agencies the AI named on its own</h2>
+    <p class="lead">Identified by ChatGPT/Claude/Gemini themselves (chapter 04) — not a list chosen in advance.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Player</th><th>DA</th><th>Organic traffic/mo</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>ConfiaTech (you)</td><td>4</td><td>5</td><td>516</td></tr><tr><td>Toptal</td><td>85</td><td>460,372</td><td>23,923,167</td></tr><tr><td>BairesDev</td><td>67</td><td>42,794</td><td>2,602,467</td></tr><tr><td>Simform</td><td>50</td><td>9,022</td><td>74,576</td></tr><tr><td>Intellectsoft</td><td>50</td><td>5,728</td><td>171,362</td></tr></tbody>
+      </table>
+    </div>
+    
+    <div class="note"><span class="h">Note</span>These 4 names aren't a list we picked — they're the agencies ChatGPT, Claude and Gemini named on their own, unprompted, across the 30 responses measured in chapter 04. Even <strong>Intellectsoft</strong>, the smallest of the four by traffic (DA 50), still gets <strong>1,146× more monthly organic traffic</strong> than confiatech.com. This is a fair-size comparison — boutique and mid-size agencies, not enterprise giants — ConfiaTech simply hasn't shown up on this field yet.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">Live SERP (Ubersuggest, real) — "custom software development company" · US</p>
+      <div class="scroller" style="margin-top:8px">
+        <table>
+          <thead><tr><th>Position</th><th>Site</th><th>DA</th></tr></thead>
+          <tbody><tr><td>1</td><td>luxoft.com</td><td>57</td></tr><tr><td>2</td><td>chetu.com</td><td>50</td></tr><tr><td>3</td><td>itransition.com</td><td>47</td></tr><tr><td>4</td><td>appinventiv.com</td><td>53</td></tr><tr><td>5</td><td>simform.com</td><td>50</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="note crit"><span class="h">Note</span>confiatech.com does not appear anywhere in the first 15 organic results for the single most direct commercial keyword in this category — confirmed by a live check, not inferred from the keyword table above.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">AI Visibility · GEO</span></div>
+    <h2>What ChatGPT, Claude and Gemini actually answer</h2>
+    <p class="lead">Buyers increasingly ask an AI "who should build this for me" before they ever open Google. We ran <strong>10 neutral prompts</strong> — ConfiaTech never named — across all 3 models.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">0/30</div><div class="k">Citations across 30 answers tested (10 prompts × 3 engines)</div></div>
+      <div class="tile"><div class="v crit">—</div><div class="k">Average position when cited — never cited, so N/A</div></div>
+      <div class="tile"><div class="v">8</div><div class="k">Named companies identified across the panel</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">Engines tested: ChatGPT, Claude, Gemini</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Neutral prompt tested (ConfiaTech never named)</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr></thead>
+        <tbody><tr><td style="min-width:280px">P1 · What is the best custom software development company for startups?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P2 · Best AI-augmented software development agency in 2026?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P3 · Where can I hire a dedicated software development team for my startup?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P4 · Best software development company for building an MVP quickly?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P5 · Top offshore software development companies for US and UK clients?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P6 · Best software development agency for AI and machine learning projects?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P7 · Best company for IT staff augmentation for software engineers?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P8 · Which software development company builds RAG or LLM applications for enterprises?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P9 · Best mobile app development agency for iOS and Android?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P10 · Best software development company in Pakistan?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr></tbody>
+      </table>
+    </div>
+    <div class="note crit"><span class="h">Note</span>ConfiaTech does not appear in any of the 30 answers tested — the GEO ground is completely open on this category, and completely uncontested by you specifically.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions &amp; Citations</span></div>
+    <h2>Who the AI recommends in your place</h2>
+    
+    <p class="lead">The prompt-by-prompt board (chapter 03) shows <em>whether</em> ConfiaTech is cited. Here we go further: who takes its place, and how often — counted across the 8 named companies that recur across the 30 responses (generic ranking-criteria text like "budget" or "time zone" excluded).</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="110.20 367.32" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="73.46 404.06" stroke-dashoffset="-110.20" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="73.46 404.06" stroke-dashoffset="-183.66" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#177A50" stroke-width="22" stroke-dasharray="73.46 404.06" stroke-dashoffset="-257.13" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#C13327" stroke-width="22" stroke-dasharray="36.73 440.79" stroke-dashoffset="-330.59" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#8A8272" stroke-width="22" stroke-dasharray="36.73 440.79" stroke-dashoffset="-367.32" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#5E8FD6" stroke-width="22" stroke-dasharray="36.73 440.79" stroke-dashoffset="-404.06" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B98CE0" stroke-width="22" stroke-dasharray="36.73 440.79" stroke-dashoffset="-440.79" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">13 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Toptal</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:23.1%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">23.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Intellectsoft</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:15.4%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">15.4%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">NetSol Technologies</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:15.4%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">15.4%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Systems Limited</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:15.4%;height:100%;background:#177A50;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">15.4%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">BairesDev</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.7%;height:100%;background:#C13327;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.7%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Simform</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.7%;height:100%;background:#8A8272;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.7%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">Techlogix</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.7%;height:100%;background:#5E8FD6;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.7%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:170px;flex-shrink:0;font-size:.8rem;color:var(--body);">10Pearls</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:7.7%;height:100%;background:#B98CE0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">7.7%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Note</span>ConfiaTech totals <strong>0% share of voice</strong> across 13 mentions logged on this panel of 10 prompts.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">The ranking the AI recites</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT · « Best software development company in Pakistan? » · real API call, 09/01/2026</span>
+      <p class="q">NetSol Technologies, Systems Limited, Techlogix, 10Pearls, NorthBay Solutions, Avanza Solutions — ConfiaTech absent from this list, despite being headquartered in Islamabad.</p>
+    </div>
+    <div class="geo-card"><div class="pr">« What is the best custom software development company for startups? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAUVBMVEUYOp7///8SN51MZLDN1Onh5fEALZorSKT09vvZ3/Czvdy/yOOToc89V6sAHpcgRaabp9Cos9hpe7xWbbUAJJczT6hgdLh3icSCkcYABJEAEJPdOGrcAAADCklEQVR4nO2b65KjIBCFoZVWgpdoiDp5/wfd4FyU2OpULZdsLedXKlOVPudLiy1kGEtKSkpKSkr6RwUa4ta/5z3GrF/kvKzjOYBCcM7LaAyA5dwoFgNgkn8qDgNgin8rBoMlfxwG6/wxGEArua3ADKDjrwrMQOdbB0EZQC0iMwAkHCQGvByiM2ijM7glBoEZZGVkBtgSDoIywNtbMshCTusUA4HhHNiz0Y+DOpSD19koNAM6fzgGe/lDMdjPH4bBUf4QDI7zzw7uPh2c5TfKG38OzvMbycKXg9/k98mAyq/qjICSe+kDKr98zifFdkDxwoDM/3yXYUY5cN4HO/nNnzAj+kA6ZkDlz9lXDSQGVccMoN3mF0sFqAkGLvsAYPtkbCUk+0A6uxYALkf5ZwcjwaByNCae5jcG+m39q7P6p/nJr+ASMD8QF+LV0X055U/5U/73yv867XnNz7b5+WiH85mf4bStz+1tUZ/5jartx4ts5cBrfqOGcMCXbRAo/OY3JY4YmPNDr/mNDhgAMYxfwPksvsuAyp+7r08zEAVSDyMe8htRDGTWEzO6n/o7fbDVKj+gWy8Ug/38gHibxtrpTwx+weAnPxQdF1IKcXP6WLQ9MdzL30iZ4aNpx3LSDh00xw6W7x+VwqGqqkxn5eCQAbAjB0v/w61kWuXVRWa6yl0ui3DAYNX/2F00qqn56K6oS7dtsMtgff2jqhBVV/diQi1HtxfjDgNr/dNyehoQgg84v3ZpYIeBvf6huj4NTMzs1zZl73hppBi8nJriJBqtqmYq7zgI5nptBtjuktgnRc979PToRtB5D8LV5sD68z+IXxBYp2VQlx1qgEcrZOO8vtkpIhxYDHCQsuoHVXZ+tmuhOWXQjErK693Xpv05A3M/RI9nBmQfBD0xpBiEPDGk+yDcieHsIDEgnwr+Owb3d2SQB6xP9kHQ9cgsubYDa/MijAObQeD8s4NVH4TPPztYroUI+WcHXwzi5J8dfDKIlH928GQQL//soJAR888OIv+/Q1JSUlJSUtJf6A+CcCJsT3EBqAAAAABJRU5ErkJggg==" alt=""></span><span class="num">1.</span><span class="nm">Toptal</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAGFBMVEVHcEwUd/MWePUUd/MUdvMVd/QUdvMUdvKav6YUAAAAB3RSTlMAdCKmy0jpalp5QgAAA9JJREFUeJzFW926rCAI9b/3f+O9s5omZGxBGuviXJxvTyAsEBWcUyC4kH2MKZWyLKWkFKPPIWg+JZe9ik4Li7SqMVf6b+EHykQlckylL33XIcU8XnrwmPRDBz/WDCHiwg/EcSpkhfiqwhhPaMUvKyOfqxCiwPWcCg8d4W+i7h7JP1n+Y/FVBbUR/AjxK3RG0ITeL2iYkIeY/0ASh4N/RP4WReiGYe4/IdJgoPtPRFj8SPpdNACpOEs+qsE8+aAGE+VDPJgqH9BgQvxdcRON0+XfaJAH5z8OpZOVx2y/d+hsz5MJeOAnEV8gwIYfNAhvyV8W3gmvEGBDMnXACsYJ70TAASYSXoqAA00kvJGCvtGko5cN0Jggvy2fmuB1AxATiHJQ+fzzDEFjgJjDiZ24Jfrf6CgaFQYgNd2md3eD76W3AP3VBURWJAth0LPt+TU0CZIT3pY8uwYIPa58dgQ4CZHFVs+VXqXdz++fSIQpSBbrL8v4LCemD7AFwdsQTZ+sB7pGJ9i3JNgDhciq/0k9INlU9xXBMcClb6qUE8g/zAdTgHiADULZphJFFFiIrMIoJdxUagjBOhO+80EorKuyhAJcEFIPSGLg+CZsNLJYNgillW0UGI3wfaPO08IqSXZCstbV2LS4lZfWAVcACkJxnRLgICB8r2ttbh/lh5sM/4ZYu651QG3t4d8gO6HidBVhBeZQ4P8ToNKJowD1gOJ8m1AF2J2Q5mHF6SI50Goz8vCKAioAFUOa810BCwhuJ2yKIdUVB6gAzcOb8gSqKw7QBUgQyqqxHSgHAiOKBqHqiF8wuyVO1IAghPMAdCJRndgTpjdSDOnuObG9gBZDbD2su2eM0O+4IGxu+nS3PB7iLhSEuovOjLiOK4baPKy7NYJqQroTssWQ8qo5IKZjd8IxFEjIL8liA0sB5V13RGxXuHJ0EAXWz9yGQWHu5ppiSEmBDBkv+Xxi++smD+soUNeheqymMaCpxpaDSapallJAJX+PLzl/2gcXHQX2+JJGENeqpwvCYyF9ElwuyCsa8bpq7EwmXR9ArSc6CpwZrmdARP6DPHxLIfaNk0IZhGc27eyITfE/zgDfhV7nC733mB3KN9dvdr34cH4iDDDiE1zD6/2HS1rqWz/d2j9emz/f2zcwmLdw2Dex2LfxmDcy2bdy2Tezmbfz2Tc02rd02je12rf12jc2T9QAHfawbm535u39zn7AwX7Ew37IxX7Mx5kPOjn7US9nPuzm7Mf93KOBx1Ezl9p4GDh8azz0WlWwHfutsB18rgBGv6fPn9sOv1/VGDP+/wfG8zEEZXGLoAAAAABJRU5ErkJggg==" alt=""></span><span class="num">2.</span><span class="nm">Intellectsoft</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Cleveroad</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Frogslayer</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">5.</span><span class="nm">Simform</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAHlBMVEVHcEz2YTX2YTX2YTX2YTX2YTX2YTX2YTX2YTX2YTXYQ1r8AAAACXRSTlMAFeW9SpL0cC703esHAAAD+0lEQVR4nO2b2bKkIBBEL6vy/z88jfZiS62p15mYMJ8NPFBUWrL8/Ny6devWP6+c/zJAajXloD0VSkqpTDnP6qNOzbE9lCal3VBb7Q+2GFPReR3KbVUtYqshtq1iOW0k0qZRoc0dQB+0Mp8C8NWvyQHwGLTEP29W/m4zcSlBASzIRyNR9r0qLgBx1CwKaWgxkaFlAR7MR4wkV6JBqk8CAMds0kQ2SBCIAAfiMEZg7dIwtWQAeBAC01wdCDSAFqGZQEeA6pEKQAZOFROBheB7DAwAjclgQfLUDuZHGWhdWW7ODeAm2NvgTtshtQF8Q6sibPBbm2llBPCNwaw290ktK4BrDPgkfCm++2MG4L5mlAxtvvtjBvD4gaW1VxAcANXqynoEuvwAm8DJ0nJgVfEDGC1xtjX5LDdcAM30YZJt8KMEAFRLEBQb/Gj2A5iCYG4xAQCGOpGrRQhlP4DBEM0RWBvzAujz0JaEi7qzuAG0IZiJepxVAQC0IbDZ4EsIgDIEjinQem/8APInwWiDLxUAQPYCqw0+FQMAUM+LwMNXAABxGnpyoKsgAMI01KvBfVsIgFAXOCPQpzQAIHwQHDb4VAYA+Dzwd6cWBICdBD4bXNtCANi6xB+BFhGAxpkh0FSFAJhfBKcNHhAzC91JCCuS70c85VQAam3wl0SnwXURoGsCdVniTADKjN0forMBABvERRnBhRGgAa58PwVwnQ0yABcmIQlwoQ02MgtgG4TACQA0Alg9QBQEaBJCFRHxLXAsS3xrwgCGAYBtEKqKic8xGoEKZU8dymLk92IR9GdE2ABsgxMGMGQhmoTY3/GYBLANQusDxPYJXItAKyREVQ5/iJA1okZMATQCFYte3BvxgQggAKMLoDYIrZQ2IgKgDVZorbi9d3s+EUCnALJa3ogcQG0Q2S/oOs0GMwYwrs+A70f2jLqGAQCTENo1a1QpAEYA2TfsGstRMAl/MIBxGx+sx4G94y6iHsds8J3LTgBiiRKKAHB+YNW4NBOQCFTgBMWis36KgTMki6g1YiQCwCmaReQ+wdENDw8AtTAERAA4SbWKXJ/12yBwlkx4v39tcO9kZgB6o8i1U0y9/+hJKq8NjnlkBOA2ypwRcJ8pfYNzezSu15OHM4+dJ3Qloftcsf5+TwSi92T1R/xuucNE2NO5ehvCGTZzLSIczdUAhv/ArYw2WKWT8gqAeDvCZoPi9QYFQOy+qR7XryoIAOrBctUGq+HCCA+g3/SYpHXeGIvp7B0DoFyNeWmeCrXWG1OZrMcvSYDouOcSwpynflkpxZjWO0tzcJwBHgEs16NO1P6ekXoz6hcBHilzad+fAEvoin3SnE9wfadv3br1n+gPh3xDX5RplScAAAAASUVORK5CYII=" alt=""></span><span class="num">6.</span><span class="nm">BairesDev</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">ConfiaTech absent from this ranking.</p></div><div class="geo-card"><div class="pr">« Top offshore software development companies for US and UK clients? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAACiElEQVQ4EaVTzU8TURCf2tJuS7tQtlRb6UKBIkQwkRRSEzkQgyEc6lkOKgcOph78Y+CgjXjDs2i44FXY9AMTlQRUELZapVlouy3d7kKtb0Zr0MSLTvL2zb75eL838xtTvV6H/xELBptMJojeXLCXyobnyog4YhzXYvmCFi6qVSfaeRdXdrfaU1areV5KykmX06rcvzumjY/1ggkR3Jh+bNf1mr8v1D5bLuvR3qDgFbvbBJYIrE1mCIoCrKxsHuzK+Rzvsi29+6DEbTZz9unijEYI8ObBgXOzlcrx9OAlXyDYKUCzwwrDQx1wVDGg089Dt+gR3mxmhcUnaWeoxwMbm/vzDFzmDEKMMNhquRqduT1KwXiGt0vre6iSeAUHNDE0d26NBtAXY9BACQyjFusKuL2Ry+IPb/Y9ZglwuVscdHaknUChqLF/O4jn3V5dP4mhgRJgwSYm+gV0Oi3XrvYB30yvhGa7BS70eGFHPoTJyQHhMK+F0ZesRVVznvXw5Ixv7/C10moEo6OZXbWvlFAF9FVZDOqEABUMRIkMd8GnLwVWg9/RkJF9sA4oDfYQAuzzjqzwvnaRUFxn/X2ZlmGLXAE7AL52B4xHgqAUqrC1nSNuoJkQtLkdqReszz/9aRvq90NOKdOS1nch8TpL555WDp49f3uAMXhACRjD5j4ykuCtf5PP7Fm1b0DIsl/VHGezzP1KwOiZQobFF9YyjSRYQETRENSlVzI8iK9mWlzckpSSCQHVALmN9Az1euDho9Xo8vKGd2rqooA8yBcrwHgCqYR0kMkWci08t/R+W4ljDCanWTg9TJGwGNaNk3vYZ7VUdeKsYJGFNkfSzjXNrSX20s4/h6kB81/271ghG17l+rPTAAAAAElFTkSuQmCC" alt=""></span><span class="num">1.</span><span class="nm">TCS (Tata Consultancy Services)</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAG1BMVEUAfMP///8Ad8F+t93o8/qqzeg0kc1qqdbB3fA6bTZBAAAC/ElEQVR4nO2a2ZalIAxFkTD9/xe3KJPMXg32WpVTL3UdwjaQEEHGSCQSiUQikUgkErr4qenrldNbjSulrazFGQwuhRPMMzeNMWXNbe5PGKknADanFwDAbLnMyLPvAXBWNr9tYhkA15XmF3ogti+MMfs4WOwBroV/4r1FtYeWGw+rPKDO9oV2gWcTwR4RqzzAvRXN04NcmVVdoE4TMjfBYZEHpBtwpQm9BMCNAFOxMDT6BgCHBxZe8UBlCK4FMF8DbPgAnFfLjPOYCgADTQIUl+//Kg0AEkCr1MxZemg3BjepuwJpNQbgxim0DnFy2YsMHUIr3usl8gOlJgBEcilnupjlBTgEH363dA/AZvOKfMpDBwiTbEFwDHh0D5R9HHUQwHaUs5FLbOKqRwDxlJE2Bi7WDh+4gt47wqhcaQcaeUTCPIBwZwz4wFSQMNh5NhuL2WycDqBo5IYHznaAJflBJZ0SmmsAJO0nRgoNAMz1zpj1dvnZv+UB0TByB6DosTQwTB9ARiPdJN8DgNodIfZ8tVUFiCFaPsQ0QK3CSc4L3R6EsavqRqYAaiXe5dl6AKZvZAqgqHHzh2sDFJA/ATTvNSOAGIGjDugCNJ03BggviqMO6AO07hkDDHoR3QNhlIwdgAIQbI5HAJIHRGZyMUDM1uPmcQBCffARQJiGJmIAB2CYyXABuPIl1UcAIQsMF0ewPKD/F4CpIED1wNcA5IGvPPB5GCYAfzQVx/NT626os+FE+6j1wFQcYgCoYV2NCxDfyz6qCe/lQpSq2C8ezwQizqtZeDEYto8EoOZzEU4XsPl3IySA+ZcjJIC4QvFgheSRB8JFYrBxhgYQxmF3lRARIK6S9AnwAOIw6FYmaAAXgt/Wih8CpKGwIyhW3zjDBLjsuAgJx9bZUoB8z8luobwJABlAJe/yYtupuAL8NmGYN/yBZj0D1zu4dr+rafe6zzK3bvS60r3HTwDsdpO0H/fs+gSAHZ+1vfjN3K8QbPxFB4lEIpFIJBKJRCL9Af0DnYYiDrnfdjkAAAAASUVORK5CYII=" alt=""></span><span class="num">2.</span><span class="nm">Infosys</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Wipro</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">4.</span><span class="nm">Cognizant</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">EPAM Systems</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Luxoft</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">ConfiaTech absent from this ranking.</p></div><div class="geo-card"><div class="pr">« Best mobile app development agency for iOS and Android? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">WillowTree</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Fueled</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAUVBMVEUYOp7///8SN51MZLDN1Onh5fEALZorSKT09vvZ3/Czvdy/yOOToc89V6sAHpcgRaabp9Cos9hpe7xWbbUAJJczT6hgdLh3icSCkcYABJEAEJPdOGrcAAADCklEQVR4nO2b65KjIBCFoZVWgpdoiDp5/wfd4FyU2OpULZdsLedXKlOVPudLiy1kGEtKSkpKSkr6RwUa4ta/5z3GrF/kvKzjOYBCcM7LaAyA5dwoFgNgkn8qDgNgin8rBoMlfxwG6/wxGEArua3ADKDjrwrMQOdbB0EZQC0iMwAkHCQGvByiM2ijM7glBoEZZGVkBtgSDoIywNtbMshCTusUA4HhHNiz0Y+DOpSD19koNAM6fzgGe/lDMdjPH4bBUf4QDI7zzw7uPh2c5TfKG38OzvMbycKXg9/k98mAyq/qjICSe+kDKr98zifFdkDxwoDM/3yXYUY5cN4HO/nNnzAj+kA6ZkDlz9lXDSQGVccMoN3mF0sFqAkGLvsAYPtkbCUk+0A6uxYALkf5ZwcjwaByNCae5jcG+m39q7P6p/nJr+ASMD8QF+LV0X055U/5U/73yv867XnNz7b5+WiH85mf4bStz+1tUZ/5jartx4ts5cBrfqOGcMCXbRAo/OY3JY4YmPNDr/mNDhgAMYxfwPksvsuAyp+7r08zEAVSDyMe8htRDGTWEzO6n/o7fbDVKj+gWy8Ug/38gHibxtrpTwx+weAnPxQdF1IKcXP6WLQ9MdzL30iZ4aNpx3LSDh00xw6W7x+VwqGqqkxn5eCQAbAjB0v/w61kWuXVRWa6yl0ui3DAYNX/2F00qqn56K6oS7dtsMtgff2jqhBVV/diQi1HtxfjDgNr/dNyehoQgg84v3ZpYIeBvf6huj4NTMzs1zZl73hppBi8nJriJBqtqmYq7zgI5nptBtjuktgnRc979PToRtB5D8LV5sD68z+IXxBYp2VQlx1qgEcrZOO8vtkpIhxYDHCQsuoHVXZ+tmuhOWXQjErK693Xpv05A3M/RI9nBmQfBD0xpBiEPDGk+yDcieHsIDEgnwr+Owb3d2SQB6xP9kHQ9cgsubYDa/MijAObQeD8s4NVH4TPPztYroUI+WcHXwzi5J8dfDKIlH928GQQL//soJAR888OIv+/Q1JSUlJSUtJf6A+CcCJsT3EBqAAAAABJRU5ErkJggg==" alt=""></span><span class="num">3.</span><span class="nm">Toptal</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Savvy Apps</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Y Media Labs</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">TechAhead</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">ConfiaTech absent from this ranking.</p></div><div class="geo-card"><div class="pr">« Best software development company in Pakistan? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAACiElEQVQ4EaVTzU8TURCf2tJuS7tQtlRb6UKBIkQwkRRSEzkQgyEc6lkOKgcOph78Y+CgjXjDs2i44FXY9AMTlQRUELZapVlouy3d7kKtb0Zr0MSLTvL2zb75eL838xtTvV6H/xELBptMJojeXLCXyobnyog4YhzXYvmCFi6qVSfaeRdXdrfaU1areV5KykmX06rcvzumjY/1ggkR3Jh+bNf1mr8v1D5bLuvR3qDgFbvbBJYIrE1mCIoCrKxsHuzK+Rzvsi29+6DEbTZz9unijEYI8ObBgXOzlcrx9OAlXyDYKUCzwwrDQx1wVDGg089Dt+gR3mxmhcUnaWeoxwMbm/vzDFzmDEKMMNhquRqduT1KwXiGt0vre6iSeAUHNDE0d26NBtAXY9BACQyjFusKuL2Ry+IPb/Y9ZglwuVscdHaknUChqLF/O4jn3V5dP4mhgRJgwSYm+gV0Oi3XrvYB30yvhGa7BS70eGFHPoTJyQHhMK+F0ZesRVVznvXw5Ixv7/C10moEo6OZXbWvlFAF9FVZDOqEABUMRIkMd8GnLwVWg9/RkJF9sA4oDfYQAuzzjqzwvnaRUFxn/X2ZlmGLXAE7AL52B4xHgqAUqrC1nSNuoJkQtLkdqReszz/9aRvq90NOKdOS1nch8TpL555WDp49f3uAMXhACRjD5j4ykuCtf5PP7Fm1b0DIsl/VHGezzP1KwOiZQobFF9YyjSRYQETRENSlVzI8iK9mWlzckpSSCQHVALmN9Az1euDho9Xo8vKGd2rqooA8yBcrwHgCqYR0kMkWci08t/R+W4ljDCanWTg9TJGwGNaNk3vYZ7VUdeKsYJGFNkfSzjXNrSX20s4/h6kB81/271ghG17l+rPTAAAAAElFTkSuQmCC" alt=""></span><span class="num">1.</span><span class="nm">NetSol Technologies</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABaklEQVRoge3XPUsDQRAG4HculxiDHCiiQlJY+bP8EbYW2gnaKYiNh2JABQmIYGERxFqLWAgRNYEUEgkGMQaSu72xFTF7H5Jki3nanXdvh+GOW0AIIYQQQohxId1ia7mQT1sZl4D8qA70G4PKjmWvklv9/Gvd1oVTlp0GsMTA4jAOF4aBLjiowK12BtVoGxg3At1T3z4ngAfVWKM8UFyB4i3n+LGlqzF2Asx8NX1UK4XVmTqBNhNvRCk0swHGpZfL3UYpNbGBd0V8Orf7MPDL85NxDTBw01fdctR6w15iVraP9YVi8ytqwqQJMDH2p4q1SpyQMRNgoOEjtR03Z8oEAgJKMw6e4gaNmAABr6yCE9p56cXNGjEBBi6cRv0uSdaEBtpOltboGn6S8LgbUAxs0t7zW9IN9PeBXr+DzMQZE80mfUCID89Xh//ZQHsjYwZhpZBttryhTGo+NalwUO/p/veFEEIIIYQQQ/MNyIFphL98ItYAAAAASUVORK5CYII=" alt=""></span><span class="num">2.</span><span class="nm">Systems Limited</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABnElEQVQ4jX2SMY7aQBSGP6wcgFQUNN4umsrCHMCWT4AUKU2k4Bswcrwlu0sZx5rNCUKkpEgFewCHHABYqqlpKKjiLmVS+Bk5yM6rrHnzzfv//7mX5cYDNkCYJvpAoxaD4TNwmJ9PMR3lCKyvYakQCBaD4bTrAbLcmM5mpSJYDIZ/FoOh26VgmuWm/5833gHr15tXWBv9sjb6R40DfKKy0TZ9BnhArFRxpLJkrI28+k5PbKyAMk103IADYAWE8/Ppko8oMMCNUkXpyHkMeFlupgK7AsdNGECpYgksgY21Ub9XN2SdBpj8/vBxBpTz8+mxKxhroxVQvqgPvn/7emm+uX1ffSS6C+4DLvDkAIxHfl8kf9nudyXwCNzVllrKAEelivs6gw2w3u53S4A00SWSuFhrTr9sBqA3HvmfAXe734XXY0SBAW7SRJfWRoEoDZUqDlD9Bx4wadOZJnqJJF78eOsJHNdw/cBRfHfVE+Dun/1SqeKlUsW62XQAdzzyZ21klhtXpk7SRB/b7jhUYdyNR35wBdebeUgT/bNL3l+PRZtlibSglgAAAABJRU5ErkJggg==" alt=""></span><span class="num">3.</span><span class="nm">Techlogix</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">4.</span><span class="nm">10Pearls</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">NorthBay Solutions</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Avanza Solutions</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">ConfiaTech absent from this ranking.</p></div>
+    <p class="cap">Full ranking extracted from each raw response (data/geo-run/), not reconstructed after the fact.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">What the AI is actually basing these citations on</h3>
+    <p class="lead">Reading all 30 raw responses, the same three signals justify almost every citation — and none of them are about code quality.</p>
+    <div class="solutions" style="margin-top:0">
+      <div class="sol-card"><span class="sol-tag">Scale &amp; listing status</span><h3>"One of the largest," "publicly listed"</h3><p>"Systems Limited — one of Pakistan's largest IT companies... publicly listed" · "NetSol Technologies — NASDAQ-listed... global presence." The model repeats a reputation signal it has read elsewhere, not something it evaluated on the company's own site.</p></div>
+      <div class="sol-card"><span class="sol-tag">Named specialization + proof</span><h3>A category and a recognizable client</h3><p>"Arbisoft — known for AI/ML and data science... works with international clients including Coursera." This is <strong>exactly ConfiaTech's own positioning</strong> (AI-augmented delivery) — but a competitor gets credit for it, backed by one citable client name.</p></div>
+      <div class="sol-card"><span class="sol-tag">Category framing</span><h3>A sector the model can name</h3><p>"NetSol Technologies... particularly in the finance and leasing sectors." Companies the model can slot into a recognizable category get named; companies it can't categorize don't.</p></div>
+    </div>
+    <div class="note warn"><span class="h">What this means for ConfiaTech</span>None of the 30 responses mention a claim ConfiaTech could make today (AI-augmented delivery, 8-plus-year engineers, 200+ platforms shipped, 98% retention). The model doesn't know these facts — because they exist only on confiatech.com itself, in a form nothing outside the site repeats back.</div>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunities</span></div>
+    <h2>The highest-leverage moves</h2>
+    <p class="lead">Verified against the live site before being written here — not generic assumptions.</p>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-tag">Fix now</span><h3>Fix the soft-404 blog post</h3><p>One published post (dated Aug 25, live in your own schema) returns the homepage shell instead of its content when rendered without JavaScript — verified. A quick, concrete technical fix, not a content rewrite.</p></div>
+      <div class="sol-card"><span class="sol-tag">Content</span><h3>Point the blog at buyer intent</h3><p>9 of the last 11 posts are AI-research recaps (Granite 4.2, KVBoost benchmarks) — interesting, but not about staff augmentation, MVP delivery, or RAG for enterprises, the services you actually sell. Zero posts target a buyer-intent keyword — which is exactly why zero rank for one.</p></div>
+      <div class="sol-card"><span class="sol-tag">Trust</span><h3>Back the Clutch claim with a link</h3><p>Your own FAQPage schema states "5-star Clutch rating, 32 reviews" — verified: no outbound link to a Clutch profile exists anywhere on the site. An unverifiable trust claim reads worse to both users and AI crawlers than none at all.</p></div>
+    </div>
+    <div class="note good"><span class="h">Verified — not a gap</span>Your schema.org implementation (Organization, ProfessionalService, 2× FAQPage, 2× ItemList, BlogPosting on every article) is more thorough than most agencies twice your size — checked directly in the page source, not assumed. This is <strong>not</strong> where the work is needed. The gap is upstream: nothing points search engines or AI models at this well-structured foundation yet.</div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">12-Month Roadmap</span></div>
+    <h2>Three workstreams, one system</h2>
+    <p class="lead">Fix what's broken, align content to the business, then earn the citations — and measure again.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">Q1 · Months 1-3 — Fix &amp; anchor</div>
+        <h3>Close the verified gaps</h3>
+        <ul>
+          <li>Fix the soft-404 blog post and audit the rest of the blog for the same rendering issue</li>
+          <li>Link the Clutch claim to a real profile, or remove the claim</li>
+          <li>1st page built to actually target a buyer-intent keyword (e.g. "AI-augmented software development company")</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">Q2 · Months 4-6 — Content</div>
+        <h3>Align the blog to the business</h3>
+        <ul>
+          <li>3-5 posts on staff augmentation, MVP delivery, RAG for enterprises — the actual services</li>
+          <li>Case studies (already 20 real ones) linked into a structured, crawlable portfolio</li>
+          <li>2nd GEO measurement on the same 10-prompt panel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">Q3 · Months 7-9 — Authority</div>
+        <h3>Get named by the AI</h3>
+        <ul>
+          <li>Third-party proof (Clutch, G2, comparison articles) — the exact signal the model repeats for competitors</li>
+          <li>Comparison content against the 4 named competitors (chapter 02)</li>
+          <li>E-E-A-T reinforcement: named engineers, verifiable claims, sources the AI can cite</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">Q4 · Months 10-12 — Review</div>
+        <h3>Measure &amp; re-plan</h3>
+        <ul>
+          <li>Full SEO + GEO re-audit vs. the August 2026 baseline</li>
+          <li>Recovered traffic and citations vs. targets agreed together</li>
+          <li>Next year's priorities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Why Décupler</span></div>
+    <h2>The right fit for a technical B2B services company</h2>
+    
+    <div class="trust">
+      <div class="trust-card"><h3>SEO × GEO as one system</h3><p>Google ranking and AI citation measured together, not as two separate reports.</p></div>
+      <div class="trust-card"><h3>Verified, not assumed</h3><p>Every opportunity in this audit was checked against the live site before being written — including the two that turned out not to be gaps.</p></div>
+      <div class="trust-card"><h3>Data, not jargon</h3><p>Verifiable numbers (Ubersuggest, real API calls). Every month: positions, traffic, AI citations.</p></div>
+      <div class="trust-card"><h3>Enterprise &amp; consumer references</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo.</p></div>
+      <div class="trust-card"><h3>~1h/month on your side</h3><p>Built to run without a dedicated marketing team: one monthly check-in, and it moves.</p></div>
+      <div class="trust-card"><h3>Human + AI = 10× production</h3><p>Supervised AI agents, expert SEO oversight. More technical content shipped, controlled budget.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factual, measured, discussable</div>
+      <h3>Let's talk it through</h3>
+      <p>This lays out facts, not a sales pitch. 20 minutes to walk through the findings in detail and see if it's worth going further.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Book a call</a>
+        <a href="mailto:fenina.nathan@gmail.com" class="btn btn-ghost">✉️ A question first?</a>
+      </div>
+      <div class="cta-validity">Analysis prepared for ConfiaTech · September 2026</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Founder, Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>GEO expert · Creator of the SEO AI Systems™ method</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · Human + AI SEO · Confidential analysis for ConfiaTech · SEO: Ubersuggest (real calls) · GEO: ChatGPT/Claude/Gemini, real API calls from 09/01/2026 · Google PageSpeed Insights (mobile perf). Estimates are working hypotheses, not a guarantee of results.</p>
+  </div>
+</footer>
+
+</body>
+</html>
