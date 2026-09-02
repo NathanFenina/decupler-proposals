@@ -189,7 +189,7 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
       <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
       <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
       <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
-      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, combien de fois, sous quel nom.</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, sur quoi elle se base — et pourquoi, quand on lui demande directement.</p></a>
       <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
       <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
       <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
@@ -357,8 +357,16 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
     <div class="note warn"><span class="h">Ce que ça veut dire pour Allyable</span>Ces arguments viennent de ce que le modèle a appris ailleurs sur ces marques — pas d'une évaluation de leur produit. Le travail GEO consiste à faire exister, sous une forme que l'IA peut citer, les arguments équivalents pour Allyable.</div>
     <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
     
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On a demandé directement à l'IA pourquoi</h3>
+    <p class="lead">Plutôt que de deviner, on a reposé la question au modèle, dans la même conversation : pourquoi Siteimprove et pas Allyable ?</p>
+    <div class="quotecard">
+      <span class="who">ChatGPT · question de relance, appel API réel</span>
+      <p class="q">« Siteimprove est souvent mentionné parmi les outils de conformité les plus établis et intégrés, ce qui peut le rendre plus mémorable pour ceux qui recherchent des solutions complètes incluant accessibilité, SEO, et analyse de contenu. Je ne disposais pas d'informations spécifiques sur Allyable, ce qui explique pourquoi il n'a pas été mentionné. Les outils cités sont généralement basés sur leur reconnaissance et leur usage courant au moment de la recherche. »</p>
+    </div>
+    <p class="postquote">Ce que ça confirme : la citation par une IA n'a rien à voir avec la qualité du produit — c'est un biais de fréquence sur ce que le modèle a vu passer le plus souvent dans ses données d'entraînement. Le travail GEO consiste précisément à corriger ce biais en donnant au modèle du contenu citable sur Allyable.</p>
+    
     <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quels sites l'IA renvoie vérifier</h3>
-    <p class="lead">Une question différente de « qui est cité » : <strong>quels sites l'IA nomme comme lieu de vérification</strong> — distincts des produits concurrents déjà comptés ci-dessus. Scanné sur les 30 réponses brutes.</p>
+    <p class="lead">Une question différente de « qui est cité » : <strong>quels sites l'IA nomme comme lieu de vérification</strong> — annuaires, réseaux sociaux, presse & médias — distincts des produits concurrents déjà comptés ci-dessus. Recherché explicitement sur Reddit, LinkedIn, forums techniques, presse & médias, scanné sur les 30 réponses brutes.</p>
     <div class="card" style="margin-top:0"><div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEX///8kKS74+PgsMTY+Q0f8/Pzw8PGRk5ZNUVXr6+xDSEzCxMUpLjLV1tYuMzc/Q0i3ubuUl5lbX2NTV1uLjpFKTlKxs7Xh4uOFh4rn5+h3en1vcnZ9gIPc3d6/wcJzd3o3PECmqKpjZ2rOz9CfoaRP5W5KAAABU0lEQVQ4jW1T7aKCIAzdEEUTSUuzLMtuvf8zXtiQVDx/lJ3DvgEIEPU9l1rL/F4LiFEMCQYkj2JDC6VxhaRJl3x2xgin7MePMuYRD7cQftrjrcL7ELk9nNt8yXXtyRm5mquzXADKA6LpzgZRlgBPZ1WO7yn/yrmqyGdGn95Zjav2hbNghZHMV3uNG3DZCigEmhRq+pmyrUAcifj4CO+49xciWqAe6p3pCJrNH1ATp5gH6KghQLrDnoB8GxaYPYFkhpONipjrl+wI61hQ8tB5EvYb4eTL5Ebhd8u/2f4EYfhvvWJpw9ZJ0LQfb5uxbMKi3pp5xVp30miexZHbRriHvUnojrKt7isXqWRBFQQNF2w3aYCPUl8/EREWzxtuE+pVI/wbkSGp0a51Nyg1F+L5/nel56xXgt+zcMgeC0FK27gdTzVoPXtI9DBuO2tRhJj94m3/A1GiDZXoM3d5AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">GitHub</span><span class="cap" style="margin:0">Preuve technique · mentionné dans 8/30 réponses</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px"><div style="width:100%;height:100%;background:var(--seo);border-radius:6px"></div></div><p class="cap" style="font-style:italic;font-family:var(--sans);font-size:11.5px;color:var(--body);margin-top:2px">« AI Code Assistants (GitHub Copilot / Claude 3.5 Sonnet)... »</p></div><div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAM1BMVEXLAAD////KAADXQED66en219fUNDTHAADWOzvODg7TMDD33d311NT9+PjcWFj98/PxxcU67lVMAAAApklEQVR4nO3aQQ6DIABFQStoQW3t/U/bA8gCopI0nbdHRncmfxgkSZKkYuMNtdyfU7i8lBveP23x8rZU/w3GEB+XFwMAAAAAAAAAAMA9gG06tr46AvJ8aHmvHQHPwh/AMvUEFI7PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/D6ifdO4lwPI5OelsGbWWnprnk6PWoWHWW3+85X5JkiT9U18oKCaJLxpp9QAAAABJRU5ErkJggg==" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">npm</span><span class="cap" style="margin:0">Registre technique · mentionné dans 4/30 réponses</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px"><div style="width:50%;height:100%;background:var(--seo);border-radius:6px"></div></div><p class="cap" style="font-style:italic;font-family:var(--sans);font-size:11.5px;color:var(--body);margin-top:2px">« npm install pa11y-ci — Runs in CI pipelines... »</p></div></div>
   </div>
 </section>
@@ -441,8 +449,8 @@ footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;ba
     </div>
     <div class="cta" style="margin-top:36px">
       <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
-      <h3>On priorise ça ensemble ?</h3>
-      <p>20 minutes pour valider ces constats, chiffrer le rattrapage possible et prioriser le premier chantier. Sans engagement.</p>
+      <h3>On prend un moment pour en discuter ?</h3>
+      <p>20 minutes, sans engagement : on va en profondeur pour vous montrer concrètement comment mieux ranker sur Google et sur les IA (ChatGPT, Claude, Gemini).</p>
       <div class="cta-btns">
         <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
         <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
