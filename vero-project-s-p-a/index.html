@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Cartographie GEO express · Vero Project S.p.A.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.lg{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lg img{width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}
+.lg.ph{background:var(--bg)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Cartographie GEO express</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
+    <h1>Citée une seule fois sur 30 — un marché ERP/CAD-CAM sans acteur dominant unique</h1>
+    <p class="hero-sub">Citée une seule fois sur 30 réponses (position 3) — le marché ERP/CAD-CAM est dominé par les géants mondiaux (SAP, Infor, Microsoft Dynamics, Dassault Systèmes, TeamSystem, tous cités 3 fois), sans acteur qui domine largement.</p>
+    <p class="hero-meta">Préparé pour <b>Violette</b> · Vero Project S.p.A. (veroprojectgroup.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">+8100%</div><div class="k">Évolution du trafic organique — 2025-08 → 2026-08 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">1/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">90.6%</div><div class="k">Backlinks en dofollow — 766 liens totaux</div></div>
+      <div class="tile"><div class="v">#3.0</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, sur quoi elle se base — et pourquoi, quand on lui demande directement.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
+
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Une empreinte SEO quasi nulle, site inaccessible en direct</h2>
+    <p class="lead">DA8, seulement 766 backlinks : empreinte SEO quasi nulle. Site inaccessible en direct depuis cette session (HTTP 000 sur le domaine racine et en www — cf. check robots.txt), potentiellement lié à une résolution IPv6-only.</p>
+    
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">8<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v crit">82</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">18</div><div class="k">Mots-clés indexés</div></div>
+      <div class="tile"><div class="v">766</div><div class="k">Backlinks · 48 domaines référents</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé indexé (réel, Ubersuggest)</th><th>Volume/mois</th><th>Position</th></tr></thead>
+        <tbody><tr><td>software edgecam</td><td>30</td><td>14</td></tr><tr><td>vero software customer portal</td><td>70</td><td>51</td></tr></tbody>
+      </table>
+    </div>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2025-08 → 2026-08 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">41</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">82</text>
+  <path d="M 46.0,170.1 L 105.8,170.1 L 165.7,156.8 L 225.5,156.8 L 285.3,170.1 L 345.2,141.6 L 405.0,143.5 L 464.8,135.9 L 524.7,135.9 L 584.5,132.0 L 644.3,120.6 L 704.2,168.2 L 764.0,16.0 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,170.1 L 105.8,170.1 L 165.7,156.8 L 225.5,156.8 L 285.3,170.1 L 345.2,141.6 L 405.0,143.5 L 464.8,135.9 L 524.7,135.9 L 584.5,132.0 L 644.3,120.6 L 704.2,168.2 L 764.0,16.0" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="16.0" r="4" fill="#A9711C"/><text x="758.0" y="6.0" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">82</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="405.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-02</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-08</text>
+</svg>
+    </div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights, réel)</h3>
+        <p>Score Performance : <span class="pw-badge crit">46/100 · lent</span>. LCP 27.8 s · FCP 6.9 s · TBT 190 ms · CLS 0.152 · Speed Index 13.8 s.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>766 backlinks, 48 domaines référents, <strong>90.6% en dofollow</strong> (72 liens nofollow).</p>
+      </div>
+      <div class="meth-card" style="grid-column:1/-1">
+        <h3>Accès des bots IA — robots.txt (vérifié, veroprojectgroup.com)</h3>
+        <p><span class="pw-badge warn">non vérifiable</span> robots.txt inaccessible depuis cette session (connexion échouée) — à vérifier manuellement.</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>DA8, seulement 766 backlinks : empreinte SEO quasi nulle. Site inaccessible en direct depuis cette session (HTTP 000 sur le domaine racine et en www — cf. check robots.txt), potentiellement lié à une résolution IPv6-only.</div>
+    
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Mots-clés en zone de bascule (positions 6-25)</h3>
+    <p class="cap">Aucun mot-clé en position 6-25 trouvé pour veroprojectgroup.com (DataForSEO, 0 mots-clés positionnés au total) — ce levier n'est pas disponible pour Vero Project S.p.A. à ce stade, pas une omission.</p>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Vero Project S.p.A. (vous)</td><td>8</td><td>82</td><td>766</td></tr><tr><td>TeamSystem</td><td>53</td><td>122 403</td><td>1 236 876</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sur 2 acteurs comparés (vous + concurrents cités par les IA), Vero Project S.p.A. arrive en position 2 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « ERP CAD CAM software manufacturing »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> Almacam (almacam.com, DA29) · <strong>Vero Project S.p.A. :</strong> <span class="absent">hors top 10</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Hexagon (maison-mère de Vero Software, le partenaire technologique de Vero Project) apparaît en position 3 — Vero Project S.p.A. elle-même absente du top 20, cohérent avec un acteur de distribution/support local plutôt qu'éditeur.</div>
+    
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Vero Project S.p.A. est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">1/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">3.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v crit">9/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">1</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Prompt neutre testé (jamais « Vero Project S.p.A. » nommé)</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr></thead>
+        <tbody><tr><td style="min-width:280px">P1 · What are the best ERP and CAD/CAM software providers for manufacturing companies in Italy?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P2 · Which reseller offers the best support for Edgecam or other Vero Software CAM products?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P3 · Best ERP software integrator for small and medium manufacturing businesses in Italy?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P4 · What companies distribute industrial CAD/CAM software across Northern Italy?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P5 · Which ERP provider is recommended for machine shops using CNC programming software?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P6 · Best local partner for Hexagon Manufacturing Intelligence software in Italy?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P7 · What's the best combined ERP + CAM software solution for a small manufacturing SME?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P8 · Which Italian software company specializes in industrial digitalization for manufacturers?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P9 · Best support provider for CAM software training and implementation in Lombardy?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #3</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P10 · What companies offer ERP consulting alongside CAD/CAM software sales in Italy?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr></tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Vero Project S.p.A. est cité 1 fois sur 30, en position moyenne 3.0 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>Citée une seule fois sur 30 — un marché sans acteur dominant unique</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Vero Project S.p.A. est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="10.23 467.29" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="467.29 10.23" stroke-dashoffset="-10.23" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">140 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">TeamSystem</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:2.1%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">2.1%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:97.9%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">97.9%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Vero Project S.p.A. totalise <strong>0.0% de part de voix</strong> sur les 140 mentions relevées — quasi invisible face au panel de concurrents cités.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">". SAP (S/4HANA / SAP Business One) — Target: Large Enterprises (S/4HANA) and Growing Mid-market (Business One)."</p>
+    </div>
+    <p class="postquote">ChatGPT confirme : "I did not mention Vero Project S.p.A. simply because it is less prominent internationally compared to the other providers listed... this does not imply Vero Project S.p.A. lacks quality."</p>
+    <div class="geo-card"><div class="pr">« Best ERP software integrator for small and medium manufacturing businesses in Italy? »<br><span class="cap">Claude · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">1.</span><span class="nm">TeamSystem</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Zucchetti</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">SAP Partners</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Microsoft Dynamics Partners</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Sage</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Vero Project S.p.A. absente du classement.</p></div><div class="geo-card"><div class="pr">« What are the best ERP and CAD/CAM software providers for manufacturing companies in Italy? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Italian Native ERPs</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Zucchetti</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">3.</span><span class="nm">TeamSystem</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Fluentis ERP</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Sanmarco Informatica</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Global ERPs</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Vero Project S.p.A. absente du classement.</p></div><div class="geo-card"><div class="pr">« Which reseller offers the best support for Edgecam or other Vero Software CAM products? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Top Resellers & Partners by Region</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Post-Processor & Code Wizard Expertise</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Dedicated Technical Engineers vs. Salespeople</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Turnaround Time for Support Tickets</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Vero Project S.p.A. absente du classement.</p></div><div class="geo-card"><div class="pr">« What companies distribute industrial CAD/CAM software across Northern Italy? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Major Multi-Brand & Enterprise System Integrators</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Major Autodesk Distributors & VARs</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Siemens Digital Industries Software Distributors</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">PTC (Creo) Resellers</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">Vero Project S.p.A. absente du classement.</p></div>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quoi l'IA se base pour citer ces marques</h3>
+    <p class="lead">Extrait mot pour mot des 30 réponses brutes — l'argument que le modèle répète pour justifier chaque marque citée à la place de Vero Project S.p.A..</p>
+    <div class="solutions" style="margin-top:0"><div class="sol-card"><span class="sol-tag" style="display:flex;align-items:center;gap:6px"><span class="lg"><img src="data:image/png;base64,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" alt=""></span>TeamSystem</span><h3>Ce que l'IA répète</h3><p>« TeamSystem - An Italian software provider with a strong focus on small to medium-sized businesses. »</p></div></div>
+    <div class="note warn"><span class="h">Ce que ça veut dire pour Vero Project S.p.A.</span>Ces arguments viennent de ce que le modèle a appris ailleurs sur ces marques — pas d'une évaluation de leur produit. Le travail GEO consiste à faire exister, sous une forme que l'IA peut citer, les arguments équivalents pour Vero Project S.p.A..</div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On a demandé directement à l'IA pourquoi</h3>
+    <p class="lead">Plutôt que de deviner, on a reposé la question au modèle, dans la même conversation : pourquoi TeamSystem et pas Vero Project S.p.A. ?</p>
+    <div class="quotecard">
+      <span class="who">ChatGPT · question de relance, appel API réel</span>
+      <p class="q">« I cited TeamSystem because it is one of the well-known ERP providers with a significant presence in the Italian market, especially for small to medium-sized enterprises. I did not mention Vero Project S.p.A. simply because it is less prominent internationally compared to the other providers listed, and I do not have detailed knowledge of their offerings. This does not imply Vero Project S.p.A. lacks quality; it's just outside the scope of widely recognized brands I highlighted. »</p>
+    </div>
+    <p class="postquote">Ce que ça confirme : la citation par une IA n'a rien à voir avec la qualité du produit — c'est un biais de fréquence sur ce que le modèle a vu passer le plus souvent dans ses données d'entraînement. Le travail GEO consiste précisément à corriger ce biais en donnant au modèle du contenu citable sur Vero Project S.p.A..</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On lui a demandé directement quelles sources il consulte</h3>
+    <p class="lead">Question posée en relance, dans la même conversation que le prompt de catégorie : sur quels <strong>types de sources</strong> (médias, réseaux sociaux, sites d'avis, forums, documentation éditeur) le modèle dit s'appuyer pour se former une opinion — classé par ordre d'importance, tel qu'il le formule lui-même.</p>
+    <div class="card" style="margin-top:0"><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">1.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Specialized media/press</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:100%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Thorough analysis and industry expert opinions.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">2.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEzklEQVRogdWZX2xTdRTHP+e2rGNiZcI6hCEqKCCogaFRGLE6jSwQMjFsEIVOE33AF33QxISHPvrggyYGdDISCfJgo+DG2BYlLnGTFxUTEsU/RCZscWwgGyC9pf0dH2Awurb3tmwtfJ9uf79zzj2fe8+5v9+9hVtVqgLgLXQeWUlVtnQPBhVtkK6Bn7bBB7cEwGvd/XM9am2mezCkMAcEvPIugBQ6uXR6pWvg9iLV9SLSAKxMmv59e1XZfLjZSkhVXv/u9NPGoyGUFxApSWknunfk8KYA2PL9qXmqVojuwc3G4m7UwUE9+0YOC1ZCunuePxotqXt7/oF1cfHVZOHat33F9ApEFPJ8BzSMZc9aXK1IyL7IOkEnG7y9WYb5aiR5yBNAtPGRBxRtsEU3ARU3cttFrH2jf08YgH5ceYftiW0QJaSYJ8apVs/GfXd+O3pgXAH08/Uee/i3ZxUTsjVWi1Ls1I/ZSKC1cZlcGj02LgD2J4sXqkjIHjq6CZgpE/VsEN2XPJQzgG57qNSeJBsU06DIY46PvhtXtOS8aUsezArgcon8ugqVkA1rQX0TdrXH6uv3nptxIXnQFYC94+HFagjZQ0dfApkx/rk5S3Vs+UAGgOFPF0wrujRpI0qDqlYWeNeUMPF4c6qJ6wA0HPTaFWdqUBqI6RqgKC/pOUnoanxq5mCqKS9A/5tV95UEopsv+IZq5Zxn+pW5gVzOdRYvQ+IFQdCR+6bXWkURQUZ+CUYVj0NQJWX5XAUInLyrp++X4S4Ds4DngWm5JA9wSop+eLSocplb+41zz/f6S6dmtFFPPC3AmMrWYNB70ud7RqBeoRbIHH2szJOTlvQdt4or3BhvfPXFXn/p1FkZTA5vrypbmm7SSh6Qzs747I6O9oqOjpeH/f5yS3UtqruBc24SAqytiZ4/Xdq6UdqrDw6P0UWRSAxoAVr+CgaLvcXFNaJar7AGuC2dX7U5s9CLxuPIDa/0HiuxN9P8mDuQTvd2dkZnt7fvrejo2OApKgqISB3wBaoXUwQtr08M/JhDvsk69uHyGUcyGeR0hWa2tPwHRIDIqWBwiu3zrQXqgFWAD+CNxAnPZ55ALuGvSiRz+cA4bOYCnZ3ngT3Anj9qavyTjalV1foAsep7NNp7XIozNWhGmYTJWD4wztvp+9vahoFdwK6e1atL/RJ/B3grl1gC/eUrA4ec7Fz3QLaa09r6789MeR+I5+JvlOawiHGymzAAAJrDfSrsz8VVRn06yaSJBQAsI405uJ0bLC076Cp+DsGzUqJSO4C/s3Q7EFkkMTeGEw5AOGxAdmTjIrgrH8gHAGDQJiDh0jwWRQ64jZ0XAJrDfYrrZj64s6rM7b4rTwCAJbhqZhFclw/kESCxhHacm9nEPCblq2M65Q2AcNggNDlYHdrxeHl/NmHzBwCYhDdjM6tmVz6QZwD2b+1VaE03bSzjuPtMVn4BAIvUK7MiRxpXlB/LPl6elViqbcCJ5PFsFq/RyjvAlWYeszKrlfrLm5PyDwAYDzu5vpl7PloeOJxLrIIA8GX4pCqjtws5lQ8UCuDyia81s3F+980QpzBKFD/YBpxQw5nBf6Z35RqnYABE6hIgTXbM/iZSJ253qmNU0D+6jVebTg8MLChkDgXX/xYboyUoYsn7AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Review sites (G2, Capterra)</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:80%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">User experiences and detailed product comparisons.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">3.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Official vendor documentation</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:60%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Accurate technical specifications and product features.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">4.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Technical forums</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:40%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Real-world problem-solving and user community insights.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">5.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Social platforms</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:20%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Latest trends and informal user feedback.</p></div></div>
+    <p class="cap" style="margin-top:8px">Réponse auto-rapportée par ChatGPT à une question directe — à distinguer de ce qui est effectivement observé dans les 30 réponses du panel (ci-dessus/ci-dessous).</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quels sites l'IA renvoie vérifier</h3>
+    <p class="lead">Observé dans les 30 réponses brutes elles-mêmes : <strong>quels sites l'IA nomme spontanément</strong> comme lieu de vérification — annuaires, réseaux sociaux, presse & médias — distincts des produits concurrents déjà comptés ci-dessus.</p>
+    <div class="card" style="margin-top:0"><div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Clutch.co</span><span class="cap" style="margin:0">Avis & annuaire B2B · mentionné dans 1/30 réponses</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px"><div style="width:100%;height:100%;background:var(--seo);border-radius:6px"></div></div><p class="cap" style="font-style:italic;font-family:var(--sans);font-size:11.5px;color:var(--body);margin-top:2px">« Check for reviews of potential providers. Websites such as Clutch.co, G2, or Capterra often contain user reviews of B2B service providers... »</p></div><div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">G2</span><span class="cap" style="margin:0">Avis & annuaire B2B · mentionné dans 1/30 réponses</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px"><div style="width:100%;height:100%;background:var(--seo);border-radius:6px"></div></div><p class="cap" style="font-style:italic;font-family:var(--sans);font-size:11.5px;color:var(--body);margin-top:2px">« ...Websites such as Clutch.co, G2, or Capterra often contain user reviews of B2B service providers, including those offering training and integration... »</p></div><div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEzklEQVRogdWZX2xTdRTHP+e2rGNiZcI6hCEqKCCogaFRGLE6jSwQMjFsEIVOE33AF33QxISHPvrggyYGdDISCfJgo+DG2BYlLnGTFxUTEsU/RCZscWwgGyC9pf0dH2Awurb3tmwtfJ9uf79zzj2fe8+5v9+9hVtVqgLgLXQeWUlVtnQPBhVtkK6Bn7bBB7cEwGvd/XM9am2mezCkMAcEvPIugBQ6uXR6pWvg9iLV9SLSAKxMmv59e1XZfLjZSkhVXv/u9NPGoyGUFxApSWknunfk8KYA2PL9qXmqVojuwc3G4m7UwUE9+0YOC1ZCunuePxotqXt7/oF1cfHVZOHat33F9ApEFPJ8BzSMZc9aXK1IyL7IOkEnG7y9WYb5aiR5yBNAtPGRBxRtsEU3ARU3cttFrH2jf08YgH5ceYftiW0QJaSYJ8apVs/GfXd+O3pgXAH08/Uee/i3ZxUTsjVWi1Ls1I/ZSKC1cZlcGj02LgD2J4sXqkjIHjq6CZgpE/VsEN2XPJQzgG57qNSeJBsU06DIY46PvhtXtOS8aUsezArgcon8ugqVkA1rQX0TdrXH6uv3nptxIXnQFYC94+HFagjZQ0dfApkx/rk5S3Vs+UAGgOFPF0wrujRpI0qDqlYWeNeUMPF4c6qJ6wA0HPTaFWdqUBqI6RqgKC/pOUnoanxq5mCqKS9A/5tV95UEopsv+IZq5Zxn+pW5gVzOdRYvQ+IFQdCR+6bXWkURQUZ+CUYVj0NQJWX5XAUInLyrp++X4S4Ds4DngWm5JA9wSop+eLSocplb+41zz/f6S6dmtFFPPC3AmMrWYNB70ud7RqBeoRbIHH2szJOTlvQdt4or3BhvfPXFXn/p1FkZTA5vrypbmm7SSh6Qzs747I6O9oqOjpeH/f5yS3UtqruBc24SAqytiZ4/Xdq6UdqrDw6P0UWRSAxoAVr+CgaLvcXFNaJar7AGuC2dX7U5s9CLxuPIDa/0HiuxN9P8mDuQTvd2dkZnt7fvrejo2OApKgqISB3wBaoXUwQtr08M/JhDvsk69uHyGUcyGeR0hWa2tPwHRIDIqWBwiu3zrQXqgFWAD+CNxAnPZ55ALuGvSiRz+cA4bOYCnZ3ngT3Anj9qavyTjalV1foAsep7NNp7XIozNWhGmYTJWD4wztvp+9vahoFdwK6e1atL/RJ/B3grl1gC/eUrA4ec7Fz3QLaa09r6789MeR+I5+JvlOawiHGymzAAAJrDfSrsz8VVRn06yaSJBQAsI405uJ0bLC076Cp+DsGzUqJSO4C/s3Q7EFkkMTeGEw5AOGxAdmTjIrgrH8gHAGDQJiDh0jwWRQ64jZ0XAJrDfYrrZj64s6rM7b4rTwCAJbhqZhFclw/kESCxhHacm9nEPCblq2M65Q2AcNggNDlYHdrxeHl/NmHzBwCYhDdjM6tmVz6QZwD2b+1VaE03bSzjuPtMVn4BAIvUK7MiRxpXlB/LPl6elViqbcCJ5PFsFq/RyjvAlWYeszKrlfrLm5PyDwAYDzu5vpl7PloeOJxLrIIA8GX4pCqjtws5lQ8UCuDyia81s3F+980QpzBKFD/YBpxQw5nBf6Z35RqnYABE6hIgTXbM/iZSJ253qmNU0D+6jVebTg8MLChkDgXX/xYboyUoYsn7AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Capterra</span><span class="cap" style="margin:0">Avis & annuaire B2B · mentionné dans 1/30 réponses</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px"><div style="width:100%;height:100%;background:var(--seo);border-radius:6px"></div></div><p class="cap" style="font-style:italic;font-family:var(--sans);font-size:11.5px;color:var(--body);margin-top:2px">« ...Clutch.co, G2, or Capterra often contain user reviews of B2B service providers... »</p></div></div>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Positionnement</span><h3>Se positionner comme partenaire local Vero Software</h3><p>Le marché ERP/CAM est dominé par des géants mondiaux sans qu'aucun ne domine largement — Vero Project peut occuper le terrain "support et implémentation locale en Italie".</p></div><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Page dédiée au partenariat Hexagon/Vero Software</h3><p>Un partenariat technique réel et vérifiable, aujourd'hui absent du top Google et des réponses IA.</p></div><div class="sol-card"><span class="sol-tag">Mesure</span><h3>Re-tester après publication</h3><p>Sur le même panel.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à TeamSystem</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 82 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle de longue traîne à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 1/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 0.0% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 46/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>90.6% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — vos concurrents ne s'en occupent pas encore.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Références industrie & tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo, BeTomorrow.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On prend un moment pour en discuter ?</h3>
+      <p>20 minutes, sans engagement : on va en profondeur pour vous montrer concrètement comment mieux ranker sur Google et sur les IA (ChatGPT, Claude, Gemini).</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
+        <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Mesure probabiliste sur panel constant — aucune garantie de position, citation ou vente. Réponses génératives, elles varient dans le temps.</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur d'infra de visibilité organique</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Vero Project S.p.A. · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Cartographie GEO express · Linxo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.lg{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lg img{width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}
+.lg.ph{background:var(--bg)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Cartographie GEO express</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
+    <h1>Citée 15 fois sur 30, dont 6 fois en position 1 — la meilleure performance GEO du lot de 20</h1>
+    <p class="hero-sub">Citée 15 fois sur 30 réponses testées (dont 6 fois en position 1) — la meilleure performance GEO de tout ce lot de 20, quasiment à égalité avec Bankin' (10 mentions). Linxo.com est même mieux positionnée que Bankin' sur Google (position 3 vs absente du top 20) sur la requête cœur.</p>
+    <p class="hero-meta">Préparé pour <b>Cédric</b> · Linxo (linxo.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v crit">-29%</div><div class="k">Évolution du trafic organique — 2024-09 → 2026-08 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v good">15/30</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">77.2%</div><div class="k">Backlinks en dofollow — 11 520 liens totaux</div></div>
+      <div class="tile"><div class="v">#2.5</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, sur quoi elle se base — et pourquoi, quand on lui demande directement.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
+
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Trafic stable, porté quasi exclusivement par la marque</h2>
+    <p class="lead">363 mots-clés indexés mais aucun mot-clé produit/service réel dans le top organicKeywords (uniquement des variantes orthographiques du nom de marque) — trafic stable autour de 5 000-10 000 visites/mois sur 24 mois, porté quasi exclusivement par la marque.</p>
+    
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">51<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v ">5 304</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">363</div><div class="k">Mots-clés indexés</div></div>
+      <div class="tile"><div class="v">11 520</div><div class="k">Backlinks · 1 952 domaines référents</div></div>
+    </div>
+    <p class="note crit"><span class="h">Aucun mot-clé produit/service indexé</span>Sur les 363 mots-clés indexés, aucun ne correspond à une requête commerciale de la catégorie.</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2024-09 → 2026-08 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">5 134</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">10 269</text>
+  <path d="M 46.0,58.8 L 77.2,60.8 L 108.4,171.2 L 139.7,52.7 L 170.9,20.0 L 202.1,28.9 L 233.3,37.0 L 264.5,59.1 L 295.7,57.2 L 327.0,66.6 L 358.2,61.3 L 389.4,70.1 L 420.6,61.3 L 451.8,44.8 L 483.0,44.0 L 514.3,37.6 L 545.5,16.0 L 576.7,65.7 L 607.9,72.0 L 639.1,81.4 L 670.3,74.1 L 701.6,92.1 L 732.8,93.1 L 764.0,91.4 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,58.8 L 77.2,60.8 L 108.4,171.2 L 139.7,52.7 L 170.9,20.0 L 202.1,28.9 L 233.3,37.0 L 264.5,59.1 L 295.7,57.2 L 327.0,66.6 L 358.2,61.3 L 389.4,70.1 L 420.6,61.3 L 451.8,44.8 L 483.0,44.0 L 514.3,37.6 L 545.5,16.0 L 576.7,65.7 L 607.9,72.0 L 639.1,81.4 L 670.3,74.1 L 701.6,92.1 L 732.8,93.1 L 764.0,91.4" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="91.4" r="4" fill="#A9711C"/><text x="758.0" y="81.4" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">5 304</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-09</text><text x="420.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-09</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-08</text>
+</svg>
+    </div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights, réel)</h3>
+        <p>Score Performance : <span class="pw-badge warn">61/100 · moyen</span>. LCP 10.2 s · FCP 3.5 s · TBT 180 ms · CLS 0.001 · Speed Index 5.6 s.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>11 520 backlinks, 1 952 domaines référents, <strong>77.2% en dofollow</strong> (2 626 liens nofollow).</p>
+      </div>
+      <div class="meth-card" style="grid-column:1/-1">
+        <h3>Accès des bots IA — robots.txt (vérifié, linxo.com)</h3>
+        <p><span class="pw-badge good">autorisé par défaut</span> aucune règle spécifique à un robot IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot...) — le <code>User-agent: *</code> générique s'applique, ce qui les autorise sauf mention contraire.</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>363 mots-clés indexés mais aucun mot-clé produit/service réel dans le top organicKeywords (uniquement des variantes orthographiques du nom de marque) — trafic stable autour de 5 000-10 000 visites/mois sur 24 mois, mais porté quasi exclusivement par la marque.</div>
+    
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Mots-clés en zone de bascule (positions 6-25)</h3>
+    <p class="lead">Un gain de quelques rangs bascule ces pages en top 5 — le levier SEO au meilleur rapport effort/résultat. 102 mots-clés dans cette zone au total (DataForSEO, réel) ; les 6 à plus fort volume :</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé</th><th>Volume/mois</th><th>Position</th><th>Page qui rank</th></tr></thead>
+        <tbody><tr><td>gerer son budget</td><td>880</td><td>18</td><td class='mono' style='font-size:11px'>linxo.com/gestion-budget-mensuel/</td></tr><tr><td>50 30 20 budget</td><td>720</td><td>14</td><td class='mono' style='font-size:11px'>linxo.com/regle-50-30-20/</td></tr><tr><td>50 30 20</td><td>720</td><td>14</td><td class='mono' style='font-size:11px'>linxo.com/regle-50-30-20/</td></tr><tr><td>budgeting 50 30 20</td><td>720</td><td>19</td><td class='mono' style='font-size:11px'>linxo.com/regle-50-30-20/</td></tr><tr><td>combien faut il</td><td>720</td><td>20</td><td class='mono' style='font-size:11px'>linxo.com/gestion-budget-mensuel/</td></tr><tr><td>combien faut-il</td><td>720</td><td>20</td><td class='mono' style='font-size:11px'>linxo.com/gestion-budget-mensuel/</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>Linxo (vous)</td><td>51</td><td>5 304</td><td>11 520</td></tr><tr><td>Bankin'</td><td>54</td><td>1 524</td><td>13 868</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sur 2 acteurs comparés (vous + concurrents cités par les IA), Linxo arrive en position 1 en trafic organique. Le trafic organique n'est pas le problème — l'écart se joue ailleurs (vitesse, citation IA).</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « application agrégation comptes bancaires »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> La Finance Pour Tous (lafinancepourtous.com, DA60) · <strong>Linxo :</strong> <span class="cited">✓ position 3</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Linxo.com est déjà bien positionnée sur Google (position 3, juste derrière un site pédagogique et un comparateur) — Bankin' (concurrent identifié en GEO) n'apparaît même pas dans le top 20 sur cette requête : le retard de Linxo se joue sur le terrain IA, pas SEO.</div>
+    
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Ce que Bankin' capte et pas Linxo</h3>
+    <p class="lead">Mots-clés réels sur lesquels <strong>Bankin'</strong> (bankin.com) est positionné et Linxo totalement absent (DataForSEO, filtré au vocabulaire du secteur — 195 mots-clés pertinents identifiés sur 562 au total). Les 6 à plus fort volume :</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé</th><th>Volume/mois</th></tr></thead>
+        <tbody><tr><td>banque</td><td>450 000</td></tr><tr><td>bankin</td><td>18 100</td></tr><tr><td>identifiant banque postale</td><td>18 100</td></tr><tr><td>identifiant la banque postale</td><td>14 800</td></tr><tr><td>meilleur banque en france</td><td>5 400</td></tr><tr><td>cic banque privée</td><td>5 400</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Ce ne sont pas des mots-clés de niche — Bankin' les couvre déjà, Linxo n'y est nulle part. C'est le terrain de contenu le plus direct pour rattraper l'écart de trafic ci-dessus.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si Linxo est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">15/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">2.5</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v warn">1/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">1</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Prompt neutre testé (jamais « Linxo » nommé)</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr></thead>
+        <tbody><tr><td style="min-width:280px">P1 · Quelle application choisir pour agréger tous ses comptes bancaires en France ?</td><td><span class="cited">✓ cité #4</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P2 · Quelles applications de gestion de budget sont les plus utilisées en France ?</td><td><span class="cited">✓ cité #2</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P3 · Quelle alternative à Bankin' pour suivre ses dépenses et son budget personnel ?</td><td><span class="cited">✓ cité #3</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P4 · Quelle application bancaire tierce propose la meilleure catégorisation automatique des dépenses ?</td><td><span class="cited">✓ cité #2</span></td><td><span class="cited">✓ cité #1</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P5 · Quel outil pour connecter plusieurs comptes bancaires de banques différentes sur une seule app ?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #1</span></td><td><span class="cited">✓ cité #3</span></td></tr><tr><td style="min-width:280px">P6 · Quelle application de gestion budgétaire est recommandée par les banques françaises ?</td><td><span class="cited">✓ cité #2</span></td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #1</span></td></tr><tr><td style="min-width:280px">P7 · Quelle app d'agrégation bancaire propose le meilleur suivi de l'épargne et des objectifs financiers ?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #1</span></td><td><span class="cited">✓ cité #5</span></td></tr><tr><td style="min-width:280px">P8 · Quelles solutions françaises de gestion financière personnelle respectent le mieux la DSP2 ?</td><td><span class="cited">✓ cité #3</span></td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #1</span></td></tr><tr><td style="min-width:280px">P9 · Quelle application choisir pour avoir une vue consolidée de son patrimoine bancaire ?</td><td><span class="cited">✓ cité #4</span></td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #4</span></td></tr><tr><td style="min-width:280px">P10 · Quelle app de finances personnelles est intégrée aux services d'une banque mutualiste française ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr></tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Linxo est cité 15 fois sur 30, en position moyenne 2.5 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>La meilleure performance GEO du lot de 20 — 15 citations sur 30</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si Linxo est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="53.86 423.67" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="43.08 434.44" stroke-dashoffset="-53.86" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="380.58 96.94" stroke-dashoffset="-96.94" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">133 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);font-weight:700;color:var(--gold)">Linxo (vous)</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:11.3%;height:100%;background:#A9711C;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">11.3%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Bankin'</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:9.0%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">9.0%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:79.7%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">79.7%</span></div></div>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Linxo totalise <strong>11.3% de part de voix</strong> sur les 133 mentions relevées — loin derrière le ou les leaders du panel.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">Gemini · appel API réel, 31/08/2026</span>
+      <p class="q">". Bankin' : Le meilleur pour le budget quotidien — Bankin' est le leader historique et le plus populaire en France pour la gestion de budget."</p>
+    </div>
+    <p class="postquote">ChatGPT confirme : "J'ai mentionné Bankin' car c'est une application très populaire en France... mon choix était basé sur la notoriété perçue et la fréquence de mentions dans mes sources d'entraînement" — mais Linxo reste citée 15 fois sur 30, et devance même Bankin' sur Google.</p>
+    <div class="geo-card"><div class="pr">« Quelle application de gestion budgétaire est recommandée par les banques françaises ? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row self"><span class="lg ph">◆</span><span class="num">1.</span><span class="nm">Linxo</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">2.</span><span class="nm">Bankin'</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Linxo présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Quelle application bancaire tierce propose la meilleure catégorisation automatique des dép… »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">1.</span><span class="nm">Bankin'</span></div><div class="rank-row self"><span class="lg ph">◆</span><span class="num">2.</span><span class="nm">Linxo</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Yolt</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Mint</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Spendee</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Linxo présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Quelles solutions françaises de gestion financière personnelle respectent le mieux la DSP2… »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">1.</span><span class="nm">Bankin'</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Lydia</span></div><div class="rank-row self"><span class="lg ph">◆</span><span class="num">3.</span><span class="nm">Linxo</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Yolt</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">N26</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Linxo présente dans ce classement.</p></div><div class="geo-card"><div class="pr">« Quelle application choisir pour agréger tous ses comptes bancaires en France ? »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span class="num">1.</span><span class="nm">Bankin'</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Lydia</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Budgea</span></div><div class="rank-row self"><span class="lg ph">◆</span><span class="num">4.</span><span class="nm">Linxo</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Yolt</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Max</span></div><p class="cap" style="margin-top:8px;color:var(--good)">Linxo présente dans ce classement.</p></div>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quoi l'IA se base pour citer ces marques</h3>
+    <p class="lead">Extrait mot pour mot des 30 réponses brutes — l'argument que le modèle répète pour justifier chaque marque citée à la place de Linxo.</p>
+    <div class="solutions" style="margin-top:0"><div class="sol-card"><span class="sol-tag" style="display:flex;align-items:center;gap:6px"><span class="lg"><img src="data:image/png;base64,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" alt=""></span>Bankin'</span><h3>Ce que l'IA répète</h3><p>« Bankin' : C'est une application très populaire qui offre une interface conviviale et permet de suivre facilement les dépenses, d'établir des budgets et de recevoir des alertes sur vos transactions. »</p></div></div>
+    <div class="note warn"><span class="h">Ce que ça veut dire pour Linxo</span>Ces arguments viennent de ce que le modèle a appris ailleurs sur ces marques — pas d'une évaluation de leur produit. Le travail GEO consiste à faire exister, sous une forme que l'IA peut citer, les arguments équivalents pour Linxo.</div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On a demandé directement à l'IA pourquoi</h3>
+    <p class="lead">Plutôt que de deviner, on a reposé la question au modèle, dans la même conversation : pourquoi Bankin' et pas Linxo ?</p>
+    <div class="quotecard">
+      <span class="who">ChatGPT · question de relance, appel API réel</span>
+      <p class="q">« J'ai mentionné Bankin' car c'est une application très populaire en France pour l'agrégation de comptes bancaires, souvent citée parmi les premières dans ce domaine. Linxo est également une application reconnue et fiable pour la gestion des finances personnelles, mais elle n'est pas toujours la première qui vient à l'esprit dans les réponses générales. Mon choix était basé sur la notoriété perçue et la fréquence de mentions dans mes sources d'entraînement. »</p>
+    </div>
+    <p class="postquote">Ce que ça confirme : la citation par une IA n'a rien à voir avec la qualité du produit — c'est un biais de fréquence sur ce que le modèle a vu passer le plus souvent dans ses données d'entraînement. Le travail GEO consiste précisément à corriger ce biais en donnant au modèle du contenu citable sur Linxo.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On lui a demandé directement quelles sources il consulte</h3>
+    <p class="lead">Question posée en relance, dans la même conversation que le prompt de catégorie : sur quels <strong>types de sources</strong> (médias, réseaux sociaux, sites d'avis, forums, documentation éditeur) le modèle dit s'appuyer pour se former une opinion — classé par ordre d'importance, tel qu'il le formule lui-même.</p>
+    <div class="card" style="margin-top:0"><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">1.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Documentation officielle des éditeurs</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:100%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Informations précises et à jour sur les fonctionnalités.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">2.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Médias spécialisés / presse</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:80%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Analyses approfondies et comparaisons d'experts du secteur.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">3.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAC4KtnsAACgGj2kAUiYFgGEJpnQAGjUDXVIALT0DUk8AIzwEc1oDPkIAAjYARiQDZ0cANSkAGy0Ec0wHjFznhzhkAAAC1UlEQVR4nO1Z2XbrIAwsm7zhNL3J/3/rjeMNY2IDFuj0lHlPNCA0ksZfXwUFBQUFBQUFBQW/HFVFG5/XNadlIARt/AagISVQM1aTElCMKcr4HTDGCHPA21d81tLVAVcDAUVHoGNvdFTxxwxQ5kCNBMi0qIGRAJUWzRkgywFXMwGiOuAwE4AbSfwlA0Q54HoloEkIiJWAICBgZoAmB9okoPPHr8AkAPln045tkL0hrSpEpUWwJQC54zfMQu6GpG0CmevAVCESLert+Iz1OePzek8g65LIYU8AchLo9vExtYifonUR0Oe/84yvxRkcGXjl4PRnvmODLbNYUP5i1TqPeBGtd/jXHXTolyCawCpxVPoVqCq0Snm/U9t4iD5CJHi1azixCD/+hB7nLca7SLxCSEPU9S+4ngZ9cVzlzaVLgEvHHxlcuQQdWvxu1JFvEbA8TN5E6WKw9h1RiNDFGnVZ4l3gWxQd9oAU1p5UilXNv0dDSOf1h7cuiljpP6fgJQkp/RoPBpDWLDl9ic/7d8r4Z/0ZlJTfCb2KMz2Cu3zhJyGB4zJQUiYm0BxlYDz+gH/JCDiW8gXPJb5M5pgdZeAhDaQiYBtTK8Ry/PvjKSBRHbh3YuP1yXraWlN5FR9UCB7vkxsrc6KPqR9qQEipn7A1btN4ds4MgNMsSNKOnY1INM6xPY1x6zjp2510EEti3O7M2Xnr4I4WdX0f2WGfgWXsdmxPCXJgW4Pbuc+eF/E/YNgqZO28OzsDX4u2GdjvvNYKiW6ebz4Rget8fLNCAnZPNjvxJ6HbSCWyeW7UwNHOa1wC9nC+fqg+lNm1GpC1aMmAOt65jU0eV4v0+fXPmNOA2pOnrRC8XtakzAJTi/rpTF63yqfJBXFHG2sgoMm32HUAQ+sJ+cHQnhDroBm0N+g8b3MPbTDjOsbyaAGtJ1f6FuO23666tOtfZf9hQUFBQUFBQUHBn8J//AkW1O5jk/MAAAAASUVORK5CYII=" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Sites d'avis (Trustpilot, G2, Capterra)</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:60%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Retours d'expérience diversifiés des utilisateurs.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">4.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Forums techniques</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:40%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Discussions détaillées et solutions de la communauté.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">5.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADCUlEQVR4nO2bO2zaUBSGf1dFCh1CqDOkyUBaS+mQSDgrQ+Is2RDZyJg1nRjYgaEbA1Mzhm4ZG7FFlWKpEksqxZWaoZVcCUWlSxAxi5EY3KEFEWyIr2M4+PFNGN9rn/P5Pi2ZMwwDQeYZdQDUhAKoA6Dm+bgTXL5WBJADEJtZNNNBA1ABUDHK6fvRkyYBXL62BEAGkJx6aLMhBqAA4ACAOHrSqgvk4J/kh0n+b9UPGCfAr5hysxLg9T4/CVNu4SzgtKIk8JCEZQCArN5BVluuBTVLmAVIAo/q4TYS8ejgvwI20GjrODq79pwIpi4gCTwuj1MPku+TiEdxeZyCJPCuBTcLmARUD7ddKTNP2BYgCbzlkx8lEY96qhUwCFi2fVGWstQEfhq0LUBW72xflKUsNQwCWmi09UfLNdq6p6ZCpi5wdHbtSpl5gkmArLawd1K3bAmNto69k7qnnj7gYCUoqy2sv/8c3KVwH1lteTbpYRwLmDb9xZQkLENparjXewAApdkZ/HYDZgFGOT3xPJev2S5fuviJ4sWPwbEk8MjtvEFmc2XiPRptHdWrW1S+/HqyjLloAesvX6CaFbFrcwmdiEdR2N9Abuc1cuc3qF7dOr43uQBxdRHyuxRiCxHmurGFCE6z/95zOpVAuhQW15wnP8xpVnS8ASMVkNlceXLyfYr7bx3V881maFfgIa4uMtfzjQAAONh6xVyHfBAcRev2oPzuDI6XohEkbT5ZJ+PA3AjQur2xU5ok8Khkth4VIa55tAto3R6kD/WxU5mstmztMp0MqHMhIHd+A6XZmVhGaXbw8avzBc84yAX0l7V2GB4b3IJcwKfvf2yXVZqa6/cnF0C9pSYX4ObW1gnkAliYRmshFxD4LkBNKIA6AGpCAdQBUBMKoA6AmlAAdQDUhAKoA6CGG/1miMvXfP0RkVFOc8PHgW8BoQDqAKixEuD+i7f5wZSblYDKDAKhwpSbaRYAAC5fU+C/74a+GeW0rY+mAEACUII/uoMGoGSVPDCmBQSJcBagDoCawAv4CyJz5Ou100U7AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Réseaux sociaux (LinkedIn, Reddit, X)</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:20%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Tendances actuelles et opinions variées d'utilisateurs.</p></div></div>
+    <p class="cap" style="margin-top:8px">Réponse auto-rapportée par ChatGPT à une question directe — à distinguer de ce qui est effectivement observé dans les 30 réponses du panel (ci-dessus/ci-dessous).</p>
+    
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Consolidation</span><h3>Capitaliser sur la meilleure performance GEO du lot</h3><p>15/30 citations, 6 fois en position 1 — Linxo devance même Bankin' sur Google (position 3 vs absente du top 20) : consolider cet acquis plutôt que repartir de zéro.</p></div><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Renforcer la présence sur la gestion patrimoniale</h3><p>Linxo.com est déjà positionnée sur "agrégation de comptes dans la gestion patrimoniale" — un angle à développer en contenu citable.</p></div><div class="sol-card"><span class="sol-tag">Mesure</span><h3>Re-tester après publication</h3><p>Objectiver la progression depuis ce meilleur score du lot.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Bankin'</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 5 304 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle quasi nul à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 15/30 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 11.3% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 61/100 — cible 75+.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>77.2% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — vos concurrents ne s'en occupent pas encore.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Références industrie & tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo, BeTomorrow.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On prend un moment pour en discuter ?</h3>
+      <p>20 minutes, sans engagement : on va en profondeur pour vous montrer concrètement comment mieux ranker sur Google et sur les IA (ChatGPT, Claude, Gemini).</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
+        <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Mesure probabiliste sur panel constant — aucune garantie de position, citation ou vente. Réponses génératives, elles varient dans le temps.</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur d'infra de visibilité organique</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour Linxo · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>
