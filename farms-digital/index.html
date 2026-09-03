@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Cartographie GEO express · FARMS Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.9rem;margin-bottom:6px}
+.meth-card p{font-size:.83rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line)}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.postquote{font-size:.9rem;color:var(--body);margin-top:16px;line-height:1.65}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media (max-width:640px){.board{grid-template-columns:1fr}}
+.board-cell{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 12px}
+.board-cell .eng{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;display:block}
+.board-row-label{grid-column:1/-1;font-size:.78rem;color:var(--body);padding:6px 2px 0;font-weight:600}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.geo-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px 18px;margin-top:12px}
+.geo-card .pr{font-size:.84rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.lg{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lg img{width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}
+.lg.ph{background:var(--bg)}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Cartographie GEO express</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Pré-audit de visibilité SEO × GEO · Août 2026</div>
+    <h1>Citée une seule fois sur 29 réponses mesurées — Trimble Ag Software et John Deere dominent un marché où aucun acteur n'est spécialisé sur la banane</h1>
+    <p class="hero-sub">Citée une seule fois sur 29 réponses mesurées (position 4) — Trimble Ag Software (5 mentions), Croptracker et John Deere Operations Center (4 chacun) dominent la conversation IA sur le farm management, mais aucun de ces acteurs n'est spécifiquement positionné sur la production de banane, la niche exacte de FARMS Digital.</p>
+    <p class="hero-meta">Préparé pour <b>Hortense</b> · FARMS Digital (farms-digital.com)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France / global</b></p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v good">+0%</div><div class="k">Évolution du trafic organique — 2025-07 → 2026-08 (Ubersuggest)</div></div>
+      <div class="tile"><div class="v warn">1/29</div><div class="k">Citations sur 10 prompts neutres × 3 moteurs (ChatGPT/Claude/Gemini)</div></div>
+      <div class="tile"><div class="v gold">83.3%</div><div class="k">Backlinks en dofollow — 36 liens totaux</div></div>
+      <div class="tile"><div class="v">#4.0</div><div class="k">Position moyenne quand citée par l'IA</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Où en est le SEO aujourd'hui — trafic, mots-clés, technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face aux concurrents réellement cités par les IA, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Êtes-vous cité quand un prospect demande à l'IA ?</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions & citations</h3><p>Qui l'IA recommande à votre place, sur quoi elle se base — et pourquoi, quand on lui demande directement.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Les leviers à plus fort effet, du quick win au chantier de fond.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#pilotage"><span class="tn">07</span><h3>Pilotage & résultats</h3><p>Les indicateurs à suivre pour transformer le diagnostic en résultats.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie & sources</span></div>
+    <h2>Trois sources de données, deux terrains de visibilité</h2>
+    
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France/global)</h3>
+        <p>Ubersuggest. Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique mensuel, backlinks. Benchmark sur les concurrents cités par les IA elles-mêmes.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (« cold », sans marque) joués en mémoire (web_search off) sur <strong>ChatGPT, Claude et Gemini</strong>, pour isoler ce que le modèle a réellement appris de la catégorie.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
+
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Absente de Google — un modèle B2B sans besoin SEO historique</h2>
+    <p class="lead">farms-digital.com n'a que 4 mots-clés indexés et un trafic quasi nul — cohérent avec un modèle de relation directe avec les producteurs (Amérique latine) plutôt qu'un modèle porté par la recherche organique.</p>
+    
+    <div class="tiles" style="margin-top:16px;margin-bottom:0">
+      <div class="tile"><div class="v gold">15<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v crit">1</div><div class="k">Visites organiques/mois</div></div>
+      <div class="tile"><div class="v">4</div><div class="k">Mots-clés indexés</div></div>
+      <div class="tile"><div class="v">36</div><div class="k">Backlinks · 21 domaines référents</div></div>
+    </div>
+    <p class="note crit"><span class="h">Aucun mot-clé produit/service indexé</span>Sur les 4 mots-clés indexés, aucun ne correspond à une requête commerciale de la catégorie.</p>
+    
+    <div class="chartcard">
+      <div class="ct">Évolution du trafic organique estimé — 2025-07 → 2026-08 (Ubersuggest)</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution du trafic organique">
+  <line x1="46" y1="172.0" x2="764" y2="172.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text><line x1="46" y1="94.0" x2="764" y2="94.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">66</text><line x1="46" y1="16.0" x2="764" y2="16.0" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20.0" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">133</text>
+  <path d="M 46.0,170.8 L 101.2,170.8 L 156.5,170.8 L 211.7,168.5 L 266.9,166.1 L 322.2,166.1 L 377.4,57.1 L 432.6,55.9 L 487.8,91.1 L 543.1,92.2 L 598.3,16.0 L 653.5,25.4 L 708.8,166.1 L 764.0,170.8 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+  <path d="M 46.0,170.8 L 101.2,170.8 L 156.5,170.8 L 211.7,168.5 L 266.9,166.1 L 322.2,166.1 L 377.4,57.1 L 432.6,55.9 L 487.8,91.1 L 543.1,92.2 L 598.3,16.0 L 653.5,25.4 L 708.8,166.1 L 764.0,170.8" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="764.0" cy="170.8" r="4" fill="#A9711C"/><text x="758.0" y="160.8" font-size="11" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">1</text>
+  <text x="46.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-07</text><text x="432.6" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-02</text><text x="764.0" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-08</text>
+</svg>
+    </div>
+    
+    <div class="meth">
+      <div class="meth-card">
+        <h3>Technique — Performance mobile (Google PageSpeed Insights, réel)</h3>
+        <p>Score Performance : <span class="pw-badge good">94/100 · bon</span>. LCP 2.8 s · FCP 2.0 s · TBT 30 ms · CLS 0.01 · Speed Index 2.4 s.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest)</h3>
+        <p>36 backlinks, 21 domaines référents, <strong>83.3% en dofollow</strong> (6 liens nofollow).</p>
+      </div>
+      <div class="meth-card" style="grid-column:1/-1">
+        <h3>Accès des bots IA — robots.txt (vérifié, farms-digital.com)</h3>
+        <p><span class="pw-badge good">autorisé par défaut</span> aucune règle spécifique à un robot IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot...) — le <code>User-agent: *</code> générique s'applique, ce qui les autorise sauf mention contraire.</p>
+      </div>
+    </div>
+    <div class="note warn"><span class="h">Ce que ça veut dire</span>Seulement 4 mots-clés indexés et trafic organique quasi nul — cohérent avec une entreprise agritech opérant surtout via des relations B2B directes avec les producteurs (Amérique latine) plutôt que via le SEO.</div>
+    
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Mots-clés en zone de bascule (positions 6-25)</h3>
+    <p class="cap">Aucun mot-clé en position 6-25 trouvé pour farms-digital.com (DataForSEO, 4 mots-clés positionnés au total) — ce levier n'est pas disponible pour FARMS Digital à ce stade, pas une omission.</p>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face aux concurrents réellement cités par les IA</h2>
+    <p class="lead">Concurrents identifiés par les moteurs IA eux-mêmes lors des tests — pas une liste choisie a priori.</p>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Acteur</th><th>DA</th><th>Trafic organique/mois</th><th>Backlinks</th></tr></thead>
+        <tbody><tr class="self"><td>FARMS Digital (vous)</td><td>15</td><td>1</td><td>36</td></tr><tr><td>Agrivi</td><td>43</td><td>12 605</td><td>118 693</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Sur 2 acteurs comparés (vous + concurrents cités par les IA), FARMS Digital arrive en position 2 en trafic organique. Le retard n'est pas seulement dans les réponses IA — le terrain SEO est aussi à rattraper.</div>
+    
+    <div class="card" style="margin-top:16px">
+      <p class="cap" style="margin-bottom:10px">SERP live (Ubersuggest) — « farm management software banana producers »</p>
+      <p style="font-size:.9rem"><strong>1er résultat organique :</strong> Croptracker (croptracker.com, DA32) · <strong>FARMS Digital :</strong> <span class="absent">hors top 10</span> · AI Overview présent sur cette requête</p>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Absente du top 20 — Croptracker et KhetiBuddy dominent la requête anglophone générique ; aucun acteur n'est spécifiquement positionné sur la banane, la niche exacte de FARMS Digital.</div>
+    
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Ce que Agrivi capte et pas FARMS Digital</h3>
+    <p class="lead">Mots-clés réels sur lesquels <strong>Agrivi</strong> (agrivi.com) est positionné et FARMS Digital totalement absent (DataForSEO, filtré au vocabulaire du secteur — 263 mots-clés pertinents identifiés sur 1000 au total). Les 6 à plus fort volume :</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé</th><th>Volume/mois</th></tr></thead>
+        <tbody><tr><td>organic farming in agriculture</td><td>18 100</td></tr><tr><td>agriculture services</td><td>5 400</td></tr><tr><td>precision agriculture</td><td>4 400</td></tr><tr><td>when are kiwi fruit in season</td><td>4 400</td></tr><tr><td>kiwi fruit season</td><td>2 900</td></tr><tr><td>agriculture vegetable</td><td>2 400</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Ce ne sont pas des mots-clés de niche — Agrivi les couvre déjà, FARMS Digital n'y est nulle part. C'est le terrain de contenu le plus direct pour rattraper l'écart de trafic ci-dessus.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Ce que répondent vraiment ChatGPT, Claude et Gemini</h2>
+    <p class="lead">Une part croissante des prospects demande à l'IA « qui choisir » avant d'aller sur Google. On a joué <strong>10 prompts neutres</strong> — sans jamais nommer la marque — sur les 3 modèles. Voici, ligne par ligne, si FARMS Digital est cité.</p>
+    
+    <div class="tiles">
+      <div class="tile"><div class="v warn">1/29</div><div class="k">Citations sur 29 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v ">4.0</div><div class="k">Position moyenne quand cité</div></div>
+      <div class="tile"><div class="v crit">9/10</div><div class="k">Prompts où absente des 3 moteurs simultanément</div></div>
+      <div class="tile"><div class="v">2</div><div class="k">Concurrents réels identifiés par les IA elles-mêmes</div></div>
+    </div>
+    
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Prompt neutre testé (jamais « FARMS Digital » nommé)</th><th>ChatGPT</th><th>Claude</th><th>Gemini</th></tr></thead>
+        <tbody><tr><td style="min-width:280px">P1 · What is the best farm management software for banana and tropical fruit producers?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #4</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P2 · Which digital platform helps large-scale fruit producers manage operations across multiple countries?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P3 · Best software for banana producers in Latin America to track and optimize production?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P4 · Which farm management platforms are used by producers in Central America and the Caribbean for banana production?</td><td><span class="absent">absent</span></td><td><span style="color:var(--muted)">—</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P5 · What software helps agricultural producers move toward more automation and integration?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P6 · Best digital solution for managing operations for a producer active in 6+ countries?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P7 · Which companies compete with Cropin and Agrivi in farm management software?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P8 · What platform is recommended for banana producers expanding into new markets like Costa Rica or the Philippines?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P9 · Best software for tropical fruit producers who need real-time operational data?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P10 · Which digital agriculture platforms specialize in banana production specifically, rather than general crops?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr></tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>FARMS Digital est cité 1 fois sur 29, en position moyenne 4.0 — présent mais loin d'être la référence citée en premier.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions & citations</span></div>
+    <h2>ChatGPT le confirme : non documenté dans son périmètre de connaissance</h2>
+    
+    <p class="lead">Le tableau case par case (chapitre 03) dit si FARMS Digital est cité. Ici, on va plus loin : qui prend sa place, à quelle fréquence.</p>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="8.53 468.99" stroke-dashoffset="0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="8.53 468.99" stroke-dashoffset="-8.53" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#B9B2A0" stroke-width="22" stroke-dasharray="460.47 17.05" stroke-dashoffset="-17.05" transform="rotate(-90 90.0 90.0)"/>
+</svg><p class="cap" style="text-align:center">168 mentions</p></div>
+      <div class="sovbars"><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Agrivi</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.8%;height:100%;background:#3560C4;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.8%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Cropin</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:1.8%;height:100%;background:#6F4FDB;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">1.8%</span></div><div style="display:flex;align-items:center;gap:10px;padding:6px 0"><span style="width:150px;flex-shrink:0;font-size:.8rem;color:var(--body);">Autres</span><div style="flex:1;background:var(--surface2);border-radius:6px;height:9px;overflow:hidden"><div style="width:96.4%;height:100%;background:#B9B2A0;border-radius:6px"></div></div><span style="width:48px;text-align:right;font-family:var(--mono);font-size:.76rem;color:var(--muted)">96.4%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>FARMS Digital totalise <strong>0.0% de part de voix</strong> sur les 168 mentions relevées — quasi invisible face au panel de concurrents cités.</div>
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement que l'IA récite</h3>
+    <div class="quotecard">
+      <span class="who">ChatGPT (gpt-4o) · appel API réel, 31/08/2026</span>
+      <p class="q">"Agrivi is recognized widely for its comprehensive farm management solutions... I am not specifically familiar with FARMS Digital, which is why it was not included... If FARMS Digital has become significant in this niche, it might not have been widely documented."</p>
+    </div>
+    <p class="postquote">Trimble Ag Software (5 mentions), Croptracker et John Deere Operations Center (4 chacun) dominent la conversation IA — mais aucun de ces acteurs n'est spécifiquement positionné sur la banane, la niche exacte de FARMS Digital, déjà déployée dans 6 pays sur 2 continents.</p>
+    <div class="geo-card"><div class="pr">« What is the best farm management software for banana and tropical fruit producers? »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">AGRIVI</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Croptracker</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">Farmable</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Specialized Latin American / Regional ERPs</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">FARMS Digital absente du classement.</p></div><div class="geo-card"><div class="pr">« Which farm management platforms are used by producers in Central America and the Caribbean… »<br><span class="cap">ChatGPT · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Agworld</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">AgriWebb</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">FarmERP</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Cropin</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">TracRite</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Yara Farm Management System</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">FARMS Digital absente du classement.</p></div><div class="geo-card"><div class="pr">« What platform is recommended for banana producers expanding into new markets like Costa Ri… »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Sourcing/Trading</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Production/Operations</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">B2B Tech/Services</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">AGRIVI</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Croptracker</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">EOS Crop Monitoring</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">FARMS Digital absente du classement.</p></div><div class="geo-card"><div class="pr">« Which digital agriculture platforms specialize in banana production specifically, rather t… »<br><span class="cap">Gemini · web_search off</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">1.</span><span class="nm">Tumaini</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">2.</span><span class="nm">Focus</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">3.</span><span class="nm">MusaTab / Musa Diagnostic Tools</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">4.</span><span class="nm">Gamaya</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">5.</span><span class="nm">Aerobotics</span></div><div class="rank-row"><span class="lg ph"></span><span class="num">6.</span><span class="nm">Clarifruit</span></div><p class="cap" style="margin-top:8px;color:var(--crit)">FARMS Digital absente du classement.</p></div>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quoi l'IA se base pour citer ces marques</h3>
+    <p class="lead">Extrait mot pour mot des 29 réponses brutes — l'argument que le modèle répète pour justifier chaque marque citée à la place de FARMS Digital.</p>
+    <div class="solutions" style="margin-top:0"><div class="sol-card"><span class="sol-tag" style="display:flex;align-items:center;gap:6px"><span class="lg ph"></span>Agrivi</span><h3>Ce que l'IA répète</h3><p>« Agrivi: This platform offers comprehensive solutions for crop planning, monitoring, and analysis. »</p></div><div class="sol-card"><span class="sol-tag" style="display:flex;align-items:center;gap:6px"><span class="lg ph"></span>Cropin</span><h3>Ce que l'IA répète</h3><p>« Cropin: Offers a smart farm management solution with features for farm data collection, weather forecasting, and crop health monitoring, helping banana producers optimize their outputs. »</p></div></div>
+    <div class="note warn"><span class="h">Ce que ça veut dire pour FARMS Digital</span>Ces arguments viennent de ce que le modèle a appris ailleurs sur ces marques — pas d'une évaluation de leur produit. Le travail GEO consiste à faire exister, sous une forme que l'IA peut citer, les arguments équivalents pour FARMS Digital.</div>
+    <p class="cap">Classement complet extrait de chaque réponse brute (data/geo-run/), pas reconstitué après coup.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On a demandé directement à l'IA pourquoi</h3>
+    <p class="lead">Plutôt que de deviner, on a reposé la question au modèle, dans la même conversation : pourquoi Agrivi et pas FARMS Digital ?</p>
+    <div class="quotecard">
+      <span class="who">ChatGPT · question de relance, appel API réel</span>
+      <p class="q">« Agrivi is recognized widely for its comprehensive farm management solutions that cater to various types of crops, including tropical fruits, which is why it came to mind. I am not specifically familiar with FARMS Digital, which is why it was not included in the initial list. My recommendations are based on available data and recognition within the industry up to my training cutoff in October 2023. If FARMS Digital has become significant in this niche, it might not have been widely documented in the sources I was trained on by that time. »</p>
+    </div>
+    <p class="postquote">Ce que ça confirme : la citation par une IA n'a rien à voir avec la qualité du produit — c'est un biais de fréquence sur ce que le modèle a vu passer le plus souvent dans ses données d'entraînement. Le travail GEO consiste précisément à corriger ce biais en donnant au modèle du contenu citable sur FARMS Digital.</p>
+    
+    <h3 style="font-size:.85rem;margin:26px 0 8px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">On lui a demandé directement quelles sources il consulte</h3>
+    <p class="lead">Question posée en relance, dans la même conversation que le prompt de catégorie : sur quels <strong>types de sources</strong> (médias, réseaux sociaux, sites d'avis, forums, documentation éditeur) le modèle dit s'appuyer pour se former une opinion, avec un exemple concret pour chacune — classé par ordre d'importance, tel qu'il le formule lui-même.</p>
+    <div class="card" style="margin-top:0"><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">1.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEzklEQVRogdWZX2xTdRTHP+e2rGNiZcI6hCEqKCCogaFRGLE6jSwQMjFsEIVOE33AF33QxISHPvrggyYGdDISCfJgo+DG2BYlLnGTFxUTEsU/RCZscWwgGyC9pf0dH2Awurb3tmwtfJ9uf79zzj2fe8+5v9+9hVtVqgLgLXQeWUlVtnQPBhVtkK6Bn7bBB7cEwGvd/XM9am2mezCkMAcEvPIugBQ6uXR6pWvg9iLV9SLSAKxMmv59e1XZfLjZSkhVXv/u9NPGoyGUFxApSWknunfk8KYA2PL9qXmqVojuwc3G4m7UwUE9+0YOC1ZCunuePxotqXt7/oF1cfHVZOHat33F9ApEFPJ8BzSMZc9aXK1IyL7IOkEnG7y9WYb5aiR5yBNAtPGRBxRtsEU3ARU3cttFrH2jf08YgH5ceYftiW0QJaSYJ8apVs/GfXd+O3pgXAH08/Uee/i3ZxUTsjVWi1Ls1I/ZSKC1cZlcGj02LgD2J4sXqkjIHjq6CZgpE/VsEN2XPJQzgG57qNSeJBsU06DIY46PvhtXtOS8aUsezArgcon8ugqVkA1rQX0TdrXH6uv3nptxIXnQFYC94+HFagjZQ0dfApkx/rk5S3Vs+UAGgOFPF0wrujRpI0qDqlYWeNeUMPF4c6qJ6wA0HPTaFWdqUBqI6RqgKC/pOUnoanxq5mCqKS9A/5tV95UEopsv+IZq5Zxn+pW5gVzOdRYvQ+IFQdCR+6bXWkURQUZ+CUYVj0NQJWX5XAUInLyrp++X4S4Ds4DngWm5JA9wSop+eLSocplb+41zz/f6S6dmtFFPPC3AmMrWYNB70ud7RqBeoRbIHH2szJOTlvQdt4or3BhvfPXFXn/p1FkZTA5vrypbmm7SSh6Qzs747I6O9oqOjpeH/f5yS3UtqruBc24SAqytiZ4/Xdq6UdqrDw6P0UWRSAxoAVr+CgaLvcXFNaJar7AGuC2dX7U5s9CLxuPIDa/0HiuxN9P8mDuQTvd2dkZnt7fvrejo2OApKgqISB3wBaoXUwQtr08M/JhDvsk69uHyGUcyGeR0hWa2tPwHRIDIqWBwiu3zrQXqgFWAD+CNxAnPZ55ALuGvSiRz+cA4bOYCnZ3ngT3Anj9qavyTjalV1foAsep7NNp7XIozNWhGmYTJWD4wztvp+9vahoFdwK6e1atL/RJ/B3grl1gC/eUrA4ec7Fz3QLaa09r6789MeR+I5+JvlOawiHGymzAAAJrDfSrsz8VVRn06yaSJBQAsI405uJ0bLC076Cp+DsGzUqJSO4C/s3Q7EFkkMTeGEw5AOGxAdmTjIrgrH8gHAGDQJiDh0jwWRQ64jZ0XAJrDfYrrZj64s6rM7b4rTwCAJbhqZhFclw/kESCxhHacm9nEPCblq2M65Q2AcNggNDlYHdrxeHl/NmHzBwCYhDdjM6tmVz6QZwD2b+1VaE03bSzjuPtMVn4BAIvUK7MiRxpXlB/LPl6elViqbcCJ5PFsFq/RyjvAlWYeszKrlfrLm5PyDwAYDzu5vpl7PloeOJxLrIIA8GX4pCqjtws5lQ8UCuDyia81s3F+980QpzBKFD/YBpxQw5nBf6Z35RqnYABE6hIgTXbM/iZSJ253qmNU0D+6jVebTg8MLChkDgXX/xYboyUoYsn7AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Review sites · Capterra</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:100%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Collate user feedback and ratings on various software.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">2.</span><span class="lg"><img src="data:image/png;base64,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" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Specialized media/press · TechCrunch</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:80%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Provide in-depth industry analysis and trends.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">3.</span><span class="lg ph"></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Official vendor documentation · John Deere</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:60%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Offer detailed, accurate descriptions of product features.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">4.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAflBMVEX/XgAgHB0dGx0AFx4tHxzMTwn1WwD/YQAaGx0OGR4YGh2IOhESGh0AGB0VGh4SGR7BSwudQBC6SQxFJxo1IhskHhwAEx+NOxIeHRyyRw3rWATkVgXZUwhVKxnSUQhuMhd6NhOBNxQ7JBqUPRGmQw9iLxhnMBZ1NBZbLBlKJxk8C7FfAAAELklEQVR4nO2Z67aiOBCFMcGEQECuXrgpiJfz/i84AfUIId3tmSlg9azsv7qsz6pNVSUYhpaWlpaWlpaWltZ/Ew12y8Y/uO6ZLhmfIcSb5eL7CVqt0L5ZKAfUN62VEOKHRQhEfHvVyUoOS8TPX/FbAn/+HPjv+ILAmj0H6358QWDO7YMjXg1kWeG8AOTCJYIknDcH6Z1JBGY5cxXucg5W/rwAoxzYcT5zFQqZoM5mBRAEUhU2UT4vQRl7QwIekVkBaCYTbKJ5q0DXtZyDIp00Yi6nuIxtiSCakiCLC6nlUmkqiCoUE1bhzLz9MRs+7b5MwKPJ4meuWIDY/pz2EWiZSARsMh+cus6D8H1QBzrOwWWap7FbQruWx479OgsfWHIOpiAgx3frZcmuVwcaJhIBr+AJaNhvvIgV/eE3IvBu4IOJSHm2t9fyTee7aEiAT8A5oI3U88QTH1fG63/SQCZAwMfGvLZkAFGHuCEvhIYPCZBbgQLs8Ci+kOUeX5vYKAeIg+Ygv3qjGnR1ML+LfZZzYFeQTqTh3UMKAsTq1wE5cKXP8A7UieTsMhWC5d6edXDkKlgBJIBB05vc95914NWj/QcSIdpCH5nCCCvrgKNDl+3dMAfDng0iEiClFWx+afsScXqrMnKhu1ErmlXuuCUIedhp/+77eUV7Z5qDAvFrZR1W7Cug1Di5r7KcJwnfqYmZisDCtRhR1aNhuMGEByWaO66yL9lJlfrd2MSn6cJ38guusoLoS3FbH3aD81++JopkUqOJuIJghdr4Xg0W3qBFcnd8g44gaH7aKusgzBCv4QAMjGyGcR2UqSFB0PxuKR9JG/K+ZI2fDudF1eQSA2kSxXxgkAsZ3X0/cTb3zK+qJAN7pVUi18GqQQ8Gl/7vI4th69b0bUn9y7AvIQR6ZZZHcpXRhpn3KiTftiQH3q/D5gIZ3whVRu9sGQVl9rAEJU6y+f6Mw07As7LpPm35dWryRyLWV/zMFIZ9h0EK5QryYmBeEjl+Srq+9HQgbAJSrhx8vWoIWybH1pZZ3X6VA89AX7mOyxCeaxYnx2zfoCDYmzJ6U49+RSI2m/abmyPwEF6fYow96zMKIbf882/+VHlwrRP2Oy++ZU9yM0BpFu4KjpXb6FBsqrd41Eizw7WdBsrp9xKKJ6jAG4Ia/vlaq49HzwrcJ4z/gCC57yRb/ItEsIkWcVlpc432zB5nAs91XS4sEZ7vlrDlcBDzmeI/GEgWXkzEN2+G6S0gQ1BjHdxixp6OYLCn8Q8hhC2r+HEcc2d+b/VCECrbmYVM8C6QrT9TGbRriwX+voTu9uZnSh4ehL4mpw5Dn6mzgHeEnkTU+eVCqOyDoNdy/wZgtzAAXxwA/E5EA/x1AEubEH4f+nEjAo5v0GqLf6DtFfxQQH4o6PhaWlpaWlpaWlpaWlr/f/0DViY+xu94gUsAAAAASUVORK5CYII=" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Technical forums · Stack Overflow</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:40%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Discuss practical solutions and user experiences.</p></div><div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="num" style="font-family:var(--mono);font-size:11px;color:var(--muted);width:14px;flex-shrink:0">5.</span><span class="lg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADCUlEQVR4nO2bO2zaUBSGf1dFCh1CqDOkyUBaS+mQSDgrQ+Is2RDZyJg1nRjYgaEbA1Mzhm4ZG7FFlWKpEksqxZWaoZVcCUWlSxAxi5EY3KEFEWyIr2M4+PFNGN9rn/P5Pi2ZMwwDQeYZdQDUhAKoA6Dm+bgTXL5WBJADEJtZNNNBA1ABUDHK6fvRkyYBXL62BEAGkJx6aLMhBqAA4ACAOHrSqgvk4J/kh0n+b9UPGCfAr5hysxLg9T4/CVNu4SzgtKIk8JCEZQCArN5BVluuBTVLmAVIAo/q4TYS8ejgvwI20GjrODq79pwIpi4gCTwuj1MPku+TiEdxeZyCJPCuBTcLmARUD7ddKTNP2BYgCbzlkx8lEY96qhUwCFi2fVGWstQEfhq0LUBW72xflKUsNQwCWmi09UfLNdq6p6ZCpi5wdHbtSpl5gkmArLawd1K3bAmNto69k7qnnj7gYCUoqy2sv/8c3KVwH1lteTbpYRwLmDb9xZQkLENparjXewAApdkZ/HYDZgFGOT3xPJev2S5fuviJ4sWPwbEk8MjtvEFmc2XiPRptHdWrW1S+/HqyjLloAesvX6CaFbFrcwmdiEdR2N9Abuc1cuc3qF7dOr43uQBxdRHyuxRiCxHmurGFCE6z/95zOpVAuhQW15wnP8xpVnS8ASMVkNlceXLyfYr7bx3V881maFfgIa4uMtfzjQAAONh6xVyHfBAcRev2oPzuDI6XohEkbT5ZJ+PA3AjQur2xU5ok8Khkth4VIa55tAto3R6kD/WxU5mstmztMp0MqHMhIHd+A6XZmVhGaXbw8avzBc84yAX0l7V2GB4b3IJcwKfvf2yXVZqa6/cnF0C9pSYX4ObW1gnkAliYRmshFxD4LkBNKIA6AGpCAdQBUBMKoA6AmlAAdQDUhAKoA6CGG/1miMvXfP0RkVFOc8PHgW8BoQDqAKixEuD+i7f5wZSblYDKDAKhwpSbaRYAAC5fU+C/74a+GeW0rY+mAEACUII/uoMGoGSVPDCmBQSJcBagDoCawAv4CyJz5Ou100U7AAAAAElFTkSuQmCC" alt=""></span><span style="font-size:.83rem;font-weight:700;color:var(--ink)">Social platforms · LinkedIn</span></div><div style="background:var(--surface2);border-radius:6px;height:9px;overflow:hidden;margin-bottom:5px;margin-left:22px"><div style="width:20%;height:100%;background:var(--geo);border-radius:6px"></div></div><p class="cap" style="margin-left:22px">Professional insights and peer recommendations.</p></div></div>
+    <p class="cap" style="margin-top:8px">Réponse auto-rapportée par ChatGPT à une question directe — à distinguer de ce qui est effectivement observé dans les 29 réponses du panel (ci-dessus/ci-dessous).</p>
+    
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Les leviers à plus fort effet</h2>
+    <p class="lead">Classés par vitesse de rendement — du quick win au chantier de fond.</p>
+    <div class="solutions"><div class="sol-card"><span class="sol-tag">Priorité #1</span><h3>Publier du contenu documentant la spécialisation banane (cas clients Brésil, Guatemala, Équateur)</h3><p>Un narratif différenciant réel, actuellement invisible en ligne.</p></div><div class="sol-card"><span class="sol-tag">Contenu</span><h3>Construire une présence de base (site indexable, mots-clés produit)</h3><p>Le site n'a quasiment aucune trace organique aujourd'hui.</p></div><div class="sol-card"><span class="sol-tag">Mesure</span><h3>Re-tester après publication</h3><p>Même panel — objectiver la première citation IA.</p></div></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Diagnostiquer, publier, se faire recommander — puis mesurer à nouveau. Un suivi qui ne s'arrête pas au premier trimestre.</p>
+    
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Fondations</div>
+        <h3>Diagnostiquer & nettoyer</h3>
+        <ul>
+          <li>Audit technique complet (indexation, schema.org, backlinks)</li>
+          <li>Correction des points bloquants identifiés en Diagnostic</li>
+          <li>Cartographie élargie des mots-clés de catégorie</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Traction</div>
+        <h3>Publier & structurer</h3>
+        <ul>
+          <li>Pages prioritaires sur les requêtes commerciales identifiées</li>
+          <li>Contenu comparatif face à Agrivi</li>
+          <li>Maillage interne vers les pages à fort potentiel</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Citabilité IA</div>
+        <h3>Se faire recommander</h3>
+        <ul>
+          <li>Contenu structuré (Q/R chiffrées, FAQ, JSON-LD) sur les pages piliers</li>
+          <li>Consolidation d'entité (schema.org, cohérence de marque)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Consolidation</div>
+        <h3>Mesurer & réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline d'août 2026</li>
+          <li>Itération sur les chantiers à plus fort rendement de l'année</li>
+          <li>Bilan de la part de voix IA face au panel de concurrents</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilotage">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage & résultats</span></div>
+    <h2>Piloter, mesurer, prouver</h2>
+    <p class="lead">Six indicateurs suivis en continu, pour transformer le diagnostic en résultats visibles sur 12 mois.</p>
+    <div class="scroller"><table><tbody><tr><td style='font-weight:700;color:var(--ink)'>Trafic organique</td><td>Inverser la tendance sur les 12 prochains mois (dernier relevé : 1 visites/mois).</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Mots-clés commerciaux</td><td>Passer d'un socle quasi nul à des pages positionnées sur l'intention d'achat de la catégorie.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Citations IA</td><td>Passer de 1/29 à une présence régulière sur le panel de 10 prompts × 3 moteurs.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Part de voix IA</td><td>Sortir de 0.0% et se rapprocher du panel de concurrents cités.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Vitesse mobile</td><td>Score PageSpeed actuel 94/100 — cible maintenir au-dessus de 75.</td></tr><tr><td style='font-weight:700;color:var(--ink)'>Backlinks qualifiés</td><td>83.3% de liens dofollow aujourd'hui — consolider le profil sur des domaines d'autorité pertinents pour la catégorie.</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    
+    <div class="trust">
+      <div class="trust-card"><h3>Données réelles, jamais estimées</h3><p>Chaque chiffre de cette page vient d'un appel API réel (Ubersuggest, ChatGPT, Claude, Gemini, Google PageSpeed) — aucune extrapolation.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — vos concurrents ne s'en occupent pas encore.</p></div>
+      <div class="trust-card"><h3>Actif vivant, pas un rapport figé</h3><p>Cette cartographie se met à jour au fil de la mission — v0.1 aujourd'hui, enrichie ensuite.</p></div>
+      <div class="trust-card"><h3>SEO humain + IA</h3><p>On combine l'optimisation Google classique avec la citabilité dans les moteurs génératifs — les deux comptent déjà.</p></div>
+      <div class="trust-card"><h3>Références industrie & tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo, BeTomorrow.</p></div>
+      <div class="trust-card"><h3>Un système, pas un audit ponctuel</h3><p>Le plan 12 mois se mesure et se réajuste — pas un PDF qu'on referme après la première réunion.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On prend un moment pour en discuter ?</h3>
+      <p>20 minutes, sans engagement : on va en profondeur pour vous montrer concrètement comment mieux ranker sur Google et sur les IA (ChatGPT, Claude, Gemini).</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver 20 min</a>
+        <a href="mailto:projects@decupler.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Mesure probabiliste sur panel constant — aucune garantie de position, citation ou vente. Réponses génératives, elles varient dans le temps.</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur d'infra de visibilité organique</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Cartographie GEO express pour FARMS Digital · Sources : Ubersuggest (positions, volumes, backlinks) · ChatGPT/Claude/Gemini, appels API réels du 31/08/2026 · Google PageSpeed Insights (perf. mobile). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>
