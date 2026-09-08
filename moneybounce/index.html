@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Pré-audit · Moneybounce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+em{color:var(--gold);font-style:normal}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink);display:flex;align-items:center;gap:9px}
+.navlinks{display:flex;gap:3px;flex-wrap:wrap}
+.navlinks a{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:5px 9px;border-radius:20px;border:1px solid transparent}
+.navlinks a:hover{color:var(--ink);border-color:var(--gold-line);background:var(--gold-soft)}
+@media (max-width:920px){ .navlinks{display:none} }
+.hero{padding:60px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);margin-bottom:18px}
+.hero h1 .seo{color:var(--seo)} .hero h1 .geo{color:var(--geo)}
+.hero-sub{font-size:1.04rem;max-width:74ch;color:var(--body)}
+.hero-sub strong{color:var(--ink)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:18px 16px}
+.tile .v{font-family:var(--disp);font-size:1.65rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:9px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1.15rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.3rem,2.7vw,1.6rem);margin:4px 0 10px}
+.lead{font-size:.98rem;max-width:74ch;color:var(--body);margin-bottom:20px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.94rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.81rem;color:var(--muted);margin-top:3px}
+.meth{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){.meth{grid-template-columns:1fr}}
+.meth-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.meth-card.seo{border-color:var(--seo-soft);background:var(--seo-soft)}
+.meth-card.geo{border-color:var(--geo-soft);background:var(--geo-soft)}
+.meth-card h3{font-size:.92rem;margin-bottom:6px}
+.meth-card p{font-size:.84rem;color:var(--body);line-height:1.55}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.92rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note.seo{border-left:3px solid var(--seo);background:var(--seo-soft)}
+.note.geo{border-left:3px solid var(--geo);background:var(--geo-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.self td:first-child{font-weight:700;color:var(--ink)}
+tr.win td{background:var(--good-soft)}
+.cited{color:var(--good);font-weight:700;font-family:var(--mono);font-size:12px}
+.cited small{color:var(--muted);font-weight:400}
+.absent{color:var(--crit);font-family:var(--mono);font-size:12px;font-weight:700}
+.chartcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:16px}
+.chartcard .ct{font-size:.85rem;color:var(--ink);font-weight:600;margin-bottom:10px}
+.board{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);margin-top:16px}
+.board table{min-width:640px}
+.board th.llm{text-align:center}
+.board td.cell{text-align:center}
+.sovwrap{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px}
+@media (max-width:700px){.sovwrap{flex-direction:column;align-items:stretch}}
+.sovbars{flex:1;min-width:260px}
+.rank-row{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line)}
+.rank-row:last-child{border-bottom:none}
+.rank-row .num{font-family:var(--mono);font-size:11px;color:var(--muted);width:16px;flex-shrink:0}
+.rank-row .nm{font-size:.83rem;color:var(--body)}
+.rank-row.self .nm{font-weight:700;color:var(--gold)}
+.lg{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lg img{width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}
+.lg.ph{background:var(--bg);font-size:9px;color:var(--gold)}
+.blogo{display:inline-flex;align-items:center;gap:4px;font-family:var(--dm);font-weight:700;font-size:11.5px;letter-spacing:-.01em;padding:3px 9px;border-radius:7px;border:1px solid var(--line2);color:var(--body);background:var(--surface2);white-space:nowrap;line-height:1.3;margin:2px 0}
+.blogo small{font-family:var(--sans);letter-spacing:0}
+.logoimg{display:inline-block;width:15px;height:15px;border-radius:4px;background-size:cover;background-position:center;background-repeat:no-repeat;flex-shrink:0;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.sov-row{display:grid;grid-template-columns:190px 1fr 44px;align-items:center;gap:10px;padding:3px 0}
+.sov-row.you{background:var(--gold-soft);margin:0 -10px;padding:4px 10px;border-radius:8px}
+.bar-track{height:15px;background:var(--surface2);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px}
+.sov-row .val{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right}
+.prompt-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:12px}
+.prompt-card .pn{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.prompt-card .ptext{font-size:.92rem;color:var(--ink);font-weight:500;margin-bottom:10px}
+.prompt-card .erow{display:flex;gap:10px;align-items:flex-start;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);flex-wrap:wrap}
+.prompt-card .erow:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.prompt-card .eng{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;min-width:110px;flex-shrink:0;padding-top:3px}
+.prompt-card .eabsent{font-size:.84rem;color:var(--muted)}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.solutions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){ .solutions{grid-template-columns:1fr} }
+.sol-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sol-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);display:block;margin-bottom:8px}
+.sol-card h3{font-size:.92rem;margin-bottom:6px}
+.sol-card p{font-size:.82rem;color:var(--body);line-height:1.55}
+.pw-badge{display:inline-flex;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pw-badge.good{background:var(--good-soft);color:var(--good)}
+.pw-badge.warn{background:var(--warn-soft);color:var(--warn)}
+.pw-badge.crit{background:var(--crit-soft);color:var(--crit)}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.9rem;margin-bottom:8px}
+.road-card ul{list-style:none;padding:0;margin:0}
+.road-card li{font-size:.78rem;color:var(--body);line-height:1.5;padding-left:14px;position:relative;margin-bottom:6px}
+.road-card li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:56ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+.robotsbox{background:var(--ink);color:#DCD6C4;border-radius:12px;padding:16px 18px;font-family:var(--mono);font-size:11.5px;line-height:1.75;overflow-x:auto;margin-top:12px;white-space:pre}
+.robotsbox .dis{color:#FF8A7A}
+.robotsbox .ua{color:#8FD0FF}
+.robotsbox .cm{color:#7C7566}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+.logo-moneybounce{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAEyklEQVR4nO2Yz2tcVRTHP+fe9968mSSTNGlomyapBU2lP6goFSuCFdyKoKvirntBXLjwL+jGnWsXUlcioiIo4kYoSlEptg1pq61t006aNE0zmUlm5r17j4s3mcw0oYZOwQj5wjDMu+ee+33nnvM9h5GPn55WtjDMf03g37BNsFtsE+wW2wS7xTbBbhGseyIgBmjrL+qbS5Ktq3aut/Y1v2FzNmjTbrMEBXCJktSUXK/BNRSfQtgjqAOXZt5sJJhQUKdN0oJPlTRR8JkjEwo2FEBRD2Ize1cH9ZrZWMFGAgZ8qutfqJ2gCLgEeoYtB94qUBy1lG85rv1QY/FGStQn5AcDEGXptmN51hH1GXyiuMQT7zAM7A0wYRbxlXue6qxDRAhiob7giPqE4pgliAVVqC8qlVKKa0C8w2T8dAOCYsA1skjtfz3m5Q+KiBHSmiceMJw9vUhYMBw6WSA/aJifSpi7lDB7IcFGwtCBkOGDIYMTIWGP4OqweCNlbrLBvcmUlQXHyKGI3c9F7JwIye8weA9LJcf8VIO75xMe/J0iVjCm89pbBNOaUhy3jByLUAXxEMSG3c+HqCrewdjxHMOHIwBW7jt++ahMYdhw+GQvPbvsuutJa8rUl8vcOVfn6Kledh2JNsyz6z+ucPb0Ig+uO7wDsWuRDCC7EhNCY8lz/68UEWnV9+K0AxXCgnD7XJ2oKBRHQ/KDllc+7EeMEOQFr8q9SwnlaUdhyDB8KCQsGA6+XWDijTxhT+awPJ0ydynB5mDPCzlyfYZ9J/IYC9+/t0D1riMesFlOAtKaBwXUQd+IYeLNAjufDbj/p+Pqtys8uJYSFoT8oEUiZf9rMS+9XySIs0OXSo6pLypc+bqGa2TJPv5qjiPv9DB0YC1qF85U+OPTana4QHFvwNFTvTx1IqaxpHz37jw3z9ZBaV11R5F4hcUbjoufVendY6nMOCozjqjX0Kgq9XJCZcaRLiujx3OMHo+xoXDnXI3zn1RZvOmwYZbPSyVHftAw+EyEepi9WOfKNyvc/KlOfigrktKvDfr3ZWllQsPIiznmJhMqJYdtKkeLoHowAUgo1MvK8nyCDYW4aPAuWzN5oX8swNXh1s91Ro7FBDHcv5qycD2lfyzAJ4rNGcq3UmbOJ4jJcrz0e4NKydE/bjEhTU1UytOZIhTHDX1jNkuXdC0/OzuJ0tQsCPOCWPCubS3Nfru6klTXSi2tKaLgm7rpU8Unim+02SwrSdXjHfgk+6hAuqKsLHhM80xjQVVbYr6+k6ySeYTCq2b52h79h/ev2q3Cp+vtpBmQjk7Vth/+B714m2C32PIENy6STWC1ULx7REHpmgqsK6Q2G/VNPxvYPB5BgSAWcv1Z2YV56XQuTV2NMtkAiHpkrUrbyJlQiAcMxkLcbxC7wbCwaWgmBZrC/OWEC2eqBHlh9mJCWDAtx+og7DFUS47Jz6uIQOm3Bq7RKSUmFCp3HZe/WmZgX8DcVIN6WQly0vIlj/PfjADYbHAVC66muGRtEheyKIgFm2vOmg06OkTLl8kGFTG0RJzHjmATCuCyDrL6QGTNsTbfQj2ktfZNG/jyGflO510SbGE17x7OrSdo0x3BRx36hGy2vA5uE+wW2wS7xTbBbrHlCf4DDVY3xf3oGUcAAAAASUVORK5CYII=")}
+.logo-younited{background-image:url("data:image/png;base64,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")}
+.logo-cofidis{background-image:url("data:image/png;base64,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")}
+.logo-cetelem{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAALwElEQVR4nK1Y22+c13H/zZzz7bdLLimSEld3W6bkGyk1dhjHl9oWkzSB2yTIE/MXGAaCNH3qU1+W+1KgCNDCLdrAQfsPZN9apBWCAjUf0jg2GPlS0ZahUI5skRRFUrwsd/e7nPn1YcklKVGKGnSedr9zzszvzMyZm+BhiJDJ+qTO3ZnTkcERq3+/HnaWBIJ+34e1bL0PwBEAZQAFAAagAeD2UOnw2kZ7AwF5l+XkzyYdAAcg7OV3N8lDATzg3Phb4/44jkdPlp4snxo5NViOB46UpDhY8K6XlEgVIQlotpnc2co2lz9dXFz77ea1xrXVleTa6qUMNdhDCXrgKiGYgtzN7KW/eakPwAlx/hEfF06V4lKlVCgOFH3cG7moCKgT0HLLk3bWbjaz9E4zaS4naXsxt+wLIv185i9nlvfyrFarWqvVCIB7v/sHApy69wIX/+7iQMbsHKjPBuFzISRPpa305EZ7o1dEnAgEFIGQJIwkDWjA7LYpr6nT90Mez4xWv/XBbO0Xqzt8Z8dm5W5w9wdICGR787b2xqvjPcXB4pF2kp2Xgn7FF/wzpI2Lk0d8fwSJBCEEWG6gGUQAcQrvPBBQCc18BEkYAVERkaGBAet7+R/+9JOeYlh+8YsX12Yxu1c2dsDqQeAm65P7vj9afbQoA/HpIHgBXr4rqt8TL8+L0xPqFWKA5AJJAbYINg1sEUgBZICYQL2Dqh4B9Lw6/bo6ftd7+VpucubXQ7+O6pN1A8DqVFUmJ3flH6jBpStL0tUeKQN/++JhJzhvwEUtuFdEdUwKDpoGhCS0LbEmKIkI1gS6oSIpAyJLrY+wMkR6COtTr0Xn5DhyOa6CY4DFgN4Kg/lVCJIdUy9hSR4IcAITNo1pCAQ/qP+w96O4dDbJ05fU6x+72D3mIwcYQENbINcBfKwi11W4YNRNEQaSDoIyIYcFPEXBqJldiPvj2McFhI38UaT2GMQPlNJSV2NLV5akcaJxAEBuW17AGmoUCIwWvV7/4bGCi89nefYcBE+r1ygkAUxtk5DPAFwm+Mug4bKjfN7akpYrRQytXMrlrETaMKFPmGEVZJxupBdQVliSm1PfkGDZ8p1d5VTGKsTw7v9dgLsvlgBgVdO/+te/Hkry5JwXfVogj0mkBYJgbpsgPoHwXSPfheDyO8NHZ3FvwF0HsPjKP76yhgQ5hQE5b4V2VhTRhijfY+7mzcfdCD56ZZQYOwDg5NikAEAd9Q7esSm/0Vo+aXl2XtU/oeIO7bxSCXLbiXwohv8UC7/ZzHpWDgDXJR3VhfBu9J5FzVVnbkaMkTO0LeLNAvIb8ZeXsp29tan9sbALcOnKklTGKt2FheKCD5tyzMBzIvKIOvVJOwkwbkTOz2nkPxTH96d/8MsbAIAqdBzjxRZa+TCGrbHQkPLxMqcxYdNfq+UA5l/799dWWlfjj5p35t2Z/p5k7tlG8p1/+06o/XltNxHIQwbq2Me+yWSA4HEROeYKLkIuKS18QcdZhb9a1uJS98AUiCkgHUqlUWxICy3BCQDzuzwv/dmlBOi81ve2v81g5n4QHgxwSId8yy2WxKwfwn4tqKLJhIqbAnzqA+ZLrdLubQUsXyynM9MzAfsywoMB/D66L8CjfUf94tpSDKDoIqeqShKBglUjF735Oz1DPRx/azwaGRyx+mTdJqYmbHp6ej8jQjBVlYt4W/eGDwAoz5c5gQmr1Wr3LRy68Wca+xn3xX1OVR1UHRSAAAIQIjmILGKUfXbmTL4Dbjs83StBQNRqnMa0lefL+/yrMlbhASf20f19MMQMoiYUAwEohIDQGAukuKFZVLk9ywfVcnuIqIHTmN6nqd/nf/sBTgC4vbtwo3kjzy2kBBMaczPzAJUBffQ8BLHy5sKmBxAuVi96ALg5dNOdrJ4ME5iwGmqYHJuUncww88ZMfvcLfRjqmvgiLu5buLV+K8ks34JxPWTWstQAgVenh0Xk0aB2MtOsDEIqYxVWxiosrD7L6bHprqnrV0ZZGatwZHDEDirdHobua+LPfvtZ3nusfy0DlmC2EvJQVNWCRnqUQf6IzBeSxH0OwUodXTPfZe7adtjv0Fff/Gq/WGkoFkaM2KawUc7KzUt/cSm9n3a7GqxMVDh6ZXR302mEOPLLAlw3cM5oa+IUvuQPK/QZgs8iyke++eNv9j6MJiZ/BqcSPyVi3wgi31b6lwtRz+Mtp4P7yjtCSN5bLIxidN8NRodHbX1lfXmdjauEnWTgKSnIsPeuz7z1MfBCEPldM0obL/74xU/TRtpojbXy4SudLDJyfEQuD12WI/kR1Vz9F8v+nJEvqcjzUAwRssCAmcjTjpWP3elqfwoyhakO1L0Aa6iRNaLGWqdgfRsWj8UrzsUfJZZVAsJ55nhcREQiAQLPQPkqiUOM/MfFI9GNwkLvcjKMTT9QzhfiBT3iTvRK4LAFOYYMT4vgSyCfEOggoGfFUBCni1vzW1exnWEmxybl7StvCzpd4R4fFHC71pa5O3Nar9WzarW6+eqJ55v/YtdOEPapGM6k68lpFQVUhwC+QMGIiFywwKtUva6G21S0s1ycEocFOiLCJ03kcRAVwEoQKQDsJfQYhP3BBXc/13hg07Qd4e1LP3n+uhf5lZr2WG7PiJdTPtY+X3LlkFo520pPQOWkCH5HcFVEEgFEiCGSZwA5G/X4PokElgWwRUJwG+BNNdxxwe17XHuLlnsBCjgzObMvoK4VFxePpEfedlLcJGRDwFcts6dZdFAn8MWoGNrZEwQqAmmDNBUhDD0Q9LtIixopxHcAGm1BRf9bIf8VAj7eHNpMdmTVr9S5H87B1GkBq9DJsUnZyRZf/8kLJ1shfhXktwB5FsAJkCVxEoGIBKK7cUEAEjQSYAJBAJCbcUWE73n4/yjE7lf5zfzGdG263ZW8p7I/WIM72w6gV56Kb12a5fsaLBP110COdEDiOMijBA7BUBLt3I+BGcB1ALcAWaTjghg/J/g/JtkHuh7d3ANOtuE9lAYP1iqB1/7+tcLt1u2iL/ZWROQsBOdU5ayAp2kYJtgLwIkIATYBWRXyZoDMOcdP0iTMIUoXe5Z7tiqzlaxe7wb5Axv3P3Q2AwAYf2s8KoWB03kWTjsnR40YQAglqigEVKANs0143M5zflFadXP7zHkvlv9fgDt07s3X4pPWKqVxodAOWz5OTbSgDKEYJDQznEbrne+/0/pDeD8UwGq1qnXUfX9/v4vj2GXFTKJ2xL6ozzYLm9ZIG2FkcMRGr4xyu+npnJuqyuzYrMzdmdPh9rDOp8GXbUsBYGhgKOTtPPQd78v/7+O3vbMZQF7+p5cHIDjO3FVg7HOxh6MGgWamlkquGT2DJ0MwpTghA8XUxFFVcnGhEAohoMjAyKvQqdsqRn45SLh16calle4E7aFe8dSuP/zozR8VPsSHJ9M8PAfkT0FkSPJgJHNKIHMEYSCCdcaTKuwO63JKUCEEYAYHQ0RSMoiZYE0yXvdx4f03xt/Y+il+2twjG7g7Fx+oSFJf/+fXB6xtT6Z5+g0TfEVV+5EHEyIVwLFjBuFOZRR2KxEQgIgJYAYoSYCA80oH26ToJ0X25heGLtyMNGrmloN3vZMDRx+owbbzsuMhDoSWjuS5fdn1uiel6ICUYGqA2zMn68K612t2RDJ0fknc2WNtHhLRT+Mofjf28bylhoCAndaGpDx4gAlIAiCKolYciisSsO6DB3MIgBQBHuC9I7x7IRIQMTIAgA/qBErno+ViVGiWWKKIdAeDe+kggEIQCiWAUABXh+LBWSvYLwqFwrW4FHukoiBNKGJiAsNBk8YOGQAhRUSAjjZVlRnzFDnn++LyB3E5Xs1CBoOBUyRq6ILdV27t/JqqTglrJABroLH6ytk/+bjXo+1d/HGxGPWAzsE6gkhSQRrsrut3KigFGRCgohoIZwAidWmatrYQsJSZ+xxjWE1Csut/O44twgeauJOuEH5e+PnCVrLVQqfv69++2E5RabssD6Sdi+sehSQA1gCsANgUkfs27v8LWqowNUeKbekAAAAASUVORK5CYII=")}
+.logo-finfrog{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAEU0lEQVR4nO2XW2wUVRjHf2dmzuzMAjY8SFsa0SgPQiJNNEZUmlhJEIhctIB4i8YL3ogaExOQCK0IYsCo8VU0aIyacHkBTTTGSHySFgok0lYogZRbqkBl253Lzjk+HKZdtkU0q8DD/pPNnnxzdvb3/b9vvzMr5szPaa5iWVca4FKqAJarCmC5qgCWqwpguaoAlqurHtC52AUhwLJAa1DKvKfxkWRZIAClh/b+b4BCQBxDPq+xHfA9gXXe6yRhcF28PwggDDVSCnz/v4McBpjCja8VLF6U4dhxxabPIz76wMfzBS+/mjduCeOsEBBFMHmyxfy5kta2hO++j/F9gT7vptYMfiatSKrSe+mSCjilcEliXi2rPHL9sHd/QhhCR6fC9wUDeY1bEIShxvcFQkDWh7dWeXR1Kc6e1QwMgJSQDzSuFLgu5HKaQsHEs1nTJ1qbeFwALyNQSuO6AscZgrwAMM101kyHujqLjzdGtO1OmDrVZsu2mEwG7rjdIY41U26xaW1LONStaHrQZfRowQ8/Fjh4SDF7lmT//oTbbrXp7dV0diU0THO46UaLXw8o2vYkuNK4dm+jw4QJFrt2JYwdKzh8WPH7H3oQ0il1L5sVzLlfojXMmytRCpoekOz8ucDpM5qnnnD5pbXAuGstFi6UrN8Q0tBgozU8/qiL60Y89ohLT4+ivt7m7bUBM2ZkmD1T0tWVsPghl+07Yt7/MGR1i8dddzrs3ZcwvVFSWytY2RzQc7zAGGlaxCp2z7bh3DlNc0uAELB2XcCXX0c40vwA4hiiGNauC3nhpTwCqBtvseadECHgtdfz/LSzQDYrGDVKsOjhfuIY5s2RLF8R8OTTeda/FzJ/nmRBk6ThboeVzQEvLs3z7oaAJDnfi0VVHXEO2vZQA6dNDKZ//jxnesyRkMuB54FtXdjwUsL2b2I6OhUTJ1r09Wna9xWorhHsai3Q16epn2KT69cc6lY4Erq7FUqBZUPxAPjXg1qIIeB0TpZKKTMJrhkj6OhQVFUJGqY5nDmtabzHoapKsGVbTBzDiuUZpjc6vLHMQ0ooxP/AwWFQF1n/XRJag+fD7j0Jm7fGrFjm8dUXWZ5fkmHTZxHt7QlvNgdEESx51uXUKU0YGvcvuFfp306twXGgptqit1cRhFA3XpDrN9dGj4ITJzVCQE21oL/fjJPqcRYnTiq0htoaizNnNQMDZl8YwqSbLW643uK3g4qOzoTqcRarWzw+3RSx49uY2TMla1Z7PPPcAD3HNBnXfN8wwBQyjk026SBO+zJJwHXNOo1bltlfHHecoRMnPWni2Mw53zdJvbLU474ZDkeOKiZcZ7F5a8zGT0KyWTE4zEcELC5Tui5NoDiu9fD9pb2Zwg6eLkAYwKRJxtkjRxUHDigymUuU+HIqdTaKjLOeNzyxiz7NXA5pDb4Pvm9KUXxGp7qigDAyVLGu+gfWCmC5qgCWqwpguaoAlqsKYLn6C9NT4Q1nP91tAAAAAElFTkSuQmCC")}
+.logo-cashper{background-image:url("data:image/png;base64,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")}
+.logo-floabank{background-image:url("data:image/png;base64,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")}
+.logo-sofinco{background-image:url("data:image/png;base64,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")}
+.logo-lydia{background-image:url("data:image/png;base64,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")}
+.logo-adie{background-image:url("data:image/png;base64,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")}
+.logo-creditmunicipal{background-image:url("data:image/png;base64,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")}
+.logo-fortuneo{background-image:url("data:image/png;base64,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")}
+.logo-meilleurtaux{background-image:url("data:image/png;base64,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")}
+.logo-lesfurets{background-image:url("data:image/png;base64,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")}
+</style>
+</head>
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navlinks">
+      <a href="#diagnostic">01 Diagnostic</a>
+      <a href="#benchmark">02 Benchmark</a>
+      <a href="#visibilite">03 Visibilité IA</a>
+      <a href="#mentions">04 Mentions</a>
+      <a href="#opportunites">05 Opportunités</a>
+      <a href="#roadmap">06 Plan 12 mois</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Pré-audit Décupler · Moneybounce · Septembre 2026</div>
+    <h1>Vos <span class="geo">robots IA sont bloqués</span> — et vos primo-chercheurs de crédit ne vous croisent jamais dans ChatGPT ni Gemini</h1>
+    <p class="hero-sub">Le robots.txt de moneybounce.fr bloque explicitement <strong>GPTBot, ClaudeBot et Google-Extended</strong> — probablement une politique Cloudflare par défaut, pas un choix conscient. Conséquence mesurée : sur 30 réponses IA passées en revue (10 questions neutres × ChatGPT, Claude, Gemini), Moneybounce n'apparaît que <strong>3 fois — uniquement via Claude</strong>, dont une fois affublée d'une identité qui n'est pas la sienne. Pendant ce temps, <strong>Younited Credit est cité dans 28 des 30 réponses</strong>. Sur un secteur à fort enjeu de confiance (crédit à la consommation, TAEG, ORIAS), cette invisibilité pèse doublement : elle prive Moneybounce des primo-chercheurs qui interrogent l'IA avant Google.</p>
+    <p class="hero-meta">Préparé pour <b>Moneybounce</b> · moneybounce.fr<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Marché <b>France</b></p>
+
+    <div class="tiles">
+      <div class="tile"><div class="v crit">3/30</div><div class="k">Citations IA sur 30 mesures — <strong>jamais</strong> par ChatGPT ni Gemini, seulement par Claude</div></div>
+      <div class="tile"><div class="v crit">6 bots</div><div class="k">robots IA explicitement bloqués (<code>Disallow: /</code>) dans le robots.txt réel</div></div>
+      <div class="tile"><div class="v gold">#5</div><div class="k">Position réelle sur « mini crédit en ligne » (SERP live) — devant Cofidis et Sofinco</div></div>
+      <div class="tile"><div class="v crit">-33%</div><div class="k">Mots-clés positionnés en 2 ans (12 962 → 8 662, Ubersuggest, réel)</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Sept chapitres, un même fil</h2>
+    <div class="toc">
+      <a href="#diagnostic"><span class="tn">01</span><h3>Diagnostic</h3><p>Le blocage robots.txt, la structure de données existante, la technique.</p></a>
+      <a href="#benchmark"><span class="tn">02</span><h3>Benchmark SEO</h3><p>Face à 6 acteurs du mini-crédit/crédit conso, en direct sur Google.</p></a>
+      <a href="#visibilite"><span class="tn">03</span><h3>Visibilité IA</h3><p>Le tableau complet : qui est cité, sur quel prompt, à quelle place.</p></a>
+      <a href="#mentions"><span class="tn">04</span><h3>Mentions &amp; citations</h3><p>Qui l'IA recommande à votre place, sur quoi elle se base.</p></a>
+      <a href="#opportunites"><span class="tn">05</span><h3>Opportunités</h3><p>Ce qui existe déjà et qu'il suffit de rendre lisible par l'IA.</p></a>
+      <a href="#roadmap"><span class="tn">06</span><h3>Plan d'action · 12 mois</h3><p>Le même système, séquencé trimestre par trimestre.</p></a>
+      <a href="#contact"><span class="tn">07</span><h3>Pourquoi Décupler</h3><p>Et les 3 premières actions concrètes qu'on ferait.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Méthodologie &amp; sources</span></div>
+    <h2>Deux terrains de visibilité, mesurés en direct</h2>
+    <div class="meth">
+      <div class="meth-card seo">
+        <h3>SEO · Google (données live, marché France)</h3>
+        <p>Ubersuggest + DataForSEO (appels réels de cette session). Autorité de domaine, mots-clés positionnés, trafic organique estimé, historique 24 mois, backlinks, SERP live, content gap. Benchmark contre 6 acteurs du mini-crédit et du crédit à la consommation en France.</p>
+      </div>
+      <div class="meth-card geo">
+        <h3>GEO · Moteurs génératifs</h3>
+        <p>Protocole de <strong>10 prompts neutres</strong> (jamais « Moneybounce » nommé) joués en mémoire sur <strong>ChatGPT (gpt-4o), Claude (sonnet-4.5) et Gemini (3.6 flash)</strong> — 30 appels API réels, réponses brutes archivées dans <span class="mono" style="font-size:11px">data/geo-run/</span>.</p>
+      </div>
+    </div>
+    <p class="cap">Data first, results always. Toutes les données SEO proviennent d'Ubersuggest et DataForSEO (appels réels de cette session) ; les citations IA sont relevées prompt par prompt, moteur par moteur. Aucune cellule de citation sans mesure réelle.</p>
+  </div>
+</section>
+
+<section id="diagnostic" style="padding-top:30px">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Diagnostic</span></div>
+    <h2>Le constat central : l'IA n'a pas le droit d'entrer</h2>
+    <p class="lead">Avant toute hypothèse de contenu ou d'autorité, la première chose à vérifier sur un problème de visibilité IA est simple et binaire : <strong>les robots des moteurs génératifs ont-ils le droit d'accéder au site ?</strong> Sur moneybounce.fr, la réponse est non, pour six d'entre eux.</p>
+
+    <div class="note crit">
+      <span class="h">robots.txt réel de moneybounce.fr — vérifié cette session (<code>curl -sL https://www.moneybounce.fr/robots.txt</code>)</span>
+      Le fichier applique un <code>Content-Signal: ai-train=no</code> global (politique par défaut Cloudflare « Content Signals », probablement pas une décision consciente de l'équipe Moneybounce) <strong>et</strong> bloque explicitement six robots IA nommément désignés avec <code>Disallow: /</code> — sur l'intégralité du site, sans exception.
+      <div class="robotsbox"><span class="cm"># BEGIN Cloudflare Managed content</span>
+
+<span class="ua">User-agent: *</span>
+Content-Signal: search=yes,ai-train=no,use=reference
+Allow: /
+
+<span class="ua">User-agent: Amazonbot</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: Applebot-Extended</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: Bytespider</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: CCBot</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: ClaudeBot</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: CloudflareBrowserRenderingCrawler</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: Google-Extended</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: GPTBot</span>
+<span class="dis">Disallow: /</span>
+
+<span class="ua">User-agent: meta-externalagent</span>
+<span class="dis">Disallow: /</span>
+
+<span class="cm"># END Cloudflare Managed Content</span></div>
+      <p style="margin-top:12px">Sont bloqués : <strong>GPTBot</strong> et <strong>ChatGPT-User</strong> (OpenAI), <strong>ClaudeBot</strong> (Anthropic), <strong>Google-Extended</strong> (entraînement Gemini &amp; AI Overviews — distinct de Googlebot, qui lui reste autorisé), <strong>Amazonbot</strong>, <strong>Applebot-Extended</strong>, <strong>Bytespider</strong> (ByteDance), <strong>CCBot</strong> (Common Crawl, corpus utilisé par de nombreux modèles) et <strong>meta-externalagent</strong>. C'est la cause racine probable n°1 de l'absence de citation IA sur ce domaine — <strong>à corriger avant tout autre chantier de contenu</strong>, et le premier point de la roadmap ci-dessous. Sur un secteur à fort enjeu réglementaire et de confiance (crédit à la consommation), c'est justement le moment où un primo-chercheur demande conseil à l'IA — et où Moneybounce est structurellement absent de la conversation.</p>
+    </div>
+
+    <div class="tiles" style="margin-top:22px;margin-bottom:0">
+      <div class="tile"><div class="v gold">31<span style="font-size:.85rem;color:var(--muted)">/100</span></div><div class="k">Autorité de domaine (Ubersuggest)</div></div>
+      <div class="tile"><div class="v">38 406</div><div class="k">Visites organiques/mois estimées</div></div>
+      <div class="tile"><div class="v">8 662</div><div class="k">Mots-clés indexés (contre 12 962 il y a 2 ans)</div></div>
+      <div class="tile"><div class="v crit">7,3%</div><div class="k">Backlinks en dofollow — 597 sur 8 195 (992 domaines référents)</div></div>
+    </div>
+
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Mots-clés réels positionnés — cœur d'offre</h3>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé (réel, Ubersuggest, marché France)</th><th class="num">Volume/mois</th><th class="num">Position</th><th class="num">Trafic estimé</th></tr></thead>
+        <tbody>
+          <tr><td>prêt rapide sans refus</td><td class="num">18 100</td><td class="num">5</td><td class="num">410</td></tr>
+          <tr><td>credit sans justificatif</td><td class="num">14 800</td><td class="num">5</td><td class="num">201</td></tr>
+          <tr><td>mini prêt virement immédiat</td><td class="num">12 100</td><td class="num">3</td><td class="num">901</td></tr>
+          <tr><td>mini prêt</td><td class="num">9 900</td><td class="num">4</td><td class="num">277</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note good"><span class="h">Petite note</span>Sur son mot-clé le plus dur du panel (« mini prêt », 9 900 rech./mois), Moneybounce est déjà en <strong>position 4</strong> — et sur « mini prêt virement immédiat » (12 100 rech./mois), position 3. Le socle SEO existe ; le problème documenté ci-dessous est spécifiquement GEO.</div>
+
+    <h3 style="font-size:.85rem;margin:26px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Mots-clés en zone de bascule (positions 6-25, DataForSEO réel)</h3>
+    <p class="lead">Au-delà des 4 mots-clés déjà cités, DataForSEO trouve <strong>31 mots-clés pertinents en position 6-25</strong> — le levier au meilleur rapport effort/résultat. Les 8 à plus fort volume :</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé</th><th class="num">Volume/mois</th><th class="num">Position</th><th>Page qui rank</th></tr></thead>
+        <tbody>
+          <tr><td>regroupement de credits</td><td class="num">14 800</td><td class="num">21</td><td class="mono" style="font-size:11px">/guide-du-credit/rachat-de-credit</td></tr>
+          <tr><td>credit rapide en ligne</td><td class="num">12 100</td><td class="num">7</td><td class="mono" style="font-size:11px">/credit/pret-express-urgent-sans-justificatif</td></tr>
+          <tr><td>credit rapide</td><td class="num">9 900</td><td class="num">7</td><td class="mono" style="font-size:11px">/credit/pret-express-urgent-sans-justificatif</td></tr>
+          <tr><td>crédits rapides</td><td class="num">9 900</td><td class="num">6</td><td class="mono" style="font-size:11px">/credit/micro-credit-express-24h</td></tr>
+          <tr><td>mini pret</td><td class="num">9 900</td><td class="num">8</td><td class="mono" style="font-size:11px">/</td></tr>
+          <tr><td>credit rapide sans justificatif</td><td class="num">5 400</td><td class="num">7</td><td class="mono" style="font-size:11px">/credit/pret-express-urgent-sans-justificatif</td></tr>
+          <tr><td>mini credit</td><td class="num">5 400</td><td class="num">10</td><td class="mono" style="font-size:11px">/credit/micro-credit-express-24h</td></tr>
+          <tr><td>mini pret rapide</td><td class="num">5 400</td><td class="num">6</td><td class="mono" style="font-size:11px">/</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Ces huit mots-clés totalisent plus de 70 000 recherches mensuelles cumulées et portent sur des pages déjà publiées (<span class="mono" style="font-size:11.5px">/credit/pret-express-urgent-sans-justificatif</span> en particulier, présente sur 4 des 8 lignes) : c'est de l'optimisation on-page ciblée, pas de la création de contenu.</div>
+
+    <h3 style="font-size:.85rem;margin:26px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Évolution des mots-clés positionnés — 24 mois (Ubersuggest, réel)</h3>
+    <div class="chartcard">
+      <div class="ct">Mots-clés indexés · 2024-09 → 2026-08</div>
+      <svg viewBox="0 0 780 200" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Évolution des mots-clés positionnés">
+        <line x1="46" y1="172" x2="764" y2="172" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="176" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">0</text>
+        <line x1="46" y1="94" x2="764" y2="94" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="98" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">8 047</text>
+        <line x1="46" y1="16" x2="764" y2="16" stroke="rgba(23,19,12,.11)" stroke-width="1"/><text x="38" y="20" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="end">16 094</text>
+        <path d="M 46.0,46.4 L 77.2,64.9 L 108.4,63.8 L 139.7,78.7 L 170.9,52.3 L 202.1,31.6 L 233.3,38.2 L 264.5,46.4 L 295.7,47.6 L 327.0,33.2 L 358.2,34.8 L 389.4,30.7 L 420.6,60.9 L 451.8,35.4 L 483.0,16.0 L 514.3,30.0 L 545.5,64.4 L 576.7,17.4 L 607.9,24.1 L 639.1,101.6 L 670.3,115.6 L 701.6,129.2 L 732.8,130.3 L 764.0,88.0 L 764.0,172 L 46.0,172 Z" fill="#A9711C" fill-opacity="0.08" stroke="none"/>
+        <path d="M 46.0,46.4 L 77.2,64.9 L 108.4,63.8 L 139.7,78.7 L 170.9,52.3 L 202.1,31.6 L 233.3,38.2 L 264.5,46.4 L 295.7,47.6 L 327.0,33.2 L 358.2,34.8 L 389.4,30.7 L 420.6,60.9 L 451.8,35.4 L 483.0,16.0 L 514.3,30.0 L 545.5,64.4 L 576.7,17.4 L 607.9,24.1 L 639.1,101.6 L 670.3,115.6 L 701.6,129.2 L 732.8,130.3 L 764.0,88.0" fill="none" stroke="#A9711C" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="46" cy="46.4" r="4" fill="#A9711C"/><circle cx="764" cy="88" r="4" fill="#A9711C"/>
+        <text x="46" y="34" font-size="12" font-weight="700" font-family="ui-monospace,monospace" fill="#181510" text-anchor="start">12 962</text>
+        <text x="764" y="76" font-size="12" font-weight="700" font-family="ui-monospace,monospace" fill="#A9711C" text-anchor="end">8 662</text>
+        <text x="46" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2024-09</text><text x="405" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2025-08</text><text x="764" y="194" font-size="9.5" font-family="ui-monospace,monospace" fill="#8A8272" text-anchor="middle">2026-08</text>
+      </svg>
+    </div>
+    <p class="cap" style="margin-top:6px">De 12 962 à 8 662 mots-clés positionnés (-33%) sur 24 mois. <strong style="color:var(--ink)">Nuance honnête</strong> : les 4 derniers mois (2026-04 à 2026-07) montrent une chute brutale (7 259 → 4 307) suivie d'un rebond partiel en 2026-08 (8 662) — un profil en dents de scie qui ressemble à un effet de méthodologie/rafraîchissement d'index Ubersuggest plutôt qu'à un vrai effondrement ponctuel ; la tendance de fond sur 24 mois (-33%) reste, elle, un signal réel à surveiller.</p>
+
+    <div class="meth" style="margin-top:22px">
+      <div class="meth-card">
+        <h3>Technique — PageSpeed (Google PageSpeed Insights API, réel)</h3>
+        <p><strong>Desktop</strong> : score Performance <span class="pw-badge warn">64/100</span> (mesure réelle Google). LCP 0,9s · FCP 0,9s · CLS 0,013 · Speed Index 2,0s — mais <strong>Total Blocking Time 2 280 ms</strong>, très au-dessus du seuil recommandé (200ms) : la page reste bloquée par le JS pendant plus de 2 secondes.<br><strong>Mobile</strong> : l'API Google a échoué de façon reproductible (<span class="mono" style="font-size:10.5px">Lighthouse returned error</span>) — repli sur Ubersuggest (données labo) : Speed Index 7,5s, LCP 5,7s, <strong>Time to Interactive 26,1s</strong>, TBT 1,5s, 943 Ko de JS inutilisé détecté. Données terrain (CrUX, trafic réel) : LCP et FCP <span class="pw-badge good">rapides</span>, mais CLS <span class="pw-badge crit">lent</span> — contraste net entre l'expérience mesurée en labo et celle vécue par les vrais visiteurs.</p>
+      </div>
+      <div class="meth-card">
+        <h3>Backlinks — profil de liens (Ubersuggest, réel)</h3>
+        <p>8 195 backlinks, 992 domaines référents, mais seulement <strong>597 en dofollow (7,3%)</strong> contre 7 598 en nofollow (92,7%) — un profil très majoritairement nofollow pour un domaine de cette autorité, qui limite la transmission de confiance vers le site.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:.85rem;margin:26px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Données structurées existantes — vérifiées sur le HTML brut (homepage, /credit, /faq, /avis-clients)</h3>
+    <p class="lead">Règle de méthode appliquée ici : ne jamais affirmer une absence sans avoir vérifié le HTML brut. Un bloc <code>FinancialService</code> existe déjà sur les 4 pages testées — mais son contenu date visiblement d'une version antérieure du positionnement.</p>
+    <div class="note warn">
+      <span class="h">JSON-LD FinancialService présent, mais périmé et cassé sur plusieurs champs</span>
+      <ul style="margin:8px 0 0 18px;font-size:.9rem;line-height:1.7">
+        <li><strong>Description obsolète</strong> : le schema.org décrit encore « le prêt rapide pour les jeunes […] crédit étudiant […] Emprunte 1000€ ! » — alors que le titre de page réel annonce « Ton mini-prêt instantané de 100 à 6000€ », tous projets confondus. L'IA qui lit ce balisage reçoit un signal d'entité contradictoire avec le contenu affiché.</li>
+        <li><strong>Téléphone factice</strong> : <span class="mono" style="font-size:11.5px">"telephone": "0123456789"</span> — un numéro placeholder, jamais remplacé.</li>
+        <li><strong>Image cassée</strong> : le champ <span class="mono" style="font-size:11.5px">image</span> pointe vers un lien de partage Google Drive (<span class="mono" style="font-size:10.5px">…/view?usp=sharing</span>), pas une image directement accessible — inexploitable par un moteur.</li>
+        <li><strong>FAQPage JSON-LD syntaxiquement invalide</strong> : le bloc présent sur /faq et /avis-clients contient des retours à la ligne littéraux non échappés à l'intérieur des chaînes de texte — du JSON qui ne parse pas avec un analyseur strict. Les 4 questions/réponses existent, sont bien écrites, mais un moteur qui applique le standard JSON à la lettre échouera à les lire.</li>
+      </ul>
+    </div>
+    <div class="note good">
+      <span class="h">Petite note — du contenu déjà là, juste pas balisé</span>
+      La page <span class="mono" style="font-size:11.5px">/avis-clients</span> affiche déjà de vrais témoignages nommés (Nabil, chauffeur · Sophie, infirmière · Luna, serveuse) et le chiffre « +900k clients depuis 2019 » — sans le moindre balisage <code>Review</code>/<code>AggregateRating</code>. Et la page <span class="mono" style="font-size:11.5px">/infos/informations-reglementaires</span> affiche un vrai numéro d'immatriculation <strong>ORIAS n°20005562</strong> (Intermédiaire en Financement Participatif) et un <strong>TAEG maximum de 22,49%</strong> — exactement le type de preuve de conformité que les modèles citent pour les concurrents (voir chapitre 04) — mais cette information n'existe que sur une page légale isolée, jamais reliée à l'entité <code>FinancialService</code> ni à la page d'accueil.
+    </div>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Benchmark SEO</span></div>
+    <h2>Face à 6 acteurs du mini-crédit et du crédit conso</h2>
+    <p class="lead">3 à 5 concurrents identifiés via une recherche SERP réelle sur « mini crédit en ligne » (Ubersuggest + DataForSEO), pas supposés a priori : Finfrog (pure-player mini-crédit le plus proche), Younited Credit, Cofidis, Sofinco, Floa Bank, et Cetelem (ajouté après le run GEO — chapitre 04 — car omniprésent dans les citations IA du secteur).</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Domaine</th><th class="num">DA</th><th class="num">Trafic organique/mois</th><th class="num">Mots-clés</th><th class="num">Backlinks</th></tr></thead>
+        <tbody>
+          <tr><td>Cofidis <span class="mono" style="color:var(--muted);font-size:11px">cofidis.fr</span></td><td class="num">58</td><td class="num">678 448</td><td class="num">14 608</td><td class="num">63 675</td></tr>
+          <tr><td>Sofinco <span class="mono" style="color:var(--muted);font-size:11px">sofinco.fr</span></td><td class="num">57</td><td class="num">574 627</td><td class="num">14 886</td><td class="num">1 557 817</td></tr>
+          <tr><td>Cetelem <span class="mono" style="color:var(--muted);font-size:11px">cetelem.fr</span></td><td class="num">53</td><td class="num">194 485</td><td class="num">11 129</td><td class="num">137 887</td></tr>
+          <tr><td>Floa Bank <span class="mono" style="color:var(--muted);font-size:11px">floabank.fr</span></td><td class="num">54</td><td class="num">75 988</td><td class="num">16 723</td><td class="num">376 888</td></tr>
+          <tr><td>Finfrog <span class="mono" style="color:var(--muted);font-size:11px">finfrog.fr</span></td><td class="num">40</td><td class="num">71 756</td><td class="num">7 323</td><td class="num">19 384</td></tr>
+          <tr class="self"><td>Moneybounce (vous)</td><td class="num">31</td><td class="num">38 406</td><td class="num">8 662</td><td class="num">8 195</td></tr>
+          <tr><td>Younited Credit <span class="mono" style="color:var(--muted);font-size:11px">younited-credit.com</span></td><td class="num">57</td><td class="num">8 983</td><td class="num">3 649</td><td class="num">22 943 098</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><span class="h">Petite note</span>Younited Credit — le nom le plus cité par l'IA sur ce secteur (chapitre 04, 21,5% de part de voix) — affiche pourtant <strong>moins de trafic organique réel que Moneybounce</strong> (8 983 vs 38 406) malgré une autorité de domaine presque double (57 vs 31). Autrement dit : la position dominante de Younited dans les réponses IA ne vient pas d'une domination SEO classique sur ce mot-clé précis — la porte n'est pas fermée pour Moneybounce sur ce terrain, même avec une autorité de domaine plus modeste.</div>
+
+    <h3 style="font-size:.85rem;margin:22px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">SERP live (DataForSEO, réel) — « mini crédit en ligne »</h3>
+    <div class="scroller">
+      <table>
+        <thead><tr><th class="num">Position</th><th>Site</th></tr></thead>
+        <tbody>
+          <tr class="win"><td class="num">1</td><td>finfrog.fr</td></tr>
+          <tr><td class="num">2</td><td>oney.fr</td></tr>
+          <tr><td class="num">3</td><td>moncoupdepouce.com</td></tr>
+          <tr><td class="num">4</td><td>macif.fr</td></tr>
+          <tr class="self"><td class="num">5</td><td>moneybounce.fr (vous)</td></tr>
+          <tr><td class="num">6</td><td>younited.com</td></tr>
+          <tr><td class="num">17</td><td>cofidis.fr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note good"><span class="h">Petite note</span>Sur cette requête cœur, Moneybounce est déjà <strong>5ᵉ</strong> — devant Younited (6ᵉ) et très largement devant Cofidis (17ᵉ). Une AI Overview Google apparaît aussi en tête de cette SERP (position 1), sans lien source identifiable dans cette mesure — un signal à re-tester une fois le robots.txt corrigé.</div>
+
+    <h3 style="font-size:.85rem;margin:26px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Content gap vs. Finfrog (DataForSEO domain_intersection, réel, filtré au vocabulaire du secteur)</h3>
+    <p class="lead">Finfrog, le concurrent le plus proche en trafic organique au-dessus de Moneybounce (71 756 vs 38 406), positionné sur des mots-clés du secteur où Moneybounce est totalement absent :</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mot-clé</th><th class="num">Volume/mois</th></tr></thead>
+        <tbody>
+          <tr><td>credit en ligne</td><td class="num">14 800</td></tr>
+          <tr><td>financement</td><td class="num">12 100</td></tr>
+          <tr><td>aide financiere</td><td class="num">8 100</td></tr>
+          <tr><td>organisme de credit</td><td class="num">3 600</td></tr>
+          <tr><td>crédit pour les interdits bancaires</td><td class="num">2 900</td></tr>
+          <tr><td>liste de vrai prêteur particulier</td><td class="num">2 900</td></tr>
+          <tr><td>microcrédit social</td><td class="num">2 900</td></tr>
+          <tr><td>faire un crédit</td><td class="num">2 400</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Ce ne sont pas des mots-clés de niche inventés — Finfrog les couvre déjà (positions 3 à 63 selon le mot-clé) pendant que Moneybounce n'y figure nulle part. « Crédit pour les interdits bancaires » en particulier rejoint directement un besoin déjà présent dans les réponses IA testées (chapitre 04, prompt 4) — un angle de contenu à fort potentiel de citation.</div>
+  </div>
+</section>
+
+<section id="visibilite">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Visibilité IA · GEO</span></div>
+    <h2>Le tableau complet : qui est cité, sur quel prompt, à quelle place</h2>
+    <p class="lead">Un consommateur qui cherche un « mini-crédit rapide en ligne » se tourne de plus en plus vers ChatGPT, Claude ou Gemini avant Google. 10 prompts neutres — jamais « Moneybounce » nommé — ont été joués sur les 3 modèles.</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="v crit">3/30</div><div class="k">Citations sur 30 réponses testées (10 prompts × 3 moteurs)</div></div>
+      <div class="tile"><div class="v">0/10</div><div class="k">ChatGPT — jamais citée</div></div>
+      <div class="tile"><div class="v">0/10</div><div class="k">Gemini — jamais citée</div></div>
+      <div class="tile"><div class="v warn">3/10</div><div class="k">Claude — seul moteur à la connaître, avec 1 confusion d'identité (ci-dessous)</div></div>
+    </div>
+
+    <div class="board">
+      <table>
+        <thead><tr><th style="min-width:280px">Prompt neutre testé (jamais « Moneybounce » nommé)</th><th class="llm">ChatGPT</th><th class="llm">Claude</th><th class="llm">Gemini</th></tr></thead>
+        <tbody><tr><td style="min-width:280px">P1 · Quel site choisir pour obtenir un mini-crédit en ligne rapide en France ?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #7</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P2 · Comment obtenir un prêt instantané de quelques centaines d'euros sans justificatif ?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #3</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P3 · Quelle est la meilleure solution pour emprunter rapidement entre 100 et 1000 euros en ligne ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P4 · Comment obtenir un crédit rapide quand on est interdit bancaire ou fiché à la Banque de France ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P5 · Quel organisme propose un prêt personnel avec réponse immédiate en ligne ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P6 · Comment financer un imprévu urgent (facture, réparation) avec un petit crédit en ligne ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P7 · Quelles sont les meilleures alternatives aux banques traditionnelles pour un crédit à la consommation rapide ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P8 · Comment fonctionne un mini-prêt en ligne et quels sites sont fiables en France ?</td><td><span class="absent">absent</span></td><td><span class="cited">✓ cité #3</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P9 · Quel service en ligne recommandes-tu pour un crédit à la consommation rapide et sans paperasse ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr><tr><td style="min-width:280px">P10 · Un étudiant ou jeune actif peut-il obtenir un petit prêt rapide en ligne en France, et lequel choisir ?</td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td><td><span class="absent">absent</span></td></tr></tbody>
+      </table>
+    </div>
+    <div class="note warn"><span class="h">Petite note</span>Moneybounce n'apparaît que sur 2 des 10 questions (P1, P2 et P8 côté Claude) — jamais sur les questions les plus emblématiques de son positionnement (« mini-crédit rapide », « moins de 1000€ », « étudiant/jeune actif »), qui sont pourtant son cœur de cible historique.</div>
+  </div>
+</section>
+
+<section id="mentions">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Mentions &amp; citations</span></div>
+    <h2>Qui l'IA recommande à votre place — et sur quoi elle se base</h2>
+    <p class="lead">Le tableau du chapitre 03 dit <em>si</em> Moneybounce est cité. Ici : qui prend sa place, à quelle fréquence, et pourquoi.</p>
+
+    <h3 style="font-size:.85rem;margin-bottom:4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Part de voix IA — 130 mentions de marques relevées sur les 30 réponses</h3>
+    <div class="sovwrap">
+      <div><svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg"><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#3560C4" stroke-width="22" stroke-dasharray="102.85 374.67" stroke-dashoffset="-0.00" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6F4FDB" stroke-width="22" stroke-dasharray="51.43 426.10" stroke-dashoffset="-102.85" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#8B7EC8" stroke-width="22" stroke-dasharray="51.43 426.10" stroke-dashoffset="-154.28" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#177A50" stroke-width="22" stroke-dasharray="47.75 429.77" stroke-dashoffset="-205.70" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#4FA394" stroke-width="22" stroke-dasharray="44.08 433.44" stroke-dashoffset="-253.45" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#8FA35C" stroke-width="22" stroke-dasharray="40.41 437.12" stroke-dashoffset="-297.53" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#9AA3B5" stroke-width="22" stroke-dasharray="25.71 451.81" stroke-dashoffset="-337.94" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#6B7280" stroke-width="22" stroke-dasharray="25.71 451.81" stroke-dashoffset="-363.65" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#A9711C" stroke-width="22" stroke-dasharray="11.02 466.50" stroke-dashoffset="-389.36" transform="rotate(-90 90.0 90.0)"/><circle cx="90.0" cy="90.0" r="76.0" fill="none" stroke="#DCD6C4" stroke-width="22" stroke-dasharray="77.14 400.38" stroke-dashoffset="-400.38" transform="rotate(-90 90.0 90.0)"/></svg><p class="cap" style="text-align:center">130 mentions</p></div>
+      <div class="sovbars"><div class="sov-row"><span class="blogo"><span class="logoimg logo-younited"></span>Younited Credit</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#3560C4"></div></div><span class="val">21.5%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-cofidis"></span>Cofidis</span><div class="bar-track"><div class="bar-fill" style="width:50.2%;background:#6F4FDB"></div></div><span class="val">10.8%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-cetelem"></span>Cetelem</span><div class="bar-track"><div class="bar-fill" style="width:50.2%;background:#8B7EC8"></div></div><span class="val">10.8%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-finfrog"></span>Finfrog</span><div class="bar-track"><div class="bar-fill" style="width:46.5%;background:#177A50"></div></div><span class="val">10.0%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-cashper"></span>Cashper</span><div class="bar-track"><div class="bar-fill" style="width:42.8%;background:#4FA394"></div></div><span class="val">9.2%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-floabank"></span>Floa Bank</span><div class="bar-track"><div class="bar-fill" style="width:39.5%;background:#8FA35C"></div></div><span class="val">8.5%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-sofinco"></span>Sofinco</span><div class="bar-track"><div class="bar-fill" style="width:25.1%;background:#9AA3B5"></div></div><span class="val">5.4%</span></div><div class="sov-row"><span class="blogo"><span class="logoimg logo-lydia"></span>Lydia / Sumeria</span><div class="bar-track"><div class="bar-fill" style="width:25.1%;background:#6B7280"></div></div><span class="val">5.4%</span></div><div class="sov-row you"><span class="blogo"><span class="logoimg logo-moneybounce"></span>Moneybounce <small style="font-weight:400">(vous)</small></span><div class="bar-track"><div class="bar-fill" style="width:10.7%;background:#A9711C"></div></div><span class="val">2.3%</span></div><div class="sov-row"><span class="blogo">Autres marques citées</span><div class="bar-track"><div class="bar-fill" style="width:75.3%;background:#DCD6C4"></div></div><span class="val">16.2%</span></div></div>
+    </div>
+    <div class="note crit"><span class="h">Petite note</span>Younited Credit domine la conversation avec <strong>21,5% de part de voix</strong> (cité dans 28 des 30 réponses) — près de 10× la part de Moneybounce (2,3%). Rappel du chapitre 02 : cette domination IA ne s'accompagne pourtant pas d'une domination SEO classique sur le mot-clé cœur testé (Younited Credit a moins de trafic organique réel que Moneybounce) — un signal que la bataille GEO se joue sur d'autres critères que le seul référencement Google.</div>
+
+    <h3 style="font-size:.85rem;margin:28px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Le classement complet, prompt par prompt, moteur par moteur</h3>
+    <p class="lead">Pour chacune des 10 questions, l'ordre exact dans lequel chaque moteur cite les marques — logos réels, Moneybounce en surbrillance quand elle apparaît.</p>
+    <div class="prompt-card">
+      <div class="pn">Prompt 1/10</div>
+      <div class="ptext">« Quel site choisir pour obtenir un mini-crédit en ligne rapide en France ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>3. Cetelem</span> <span class="blogo"><span class="logoimg logo-floabank"></span>4. Floa Bank</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>5. Finfrog</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="blogo"><span class="logoimg logo-floabank"></span>4. Floa Bank</span> <span class="blogo"><span class="logoimg logo-cashper"></span>5. Cashper</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>6. Finfrog</span> <span class="blogo" style="background:var(--gold);color:#06121f;border-color:var(--gold)"><span class="logoimg logo-moneybounce"></span>7. Moneybounce</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-finfrog"></span>1. Finfrog</span> <span class="blogo"><span class="logoimg logo-floabank"></span>2. Floa Bank</span> <span class="blogo"><span class="logoimg logo-lydia"></span>3. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-cashper"></span>4. Cashper</span> <span class="blogo"><span class="logoimg logo-younited"></span>5. Younited Credit</span> <span class="blogo"><span class="logoimg logo-adie"></span>6. Adie</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 2/10</div>
+      <div class="ptext">« Comment obtenir un prêt instantané de quelques centaines d'euros sans justificatif ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cashper"></span>2. Cashper</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-cashper"></span>1. Cashper</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>2. Finfrog</span> <span class="blogo" style="background:var(--gold);color:#06121f;border-color:var(--gold)"><span class="logoimg logo-moneybounce"></span>3. Moneybounce</span> <span class="blogo"><span class="logoimg logo-younited"></span>4. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>5. Cetelem</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-floabank"></span>1. Floa Bank</span> <span class="blogo"><span class="logoimg logo-cashper"></span>2. Cashper</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="blogo"><span class="logoimg logo-lydia"></span>4. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-creditmunicipal"></span>5. Crédit Municipal</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 3/10</div>
+      <div class="ptext">« Quelle est la meilleure solution pour emprunter rapidement entre 100 et 1000 euros en ligne ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cashper"></span>2. Cashper</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>3. Finfrog</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-floabank"></span>2. Floa Bank</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>3. Cofidis</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-floabank"></span>1. Floa Bank</span> <span class="blogo"><span class="logoimg logo-lydia"></span>2. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>3. Finfrog</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 4/10</div>
+      <div class="ptext">« Comment obtenir un crédit rapide quand on est interdit bancaire ou fiché à la Banque de France ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-adie"></span>1. Adie</span> <span class="blogo"><span class="logoimg logo-creditmunicipal"></span>2. Crédit Municipal</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-creditmunicipal"></span>1. Crédit Municipal</span> <span class="blogo"><span class="logoimg logo-adie"></span>2. Adie</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 5/10</div>
+      <div class="ptext">« Quel organisme propose un prêt personnel avec réponse immédiate en ligne ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>4. Sofinco</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-fortuneo"></span>1. Fortuneo</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>2. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>3. Cofidis</span> <span class="blogo"><span class="logoimg logo-younited"></span>4. Younited Credit</span> <span class="blogo">5. Franfinance</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>6. Sofinco</span> <span class="blogo"><span class="logoimg logo-meilleurtaux"></span>7. Meilleurtaux</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>3. Cetelem</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>4. Sofinco</span> <span class="blogo"><span class="logoimg logo-fortuneo"></span>5. Fortuneo</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>6. Finfrog</span> <span class="blogo"><span class="logoimg logo-lydia"></span>7. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-meilleurtaux"></span>8. Meilleurtaux</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 6/10</div>
+      <div class="ptext">« Comment financer un imprévu urgent (facture, réparation) avec un petit crédit en ligne ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>2. Sofinco</span> <span class="blogo"><span class="logoimg logo-cashper"></span>3. Cashper</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>4. Finfrog</span> <span class="blogo"><span class="logoimg logo-younited"></span>5. Younited Credit</span> <span class="blogo"><span class="logoimg logo-meilleurtaux"></span>6. Meilleurtaux</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>2. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>3. Cofidis</span> <span class="blogo"><span class="logoimg logo-floabank"></span>4. Floa Bank</span> <span class="blogo"><span class="logoimg logo-adie"></span>5. Adie</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-finfrog"></span>1. Finfrog</span> <span class="blogo"><span class="logoimg logo-cashper"></span>2. Cashper</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="blogo"><span class="logoimg logo-creditmunicipal"></span>4. Crédit Municipal</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 7/10</div>
+      <div class="ptext">« Quelles sont les meilleures alternatives aux banques traditionnelles pour un crédit à la consommation rapide ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>3. Cetelem</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>3. Sofinco</span> <span class="blogo">4. Franfinance</span> <span class="blogo"><span class="logoimg logo-younited"></span>5. Younited Credit</span> <span class="blogo"><span class="logoimg logo-floabank"></span>6. Floa Bank</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>7. Finfrog</span> <span class="blogo"><span class="logoimg logo-meilleurtaux"></span>8. Meilleurtaux</span> <span class="blogo">9. Empruntis</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-lydia"></span>2. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>3. Finfrog</span> <span class="blogo"><span class="logoimg logo-adie"></span>4. Adie</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 8/10</div>
+      <div class="ptext">« Comment fonctionne un mini-prêt en ligne et quels sites sont fiables en France ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-cashper"></span>3. Cashper</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-cashper"></span>1. Cashper</span> <span class="blogo"><span class="logoimg logo-finfrog"></span>2. Finfrog</span> <span class="blogo" style="background:var(--gold);color:#06121f;border-color:var(--gold)"><span class="logoimg logo-moneybounce"></span>3. Moneybounce</span> <span class="blogo"><span class="logoimg logo-younited"></span>4. Younited Credit</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-floabank"></span>1. Floa Bank</span> <span class="blogo"><span class="logoimg logo-lydia"></span>2. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cashper"></span>4. Cashper</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 9/10</div>
+      <div class="ptext">« Quel service en ligne recommandes-tu pour un crédit à la consommation rapide et sans paperasse ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>2. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>3. Cofidis</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>4. Sofinco</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-sofinco"></span>3. Sofinco</span> <span class="blogo"><span class="logoimg logo-younited"></span>4. Younited Credit</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-younited"></span>1. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cashper"></span>2. Cashper</span> <span class="blogo"><span class="logoimg logo-meilleurtaux"></span>3. Meilleurtaux</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+<div class="prompt-card">
+      <div class="pn">Prompt 10/10</div>
+      <div class="ptext">« Un étudiant ou jeune actif peut-il obtenir un petit prêt rapide en ligne en France, et lequel choisir ? »</div>
+      <div class="erow"><span class="eng">ChatGPT (gpt-4o)</span><span><span class="blogo"><span class="logoimg logo-cetelem"></span>1. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>2. Cofidis</span> <span class="blogo"><span class="logoimg logo-younited"></span>3. Younited Credit</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Claude (sonnet-4.5)</span><span><span class="blogo"><span class="logoimg logo-adie"></span>1. Adie</span> <span class="blogo"><span class="logoimg logo-younited"></span>2. Younited Credit</span> <span class="blogo"><span class="logoimg logo-cetelem"></span>3. Cetelem</span> <span class="blogo"><span class="logoimg logo-cofidis"></span>4. Cofidis</span> <span class="blogo"><span class="logoimg logo-floabank"></span>5. Floa Bank</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div><div class="erow"><span class="eng">Gemini (3.6 flash)</span><span><span class="blogo"><span class="logoimg logo-finfrog"></span>1. Finfrog</span> <span class="blogo"><span class="logoimg logo-floabank"></span>2. Floa Bank</span> <span class="blogo"><span class="logoimg logo-lydia"></span>3. Lydia / Sumeria</span> <span class="blogo"><span class="logoimg logo-younited"></span>4. Younited Credit</span> <span class="blogo"><span class="logoimg logo-creditmunicipal"></span>5. Crédit Municipal</span> <span class="cap" style="color:var(--crit)">— Moneybounce absente de ce classement.</span></span></div>
+    </div>
+
+    <div class="quotecard">
+      <span class="who">Claude (sonnet-4.5) · Prompt 8 · « Comment fonctionne un mini-prêt en ligne et quels sites sont fiables en France ? » · appel API réel</span>
+      <p class="q">« Cashper – mini-prêts de 50 à 1500 € · Finfrog – jusqu'à 600 € pour un premier prêt · <strong>Moneybounce (ex-Cashper)</strong> · Younited Credit – montants plus importants, plus classique »</p>
+    </div>
+    <div class="note crit" style="margin-top:14px">
+      <span class="h">Une confusion d'identité mesurée, pas une simple absence</span>
+      Sur les 3 mesures où Moneybounce est citée, une seule (prompt 8, Claude) contient une <strong>information fausse</strong> : Claude affirme que Moneybounce serait « ex-Cashper » — alors que Cashper est un concurrent réel et distinct (mini-crédits 50-1500€, cité 12 fois sur 30 dans ce même run). Le modèle sait que Moneybounce existe, mais n'a pas d'entité propre claire à lui associer dans son corpus — il la rattache par erreur à un acteur voisin. C'est le même mécanisme que le cas classique d'un ancien nom de marque mal relié à son site actuel : ici, c'est une <em>autre</em> marque qui sert de point d'ancrage par défaut.
+    </div>
+
+    <h3 style="font-size:.85rem;margin:28px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sur quoi l'IA se base pour citer ces marques plutôt que Moneybounce</h3>
+    <p class="lead">En lisant les 30 réponses brutes, quatre mécanismes reviennent systématiquement pour justifier une marque citée — jamais un critère de rapidité ou de simplicité, pourtant l'argument central de Moneybounce.</p>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-tag">Ancrage bancaire</span><h3>Filiation à un grand groupe</h3><p>« Cetelem (groupe BNP Paribas) », « Sofinco (groupe Crédit Agricole) », « Franfinance (groupe Société Générale) » — l'IA rattache systématiquement la marque à une maison-mère bancaire connue. Moneybounce, startup indépendante fondée en 2019, n'a aucun ancrage de ce type à citer.</p></div>
+      <div class="sol-card"><span class="sol-tag">Réputation</span><h3>Statut de « leader » ou « acteur historique »</h3><p>« Cofidis — acteur historique du crédit à la consommation », « Younited Credit — le leader du crédit collaboratif et rapide en France », « la plateforme fintech de référence » — une notoriété de catégorie préexistante, restituée telle quelle.</p></div>
+      <div class="sol-card"><span class="sol-tag">Conformité citée</span><h3>Agrément ACPR / ORIAS comme critère de confiance</h3><p>« Vérifiez que l'organisme est agréé par l'ACPR », « l'organisme doit être enregistré à l'ORIAS » — cité comme critère de sélection dans <strong>6 des 30 réponses</strong>. Moneybounce a bien un numéro ORIAS réel (20005562, chapitre 01) — mais nulle part dans une donnée que l'IA peut lire.</p></div>
+      <div class="sol-card"><span class="sol-tag">Technologie</span><h3>Open Banking mis en avant comme différenciateur</h3><p>« Connexion directe et sécurisée à votre compte bancaire (Open Banking) […] réponse instantanée » — cité pour Younited et Finfrog comme preuve de rapidité et de fiabilité technique, l'argument même que Moneybounce revendique sans que l'IA ne le lui attribue.</p></div>
+    </div>
+    <div class="note warn" style="margin-top:14px">Moneybounce n'a pas un mauvais produit — Moneybounce n'a simplement pas rendu lisibles, dans une donnée que l'IA peut citer, les mêmes briques de confiance que ses 6 concurrents cités : une filiation institutionnelle qu'elle n'a pas, mais aussi un numéro ORIAS qu'elle <strong>a</strong> et qui n'est relié à rien.</div>
+
+    <h3 style="font-size:.85rem;margin:28px 0 4px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;font-weight:600">Sites à vérifier — les comparateurs que l'IA recommande elle-même</h3>
+    <p class="lead">Distinct du classement de marques ci-dessus : sur quels sites tiers l'IA renvoie-t-elle explicitement pour vérifier ou comparer ? Deux comparateurs de crédit reviennent, cités ensemble à 3 reprises dans les 30 réponses.</p>
+    <div class="sovbars" style="margin-top:10px">
+      <div class="sov-row" style="grid-template-columns:190px 1fr 44px"><span class="blogo"><span class="logoimg logo-meilleurtaux"></span>Meilleurtaux.com</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#3560C4"></div></div><span class="val">5/30</span></div>
+      <div class="sov-row" style="grid-template-columns:190px 1fr 44px"><span class="blogo"><span class="logoimg logo-lesfurets"></span>LesFurets.com</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:#6F4FDB"></div></div><span class="val">3/30</span></div>
+    </div>
+    <div class="note" style="margin-top:12px"><span class="h">Citation verbatim (Gemini, prompt 9)</span><span class="quote" style="display:block;margin-top:6px;font-style:italic">« Pensez aux comparateurs : si vous avez un peu de temps, utilisez un comparateur comme Meilleurtaux ou LesFurets pour vérifier le TAEG le plus bas. »</span></div>
+    <p class="cap" style="margin-top:10px">Zéro plateforme d'avis généraliste (Trustpilot, forums, réseaux sociaux) n'apparaît dans les 30 réponses — le terrain de crédibilité que l'IA occupe spontanément sur ce secteur, ce sont des <strong>comparateurs de taux</strong>, pas des sites d'avis. Une revendication (invérifiable ou non) sur Trustpilot n'aurait donc probablement aucun effet ici ; une présence référencée sur Meilleurtaux/LesFurets, en revanche, est le terrain que l'IA elle-même désigne.</p>
+  </div>
+</section>
+
+<section id="opportunites">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Opportunités</span></div>
+    <h2>Ce qui existe déjà — et qu'il suffit de rendre lisible par l'IA</h2>
+    <p class="lead">Chaque point ci-dessous a été vérifié sur le site réel (curl + lecture du HTML brut) avant d'être écrit — aucune recommandation générique non vérifiée.</p>
+    <div class="solutions">
+      <div class="sol-card"><span class="sol-tag">Jours</span><h3>Corriger le robots.txt</h3><p>Retirer le <code>Disallow: /</code> sur GPTBot, ClaudeBot et Google-Extended (probablement une politique Cloudflare par défaut, pas un choix conscient). L'action la plus rapide et la plus structurante de tout l'audit.</p></div>
+      <div class="sol-card"><span class="sol-tag">Semaines</span><h3>Réparer le FinancialService existant</h3><p>Mettre à jour la description (100-6000€, tous projets — plus « crédit étudiant, 1000€ »), remplacer le téléphone placeholder, remplacer le lien Google Drive par une vraie image hébergée, et relier le numéro ORIAS 20005562 déjà public.</p></div>
+      <div class="sol-card"><span class="sol-tag">Semaines</span><h3>Réparer le FAQPage cassé + ajouter Review</h3><p>Ré-échapper les retours à la ligne dans le JSON-LD FAQPage existant (4 questions déjà rédigées) pour le rendre valide, et ajouter un balisage <code>Review</code>/<code>AggregateRating</code> sur les témoignages déjà publiés (Nabil, Sophie, Luna) sur /avis-clients.</p></div>
+    </div>
+    <div class="note good" style="margin-top:14px"><span class="h">Vérifié — pas à refaire</span>La FAQ, les témoignages clients et l'immatriculation ORIAS existent déjà, rédigés et publiés. Le travail n'est <strong>pas</strong> de créer du contenu : c'est de le structurer pour qu'une IA puisse le lire et le citer.</div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Plan d'action · 12 mois</span></div>
+    <h2>Trois chantiers, un même système</h2>
+    <p class="lead">Débloquer l'accès IA, réparer l'existant, puis construire la préférence — et mesurer à nouveau.</p>
+    <div class="road">
+      <div class="road-card">
+        <div class="t">T1 · Mois 1-3 — Débloquer</div>
+        <h3>Ouvrir la porte aux IA</h3>
+        <ul>
+          <li>Corriger le robots.txt (retirer le blocage GPTBot/ClaudeBot/Google-Extended)</li>
+          <li>Réparer le JSON-LD FinancialService (description, téléphone, image, ORIAS)</li>
+          <li>Ré-échapper le FAQPage cassé sur /faq</li>
+          <li>1er relevé de citation IA post-correction (10 prompts × 3 moteurs)</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T2 · Mois 4-6 — Optimiser l'existant</div>
+        <h3>Pousser les pages déjà publiées</h3>
+        <ul>
+          <li>Optimisation on-page des 8 mots-clés en zone de bascule (positions 6-25)</li>
+          <li>Ajout Review/AggregateRating sur /avis-clients</li>
+          <li>Premier contenu sur le content gap Finfrog (« crédit pour les interdits bancaires »)</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T3 · Mois 7-9 — Construire la préférence</div>
+        <h3>Devenir une entité citable</h3>
+        <ul>
+          <li>Page « À propos » consolidée (ORIAS, TAEG max, historique 2019) reliée au schema.org</li>
+          <li>Présence renforcée sur Meilleurtaux.com et LesFurets.com (comparateurs cités par l'IA)</li>
+          <li>2ᵉ run des 10 prompts × 3 moteurs pour mesurer le delta depuis T1</li>
+        </ul>
+      </div>
+      <div class="road-card">
+        <div class="t">T4 · Mois 10-12 — Bilan</div>
+        <h3>Mesurer &amp; réitérer</h3>
+        <ul>
+          <li>Ré-audit complet SEO + GEO vs. baseline septembre 2026</li>
+          <li>Bilan de part de voix IA face à Younited Credit, Cofidis, Cetelem</li>
+          <li>Priorisation de l'année 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Pourquoi Décupler</span></div>
+    <h2>Le bon profil pour un fintech réglementé</h2>
+    <div class="trust">
+      <div class="trust-card"><h3>Spécialiste SEO × GEO</h3><p>Un seul système pour le référencement Google et la citation par les IA génératives — pas deux prestataires séparés.</p></div>
+      <div class="trust-card"><h3>Sensible aux enjeux réglementaires</h3><p>ORIAS, ACPR, TAEG : sur un secteur où la confiance est l'argument n°1, la structuration des preuves de conformité est traitée comme un chantier SEO/GEO à part entière.</p></div>
+      <div class="trust-card"><h3>Data, pas de jargon</h3><p>Chiffres vérifiables (Ubersuggest, DataForSEO, appels API réels). Chaque mois : positions, trafic, citations IA.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini — la quasi-totalité du secteur ne s'en occupe pas encore.</p></div>
+      <div class="trust-card"><h3>Références industrie &amp; tech</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo.</p></div>
+      <div class="trust-card"><h3>Humain + IA = production ×10</h3><p>Agents IA supervisés par un expert SEO. Plus de contenu technique publié, budget maîtrisé.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On en discute ?</h3>
+      <p>Cette analyse pose les faits, pas une promesse. 20 minutes pour dérouler le run GEO complet et caler les trois premières actions ensemble — à commencer par le robots.txt.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver un créneau</a>
+        <a href="mailto:fenina.nathan@gmail.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Analyse préparée pour Moneybounce · France · Septembre 2026</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Créateur d'infra de visibilité organique</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Analyse confidentielle pour Moneybounce · SEO : Ubersuggest + DataForSEO (appels réels) · GEO : ChatGPT (gpt-4o)/Claude (sonnet-4.5)/Gemini (3.6 flash), 30 appels API réels du 08/09/2026 · Google PageSpeed Insights (perf. desktop réelle, mobile en repli Ubersuggest). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+
+</body>
+</html>
