@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Décupler · Proposition · Orators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<style>
+:root{
+  --bg:#EDE8DA; --bg2:#F5F1E4; --surface:#FFFFFF; --surface2:#F5F1E4;
+  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
+  --ink:#181510; --body:#4C463A; --muted:#8A8272;
+  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.36);
+  --seo:#3560C4; --seo-soft:rgba(53,96,196,.1);
+  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
+  --decupler:#6547C9;
+  --good:#177A50; --good-soft:rgba(23,122,80,.1);
+  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
+  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  --maxw:1060px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--body); font-family:var(--sans); font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(1100px 560px at 82% -8%,rgba(111,79,219,.06),transparent 60%),radial-gradient(820px 460px at 2% 3%,rgba(53,96,196,.05),transparent 58%);
+  background-attachment:fixed;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.15;text-wrap:balance}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--gold);text-decoration:none}
+.mono{font-family:var(--mono)}
+.decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
+.decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+nav{position:sticky;top:0;z-index:50;background:rgba(237,232,218,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navrow{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--ink)}
+.navtag{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.hero{padding:52px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
+.hero h1{font-size:clamp(1.7rem,4.2vw,2.5rem);margin-bottom:16px}
+.hero-sub{font-size:1.02rem;max-width:74ch;color:var(--body)}
+.hero-meta{margin:18px 0 26px;font-size:.82rem;color:var(--muted)}
+.hero-meta b{color:var(--ink)}
+.hero-meta span.sep{margin:0 6px;color:var(--line2)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media (max-width:760px){ .tiles{grid-template-columns:1fr 1fr} }
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px}
+.tile .v{font-family:var(--disp);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.tile .v.crit{color:var(--crit)} .tile .v.gold{color:var(--gold)} .tile .v.good{color:var(--good)} .tile .v.warn{color:var(--warn)}
+.tile .k{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+section{padding:44px 0;border-top:1px solid var(--line);background:var(--bg)}
+.secnum{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+.secnum .n{font-family:var(--disp);font-size:1rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.secnum .kk{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section h2{font-size:clamp(1.2rem,2.5vw,1.42rem);margin:4px 0 10px}
+.lead{font-size:.96rem;max-width:72ch;color:var(--body);margin-bottom:18px;line-height:1.65}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+@media (max-width:700px){.toc{grid-template-columns:1fr}}
+.toc a{display:block;color:inherit}
+.toc .tn{font-family:var(--mono);font-size:11px;color:var(--gold);margin-right:8px}
+.toc h3{display:inline;font-size:.92rem;color:var(--ink);font-family:var(--sans);font-weight:700}
+.toc p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.note{border-radius:14px;padding:16px 18px;font-size:.9rem;line-height:1.6;border:1px solid var(--line);background:var(--surface);margin-top:16px}
+.note.crit{border-left:3px solid var(--crit);background:var(--crit-soft)}
+.note.good{border-left:3px solid var(--good);background:var(--good-soft)}
+.note.warn{border-left:3px solid var(--warn);background:var(--warn-soft)}
+.note.geo{border-left:3px solid var(--geo);background:var(--geo-soft)}
+.note .h{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:var(--surface);margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--body);font-variant-numeric:tabular-nums;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr.self td{background:var(--gold-soft)}
+tr.win td{background:var(--good-soft)}
+td.m{font-family:var(--mono);font-size:11px;color:var(--gold);font-weight:700;white-space:nowrap}
+.pill{display:inline-flex;font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}
+.pill.seo{background:var(--seo-soft);color:var(--seo)}
+.pill.geo{background:var(--geo-soft);color:var(--geo)}
+.pill.gold{background:var(--gold-soft);color:var(--gold)}
+.quotecard{background:var(--ink);color:#EDE8DA;border-radius:16px;padding:22px 24px;margin-top:16px}
+.quotecard .who{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.quotecard .q{font-family:var(--disp);font-size:1.05rem;line-height:1.5;font-style:italic;color:#F5F1E4}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+.chantier{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-top:14px;display:grid;grid-template-columns:54px 1fr;gap:16px}
+@media (max-width:560px){.chantier{grid-template-columns:1fr}}
+.chantier .cn{font-family:var(--disp);font-size:1.6rem;font-weight:600;color:var(--gold);line-height:1}
+.chantier h3{font-size:1rem;margin-bottom:4px}
+.chantier .why{font-size:.84rem;color:var(--muted);margin-bottom:12px;line-height:1.55}
+.chantier .why b{color:var(--ink);font-weight:600}
+.chantier ul{list-style:none;padding:0;margin:0 0 10px}
+.chantier li{font-size:.86rem;color:var(--body);line-height:1.55;padding-left:18px;position:relative;margin-bottom:6px}
+.chantier li::before{content:"→";position:absolute;left:0;color:var(--gold);font-family:var(--mono);font-size:11px;top:2px}
+.chantier .tags{display:flex;gap:6px;flex-wrap:wrap}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.road{grid-template-columns:1fr}}
+.road-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;border-top:3px solid var(--gold-line)}
+.road-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.road-card h3{font-size:.95rem;margin-bottom:8px}
+.road-card p{font-size:.8rem;color:var(--body);line-height:1.5}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:700px){.who-grid{grid-template-columns:1fr}}
+.who-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;border-top:3px solid var(--seo)}
+.who-card.b{border-top-color:var(--geo)}
+.who-card .tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--seo);display:block;margin-bottom:6px}
+.who-card.b .tag{color:var(--geo)}
+.who-card h3{font-size:1rem;margin-bottom:4px}
+.who-card .sub{font-size:.8rem;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.who-card ul{list-style:none;padding:0;margin:0}
+.who-card li{font-size:.85rem;color:var(--body);line-height:1.5;padding-left:20px;position:relative;margin-bottom:7px}
+.who-card li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:700}
+.who-card li.x::before{content:"○";color:var(--muted)}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:700px){.price{grid-template-columns:1fr}}
+.price-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;position:relative}
+.price-card.reco{border:2px solid var(--gold);box-shadow:0 10px 30px -18px rgba(169,113,28,.5)}
+.price-card .badge{position:absolute;top:-11px;left:22px;background:var(--gold);color:#fff;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;font-weight:700}
+.price-card .lab{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+.price-card h3{font-size:1.05rem;margin-bottom:10px}
+.price-card .amt{font-family:var(--disp);font-size:2.2rem;font-weight:600;color:var(--ink);line-height:1}
+.price-card .amt small{font-size:1rem;color:var(--muted);font-weight:500}
+.price-card .unit{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin:8px 0 16px;display:block}
+.price-card ul{list-style:none;padding:0;margin:0}
+.price-card li{font-size:.85rem;color:var(--body);line-height:1.5;padding-left:20px;position:relative;margin-bottom:7px}
+.price-card li::before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:700}
+.opt{background:var(--surface);border:1px dashed var(--line2);border-radius:16px;padding:20px 22px;margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+@media (max-width:640px){.opt{grid-template-columns:1fr}}
+.opt h3{font-size:.95rem;margin-bottom:4px}
+.opt p{font-size:.85rem;color:var(--body);line-height:1.55}
+.opt .amt{font-family:var(--disp);font-size:1.4rem;color:var(--ink);white-space:nowrap;text-align:right}
+.opt .amt small{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media (max-width:760px){.kpi{grid-template-columns:1fr 1fr}}
+.kpi-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi-card .t{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:6px}
+.kpi-card .v{font-family:var(--disp);font-size:1.1rem;color:var(--ink);margin-bottom:6px}
+.kpi-card p{font-size:.78rem;color:var(--body);line-height:1.5}
+.steps{counter-reset:s;margin-top:16px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 62px;position:relative;margin-bottom:10px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-family:var(--disp);font-weight:600;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:.92rem;margin-bottom:3px}
+.step p{font-size:.84rem;color:var(--body);line-height:1.55}
+.trust{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:700px){.trust{grid-template-columns:1fr}}
+.trust-card{padding:14px 4px}
+.trust-card h3{font-size:.88rem;margin-bottom:6px}
+.trust-card p{font-size:.8rem;color:var(--body);line-height:1.55}
+.cta{background:linear-gradient(135deg,var(--surface2),var(--surface));border:1px solid var(--gold-line);border-radius:18px;padding:30px 28px;text-align:center}
+.cta h3{font-size:1.35rem;margin-bottom:8px}
+.cta p{max-width:52ch;margin:0 auto 18px;color:var(--body);font-size:.92rem}
+.cta-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:12px 22px;border-radius:10px;font-family:var(--sans)}
+.btn-v{background:var(--gold);color:#06121f}
+.btn-ghost{background:transparent;border:1px solid var(--gold-line);color:var(--gold)}
+.cta-validity{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.author-bar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
+.author-avatar{width:50px;height:50px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--gold-line)}
+.author-avatar img{width:100%;height:100%;object-fit:cover}
+.author-name{font-weight:700;color:var(--ink);font-size:.92rem;font-family:var(--disp)}
+.author-bio{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:3px}
+.author-links{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.author-link{padding:6px 14px;border-radius:8px;font-size:.75rem;font-weight:600;font-family:var(--mono);border:1px solid var(--line2);color:var(--body)}
+footer{padding:36px 0 30px;border-top:1px solid var(--line);text-align:center;background:var(--bg)}
+.cap{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="decupler">Décupler</span></div>
+    <div class="navtag">Proposition d'accompagnement SEO × GEO · Orators</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Proposition Décupler · Orators · Septembre 2026</div>
+    <h1>Vous êtes cités partout où l'on vous connaît déjà. Les 12 prochains mois servent à exister là où l'on vous cherche.</h1>
+    <p class="hero-sub">L'audit a posé le constat : 100 % de citations IA sur vos conférenciers, votre site comme source première de Gemini, mais 0,24 % de clics, zéro présence en haut de tunnel et une 7<sup>e</sup> place sur votre propre nom. Cette proposition transforme le plan d'action et la roadmap en un accompagnement concret : qui fait quoi, dans quel ordre, pour quel investissement.</p>
+    <p class="hero-meta">Préparé pour <b>Ombeline de Chaillé, Noé Bolzinger et Alexis Douay</b> · Orators (orators.fr)<span class="sep">·</span>Par <span class="decupler">Décupler</span><span class="sep">·</span>Suite à la restitution de l'audit sémantique, technique et GEO</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="v good">100 %</div><div class="k">Cité par l'IA sur vos conférenciers (21 sur 22, trois moteurs) — l'actif à défendre</div></div>
+      <div class="tile"><div class="v crit">0,24 %</div><div class="k">CTR sur 550 287 impressions en 3 mois : la notoriété ne descend pas dans le tunnel</div></div>
+      <div class="tile"><div class="v crit">0 %</div><div class="k">Citation IA en haut de tunnel (« mes équipes sont démotivées ») sur 54 réponses</div></div>
+      <div class="tile"><div class="v warn">6,8</div><div class="k">Position moyenne Google sur la requête « orators » — signal d'entité faible</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="sommaire" style="padding-top:0;border-top:none">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Sommaire</span></div>
+    <h2 style="margin-bottom:18px">Huit chapitres, du constat à la signature</h2>
+    <div class="toc">
+      <a href="#retenu"><span class="tn">01</span><h3>Ce qu'on a retenu de la restitution</h3><p>Vos arbitrages, intégrés à la proposition.</p></a>
+      <a href="#diag"><span class="tn">02</span><h3>Le diagnostic en une page</h3><p>Ce qui marche, ce qui bloque, ce qui presse.</p></a>
+      <a href="#chantiers"><span class="tn">03</span><h3>Les sept chantiers de l'accompagnement</h3><p>Le périmètre complet, chantier par chantier.</p></a>
+      <a href="#roadmap"><span class="tn">04</span><h3>La roadmap 12 mois, ajustée</h3><p>Récolter, étendre, créer, mesurer.</p></a>
+      <a href="#quifaitquoi"><span class="tn">05</span><h3>Qui fait quoi</h3><p>Deux formules selon ce que vous gardez en interne.</p></a>
+      <a href="#invest"><span class="tn">06</span><h3>Investissement</h3><p>Des lignes claires, sans reconduction tacite.</p></a>
+      <a href="#kpi"><span class="tn">07</span><h3>Pilotage et indicateurs</h3><p>Ce qu'on regarde chaque mois, et comment.</p></a>
+      <a href="#next"><span class="tn">08</span><h3>Prochaines étapes</h3><p>Ce qu'on lance dès la première semaine.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 RETENU -->
+<section id="retenu">
+  <div class="wrap">
+    <div class="secnum"><span class="n">01</span><span class="kk">Ce qu'on a retenu de la restitution</span></div>
+    <h2>Vos arbitrages, intégrés à la proposition</h2>
+    <p class="lead">Vous avez validé la grande majorité des recommandations et posé des priorités claires. Elles structurent tout ce qui suit.</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Ce que vous avez dit</th><th>Ce que ça change dans la proposition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Les mots-clés qui comptent :</strong> « agence de conférenciers », « conférencier management », « conférencier entreprise ».</td><td>Ces trois requêtes ouvrent la roadmap (M1 et M2). Elles sont déjà positionnées entre la 8<sup>e</sup> et la 19<sup>e</sup> place : on optimise, on ne crée pas.</td></tr>
+          <tr><td><strong>La thématique avant la ville.</strong> Une page « agence de conférenciers Lyon » vous parle moins qu'une page « conférencier IA » ou « management ».</td><td>Les silos thématiques passent devant. Le cluster géographique (Lyon, Bordeaux, Marseille…) est repoussé en T2 et T3, en déclinant le patron Paris qui fonctionne déjà.</td></tr>
+          <tr><td><strong>La géopolitique pèse plus que la santé mentale</strong> dans votre chiffre d'affaires.</td><td>Le pilier géopolitique et économie remonte en M2. La santé mentale reste dans la roadmap mais en fin de trimestre, avec un effort réduit : la page est déjà 3<sup>e</sup>.</td></tr>
+          <tr><td><strong>L'anglais est opportuniste :</strong> une landing, 10 à 15 profils pertinents à l'international.</td><td>Pas de traduction du site. On pose un hreflang propre sur la landing existante et on balise en anglais les 10 à 15 fiches concernées, rien de plus.</td></tr>
+          <tr><td><strong>Vous produisez déjà le contenu</strong> sur WordPress et Elementor, environ 30 minutes par page en dupliquant une structure existante.</td><td>Deux formules d'accompagnement : vous gardez la production, ou vous la déléguez entièrement. Dans les deux cas, on met en place un flux de production assisté par IA que Noé garde la main dessus.</td></tr>
+          <tr><td><strong>Les backlinks sont à discuter à part</strong>, selon le budget annuel.</td><td>Le netlinking est une option séparée, à budget fixé mois par mois. L'assainissement du profil (domaines toxiques, désaveu) est inclus dans l'accompagnement.</td></tr>
+          <tr><td><strong>Vous ne mesurez pas les demandes de contact</strong>, seulement les visites de la page (environ 300 par mois).</td><td>Premier geste de la semaine 1 : l'événement lead dans GA4. Sans lui, tout le reste reste une projection.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quotecard">
+      <span class="who">Noé Bolzinger, restitution de l'audit</span>
+      <p class="q">« On peut prendre en charge 80 % des choses, mais en fonction du devis, comme nous sommes plus sur des parties commerciales et opérationnelles, on aurait peut-être envie de déléguer à 100 %. »</p>
+    </div>
+    <p class="lead" style="margin-top:16px">C'est exactement pour ça que la proposition tient en deux formules. La différence entre les deux, c'est uniquement qui produit et intègre les pages. Le pilotage, la technique, l'entité, le GEO et la mesure sont identiques.</p>
+  </div>
+</section>
+
+<!-- 02 DIAG -->
+<section id="diag">
+  <div class="wrap">
+    <div class="secnum"><span class="n">02</span><span class="kk">Le diagnostic en une page</span></div>
+    <h2>Un catalogue de noms, pas encore une référence de marché</h2>
+    <p class="lead">Le détail est dans l'audit. Voici les six faits qui justifient chacun un chantier.</p>
+    <div class="grid3">
+      <div class="note good" style="margin-top:0"><span class="h">L'actif : vos conférenciers</span>Cité dans 100 % des réponses IA sur vos 22 principaux noms. Gemini ouvre orators.fr pour rédiger 95 % de ses réponses. Sur « agence de conférenciers », Gemini vous cite 1<sup>er</sup> alors que Google vous classe 13,5<sup>e</sup> : les modèles vous jugent meilleurs que votre référencement.</div>
+      <div class="note crit" style="margin-top:0"><span class="h">Le trou : le tunnel est inversé</span>0 % de citation quand l'acheteur part de son problème, 41 % au moment du choix, 11 % seulement sur ChatGPT. Vous n'êtes visibles que pour ceux qui vous ont déjà trouvés. Aucun client neuf ne vient de l'IA aujourd'hui.</div>
+      <div class="note warn" style="margin-top:0"><span class="h">La base s'érode</span>Environ 430 mots-clés positionnés contre 1 475 il y a deux ans. 95 % de ce trafic est de la curiosité sur des noms de célébrités, pas une demande d'achat. Il rétrécit.</div>
+      <div class="note crit" style="margin-top:0"><span class="h">Vos pages ne se déclarent pas</span>Sur la fiche Thierry Breton (124 454 impressions), ni téléphone, ni délai, ni tarif dans le texte. Schémas Person, Offer et FAQPage absents. Balisage Yoast par défaut, jamais personnalisé. L'IA lit votre page et n'y trouve rien à citer.</div>
+      <div class="note warn" style="margin-top:0"><span class="h">Le gabarit fiche intervenant est le coupable commun</span>226 fiches trop pauvres en texte, 5 392 liens internes en nofollow, 5 410 ancres « Lire la suite », 8 pages mortes, 6 titres dupliqués. Réparer un seul gabarit agit sur les trois quarts de l'audit technique.</div>
+      <div class="note geo" style="margin-top:0"><span class="h">L'entité n'existe pas pour les machines</span>Pas de fiche Wikidata (WeChamp en a une). Schema Organization réduit au nom et au logo. Le mot « conférencier » est disputé par le tourisme et la maroquinerie. Résultat : 6,8<sup>e</sup> sur votre propre marque.</div>
+    </div>
+    <div class="note" style="margin-top:18px"><span class="h">Ce qui n'est pas le problème</span>Les robots d'IA ne sont pas bloqués, le site est rapide (TTFB 0,18 s en cache), le contenu est servi en HTML, la performance mobile est bonne, aucun AI Overview ne vous écrase encore sur vos requêtes stratégiques. On ne vous vendra pas de chantier vitesse. La fenêtre avant l'arrivée des AI Overviews en France est en revanche courte : c'est ce qui donne son rythme à la roadmap.</div>
+  </div>
+</section>
+
+<!-- 03 CHANTIERS -->
+<section id="chantiers">
+  <div class="wrap">
+    <div class="secnum"><span class="n">03</span><span class="kk">Le périmètre complet</span></div>
+    <h2>Sept chantiers, chacun justifié par une mesure de l'audit</h2>
+    <p class="lead">C'est l'intégralité de ce que l'accompagnement couvre. Chaque chantier précise ses livrables, son étalement et ce qu'il corrige.</p>
+
+    <div class="chantier">
+      <div class="cn">A</div>
+      <div>
+        <h3>Réparer le socle technique et le gabarit « fiche intervenant »</h3>
+        <p class="why"><b>Pourquoi :</b> presque toutes les erreurs du crawl pointent le même gabarit. C'est aussi ce que l'IA lit pour parler de vos conférenciers.</p>
+        <ul>
+          <li>Rétablir ou rediriger en 301 les 8 pages mortes qui portent les 26 liens internes rompus (accueil, hub thématiques, fiches retirées comme Daniel Cohen ou Clarisse Agbegnenou).</li>
+          <li>Corriger les 6 titres dupliqués (« speaker du mois », « conférence de… ») et les H1 manquants ou multiples.</li>
+          <li>Retirer le nofollow sur les 5 392 liens internes entre listings et fiches : vos pages se coupent l'autorité entre elles.</li>
+          <li>Remplacer les 5 410 ancres « Lire la suite » par des ancres nommées (« Lire la suite : Fabien Galthié »).</li>
+          <li>Enrichir le gabarit fiche : bio étoffée, téléphone, délai d'engagement, fourchette tarifaire, processus de réservation en trois étapes, en texte visible.</li>
+          <li>Minification JS/CSS (un réglage global), optimisation du poids des images, sitemap et indexation, hreflang sur la landing anglaise et les 10 à 15 profils concernés.</li>
+          <li>Créer le fichier llms.txt à la racine du site.</li>
+        </ul>
+        <div class="tags"><span class="pill seo">SEO</span><span class="pill geo">GEO</span><span class="pill gold">T1 · puis maintenance</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">B</div>
+      <div>
+        <h3>Données structurées et entité : dire aux machines qui vous êtes</h3>
+        <p class="why"><b>Pourquoi :</b> les IA lisent d'abord les données structurées. Les vôtres disent que vous existez, et rien d'autre. Le lien agence ↔ conférencier, votre modèle d'affaires entier, n'est écrit nulle part.</p>
+        <ul>
+          <li>Schema Organization complet : sameAs, description, founder, foundingDate, contactPoint, address, legalName (snippet déjà prêt dans l'audit).</li>
+          <li>Schema Person + Offer sur chaque fiche conférencier, relié à Orators par worksFor / memberOf.</li>
+          <li>FAQPage sur les pages piliers et les guides, ItemList sur les pages « Top 10 ».</li>
+          <li>Création de la fiche Wikidata « Orators, agence de conférenciers » et liaison aux conférenciers représentés.</li>
+          <li>Page « À propos / fondateurs » étoffée : histoire, équipe, chiffres. Socle E-E-A-T.</li>
+          <li>Google Business Profile optimisé : « agence de conférenciers » déclenche un local pack.</li>
+          <li>Cohérence des mentions nom, adresse, téléphone sur le site et les profils externes.</li>
+        </ul>
+        <div class="tags"><span class="pill geo">GEO</span><span class="pill seo">SEO</span><span class="pill gold">T1</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">C</div>
+      <div>
+        <h3>Chiffrer le discours de marque et rendre chaque page citable</h3>
+        <p class="why"><b>Pourquoi :</b> Gemini reprend WeChamp mot pour mot (« N°1 des agences en France, 1 000 conférenciers, 450 conférences par an ») et vous décrit avec « personnalités inspirantes ». L'adjectif perd contre le chiffre.</p>
+        <ul>
+          <li>Publier sur la page agence et dans les métadonnées : nombre de conférenciers, conférences par an, année de création, références clients. En texte, pas en image.</li>
+          <li>Décliner ces preuves sur les catégories de conférenciers et les fiches.</li>
+          <li>Formats question-réponse et listes nommées sur les piliers, ceux que ChatGPT privilégie.</li>
+          <li>Vérifier que GPTBot et OAI-SearchBot ont bien accès au site.</li>
+        </ul>
+        <div class="tags"><span class="pill geo">GEO</span><span class="pill gold">T1 · effort faible, effet direct</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">D</div>
+      <div>
+        <h3>Reprendre les 8 conférenciers où l'on vous double</h3>
+        <p class="why"><b>Pourquoi :</b> la position Google sur le nom prédit le rang dans la réponse IA (Breton 2,2 → 1,5<sup>e</sup>, Luc Julia 9,8 → 3,5<sup>e</sup>). Ce sont des dizaines de milliers d'impressions déjà acquises.</p>
+        <ul>
+          <li>Priorité absolue : Nicolas Hamilton (14 338 impressions, absence totale de l'IA, London Speaker Bureau prend tout).</li>
+          <li>Puis Luc Julia, François Lenglet, Fabien Galthié, Albert Moukheiber, où Premium Communication et Simone &amp; Nelson passent devant.</li>
+          <li>Pour chacun : fiche enrichie, balisage Person + Offer, maillage depuis les piliers thématiques, preuves chiffrées.</li>
+          <li>Vous arbitrez la liste : on vous propose, vous décidez quels noms sont stratégiques.</li>
+        </ul>
+        <div class="tags"><span class="pill seo">SEO</span><span class="pill geo">GEO</span><span class="pill gold">T1 → T2</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">E</div>
+      <div>
+        <h3>Contenu et silos : optimiser l'existant, puis créer ce qui manque</h3>
+        <p class="why"><b>Pourquoi :</b> six pages sont déjà en page 1 sur des requêtes commerciales. Les pousser en top 3, c'est du pipeline sans écrire une ligne. Ensuite seulement, on crée.</p>
+        <ul>
+          <li><strong>Optimiser (T1) :</strong> conférencier intelligence artificielle (9<sup>e</sup>), conférencier entreprise (8<sup>e</sup>), agence de conférenciers (10<sup>e</sup>), conférencier sportif (8<sup>e</sup>), journaliste économiste (10<sup>e</sup>), conférencier santé mentale (3<sup>e</sup>).</li>
+          <li><strong>Pilier géopolitique et économie</strong> relié à Thierry Breton, Dominique Trinquand, Nicolas Bouzou, Pascal Boniface : votre thématique la plus faible (6 % de citation) avec votre meilleur catalogue.</li>
+          <li><strong>Pages comparatives « Top 10 »</strong> par thématique (IA d'abord, puis sport, management, RSE) : le format exact que les modèles consomment. Balisage ItemList + Person.</li>
+          <li><strong>Page « trouver un conférencier »</strong> (difficulté 18, CPC 24 €, vous êtes 11<sup>e</sup>) et guide « combien coûte, comment réserver ».</li>
+          <li><strong>Haut de tunnel</strong> par thématique : « remobiliser une équipe démotivée », « aborder l'IA en interne sans braquer les équipes », « recréer du collectif après le télétravail ». Territoire sans occupant : aucune agence n'y est citée.</li>
+          <li><strong>Silos manquants (T3) :</strong> RSE et climat, cohésion et team building, longue traîne IA.</li>
+          <li><strong>Cluster géographique (T2, T3) :</strong> décliner la page Paris (4<sup>e</sup>) sur Lyon puis Bordeaux, les autres villes en backlog.</li>
+        </ul>
+        <div class="tags"><span class="pill seo">SEO</span><span class="pill geo">GEO</span><span class="pill gold">Toute l'année · 2 à 4 pages/mois</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">F</div>
+      <div>
+        <h3>Backlinks : assainir avant de reconstruire</h3>
+        <p class="why"><b>Pourquoi :</b> un authority score de 27, correct pour votre marché, mais 24 % de domaines toxiques ou suspects, 94 % de domaines référents à autorité quasi nulle, des ancres issues de réseaux automatisés, et 25 % de backlinks perdus depuis avril.</p>
+        <ul>
+          <li><strong>Inclus dans l'accompagnement :</strong> audit des domaines toxiques, liste de désaveu soumise par lots, audit des ancres suspectes (Telegram, bhs_links, seo_cartel), qualification des liens perdus, suivi mensuel de la toxicité.</li>
+          <li><strong>Inclus :</strong> liste complète de vos 1 200 backlinks transmise dès le démarrage, comme demandé en réunion.</li>
+          <li><strong>En option, à budget fixé :</strong> acquisition de 4 à 5 liens de qualité par mois (autorité supérieure à 40, presse, .fr, institutionnels) plutôt qu'une vingtaine de liens moyens. Voir la section Investissement.</li>
+        </ul>
+        <div class="tags"><span class="pill seo">SEO</span><span class="pill gold">T1 assainissement · option ensuite</span></div>
+      </div>
+    </div>
+
+    <div class="chantier">
+      <div class="cn">G</div>
+      <div>
+        <h3>Mesurer en leads, pas en projections</h3>
+        <p class="why"><b>Pourquoi :</b> GA4 mesure environ 300 visites de la page contact par mois, mais aucune soumission de formulaire ni clic mail ou téléphone. Impossible de compter les vraies demandes.</p>
+        <ul>
+          <li>Semaine 1 : événements form_submit et clics mailto / tel en key events GA4 via GTM. Un geste de 30 minutes côté Orators, guidé par nous.</li>
+          <li>Cartographie sémantique vivante dans Notion : 35 mots-clés par silo, prompt principal et fan-out, étape de tunnel, potentiel, priorité, suivi des leads.</li>
+          <li>Relevé mensuel de la part de citation IA sur les 27 prompts d'intention, plus la batterie neutre décrite dans l'audit.</li>
+          <li>Trois chiffres à vous demander pour convertir la cartographie en euros : panier moyen, taux demande → devis, taux devis → signature.</li>
+        </ul>
+        <div class="tags"><span class="pill seo">SEO</span><span class="pill geo">GEO</span><span class="pill gold">Semaine 1 · puis chaque mois</span></div>
+      </div>
+    </div>
+
+    <div class="note warn"><span class="h">L'ordre compte</span>Les chantiers A, B et C sont des corrections de quelques semaines qui agissent sur les 340 réponses IA déjà mesurées. Le contenu (E) est un investissement de fond. Les faire dans le désordre, c'est produire du contenu avant d'être citable, et perdre le bénéfice des deux. C'est pour ça que le premier trimestre ne crée rien.</div>
+  </div>
+</section>
+
+<!-- 04 ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="secnum"><span class="n">04</span><span class="kk">Roadmap 12 mois</span></div>
+    <h2>Récolter, étendre, créer, mesurer</h2>
+    <p class="lead">La roadmap de l'audit, réordonnée selon vos arbitrages : thématique avant géographie, géopolitique en avance, santé mentale en effort réduit. Elle est revue chaque mois : on priorise les silos, puis les contenus dans chaque silo. Rien n'est figé.</p>
+    <div class="road">
+      <div class="road-card"><div class="t">T1 · Mois 1 à 3</div><h3>Récolter</h3><p>Zéro création. Socle technique, entité, données structurées, discours chiffré, et les pages déjà en page 1 poussées en top 3.</p></div>
+      <div class="road-card"><div class="t">T2 · Mois 4 à 6</div><h3>Étendre</h3><p>Consolider les silos économie et géopolitique, IA et agence. Premiers « Top 10 ». Première ville hors Paris.</p></div>
+      <div class="road-card"><div class="t">T3 · Mois 7 à 9</div><h3>Créer</h3><p>Les pages manquantes : RSE, cohésion, longue traîne IA, haut de tunnel par thématique.</p></div>
+      <div class="road-card"><div class="t">T4 · Mois 10 à 12</div><h3>Mesurer</h3><p>Compléter, maintenir le top 3, revue GEO complète, leads réels, refresh de la cartographie.</p></div>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Mois</th><th>Chantiers du mois</th><th>Silo · tunnel</th><th>Résultat visé</th></tr></thead>
+        <tbody>
+          <tr><td class="m">M1</td><td>Événement lead GA4 · 26 liens rompus et 8 pages mortes · titres dupliqués · schema Organization · llms.txt · discours chiffré · optimisation de conférencier IA (5-9<sup>e</sup>), conférencier entreprise, agence conférencier, trouver un conférencier, leadership et son prompt conversationnel</td><td>IA · Agence · Leadership — MOFU / BOFU</td><td>Socle posé · 6 requêtes commerciales en top 3</td></tr>
+          <tr><td class="m">M2</td><td>Gabarit fiche intervenant (texte, téléphone, délai, tarif, process) · schema Person + Offer déployé · nofollow et ancres internes · agence de conférenciers (13<sup>e</sup>), conférencier management (19<sup>e</sup>), pilier géopolitique et économie relié à Thierry Breton, agence de conférenciers Paris</td><td>Agence · Géopolitique — BOFU / MOFU</td><td>Fiches citables · actif géopolitique activé</td></tr>
+          <tr><td class="m">M3</td><td>Fiche Wikidata · Google Business Profile · désaveu des domaines toxiques · 8 conférenciers à reprendre (Hamilton en premier) · conférencier sportif, agence conférencier sportif, QVT, résilience, RH · santé mentale en effort réduit (déjà 3<sup>e</sup>)</td><td>Sport · Leadership · Santé — MOFU</td><td>Entité reliée · silos sport et leadership en top 3</td></tr>
+          <tr><td class="m">M4</td><td>Top 10 conférenciers IA (ItemList + Person) · conférencier économiste (14<sup>e</sup>), journaliste économiste · « trouver un intervenant pour une conférence » (prompt réel GSC)</td><td>Économie / Géo · IA — MOFU / BOFU</td><td>Silo éco-géo consolidé · premier comparatif en ligne</td></tr>
+          <tr><td class="m">M5</td><td>Top 10 conférenciers management · conférencier innovation (24<sup>e</sup>) · guide « combien coûte un conférencier, comment le réserver » (FAQPage) · agence de conférenciers Lyon</td><td>IA · Agence — MOFU / BOFU</td><td>Bas de tunnel couvert · première ville hors Paris</td></tr>
+          <tr><td class="m">M6</td><td>« réserver un conférencier » (transactionnel) · Top 10 conférenciers sportifs · agence de conférenciers Bordeaux · bilan semestriel et refresh des prompts</td><td>Agence · Sport — BOFU</td><td>Longue traîne transactionnelle · bilan à 6 mois</td></tr>
+          <tr><td class="m">M7</td><td>Silo RSE et climat : conférencier RSE (14<sup>e</sup>), développement durable (19<sup>e</sup>), Top 10 RSE · premier guide haut de tunnel (« aborder l'IA en interne sans braquer les équipes »)</td><td>RSE — MOFU / TOFU</td><td>Silo RSE lancé · première présence TOFU</td></tr>
+          <tr><td class="m">M8</td><td>Silo cohésion : banque de conférenciers, conférencier esprit d'équipe (9<sup>e</sup>) · guide « remobiliser une équipe démotivée » · publication invitée sur un média RH ciblé (culture-rh, eurecia, gereso)</td><td>Agence · Cohésion — BOFU / TOFU</td><td>Silo cohésion amorcé · première citation hors site</td></tr>
+          <tr><td class="m">M9</td><td>Longue traîne IA : conférencier nouvelles technologies (22<sup>e</sup>), spécialiste IA · guide « recréer du collectif après le télétravail » · cluster géo suivant si pertinent</td><td>IA / Tech — TOFU</td><td>Notoriété IA · haut de tunnel couvert sur trois thématiques</td></tr>
+          <tr><td class="m">M10</td><td>Conférencier team building (20<sup>e</sup>), conférencier cohésion d'équipe (1<sup>er</sup>, à défendre) · consolidation des Top 10</td><td>Cohésion — BOFU / MOFU</td><td>Silo cohésion complet</td></tr>
+          <tr><td class="m">M11</td><td>Plateforme conférencier · futur du travail (2<sup>e</sup>, à défendre) · maintenance des top 3 · réoptimisation des pages qui ont reculé</td><td>Agence · Leadership</td><td>Longue traîne et maintien des acquis</td></tr>
+          <tr><td class="m">M12</td><td>Revue GEO complète (27 prompts + batterie neutre) · mesure des leads réels sur 12 mois · refresh de la cartographie · roadmap année 2</td><td>Transverse</td><td>Boucle de mesure fermée, en euros</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">Positions entre parenthèses : position Google actuelle (GSC, 3 mois). Backlog géographique : Strasbourg (37<sup>e</sup>), Marseille (42<sup>e</sup>), Toulouse (41<sup>e</sup>). La cartographie complète et la roadmap vivent dans Notion, partagées avec vous.</p>
+  </div>
+</section>
+
+<!-- 05 QUI FAIT QUOI -->
+<section id="quifaitquoi">
+  <div class="wrap">
+    <div class="secnum"><span class="n">05</span><span class="kk">Qui fait quoi</span></div>
+    <h2>Deux formules, un seul système</h2>
+    <p class="lead">Ce qui ne change jamais : Décupler pilote, priorise, fait la technique, l'entité, le GEO, les backlinks et la mesure. Ce qui change : qui écrit et intègre les pages.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="tag">Formule A · Pilotage</span>
+        <h3>Vous produisez, on pilote et on optimise</h3>
+        <p class="sub">Pour une équipe qui garde la main sur le contenu et l'intégration dans Elementor, comme aujourd'hui.</p>
+        <ul>
+          <li><strong>Décupler :</strong> roadmap mensuelle, briefs détaillés par page (structure Hn, mot-clé, FAQ, maillage, données structurées à poser), relecture et optimisation de chaque page avant publication.</li>
+          <li><strong>Décupler :</strong> tout le chantier technique (A), entité et données structurées (B), discours chiffré (C), reprise des conférenciers (D), assainissement backlinks (F), mesure (G).</li>
+          <li><strong>Décupler :</strong> mise en place d'un flux de production assisté par IA (skills de rédaction et d'images, intégration automatisée vers WordPress) pour passer de 30 minutes par page dupliquée à des pages structurées neuves, sans y passer plus de temps.</li>
+          <li><strong>Orators (Noé) :</strong> rédaction et intégration des 2 à 4 pages du mois à partir des briefs, avec sa patte éditoriale. Validation des noms de conférenciers mis en avant.</li>
+          <li class="x">Non inclus : la rédaction et l'intégration des pages par Décupler.</li>
+        </ul>
+      </div>
+      <div class="who-card b">
+        <span class="tag">Formule B · Délégation complète</span>
+        <h3>On prend tout, vous validez</h3>
+        <p class="sub">Pour une équipe commerciale et opérationnelle qui préfère ne pas porter la production.</p>
+        <ul>
+          <li><strong>Tout ce que contient la formule A</strong>, plus :</li>
+          <li><strong>Décupler :</strong> rédaction, création des visuels et intégration de toutes les pages de la roadmap (piliers, Top 10, guides, fiches enrichies, villes), sur votre WordPress.</li>
+          <li><strong>Décupler :</strong> reprise à la main du gabarit fiche intervenant et son déploiement sur les 226 fiches trop pauvres, par lots priorisés.</li>
+          <li><strong>Décupler :</strong> publication invitée sur les médias RH identifiés par l'audit (culture-rh, eurecia, gereso, teale, kestio).</li>
+          <li><strong>Orators :</strong> une validation par mois, l'arbitrage des conférenciers stratégiques, et les informations métier (tarifs indicatifs, délais, process de réservation, chiffres de l'agence).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note good"><span class="h">Dans les deux cas, Noé garde la main éditoriale</span>Le flux assisté par IA produit une page structurée, balisée et maillée. Ce que vous avez envie de modifier, vous le modifiez. L'IA fait la structure et la conformité, vous faites le ton et le choix des conférenciers. Un point technique dédié entre Nathan et Noé est prévu avant le démarrage pour caler ce flux sur votre WordPress.</div>
+
+    <div class="note"><span class="h">Ce qu'on vous demande, dans les deux formules</span>Un point mensuel d'une heure. Un accès WordPress, GA4, Search Console et GTM. Les chiffres de l'agence à publier (conférenciers au catalogue, conférences par an, année de création, références). Et, dès le premier mois, une réponse aux trois chiffres qui convertissent la cartographie en euros : panier moyen, taux demande → devis, taux devis → signature.</div>
+  </div>
+</section>
+
+<!-- 06 INVESTISSEMENT -->
+<section id="invest">
+  <div class="wrap">
+    <div class="secnum"><span class="n">06</span><span class="kk">Investissement</span></div>
+    <h2>Des lignes claires, sans reconduction tacite</h2>
+    <p class="lead">Engagement recommandé : 12 mois, parce que la traction SEO et GEO se construit et se mesure sur cette durée, et que la roadmap est calibrée dessus. Un engagement de 6 mois est possible, avec un bilan à mi-parcours pour décider de la suite.</p>
+
+    <div class="price">
+      <div class="price-card">
+        <span class="lab">Formule A</span>
+        <h3>Pilotage</h3>
+        <div class="amt">1 500 € <small>HT / mois</small></div>
+        <span class="unit">environ 3 jours par mois · engagement 6 ou 12 mois</span>
+        <ul>
+          <li>Roadmap mensuelle et priorisation des silos</li>
+          <li>Briefs détaillés et optimisation de 2 à 4 pages par mois produites par Orators</li>
+          <li>Chantier technique complet, gabarit fiche, hreflang, llms.txt</li>
+          <li>Données structurées, Wikidata, Google Business Profile, page fondateurs</li>
+          <li>Reprise des 8 conférenciers doublés</li>
+          <li>Assainissement backlinks et désaveu</li>
+          <li>Flux de production IA installé et formation de Noé</li>
+          <li>Suivi mensuel : positions, GA4, citations IA sur 27 prompts, leads</li>
+          <li>Réunion mensuelle d'une heure, Slack avec réponse sous 48 h</li>
+        </ul>
+      </div>
+      <div class="price-card reco">
+        <span class="badge">Recommandé pour Orators</span>
+        <span class="lab">Formule B</span>
+        <h3>Délégation complète</h3>
+        <div class="amt">2 500 € <small>HT / mois</small></div>
+        <span class="unit">environ 5 jours par mois · engagement 6 ou 12 mois</span>
+        <ul>
+          <li>Tout le contenu de la formule A</li>
+          <li>Rédaction, visuels et intégration de 3 à 4 pages par mois sur votre WordPress</li>
+          <li>Reprise et déploiement du gabarit fiche sur les 226 fiches, par lots</li>
+          <li>Pages Top 10 par thématique, guides bas et haut de tunnel</li>
+          <li>Publications invitées sur les médias RH ciblés par l'audit</li>
+          <li>Cartographie Notion tenue à jour, dashboard de suivi</li>
+          <li>Une validation par mois de votre côté, rien d'autre</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div>
+        <h3>Option · Netlinking de qualité</h3>
+        <p>Budget d'achat de liens, validé chaque mois ou chaque trimestre sur des requêtes précises : 4 à 5 liens à forte autorité (presse, .fr, institutionnels) valent mieux que vingt liens moyens. La sélection, la négociation, le suivi des ancres et le reporting sont inclus dans l'accompagnement. Vous pouvez démarrer à zéro et activer l'option quand le socle est posé.</p>
+      </div>
+      <div class="amt">500 à 1 500 €<small>HT / mois · budget média, sans commission</small></div>
+    </div>
+
+    <div class="grid2">
+      <div class="note good" style="margin-top:0"><span class="h">Ce que ça remplace</span>Un profil SEO à temps partiel plus un rédacteur, sans la couche GEO ni la mesure IA. La formule B revient à moins d'un tiers d'un poste chargé, avec un expert qui a déjà l'audit, la cartographie et la roadmap en tête.</div>
+      <div class="note" style="margin-top:0"><span class="h">Conditions</span>Facturation mensuelle, à terme à échoir. Pas de reconduction tacite : à l'issue de l'engagement, on décide ensemble. Changement de formule possible à chaque trimestre. Les livrables (pages, cartographie, données structurées, fichiers de désaveu) vous appartiennent.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 KPI -->
+<section id="kpi">
+  <div class="wrap">
+    <div class="secnum"><span class="n">07</span><span class="kk">Pilotage et indicateurs</span></div>
+    <h2>Ce qu'on regarde chaque mois</h2>
+    <p class="lead">Quatre indicateurs, tous issus des données de l'audit, donc comparables dès le premier mois. Consolidés dans un dashboard partagé et présentés au point mensuel.</p>
+    <div class="kpi">
+      <div class="kpi-card"><div class="t">KPI 1 · Positions</div><div class="v">Requêtes commerciales en top 3</div><p>Objectif T1 : une quinzaine. Aujourd'hui : zéro terme commercial en top 3.</p></div>
+      <div class="kpi-card"><div class="t">KPI 2 · Trafic qualifié</div><div class="v">Entrées SEO par page pilier (GA4)</div><p>Le pilier leadership n'attire que 6 entrées par mois pour le 3<sup>e</sup> potentiel du site. L'écart est le gisement.</p></div>
+      <div class="kpi-card"><div class="t">KPI 3 · Citation IA</div><div class="v">Part de citation sur 27 prompts</div><p>Point de départ : 0 % TOFU, 41 % MOFU, 11 % sur ChatGPT. Relevé mensuel sur ChatGPT, Claude et Gemini.</p></div>
+      <div class="kpi-card"><div class="t">KPI 4 · Leads</div><div class="v">Demandes de contact réelles</div><p>Proxy actuel : 300 visites contact par mois. Dès l'événement GA4 posé : formulaires et clics mail ou téléphone, attribués par page d'entrée.</p></div>
+    </div>
+    <div class="note" style="margin-top:18px"><span class="h">La gouvernance</span>Un point mensuel d'une heure : résultats du mois, arbitrage des silos et des contenus du mois suivant, décisions sur les backlinks. Un bilan à 6 mois pour décider de la suite. Tout le reste passe par Slack, réponse sous 48 h. La cartographie Notion et la roadmap sont partagées, vous y voyez l'avancement en continu.</div>
+  </div>
+</section>
+
+<!-- 08 NEXT -->
+<section id="next">
+  <div class="wrap">
+    <div class="secnum"><span class="n">08</span><span class="kk">Prochaines étapes</span></div>
+    <h2>Ce qu'on lance dès la première semaine</h2>
+    <div class="steps">
+      <div class="step"><h3>Votre retour sur la roadmap</h3><p>Vous nous dites ce que vous validez, ce qui bouge, et quels conférenciers sont stratégiques pour vous. On intègre, comme on l'a fait pour cette proposition.</p></div>
+      <div class="step"><h3>Un point de 30 minutes pour caler la formule</h3><p>A ou B, 6 ou 12 mois, option netlinking ou pas. Et un point technique dédié entre Nathan et Noé sur le flux de production WordPress.</p></div>
+      <div class="step"><h3>Accès et envoi des fichiers</h3><p>WordPress, GA4, Search Console, GTM. De notre côté : la liste des 1 200 backlinks, les exports CSV des erreurs page par page, et la cartographie Notion partagée.</p></div>
+      <div class="step"><h3>Semaine 1 : les cinq gestes qui débloquent tout</h3><p>Événement lead GA4, 26 liens rompus et 8 pages mortes, 6 titres dupliqués, schema Organization enrichi, fichier llms.txt. Aucun n'attend une page nouvelle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="secnum"><span class="kk">Pourquoi Décupler</span></div>
+    <h2>Le bon profil pour rendre une réputation lisible</h2>
+    <div class="trust">
+      <div class="trust-card"><h3>L'audit est déjà fait</h3><p>340 réponses IA mesurées, 280 requêtes, crawl de 500 pages, cartographie de 35 mots-clés par silo. On démarre sur du connu, pas sur une découverte.</p></div>
+      <div class="trust-card"><h3>Pionnier GEO</h3><p>Méthode mesurée pour apparaître dans ChatGPT, Claude et Gemini. Vos concurrents ne s'en occupent pas encore, et l'AI Overview arrive.</p></div>
+      <div class="trust-card"><h3>Data, pas de jargon</h3><p>Chaque recommandation cite une mesure. Chaque mois : positions, trafic, citations IA, leads. Et on vous explique, comme en restitution.</p></div>
+      <div class="trust-card"><h3>Références</h3><p>Société Générale, Decathlon, Le Point, Pluxee/Sodexo.</p></div>
+      <div class="trust-card"><h3>Environ 1 h par mois de votre côté</h3><p>Pensé pour une équipe commerciale et opérationnelle, sans profil marketing dédié.</p></div>
+      <div class="trust-card"><h3>Humain + IA</h3><p>Des agents IA supervisés par un expert SEO. Plus de pages structurées publiées, budget maîtrisé, votre patte conservée.</p></div>
+    </div>
+    <div class="cta" style="margin-top:36px">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px">Factuel, chiffré, discutable</div>
+      <h3>On cale la suite ?</h3>
+      <p>Trente minutes pour choisir la formule, fixer le budget backlinks et lancer la semaine 1.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" class="btn btn-v">📅 Réserver un créneau</a>
+        <a href="mailto:fenina.nathan@gmail.com" class="btn btn-ghost">✉️ Une question avant ?</a>
+      </div>
+      <div class="cta-validity">Proposition préparée pour Orators · France · Septembre 2026 · valable 30 jours</div>
+    </div>
+    <div class="author-bar">
+      <div class="author-avatar"><img src="https://decupler.com/wp-content/uploads/2025/08/1736001015942.jpeg" alt="Nathan Fenina"></div>
+      <div>
+        <div class="author-name">Nathan Fenina</div>
+        <div class="author-bio">Fondateur Décupler · SEO &amp; AI Search · Société Générale, Decathlon, Le Point, Pluxee<br>Expert GEO · Créateur SEO AI Systems™</div>
+      </div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" class="author-link">LinkedIn</a>
+        <a href="https://decupler.substack.com" target="_blank" class="author-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mono" style="font-size:10.5px;color:var(--muted)">© 2026 <span class="decupler">Décupler</span> · SEO Humain + IA · Proposition confidentielle pour Orators · Sources : audit Décupler v1.5 du 26/08/2026 (GSC 3 mois, GA4, Ubersuggest, Semrush crawl 500 pages, 340 réponses IA ChatGPT / Claude / Gemini). Estimations = hypothèses de travail, pas une garantie de résultat.</p>
+  </div>
+</footer>
+</body>
+</html>
