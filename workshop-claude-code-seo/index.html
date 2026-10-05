@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>Claude Code × SEO/GEO · Masterclass Décupler</title>
-<meta name="description" content="Masterclass live du 8 octobre 2026 : comment produire 10x plus vite en SEO et GEO avec Claude Code. Démos, infra, use cases réels, SOP.">
-<meta property="og:title" content="Produire 10x plus vite en SEO/GEO avec Claude Code">
-<meta property="og:description" content="15 mois de SEO avec Claude Code : l'infra, les démos, les vrais résultats.">
+<meta name="description" content="Masterclass live du 8 octobre 2026 : l'infra Claude Code de Décupler pour le SEO et le GEO, démontée pièce par pièce, avec les vrais fichiers, les vrais livrables et les vrais chiffres.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
 <style>
@@ -21,57 +20,76 @@
   --good:#177A50; --good-soft:rgba(23,122,80,.1);
   --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
   --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
+  --term:#16141b; --term2:#211e28; --termtx:#e9e6f2; --termmu:#8f8aa3;
   --disp:"Fraunces",Georgia,"Times New Roman",serif;
   --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --dm:"DM Sans",var(--sans);
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  --maxw:1120px;
+  --maxw:1160px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--body);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--decupler)}
+code{font-family:var(--mono);font-size:.88em;background:var(--gold-soft);padding:1px 5px;border-radius:4px;color:var(--ink)}
 .decupler{font-family:var(--dm);font-weight:700;letter-spacing:-.02em;color:var(--decupler)}
 .decupler::before{content:"◆ ";font-size:.7em;vertical-align:1px}
 
+.grid>*,.row>*,.tabpanel>*,.shots>*,.demo-head>*,.res>*,.ba>*{min-width:0}
 /* nav */
-.top{position:sticky;top:0;z-index:20;background:rgba(237,232,218,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:20;background:rgba(237,232,218,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .in{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px}
 .top .decupler{font-size:19px;text-decoration:none;white-space:nowrap}
+.top nav{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;font:600 13px var(--sans)}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+.top nav a.on{color:var(--ink)}
 .top .meta{margin-left:auto;font:600 13px var(--sans);color:var(--gold);white-space:nowrap}
 .top .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--crit);margin-right:7px;vertical-align:1px;animation:pulse 1.6s infinite}
 @keyframes pulse{50%{opacity:.25}}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--decupler);width:0}
 
 /* slides */
-.slide{border-bottom:1px solid var(--line);padding:88px 24px}
-.slide:nth-of-type(even){background:var(--bg2)}
+.slide{border-bottom:1px solid var(--line);padding:96px 24px}
+.slide.alt{background:var(--bg2)}
 .wrap{max-width:var(--maxw);margin:0 auto}
-.num{font:600 13px var(--mono);color:var(--muted);letter-spacing:.06em}
+.num{font:600 13px var(--mono);color:var(--muted);letter-spacing:.06em;margin:0 0 10px}
 .eyebrow{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin:0 0 14px}
-h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;margin:0}
-h1{font-size:clamp(2.6rem,6.4vw,4.9rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
+h1,h2,h3,h4{color:var(--ink);font-family:var(--disp);font-weight:600;margin:0}
+h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch}
 h1 em,h2 em{font-style:italic;color:var(--seo)}
 h1 .g,h2 .g{font-style:italic;color:var(--geo)}
-h2{font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.08;letter-spacing:-.01em;max-width:22ch}
-h3{font-size:1.3rem;line-height:1.25}
-.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:62ch;margin:22px 0 0}
-.mt{margin-top:44px}
+h2{font-size:clamp(2rem,4.2vw,3.25rem);line-height:1.08;letter-spacing:-.01em;max-width:24ch}
+h3{font-size:1.45rem;line-height:1.2}
+h4{font-family:var(--sans);font-size:1rem;font-weight:700}
+.lede{font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:66ch;margin:22px 0 0}
+.mt{margin-top:48px}.mt-s{margin-top:24px}
+p{margin:0 0 12px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
 
 /* hero */
-.hero{padding-top:96px;padding-bottom:96px}
-.hero .when{display:inline-flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.hero{padding-top:100px;padding-bottom:100px;position:relative;overflow:hidden}
+.hero .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 80% 20%,#000 0%,transparent 60%);pointer-events:none}
+.hero .wrap{position:relative}
+.when{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
 .chip{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:8px 16px;font:600 14px var(--sans);color:var(--ink)}
 .chip.gold{color:var(--gold);border-color:var(--gold-line)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
 .stat b{display:block;font:600 2.5rem/1 var(--disp);color:var(--ink);margin-bottom:8px}
-.stat span{font-size:14px;color:var(--muted)}
+.stat span{font-size:14px;color:var(--muted);line-height:1.4;display:block}
+.logos-strip{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:44px;opacity:.85}
+.logos-strip img{height:26px;width:auto}
+.logos-strip span{font:600 13px var(--mono);color:var(--muted)}
 
 /* toc */
-.toc{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;counter-reset:t}
-.toc li{border-top:1px solid var(--line);padding:14px 0;display:flex;gap:16px;align-items:baseline}
+.toc{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0 32px;counter-reset:t}
+.toc li{border-top:1px solid var(--line);padding:14px 0;display:flex;gap:14px;align-items:baseline}
 .toc li::before{counter-increment:t;content:counter(t,decimal-leading-zero);font:600 13px var(--mono);color:var(--gold)}
 .toc a{color:var(--ink);text-decoration:none;font-weight:600}
 .toc a:hover{color:var(--decupler)}
@@ -82,70 +100,151 @@ h3{font-size:1.3rem;line-height:1.25}
 .grid{display:grid;gap:16px}
 .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
-.card h3{margin-bottom:8px}
-.card p{margin:0;font-size:15.5px}
-.card .k{font:600 12px var(--mono);color:var(--gold);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:10px}
-.card.seo{border-top:3px solid var(--seo)}.card.geo{border-top:3px solid var(--geo)}.card.good{border-top:3px solid var(--good)}.card.gold{border-top:3px solid var(--gold)}
+.card h3{margin-bottom:8px;font-size:1.3rem}
+.card p{margin:0 0 8px;font-size:15.5px}
+.card p:last-child{margin-bottom:0}
+.k{font:600 12px var(--mono);color:var(--gold);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:10px}
+.card.seo{border-top:3px solid var(--seo)}.card.geo{border-top:3px solid var(--geo)}.card.good{border-top:3px solid var(--good)}.card.gold{border-top:3px solid var(--gold)}.card.crit{border-top:3px solid var(--crit)}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+.callout{border-left:3px solid var(--gold);background:var(--gold-soft);padding:14px 18px;border-radius:0 10px 10px 0;color:var(--ink);font-size:15.5px;margin-top:20px}
+.callout.geo{border-color:var(--geo);background:var(--geo-soft)}
+.callout.crit{border-color:var(--crit);background:var(--crit-soft)}
+.callout.good{border-color:var(--good);background:var(--good-soft)}
+.ask{margin-top:22px;border-left:3px solid var(--gold);background:var(--gold-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px;color:var(--ink)}
+.ask::before{content:"Question au chat · ";font-weight:700;color:var(--gold)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.lnk{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line2);border-radius:8px;padding:8px 14px;font:600 14px var(--sans);color:var(--ink);text-decoration:none}
+.lnk:hover{border-color:var(--decupler);color:var(--decupler)}
+.lnk::after{content:"↗";color:var(--muted)}
 
 /* compare */
-table.cmp{width:100%;border-collapse:collapse;margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15.5px}
-.cmp th,.cmp td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
-.cmp thead th{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:var(--surface2)}
-.cmp td:first-child{color:var(--ink);font-weight:600;width:24%}
-.cmp td.no{color:var(--muted)}
-.cmp td.yes{color:var(--ink)}
-.cmp td.yes::before{content:"✓ ";color:var(--good);font-weight:700}
-.cmp tr:last-child td{border-bottom:0}
+table.dt{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+.dt th,.dt td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.dt thead th{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:var(--surface2)}
+.dt td:first-child{color:var(--ink);font-weight:600}
+.dt td.no{color:var(--muted)}
+.dt td.yes{color:var(--ink)}
+.dt td.yes::before{content:"✓ ";color:var(--good);font-weight:700}
+.dt tr:last-child td{border-bottom:0}
+.dt tr.you td{background:var(--gold-soft)}
+.dt .r{text-align:right;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;margin-top:28px;border-radius:12px}
 
-/* infra stack */
-.stack{display:grid;gap:10px;margin-top:40px}
-.layer{display:grid;grid-template-columns:200px 1fr auto;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--gold));border-radius:10px;padding:16px 20px}
-.layer b{color:var(--ink);font-family:var(--disp);font-size:1.15rem;font-weight:600}
-.layer span{font-size:15px}
-.layer code{font:600 13px var(--mono);color:var(--c,var(--gold));white-space:nowrap}
-pre,code{font-family:var(--mono)}
-pre.term{background:#1d1b22;color:#e9e6f2;border-radius:12px;padding:20px 22px;font-size:14.5px;line-height:1.7;overflow-x:auto;margin:0}
-pre.term .p{color:#d9825b}.pre-c{color:#8f8aa3}
-pre.term .c{color:#8f8aa3}
+/* code */
+.code{background:var(--term);border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(23,19,12,.14)}
+.code .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--term2);font:500 12.5px var(--mono);color:var(--termmu)}
+.code .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.code .bar i:nth-child(2){background:#febc2e}.code .bar i:nth-child(3){background:#28c840}
+.code .bar span{margin-left:8px}
+.code pre{margin:0;padding:18px 20px;color:var(--termtx);font:13.5px/1.7 var(--mono);overflow-x:auto;white-space:pre}
+.code .c{color:var(--termmu)}.code .s{color:#7ee0b0}.code .kw{color:#c3a6ff}.code .p{color:#e8956b}.code .y{color:#f2d17a}
 
-/* demos */
-.demo{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;align-items:start;margin-top:44px}
-.demo + .demo{margin-top:64px;padding-top:64px;border-top:1px dashed var(--line2)}
-.demo .tag{display:inline-block;font:700 12px var(--mono);letter-spacing:.06em;padding:5px 10px;border-radius:6px;background:var(--seo-soft);color:var(--seo);margin-bottom:14px}
-.demo .tag.geo{background:var(--geo-soft);color:var(--geo)}
-.demo .tag.good{background:var(--good-soft);color:var(--good)}
-.demo h3{font-size:1.75rem;margin-bottom:12px}
-.demo ul{padding-left:18px;margin:16px 0 0}.demo li{margin:6px 0}
-.ask{margin-top:20px;border-left:3px solid var(--gold);background:var(--gold-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px;color:var(--ink)}
-.ask::before{content:"Question au chat · ";font-weight:700;color:var(--gold)}
+/* infra flow */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:52px;position:relative}
+.fnode{position:relative;padding:0 8px;text-align:center}
+.fnode .dot{width:64px;height:64px;margin:0 auto 14px;border-radius:16px;background:var(--surface);border:1px solid var(--line2);display:grid;place-items:center;font:600 24px var(--disp);color:var(--ink);position:relative;z-index:2;transition:transform .3s,box-shadow .3s}
+.fnode.hot .dot{transform:scale(1.08);box-shadow:0 0 0 6px var(--geo-soft);border-color:var(--geo)}
+.fnode b{display:block;color:var(--ink);font-size:15px}
+.fnode small{display:block;color:var(--muted);font-size:13px;line-height:1.4;margin-top:4px}
+.flow::before{content:"";position:absolute;top:32px;left:8%;right:8%;height:2px;background:repeating-linear-gradient(90deg,var(--line2) 0 8px,transparent 8px 14px);z-index:1}
+.flow .pulse{position:absolute;top:27px;left:8%;width:12px;height:12px;border-radius:50%;background:var(--geo);box-shadow:0 0 0 6px var(--geo-soft);z-index:3;animation:travel 6s linear infinite}
+@keyframes travel{0%{left:8%}100%{left:91%}}
+.underbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:30px}
+.ub{border:1px dashed var(--line2);border-radius:12px;padding:14px 18px;font-size:14.5px;background:rgba(255,255,255,.5)}
+.ub b{color:var(--ink)}
+
+/* tabs */
+.tabs{margin-top:48px}
+.tablist{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tablist button{font:600 14px var(--sans);border:1px solid var(--line2);background:var(--surface);color:var(--body);padding:9px 16px;border-radius:99px;cursor:pointer}
+.tablist button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabpanel{display:none}
+.tabpanel.on{display:grid;grid-template-columns:1fr 1.25fr;gap:36px;align-items:start;animation:fadein .4s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tabpanel h3{margin-bottom:10px}
+.tabpanel ul{padding-left:18px;margin:10px 0 0}.tabpanel li{margin:5px 0;font-size:15.5px}
+
+/* hub */
+.hub{position:relative;height:800px;margin-top:40px}
+.hub svg{position:absolute;inset:0;width:100%;height:100%}
+.hub svg line{stroke:var(--line2);stroke-width:1.5;stroke-dasharray:4 6;animation:dash 1.2s linear infinite}
+.hub svg line.g1{stroke:var(--seo)}.hub svg line.g2{stroke:var(--gold)}.hub svg line.g3{stroke:var(--geo)}.hub svg line.g4{stroke:var(--good)}.hub svg line.g5{stroke:var(--crit)}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.hnode{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;width:120px;text-align:center}
+.hnode .ic{width:54px;height:54px;border-radius:14px;background:var(--surface);border:1px solid var(--line2);display:grid;place-items:center;box-shadow:0 6px 18px rgba(23,19,12,.07);transition:transform .2s}
+.hnode:hover .ic{transform:scale(1.1)}
+.hnode .ic img{width:28px;height:28px}
+.hnode .ic .mono{font:800 15px var(--sans);color:var(--ink)}
+.hnode b{font:600 13px var(--sans);color:var(--ink);line-height:1.2}
+.hnode small{font-size:11.5px;color:var(--muted);line-height:1.3}
+.hcenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 0 0 14px rgba(24,21,16,.06),0 0 0 28px rgba(24,21,16,.03)}
+.hcenter img{width:36px;height:36px;margin:0 auto 6px;filter:none}
+.hcenter b{font:600 16px var(--disp)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:13.5px}
+.legend span::before{content:"";display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:7px;vertical-align:3px;background:var(--c)}
+.hublist{display:none}
+
+/* demo steps */
+.demo-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpi b{display:block;font:600 1.9rem/1.05 var(--disp);color:var(--ink)}
+.kpi span{font-size:13.5px;color:var(--muted);line-height:1.35;display:block;margin-top:6px}
+.kpi.crit b{color:var(--crit)}.kpi.good b{color:var(--good)}.kpi.geo b{color:var(--geo)}
+.steps{list-style:none;margin:48px 0 0;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--geo))}
+.step{position:relative;padding:0 0 44px 70px}
+.step:last-child{padding-bottom:0}
+.step .n{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--surface);border:2px solid var(--gold);display:grid;place-items:center;font:700 15px var(--mono);color:var(--gold);z-index:1}
+.step h3{font-size:1.35rem;margin:6px 0 8px}
+.step .row{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:start;margin-top:14px}
+.step .row.full{grid-template-columns:1fr}
+.step ul{padding-left:18px;margin:8px 0}.step li{margin:4px 0;font-size:15.5px}
+.quote{font:italic 500 1.08rem/1.5 var(--disp);color:var(--ink);border-left:3px solid var(--geo);padding:4px 0 4px 16px;margin:10px 0}
 figure{margin:0}
-figure img{border-radius:12px;border:1px solid var(--line);box-shadow:0 14px 40px rgba(23,19,12,.09);cursor:zoom-in;background:var(--surface)}
+figure img{border-radius:12px;border:1px solid var(--line);box-shadow:0 14px 40px rgba(23,19,12,.1);cursor:zoom-in;background:var(--surface);width:100%}
 figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.5}
 .shots{display:grid;gap:18px}
+.shots.two{grid-template-columns:1fr 1fr}
 
-/* wall */
-.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.wall .card{display:flex;flex-direction:column}
-.wall .card p{flex:1}
-.wall .card .src{margin-top:14px;font:500 12.5px var(--mono);color:var(--muted)}
+/* rules bars */
+.bars{display:grid;gap:10px;margin-top:20px}
+.barrow{display:grid;grid-template-columns:190px 1fr 46px;gap:12px;align-items:center;font-size:14.5px}
+.barrow b{color:var(--ink)}
+.barrow .track{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.barrow .fill{height:100%;width:0;border-radius:99px;background:var(--c,var(--geo));transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.barrow .v{font:600 14px var(--mono);color:var(--ink);text-align:right}
+.score{display:flex;gap:16px;align-items:center;margin-top:18px;flex-wrap:wrap}
+.gauge{width:120px;height:120px;position:relative}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:10}
+.gauge .bgc{stroke:var(--surface2)}
+.gauge .fg{stroke:var(--c);stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1)}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font:600 2rem var(--disp);color:var(--ink)}
+.gauge-l{font-size:14px;color:var(--muted);text-align:center;margin-top:4px}
+.arrow{font:600 2rem var(--disp);color:var(--muted)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.ba .card{font-size:15px}
+.ba .card.before{border-top:3px solid var(--crit)}.ba .card.after{border-top:3px solid var(--good)}
+.tag{display:inline-block;font:700 11.5px var(--mono);letter-spacing:.05em;padding:3px 8px;border-radius:5px;margin-right:4px}
+.tag.ok{background:var(--good-soft);color:var(--good)}.tag.ko{background:var(--crit-soft);color:var(--crit)}.tag.pa{background:var(--warn-soft);color:var(--warn)}
+
+/* pipeline chips */
+.pipe{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;align-items:stretch}
+.pipe div{flex:1 1 130px;background:var(--surface);border:1px solid var(--line);padding:14px 16px;position:relative;font-size:14px;min-height:96px}
+.pipe div:first-child{border-radius:12px 0 0 12px}.pipe div:last-child{border-radius:0 12px 12px 0}
+.pipe div b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:4px}
+.pipe div i{font:600 11.5px var(--mono);color:var(--gold);font-style:normal;display:block;margin-bottom:6px}
+.pipe div.on{background:var(--ink);color:#d8d2c2}.pipe div.on b{color:#fff}
 
 /* results */
 .res{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center;margin-top:44px}
 .res + .res{margin-top:56px}
-.kpis{display:grid;gap:12px}
-.kpi{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--good);border-radius:10px;padding:14px 18px}
-.kpi b{color:var(--ink);font:600 1.6rem var(--disp);margin-right:6px}
-.kpi.old{border-left-color:var(--muted)}
-.note{font-size:14px;color:var(--muted);margin-top:14px}
-
-/* mcp */
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.pill{background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:5px 12px;font:600 13.5px var(--sans);color:var(--ink)}
-.pill i{font-style:normal;color:var(--muted);font-weight:500}
+.rk{display:grid;gap:12px}
+.rk .kpi b{font-size:1.6rem}
 
 /* sop */
 .sop{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px;counter-reset:s}
-.sop li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:34px 1fr;gap:6px 10px}
+.sop li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:34px 1fr;gap:4px 10px}
 .sop li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:700 13px var(--mono);color:var(--gold);grid-row:span 2;padding-top:3px}
 .sop b{color:var(--ink)}
 .sop span{font:500 12.5px var(--mono);color:var(--muted)}
@@ -162,12 +261,12 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.5}
 .prog h2,.prog h3{color:#fff}
 .prog .eyebrow{color:#d9a24a}
 .prog .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#d8d2c2}
-.prog .card .k{color:#d9a24a}
+.prog .k{color:#d9a24a}
 .prog .lede{color:#d8d2c2}
+.prog code{background:rgba(255,255,255,.1);color:#fff}
 .deadline{margin-top:36px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 .btn{display:inline-block;background:#fff;color:var(--ink);text-decoration:none;font:700 16px var(--sans);padding:15px 26px;border-radius:10px}
 .btn:hover{background:#f1e7d1}
-.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
 .dl{font:600 14px var(--mono);color:#d9a24a}
 
 /* footer */
@@ -179,22 +278,27 @@ footer{padding:56px 24px 72px}
 .legal{max-width:var(--maxw);margin:28px auto 0;font-size:13px;color:var(--muted)}
 
 /* lightbox */
-.lb{position:fixed;inset:0;background:rgba(24,21,16,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+.lb{position:fixed;inset:0;background:rgba(24,21,16,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
 .lb.on{display:flex}
 .lb img{max-height:94vh;max-width:96vw;border-radius:10px}
 .keys{position:fixed;right:16px;bottom:16px;z-index:15;font:500 12px var(--mono);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
 
-/* présentation : une section = un écran */
-body.present .slide{min-height:100vh;display:flex;align-items:center}
-body.present .slide>.wrap{width:100%}
-body.present{scroll-snap-type:y proximity}
-body.present .slide{scroll-snap-align:start}
-
-@media (max-width:900px){
-  .stats,.g4{grid-template-columns:repeat(2,1fr)}
-  .g3,.wall,.qa{grid-template-columns:1fr 1fr}
-  .demo,.res{grid-template-columns:1fr;gap:28px}
-  .layer{grid-template-columns:1fr;gap:6px}
+body.present .slide{min-height:100vh}
+@media (max-width:980px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .toc{grid-template-columns:1fr 1fr}
+  .g3,.qa{grid-template-columns:1fr 1fr}
+  .g4,.kpis{grid-template-columns:repeat(2,1fr)}
+  .tabpanel.on,.step .row,.demo-head,.res{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(3,1fr);row-gap:28px}
+  .flow::before,.flow .pulse{display:none}
+  .underbar{grid-template-columns:1fr}
+  .hub{display:none}
+  .hublist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
+  .hublist div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:center;font-size:14px}
+  .hublist img{width:22px;height:22px}
+  .hublist b{color:var(--ink);display:block}
+  .top nav{display:none}
   .keys{display:none}
 }
 @media (max-width:620px){
@@ -202,300 +306,912 @@ body.present .slide{scroll-snap-align:start}
   .slide{padding:64px 16px}
   .top .in{padding:10px 16px}
   .top .meta{display:none}
-  .toc,.sop,.g2,.g3,.wall,.qa{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
-  .cmp{font-size:14px}.cmp th,.cmp td{padding:10px 12px}
+  .toc,.sop,.g2,.g3,.qa,.ba,.shots.two,.hublist{grid-template-columns:1fr}
+  .kpis,.g4{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .step{padding-left:56px}
+  .steps::before{left:17px}
+  .step .n{width:36px;height:36px;font-size:13px}
+  .barrow{grid-template-columns:1fr 50px}
+  .barrow .track{grid-column:1/3;grid-row:2}
   .author{flex-direction:column;align-items:flex-start}
+  .pipe div{flex-basis:100%;border-radius:0!important}
+  .pipe div:first-child{border-radius:12px 12px 0 0!important}.pipe div:last-child{border-radius:0 0 12px 12px!important}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.top .live{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .top .live,.flow .pulse,.hub svg line{animation:none}
+}
 </style>
 </head>
-<body>
+<body class="no-js">
 
 <header class="top">
   <div class="in">
     <a class="decupler" href="#debut">Décupler</a>
-    <span class="meta"><span class="live"></span>Masterclass live · jeudi 8 octobre 2026 · 12h30</span>
+    <nav aria-label="Sections">
+      <a href="#infra">Infra</a><a href="#mcp">MCP</a><a href="#brief">Brief</a><a href="#refonte">Refonte</a><a href="#geoready">GEO Ready</a><a href="#moulinette">Moulinette</a><a href="#audit">Audit</a><a href="#carto">Carto</a><a href="#pilotage">Pilotage</a><a href="#wordpress">WordPress</a><a href="#sites">Sites</a><a href="#acquisition">Acquisition</a><a href="#resultats">Résultats</a>
+    </nav>
+    <span class="meta"><span class="live"></span>Live · jeu. 8 oct. · 12h30</span>
   </div>
   <div class="progress" id="progress"></div>
 </header>
 
 <main>
 
-<!-- 00 · HERO -->
+<!-- HERO -->
 <section class="slide hero" id="debut">
+  <div class="grid-bg"></div>
   <div class="wrap">
-    <p class="eyebrow">15 mois de SEO avec Claude Code</p>
+    <p class="eyebrow">15 mois de SEO avec Claude Code · masterclass live</p>
     <h1>Produire <em>10x plus vite</em> en SEO&nbsp;/&nbsp;<span class="g">GEO</span> avec Claude Code</h1>
-    <p class="lede">Pas un chatbot de plus : une infra. Des skills, des agents et des MCP branchés sur Search Console, GA4, Notion et WordPress. Je vous montre mon vrai écran, mes vrais outils, mes vrais résultats.</p>
+    <p class="lede">Pas un chatbot de plus : une infra. Je démonte devant vous chaque outil que j'utilise au quotidien, avec les vrais fichiers, la vraie config, les vrais livrables clients, et les chiffres tels qu'ils sont.</p>
     <div class="when">
       <span class="chip gold">Jeudi 8 octobre · 12h30 – 13h30</span>
       <span class="chip">100 % live · Google Meet</span>
       <span class="chip">Vos questions en direct</span>
     </div>
     <div class="stats">
-      <div class="stat"><b>15+</b><span>mois de SEO au quotidien avec Claude Code</span></div>
-      <div class="stat"><b>50</b><span>skills SEO/GEO dans <code>decupler-seo</code></span></div>
-      <div class="stat"><b>87</b><span>pré-audits GEO publiés par la moulinette</span></div>
-      <div class="stat"><b>15</b><span>agents spécialisés qui travaillent en parallèle</span></div>
+      <div class="stat rv"><b data-count="15">15</b><span>mois de SEO au quotidien avec Claude Code</span></div>
+      <div class="stat rv"><b data-count="50">50</b><span>skills SEO/GEO dans <code>decupler-seo</code></span></div>
+      <div class="stat rv"><b data-count="15">15</b><span>agents spécialisés en parallèle</span></div>
+      <div class="stat rv"><b data-count="13">13</b><span>MCP branchés (GSC, GA4, Notion…)</span></div>
+      <div class="stat rv"><b data-count="85">85</b><span>pré-audits GEO publiés par la moulinette</span></div>
+    </div>
+    <div class="logos-strip" aria-label="Outils branchés">
+      <img src="assets/logos/claude.svg" alt="Claude"><img src="assets/logos/googlesearchconsole.svg" alt="Search Console"><img src="assets/logos/googleanalytics.svg" alt="Google Analytics"><img src="assets/logos/notion.svg" alt="Notion"><img src="assets/logos/wordpress.svg" alt="WordPress"><img src="assets/logos/openai.svg" alt="OpenAI"><img src="assets/logos/googlegemini.svg" alt="Gemini"><img src="assets/logos/perplexity.svg" alt="Perplexity"><img src="assets/logos/obsidian.svg" alt="Obsidian"><img src="assets/logos/github.svg" alt="GitHub"><span>+ Ubersuggest · DataForSEO · Firecrawl · Semrush</span>
     </div>
   </div>
 </section>
 
-<!-- 01 · SOMMAIRE -->
-<section class="slide" id="sommaire">
+<!-- SOMMAIRE -->
+<section class="slide alt" id="sommaire">
   <div class="wrap">
     <p class="num">01 · Sommaire</p>
-    <h2>Une heure, zéro théorie inutile</h2>
+    <h2>Une heure, et tout est montré de l'intérieur</h2>
     <ol class="toc">
-      <li><a href="#pourquoi">Claude ≠ Claude Code<small>pourquoi c'est 10x plus fort qu'un chat</small></a></li>
-      <li><a href="#infra">L'infra<small>skills, agents, MCP, routines</small></a></li>
-      <li><a href="#demos">5 démos en direct<small>brief · audit de page · CMS · visibilité IA · vibe-coding</small></a></li>
-      <li><a href="#usecases">Le mur des use cases<small>tout ce qui tourne déjà chez moi</small></a></li>
-      <li><a href="#resultats">Les résultats<small>Search Console, sans filtre</small></a></li>
-      <li><a href="#mcp">Les MCP SEO et design<small>ce que je branche, et pourquoi</small></a></li>
-      <li><a href="#sop">Les 14 SOP + le livre blanc<small>le bonus des présents</small></a></li>
-      <li><a href="#questions">Vos questions<small>sur votre site, votre process</small></a></li>
+      <li><a href="#pourquoi">Claude ≠ Claude Code<small>pourquoi c'est 10x plus fort</small></a></li>
+      <li><a href="#infra">L'anatomie de l'infra<small>mémoire, skills, agents, MCP, routines, hooks</small></a></li>
+      <li><a href="#mcp">La carte des MCP<small>ce qui est branché, et à quoi</small></a></li>
+      <li><a href="#brief">Démo · le brief SEO/GEO<small>SERP réelle, top 5 analysé</small></a></li>
+      <li><a href="#refonte">Démo · une page qui rank mal<small>Motralec, de 21e au plan de refonte</small></a></li>
+      <li><a href="#geoready">Démo · GEO Ready<small>26 règles, un score, une réécriture</small></a></li>
+      <li><a href="#moulinette">Démo · la moulinette<small>85 pré-audits GEO, publiés seuls</small></a></li>
+      <li><a href="#audit">L'audit GEO complet<small>orators.fr, 12 onglets</small></a></li>
+      <li><a href="#carto">Cartographie & topical map<small>Notion, priorisée en euros</small></a></li>
+      <li><a href="#pilotage">Pilotage & reporting<small>la routine du vendredi</small></a></li>
+      <li><a href="#wordpress">WordPress & indexation<small>plugins maison, API REST</small></a></li>
+      <li><a href="#sites">Sites générés par IA<small>avant / après</small></a></li>
+      <li><a href="#acquisition">Acquisition<small>setting LinkedIn, cold mail</small></a></li>
+      <li><a href="#resultats">Résultats Search Console<small>sans filtre</small></a></li>
+      <li><a href="#sop">14 SOP + livre blanc<small>le bonus des présents</small></a></li>
     </ol>
-    <div class="stay"><b>Vous voulez créer votre premier projet Claude Code × SEO&nbsp;?</b> Après les questions, je présente en quelques minutes le programme d'accompagnement en petit groupe. Ceux que ça intéresse restent, les autres repartent avec tout le reste. Le livre blanc et les ressources sont envoyés à tous.</div>
+    <div class="stay"><b>Vous voulez créer votre premier projet Claude Code × SEO&nbsp;?</b> Après les questions, je présente en quelques minutes le programme d'accompagnement en petit groupe. Ceux que ça intéresse restent ; le livre blanc et les ressources sont envoyés à tous.</div>
   </div>
 </section>
 
-<!-- 02 · POURQUOI -->
+<!-- POURQUOI -->
 <section class="slide" id="pourquoi">
   <div class="wrap">
     <p class="num">02 · Claude ≠ Claude Code</p>
     <h2>Un chat vous <em>répond</em>. Claude Code <span class="g">travaille</span>.</h2>
-    <p class="lede">Même modèle, autre métier. Dans un chat, vous faites des allers-retours de copier-coller. Dans Claude Code, l'IA a les mains sur vos fichiers, vos données et vos outils.</p>
-    <table class="cmp">
-      <thead><tr><th></th><th>Claude « classique » (chat)</th><th>Claude Code</th></tr></thead>
+    <p class="lede">Même modèle, autre métier. Dans un chat, vous faites des allers-retours de copier-coller. Dans Claude Code, l'IA a les mains sur vos fichiers, vos données et vos outils, et elle garde la mémoire du projet.</p>
+    <div class="tablewrap rv">
+    <table class="dt">
+      <thead><tr><th></th><th>Claude « classique » (chat)</th><th>Claude Code</th><th>Exemple réel plus bas</th></tr></thead>
       <tbody>
-        <tr><td>Données</td><td class="no">vous collez un export Search Console</td><td class="yes">lit GSC, GA4, Ubersuggest en direct via MCP</td></tr>
-        <tr><td>Fichiers</td><td class="no">un texte à copier à la main</td><td class="yes">écrit les pages, le JSON-LD, les rapports, dans le dépôt</td></tr>
-        <tr><td>Mémoire</td><td class="no">repart de zéro à chaque conversation</td><td class="yes"><code>CLAUDE.md</code> : le contexte client, les décisions, ce qui a marché</td></tr>
-        <tr><td>Méthode</td><td class="no">un prompt à retaper</td><td class="yes">des skills : la même méthode, rejouée à l'identique sur chaque client</td></tr>
-        <tr><td>Volume</td><td class="no">une page à la fois</td><td class="yes">des agents en parallèle : 8 spécialistes sur un audit, 50 sites dans une moulinette</td></tr>
-        <tr><td>Publication</td><td class="no">copier-coller dans WordPress</td><td class="yes">publie via l'API, remplit Yoast, demande l'indexation</td></tr>
-        <tr><td>Régularité</td><td class="no">quand vous y pensez</td><td class="yes">routines planifiées : le pilotage tourne chaque semaine, sans vous</td></tr>
+        <tr><td>Données</td><td class="no">vous collez un export Search Console</td><td class="yes">lit GSC, GA4, DataForSEO en direct via MCP</td><td><a href="#pilotage">quick wins de la semaine</a></td></tr>
+        <tr><td>Fichiers</td><td class="no">un texte à recopier</td><td class="yes">écrit les pages, le JSON-LD, les rapports, dans le dépôt</td><td><a href="#refonte">page Motralec corrigée</a></td></tr>
+        <tr><td>Mémoire</td><td class="no">repart de zéro</td><td class="yes"><code>CLAUDE.md</code> + dossier <code>memoire/</code> relus à chaque session</td><td><a href="#infra">mémoire de decupler.com</a></td></tr>
+        <tr><td>Méthode</td><td class="no">un prompt à retaper</td><td class="yes">des skills : la même méthode rejouée à l'identique</td><td><a href="#geoready">référentiel GEO Ready</a></td></tr>
+        <tr><td>Volume</td><td class="no">une page à la fois</td><td class="yes">7 agents en parallèle sur un audit, 50 sites dans un lot</td><td><a href="#moulinette">1 500 réponses d'IA</a></td></tr>
+        <tr><td>Publication</td><td class="no">copier-coller dans WordPress</td><td class="yes">API REST, Yoast, brouillon + sauvegarde + journal</td><td><a href="#wordpress">plugins maison</a></td></tr>
+        <tr><td>Régularité</td><td class="no">quand vous y pensez</td><td class="yes">routine cloud chaque vendredi, ordinateur éteint</td><td><a href="#pilotage">routine hebdo</a></td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
-<!-- 03 · INFRA -->
-<section class="slide" id="infra">
+<!-- INFRA -->
+<section class="slide alt" id="infra">
   <div class="wrap">
-    <p class="num">03 · L'infra</p>
-    <h2>Le vrai levier, ce n'est pas le prompt. C'est <em>l'infra</em>.</h2>
-    <p class="lede">Tout ce que je fais tient dans un dépôt Git par activité et par client. Cinq couches, toujours les mêmes :</p>
-    <div class="stack">
-      <div class="layer" style="--c:var(--gold)"><b>Mémoire</b><span>Un <code>CLAUDE.md</code> par projet : domaine, marché, concurrents, ton, accès, décisions passées. Claude reprend là où on s'est arrêté.</span><code>CLAUDE.md</code></div>
-      <div class="layer" style="--c:var(--seo)"><b>Skills</b><span>La méthode écrite une fois : brief, rédaction, maillage, JSON-LD, audit GEO… Une compétence = un dossier avec ses règles et ses scripts.</span><code>.claude/skills/</code></div>
-      <div class="layer" style="--c:var(--geo)"><b>Agents</b><span>Des spécialistes (technique, contenu, SERP, schema, netlinking…) lancés en parallèle puis consolidés par un manager.</span><code>agents/</code></div>
-      <div class="layer" style="--c:var(--good)"><b>MCP</b><span>Les branchements : Search Console, GA4, Ubersuggest, DataForSEO, Firecrawl, Notion, WordPress, Chrome.</span><code>.mcp.json</code></div>
-      <div class="layer" style="--c:var(--crit)"><b>Routines</b><span>Le pilotage qui tourne seul : quick wins de la semaine, reporting mensuel, suivi des citations IA, indexation.</span><code>cron</code></div>
+    <p class="num">03 · L'anatomie de l'infra</p>
+    <h2>Le levier, ce n'est pas le prompt. C'est <em>l'infra</em>.</h2>
+    <p class="lede">Voici ce qui se passe réellement quand je tape <code>/seo audit monsite.fr</code>. Sept couches, chacune est un simple fichier texte dans un dépôt Git.</p>
+
+    <div class="flow rv" id="flow">
+      <span class="pulse"></span>
+      <div class="fnode"><div class="dot">›_</div><b>Vous</b><small>une phrase ou <code>/seo audit</code></small></div>
+      <div class="fnode"><div class="dot">/</div><b>Commande</b><small><code>commands/seo-audit.md</code> lance le skill</small></div>
+      <div class="fnode"><div class="dot">✦</div><b>Skill</b><small><code>seo-audit-360</code> : la méthode écrite</small></div>
+      <div class="fnode"><div class="dot">×7</div><b>Agents</b><small>technique, perf, contenu, crawl, schema, GEO, data… en parallèle</small></div>
+      <div class="fnode"><div class="dot">⇄</div><b>MCP + scripts</b><small>GSC, DataForSEO, Chrome, <code>crawl_site.py</code>…</small></div>
+      <div class="fnode"><div class="dot">✓</div><b>Livrable</b><small>score /100, 5 actions critiques max</small></div>
     </div>
-    <div class="grid g2 mt">
-      <div class="card gold">
-        <span class="k">Open source · public</span>
-        <h3>decupler-seo : ma méthode en plugin</h3>
-        <p>50 skills, 15 agents, 30 scripts Python, 13 MCP préconfigurés, 310 tests. Installable en deux commandes, en français.</p>
+    <div class="underbar rv">
+      <div class="ub"><b>Mémoire, en dessous de tout</b> · <code>CLAUDE.md</code> et <code>memoire/</code> sont lus avant chaque session : marque, décisions, pièges déjà payés.</div>
+      <div class="ub"><b>Hook, avant toute écriture</b> · <code>garde-fou.sh</code> intercepte publication WordPress, robots.txt, redirections, emails : autorise, demande, ou bloque.</div>
+      <div class="ub"><b>Routine, quand vous n'êtes pas là</b> · le même enchaînement, lancé seul chaque vendredi à 7h07 dans le cloud.</div>
+    </div>
+
+    <div class="tabs rv" id="anatomy">
+      <div class="tablist" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="t-mem">Mémoire</button>
+        <button role="tab" aria-selected="false" data-tab="t-skill">Skill</button>
+        <button role="tab" aria-selected="false" data-tab="t-agent">Agent</button>
+        <button role="tab" aria-selected="false" data-tab="t-cmd">Commande + hook</button>
+        <button role="tab" aria-selected="false" data-tab="t-mcp">MCP</button>
+        <button role="tab" aria-selected="false" data-tab="t-routine">Routine</button>
+        <button role="tab" aria-selected="false" data-tab="t-repo">Le plugin</button>
       </div>
-      <pre class="term"><span class="c"># dans Claude Code</span>
-<span class="p">&gt;</span> /plugin marketplace add NathanFenina/decupler-seo
+
+      <div class="tabpanel on" id="t-mem" role="tabpanel">
+        <div>
+          <span class="k">Couche 1 · Mémoire</span>
+          <h3>Claude reprend là où on s'est arrêté</h3>
+          <p>Un <code>CLAUDE.md</code> par projet, chargé au début de chaque session et de chaque routine. Il ne raconte pas l'actualité : il pointe vers <code>memoire/</code>, où vit l'état réel du site.</p>
+          <ul>
+            <li><code>passation.md</code> : le contexte laissé par la dernière conversation</li>
+            <li><code>decisions.md</code> : ce qui a été tranché, et pourquoi</li>
+            <li><code>lecons-techniques.md</code> : les pièges déjà payés (wpautop, Elementor…)</li>
+            <li><code>cartographie.csv</code> : une ligne par page, mot-clé et prompt. Elle fait foi.</li>
+          </ul>
+          <p class="note">Ajoutez Obsidian comme second cerveau : Claude y retrouve vos briefs et URL publiées sans que vous les recolliez.</p>
+        </div>
+        <figure><img src="assets/infra-06-memoire.jpg" alt="CLAUDE.md de decupler.com, section mémoire du projet et liste des fichiers du dossier memoire" loading="lazy"><figcaption>Le <code>CLAUDE.md</code> réel de decupler.com et son dossier <code>memoire/</code>.</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-skill" role="tabpanel">
+        <div>
+          <span class="k">Couche 2 · Skill</span>
+          <h3>Une méthode écrite une fois, rejouée partout</h3>
+          <p>Un dossier avec un <code>SKILL.md</code> : un nom, une <b>description qui déclenche</b> (« audit », « checkup SEO »…), puis la méthode noir sur blanc, et ses scripts. Claude le charge quand votre demande correspond.</p>
+          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>skills/seo-audit-360/SKILL.md</span></div><pre><span class="c">---</span>
+<span class="kw">name</span>: seo-audit-360
+<span class="kw">description</span>: >
+  Audit SEO complet d'un site : crawl, technique, contenu,
+  E-E-A-T, schema, performance, maillage, visibilité IA.
+  Orchestre les agents spécialisés en parallèle, agrège
+  en un score de santé /100 … Déclencher sur "audit",
+  "audite mon site", "checkup SEO", "bilan SEO", …
+<span class="c">---</span>
+<span class="y"># Audit 360 — le point d'entrée de tout</span>
+Vous êtes le chef d'orchestre. Vous ne faites pas l'analyse
+vous-même : vous collectez les faits, vous déléguez aux
+spécialistes, vous agrégez, vous priorisez.</pre></div>
+        </div>
+        <figure><img src="assets/infra-02-skill.jpg" alt="Fichier SKILL.md du skill seo-audit-360 ouvert dans un éditeur" loading="lazy"><figcaption>50 skills dans le plugin : brief, rédaction, maillage, schema, GEO, migration, netlinking…</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-agent" role="tabpanel">
+        <div>
+          <span class="k">Couche 3 · Agents</span>
+          <h3>15 spécialistes, avec leurs propres outils</h3>
+          <p>Un agent = un fichier avec son rôle, ses règles et la liste des outils auxquels il a droit. Le skill les appelle <b>en parallèle</b> : c'est ce qui fait passer un audit d'une quarantaine de minutes à quelques-unes.</p>
+          <ul>
+            <li><b>seo-technique</b>, <b>seo-performance</b>, <b>seo-crawler</b> : indexabilité, Core Web Vitals, architecture</li>
+            <li><b>seo-contenu</b>, <b>seo-redacteur</b>, <b>seo-serp</b> : qualité, rédaction, intention réelle</li>
+            <li><b>seo-schema</b>, <b>seo-geo</b> : JSON-LD, citabilité par les IA</li>
+            <li><b>seo-data</b> : GSC, GA4, DataForSEO, la source de vérité chiffrée</li>
+            <li><b>seo-manager</b> : pilote un projet, utilisé par les routines</li>
+          </ul>
+          <div class="callout">Règles communes aux 15 : jamais de chiffre inventé, chaque constat avec son correctif exact, 5 items critiques maximum.</div>
+        </div>
+        <figure><img src="assets/infra-03-agent.jpg" alt="Fichier de l'agent seo-manager : outils autorisés et ordre de priorité" loading="lazy"><figcaption>L'agent <code>seo-manager</code> : il décide sur les chiffres, dans un ordre fixe (blocage technique → mesures échues → positions 4-20 → maillage → contenu neuf).</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-cmd" role="tabpanel">
+        <div>
+          <span class="k">Couches 4 et 5 · Commande + hook</span>
+          <h3>Un raccourci pour lancer, un garde-fou pour écrire</h3>
+          <p>La <b>commande slash</b> <code>/seo audit</code> tient en 5 lignes : elle lance le skill et nomme les agents à paralléliser.</p>
+          <p>Le <b>hook</b> est exécuté par Claude Code lui-même, avant chaque commande. S'il reconnaît une écriture (publication WordPress, robots.txt, redirection, email, post Reddit), il la passe à <code>guard.py</code> qui autorise, demande validation, ou bloque.</p>
+          <div class="callout crit">C'est ce qui permet de laisser tourner Claude sur un site client sans dormir avec un œil ouvert.</div>
+        </div>
+        <figure><img src="assets/infra-04-commande-hook.jpg" alt="Commande seo-audit.md à gauche et hook garde-fou.sh à droite" loading="lazy"><figcaption>À gauche la commande, à droite le hook <code>PreToolUse</code> : code de sortie 2 = action bloquée.</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-mcp" role="tabpanel">
+        <div>
+          <span class="k">Couche 6 · MCP</span>
+          <h3>Les branchements vers vos outils</h3>
+          <p>Un MCP est un connecteur. Il se déclare dans <code>.mcp.json</code> avec son rôle ; les clés restent dans des variables d'environnement, jamais dans le dépôt.</p>
+          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>.mcp.json (extrait)</span></div><pre><span class="s">"search-console"</span>: {
+  <span class="s">"_role"</span>: <span class="y">"LA source de vérité : impressions,
+    clics, CTR, positions réelles, couverture
+    d'index. 16 mois d'historique max."</span>,
+  <span class="s">"command"</span>: <span class="y">"npx"</span>,
+  <span class="s">"args"</span>: [<span class="y">"-y"</span>, <span class="y">"mcp-server-gsc"</span>],
+  <span class="s">"env"</span>: {
+    <span class="s">"GOOGLE_APPLICATION_CREDENTIALS"</span>: <span class="y">"${GSC_CREDENTIALS_JSON}"</span>,
+    <span class="s">"GSC_SITE_URL"</span>: <span class="y">"${GSC_SITE_URL}"</span>
+  }
+}</pre></div>
+        </div>
+        <figure><img src="assets/infra-05-mcp.jpg" alt="Fichier .mcp.json avec DataForSEO, Ahrefs, Semrush et les clés en variables" loading="lazy"><figcaption>13 MCP préconfigurés, aucune clé dans le fichier. La carte complète est juste en dessous.</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-routine" role="tabpanel">
+        <div>
+          <span class="k">Couche 7 · Routine</span>
+          <h3>Le SEO qui tourne quand vous n'êtes pas là</h3>
+          <p>Une routine est une session Claude Code planifiée dans le cloud, sur un dépôt. Son prompt fait 3 lignes : il dit d'aller lire la méthode dans le dépôt. Améliorer la routine = modifier un fichier.</p>
+          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>prompt de la routine « hebdo (vendredi) » · 7h07</span></div><pre>Routine de <span class="y">hebdo</span> de Décupler. Commence par
+<span class="s">`git fetch origin main`</span>, puis lis les instructions
+à jour avec <span class="s">`git show origin/main:routines/hebdo.md`</span>
+et suis-les à la lettre, étape par étape.</pre></div>
+          <p class="note">Une routine cloud ne charge pas les plugins : chaque site a donc son propre dépôt, avec la méthode copiée dans <code>.claude/</code> et sa propre mémoire.</p>
+        </div>
+        <figure><img src="assets/pilotage-01-routine.jpg" alt="ROUTINES.md et routines/hebdo.md : prompt court et étapes de la routine" loading="lazy"><figcaption>La routine du vendredi : prompt court, méthode versionnée dans le dépôt. Détail dans <a href="#pilotage">Pilotage</a>.</figcaption></figure>
+      </div>
+
+      <div class="tabpanel" id="t-repo" role="tabpanel">
+        <div>
+          <span class="k">Tout assemblé · open source</span>
+          <h3>decupler-seo : toute la méthode en plugin</h3>
+          <p>50 skills, 15 agents, 15 commandes <code>/seo</code>, 30 scripts Python (cœur sans dépendance), 13 MCP préconfigurés, 2 hooks optionnels, 310 tests. Licence MIT, en français.</p>
+          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>dans Claude Code</span></div><pre><span class="p">&gt;</span> /plugin marketplace add NathanFenina/decupler-seo
 <span class="p">&gt;</span> /plugin install decupler-seo@decupler
 <span class="p">&gt;</span> /seo doctor
-<span class="c"># ce qui est branché, ce qui manque, la 1re action utile</span></pre>
-    </div>
-  </div>
-</section>
-
-<!-- 04 · DEMOS -->
-<section class="slide" id="demos">
-  <div class="wrap">
-    <p class="num">04 · 5 démos en direct</p>
-    <h2>Ce que vous allez me voir faire, <em>maintenant</em></h2>
-
-    <div class="demo">
-      <div>
-        <span class="tag">DÉMO 1 · BRIEF</span>
-        <h3>Un brief SEO/GEO complet, sur votre mot-clé</h3>
-        <p>Le brief part de la SERP réelle, pas d'une intuition : intention, pages qui rankent, questions posées, entités à couvrir. La réponse directe et la FAQ sont déjà rédigées pour être reprises par les IA.</p>
-        <div class="ask">Donnez-moi un mot-clé dans le chat, je lance le brief dessus.</div>
-      </div>
-      <pre class="term"><span class="p">&gt;</span> /seo brief "votre mot-clé"
-<span class="c">● SERP relevée · top 10 analysé
-● intention · entités · questions (PAA + fan-out IA)
-● structure H2/H3 + réponse directe + FAQ rédigées
-● maillage interne proposé depuis le sitemap
-→ brief.md prêt pour la rédaction</span></pre>
-    </div>
-
-    <div class="demo">
-      <div>
-        <span class="tag">DÉMO 2 · AUDIT + OPTIMISATION</span>
-        <h3>Une page qui rank mal : diagnostic prouvé, puis page corrigée</h3>
-        <p>Claude Code passe tout le site au crible avec WordPress + Search Console, puis s'attaque page par page : score critère par critère, réécriture, données structurées. Cas réel : une catégorie e-commerce reprise de A à Z (SERP relevée desktop + mobile, top 3 benchmarké, cannibalisation cartographiée).</p>
-        <ul><li><code>/seo onpage &lt;url&gt; &lt;mot-clé&gt;</code> : note /100 puis réécrit</li><li>skill <code>refonte-page-seo</code> : analyse, page corrigée, JSON-LD</li></ul>
-      </div>
-      <figure><img src="assets/cc-audit-pages.jpg" alt="Claude Code passe 165 contenus WordPress au crible avec la Search Console et classe les pages vides, mortes, périmées ou à pousser" loading="lazy"><figcaption>Échange réel sur decupler.com, mis en forme : 165 contenus classés (vide, morte, périmée, à pousser) en croisant l'API WordPress et 180 jours de Search Console.</figcaption></figure>
-    </div>
-
-    <div class="demo">
-      <div>
-        <span class="tag good">DÉMO 3 · CMS + INDEXATION</span>
-        <h3>Intégrer dans WordPress sans 2 h de copier-coller</h3>
-        <p>Des plugins WordPress écrits avec Claude Code, en production sur decupler.com :</p>
-        <ul>
-          <li><b>Yoast en écriture via l'API</b> : title, meta, mot-clé focus remplis par Claude</li>
-          <li><b>Entité</b> : le graphe schema.org complet (organisation, auteur unique)</li>
-          <li><b>Budget de crawl</b> : robots.txt propre, 404 sur la pagination morte. 1,5 Go de téléchargements inutiles évités à Googlebot</li>
-          <li><b>Pop-up</b> : l'invitation à ce workshop, qui s'efface seule à la date de fin</li>
-        </ul>
-      </div>
-      <div class="card good">
-        <span class="k">Astuce indexation</span>
-        <h3>Une page publiée = une page soumise, sans y penser</h3>
-        <p style="margin-top:10px">Claude Code + l'extension <b>Claude in Chrome</b> : il ouvre la Search Console et clique « Demander l'indexation » comme vous le feriez, pas via l'API. Avec une mémoire long terme (Obsidian), plus besoin de lui donner les URL.</p>
-        <p style="margin-top:10px">Mieux : <b>un skill + un cron</b>. Chaque soir, les pages publiées du jour sont soumises toutes seules. Google limite à une dizaine de demandes par jour et par propriété : on priorise les pages neuves.</p>
-      </div>
-    </div>
-
-    <div class="demo">
-      <div>
-        <span class="tag geo">DÉMO 4 · VISIBILITÉ IA</span>
-        <h3>Savoir si ChatGPT, Claude et Gemini vous citent</h3>
-        <p>Des prompts neutres, joués sur chaque moteur, plusieurs fois, à chaque étape du tunnel d'achat. On ne devine pas : on mesure qui est cité, à quel rang, et qui passe devant.</p>
-        <ul><li>Search Console + GA4 branchés via MCP : les prompts sont déjà dans vos requêtes</li><li>Suivi mensuel (prompts avant / J+30 / J+60) : la preuve, ce sont les citations gagnées</li></ul>
-        <div class="ask">Qui a déjà vérifié ce que ChatGPT répond sur sa propre marque ?</div>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/orators-prompts.jpg" alt="Audit GEO orators.fr : 27 prompts joués sur ChatGPT, Claude et Gemini, 161 réponses, taux de citation par étape du tunnel" loading="lazy"><figcaption>Audit GEO orators.fr : 27 prompts, 3 moteurs, 2 passages : 161 réponses analysées. Cité à 100 % quand l'acheteur connaît déjà le nom, à 0 % quand il découvre son problème.</figcaption></figure>
-        <figure><img src="assets/cc-quick-wins.jpg" alt="Claude Code sort les quick wins Search Console de decupler.com : requêtes entre la position 8 et 20" loading="lazy"><figcaption>Échange réel, mis en forme : les quick wins des 28 derniers jours, sortis de la Search Console en une phrase.</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="demo">
-      <div>
-        <span class="tag">DÉMO 5 · VIBE-CODING</span>
-        <h3>Coder ses propres outils, sans être développeur</h3>
-        <p>La « moulinette » : une liste de domaines en entrée, un pré-audit GEO complet et publié en sortie pour chacun (SEO réel, 10 prompts neutres × 3 IA, concurrents cités, plan d'action). 50 entreprises d'un coup, 1 500 réponses d'IA analysées, un radar pour prioriser les relances.</p>
-        <ul><li>87 pré-audits en ligne, chacun à sa propre URL</li><li>Un simulateur public : <a href="https://app.decupler.com/geo-ready" target="_blank" rel="noopener">app.decupler.com/geo-ready</a></li></ul>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/radar-moulinette.jpg" alt="Radar visibilité IA de la moulinette : 50 entreprises auditées, 17 totalement absentes des trois IA" loading="lazy"><figcaption>Le radar de la moulinette (lot CMO B2B) : 50 entreprises auditées, 17 absentes des 3 IA.</figcaption></figure>
-        <figure><img src="assets/sport-geo.jpg" alt="Pré-audit GEO Sport Découverte : qui ChatGPT, Claude et Gemini citent sur des prompts de stage de pilotage" loading="lazy"><figcaption>Un pré-audit sorti de la moulinette : qui les IA recommandent à la place du prospect, prompt par prompt.</figcaption></figure>
+<span class="c"># ce qui est branché, ce qui manque, la 1re action utile</span>
+<span class="p">&gt;</span> /seo audit · /seo quickwins · /seo brief · /seo onpage
+<span class="p">&gt;</span> /seo fix · /seo article · /seo geo · /seo rapport …</pre></div>
+          <div class="links"><a class="lnk" href="https://github.com/NathanFenina/decupler-seo" target="_blank" rel="noopener">github.com/NathanFenina/decupler-seo</a></div>
+          <p class="note">La différence avec un pack de prompts : chaque modification publiée est inscrite au journal, puis remesurée à J+28 contre un groupe témoin. Après trois mesures du même type, la leçon entre dans la mémoire.</p>
+        </div>
+        <figure><img src="assets/infra-01-arborescence.jpg" alt="Arborescence commentée du plugin decupler-seo" loading="lazy"><figcaption>Un plugin Claude Code, c'est un dossier.</figcaption></figure>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 05 · USE CASES -->
-<section class="slide" id="usecases">
-  <div class="wrap">
-    <p class="num">05 · Le mur des use cases</p>
-    <h2>Tout ce qui tourne déjà, <em>en vrai</em></h2>
-    <p class="lede">Je ne m'attarde pas sur chacun : l'idée est de voir l'étendue de ce qu'on peut confier à Claude Code quand l'infra est en place.</p>
-    <div class="wall">
-      <div class="card geo"><span class="k">Audit</span><h3>Moulinette d'audits GEO</h3><p>Un domaine en entrée, un audit SEO + GEO priorisé par impact business en sortie, publié sur une URL prête à envoyer.</p><div class="src">skills audit-seo-geo · prospect-proposal</div></div>
-      <div class="card geo"><span class="k">Transformation</span><h3>GEO Ready</h3><p>Des pages déjà publiées réécrites pour être citées par les IA : score avant, réécriture dans la voix du client, JSON-LD, score après.</p><div class="src">skill geo-ready · référentiel versionné</div></div>
-      <div class="card seo"><span class="k">Stratégie</span><h3>Cartographie IA dans Notion</h3><p>Mots-clés, volumes, pages cibles, prompts, fan-out, funnel, mind map des silos : une base Notion vivante, priorisée en euros.</p><div class="src">skill cartographie-client · MCP Notion</div></div>
-      <div class="card seo"><span class="k">Mémoire</span><h3>Obsidian comme second cerveau</h3><p>Les décisions, les briefs, les URL publiées : Claude les retrouve seul. Plus besoin de lui répéter le contexte.</p><div class="src">vault Obsidian · CLAUDE.md</div></div>
-      <div class="card gold"><span class="k">Création</span><h3>Sites générés par IA</h3><p>Une homepage moderne dans la charte du business, avec ses vraies infos, en une session. 13 démos déjà produites.</p><div class="src">skill vitrine-demo · Playwright · Firecrawl</div></div>
-      <div class="card gold"><span class="k">Intégration</span><h3>Plugins WordPress maison</h3><p>Entité schema.org, budget de crawl, Yoast via l'API, pop-up : écrits, testés et déployés depuis Claude Code.</p><div class="src">repo decupler · wordpress/plugins</div></div>
-      <div class="card good"><span class="k">Données</span><h3>Reporting GSC + GA4</h3><p>Rapport mensuel SEO/GEO généré à partir des vraies données : clics, leads par page, quick wins, citations IA.</p><div class="src">MCP Search Console · GA4 · routines</div></div>
-      <div class="card good"><span class="k">Pilotage</span><h3>Routines par site</h3><p>Chaque semaine, une routine relit les données du site, propose les actions et les exécute après validation.</p><div class="src">routines planifiées · un dépôt par site</div></div>
-      <div class="card"><span class="k">Acquisition</span><h3>Setting LinkedIn + cold mail</h3><p>Ciblage, scripts de setting, séquences personnalisées avec un pré-audit réel en accroche : la prospection d'un freelance SEO, outillée.</p><div class="src">LinkedIn-app · outreach</div></div>
-    </div>
-    <div class="grid g3 mt">
-      <figure><img src="assets/orators-hero.jpg" alt="Audit GEO complet d'orators.fr" loading="lazy"><figcaption>Audit GEO complet (agence de conférenciers).</figcaption></figure>
-      <figure><img src="assets/gestalt-preaudit.jpg" alt="Pré-audit SEO × GEO de gestalt.fr publié en ligne" loading="lazy"><figcaption>Pré-audit public, envoyé en prospection.</figcaption></figure>
-      <figure><img src="assets/vitrine-couverture.jpg" alt="Démo de site moderne générée pour un couvreur" loading="lazy"><figcaption>Site vitrine généré pour un artisan couvreur.</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- 06 · RESULTATS -->
-<section class="slide" id="resultats">
-  <div class="wrap">
-    <p class="num">06 · Les résultats</p>
-    <h2>Ce que ça donne dans la <em>Search Console</em></h2>
-    <p class="lede">Des sites B2B que j'accompagne. Noms masqués, chiffres bruts.</p>
-
-    <div class="res">
-      <figure><img src="assets/gsc-site-neuf-12mois.webp" alt="Search Console sur 12 mois : 28 000 clics, 629 000 impressions, de zéro à 200 clics par jour" loading="lazy"></figure>
-      <div class="kpis">
-        <p class="eyebrow">Site neuf · lancé en octobre 2025</p>
-        <div class="kpi"><b>0 → 200</b>clics par jour en 12 mois</div>
-        <div class="kpi"><b>28 k</b>clics · <b>629 k</b> impressions</div>
-        <div class="kpi"><b>4,5 %</b>de CTR · position moyenne <b>10,8</b></div>
-      </div>
-    </div>
-
-    <div class="res">
-      <figure><img src="assets/gsc-b2b-gros-site-3mois.webp" alt="Search Console sur 3 mois : 320 000 clics et 17,1 millions d'impressions, tendance en hausse" loading="lazy"></figure>
-      <div class="kpis">
-        <p class="eyebrow">Gros site B2B · mai → août 2026</p>
-        <div class="kpi"><b>320 k</b>clics en 3 mois</div>
-        <div class="kpi"><b>17,1 M</b>impressions</div>
-        <div class="kpi">Courbe en hausse constante sur la période</div>
-      </div>
-    </div>
-
-    <div class="res">
-      <figure><img src="assets/gsc-2023-2024.webp" alt="Search Console avril 2023 à avril 2024 : 41 000 clics" loading="lazy"></figure>
-      <div class="kpis">
-        <p class="eyebrow">Avant Claude Code · 2023 → 2024</p>
-        <div class="kpi old"><b>41 k</b>clics sur un an, à la main</div>
-        <p class="note">Je savais déjà faire du SEO. Ce qui a changé avec Claude Code, ce n'est pas le savoir-faire : c'est le nombre de sites que je peux piloter en même temps, et la vitesse.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 · MCP -->
+<!-- MCP -->
 <section class="slide" id="mcp">
   <div class="wrap">
-    <p class="num">07 · Les MCP</p>
-    <h2>Ce que je branche à Claude Code</h2>
-    <div class="grid g2 mt">
-      <div class="card seo">
-        <span class="k">SEO & données</span>
-        <h3>Pour voir ce que Google voit</h3>
-        <div class="pills">
-          <span class="pill">Search Console</span><span class="pill">GA4</span><span class="pill">Ubersuggest</span><span class="pill">DataForSEO</span><span class="pill">Semrush <i>/ Ahrefs</i></span><span class="pill">Firecrawl</span><span class="pill">Chrome DevTools</span><span class="pill">Windsor.ai <i>(GSC + GA4)</i></span>
-        </div>
-      </div>
-      <div class="card geo">
-        <span class="k">Visibilité IA</span>
-        <h3>Pour voir ce que les IA répondent</h3>
-        <div class="pills">
-          <span class="pill">OpenAI</span><span class="pill">Gemini</span><span class="pill">Claude</span><span class="pill">Perplexity <i>(option)</i></span><span class="pill">Reddit</span>
-        </div>
-      </div>
-      <div class="card good">
-        <span class="k">Production & pilotage</span>
-        <h3>Pour publier et suivre</h3>
-        <div class="pills">
-          <span class="pill">WordPress</span><span class="pill">Webflow</span><span class="pill">Notion</span><span class="pill">Claude in Chrome</span><span class="pill">Obsidian</span>
-        </div>
-      </div>
-      <div class="card gold">
-        <span class="k">Design</span>
-        <h3>Pour que les pages ne fassent pas « IA »</h3>
-        <div class="pills">
-          <span class="pill">Playwright</span><span class="pill">frontend-design</span><span class="pill">impeccable</span><span class="pill">taste-skill</span><span class="pill">ui-ux-pro-max</span><span class="pill">GSAP <i>+ Lenis</i></span>
-        </div>
-      </div>
+    <p class="num">04 · La carte des MCP</p>
+    <h2>Ce qui est branché à Claude Code, <em>et pourquoi</em></h2>
+    <p class="lede">Chaque connexion sert une action précise. Les lignes animées montrent le sens du travail : Claude lit les données, puis écrit dans les outils de production.</p>
+    <div class="hub" id="hub" aria-hidden="true">
+      <svg id="hubsvg"></svg>
+      <div class="hcenter"><div><img src="assets/logos/claude.svg" alt=""><b>Claude Code</b></div></div>
     </div>
-    <p class="note">Règle : on branche ce qui sert une action précise, pas tout ce qui existe. Chaque MCP de trop, c'est du contexte et des coûts en plus.</p>
+    <div class="legend">
+      <span style="--c:var(--seo)">Données Google</span><span style="--c:var(--gold)">Données marché</span><span style="--c:var(--geo)">Moteurs IA</span><span style="--c:var(--good)">Production & mémoire</span><span style="--c:var(--crit)">Navigateur & design</span>
+    </div>
+    <div class="hublist" id="hublist"></div>
+    <div class="callout mt">Règle : on branche ce qui sert une action précise, pas tout ce qui existe. Chaque MCP de trop, c'est du contexte et des coûts en plus.</div>
   </div>
 </section>
 
-<!-- 08 · SOP -->
+<!-- BRIEF -->
+<section class="slide alt" id="brief">
+  <div class="wrap">
+    <p class="num">05 · Démo 1 · le brief SEO/GEO</p>
+    <div class="demo-head">
+      <div>
+        <h2>Un brief adossé à la <em>SERP réelle</em>, pas à une intuition</h2>
+        <p class="lede">On scrape la SERP, on prend le top 5, on l'analyse page par page, et on en sort tout ce qu'il faut pour écrire : mots-clés, prompts IA, champ sémantique, structure, réponse directe, FAQ, schema, maillage.</p>
+      </div>
+      <div class="code"><div class="bar"><i></i><i></i><i></i><span>~/decupler — claude</span></div><pre><span class="p">&gt;</span> /seo brief "audit geo"
+<span class="c">● SERP live · top 10 · France</span>
+<span class="c">● top 5 scrapé et analysé</span>
+<span class="c">● intention · entités · PAA · fan-out IA</span>
+<span class="c">● gap · structure · réponse directe · FAQ</span>
+<span class="s">→ brief-audit-geo.md</span></pre></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi rv"><b>210-260</b><span>recherches / mois (Ubersuggest · DataForSEO, France)</span></div>
+      <div class="kpi crit rv"><b>0 / 5</b><span>des premières pages Google citées par l'AI Overview</span></div>
+      <div class="kpi rv"><b>2 270</b><span>mots en médiane dans le top 5 (la page Décupler : 1 106)</span></div>
+      <div class="kpi geo rv"><b>0,09 $</b><span>de coût API pour tout le brief</span></div>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><span class="n">1</span>
+        <h3>Les chiffres du mot-clé, avec leur source</h3>
+        <div class="row">
+          <div><p>Volume, difficulté, CPC et tendance sur 12 mois (50 en juillet 2025, pic à 590 en mars 2026), puis les requêtes voisines : <b>geo seo</b> 2 900 · <b>generative engine optimization</b> 720 · geo audit 70 · visibilité ia 70 · audit geo gratuit 30.</p>
+          <div class="callout">Chaque chiffre du brief dit d'où il vient. Quand une source manque, c'est écrit « non mesuré », jamais deviné.</div></div>
+          <figure><img src="assets/brief-01-commande.jpg" alt="Lancement du brief et appels Ubersuggest et DataForSEO pour les volumes" loading="lazy"><figcaption>Les appels Ubersuggest (localisation France) et DataForSEO.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">2</span>
+        <h3>La SERP réelle, et une découverte</h3>
+        <div class="row">
+          <div><p>SERP live du 5 octobre : AI Overview, 9 résultats organiques, « Autres questions posées ». L'AI Overview cite 6 sources… <b>et aucune n'est dans le top 5 Google</b>.</p>
+          <p>C'est l'argument du brief : être premier sur Google ne garantit plus d'être cité.</p>
+          <p class="note">Firecrawl était à court de crédits (erreur 402) : le skill bascule seul sur DataForSEO. C'est prévu dans la méthode, avec un ordre de repli documenté.</p></div>
+          <figure><img src="assets/brief-02-serp.jpg" alt="SERP live : top 9, sources de l'AI Overview et questions posées" loading="lazy"><figcaption>Top 9, sources de l'AI Overview, questions posées.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span>
+        <h3>Le top 5 lu page par page</h3>
+        <div class="row">
+          <div><p>Pour chaque page : nombre de mots, H2/H3, formats (tableaux, listes), schemas, images et vidéos, entités nommées. De 583 à 4 263 mots : la cible est 2 250 à 2 450.</p>
+          <p>Et sur la page actuelle de Décupler : un <b>H1 en double</b>, un hero qui dit « ChatGPT · Claude » quand le reste dit 4 moteurs, une FAQ <b>sans balisage FAQPage</b> alors que 3 pages du top 5 l'ont.</p></div>
+          <figure><img src="assets/brief-03-top5.jpg" alt="Tableau des 5 premières pages et de la page Décupler : mots, Hn, entités" loading="lazy"><figcaption>Le script d'analyse et le tableau des 5 pages + la nôtre.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">4</span>
+        <h3>Le gap : ce que personne ne couvre devient l'angle</h3>
+        <div class="row">
+          <div><p>Matrice de 18 sujets × 6 pages. Personne ne parle de remesure à J+30, de llms.txt, du Chat de Mistral, du mode IA de Google, ni du trafic IA dans GA4.</p>
+          <div class="callout geo">Angle retenu : <b>« un audit GEO qui prouve ses résultats »</b>.</div></div>
+          <figure><img src="assets/brief-04-gap.jpg" alt="Matrice de gap : 18 sujets sur 6 pages, en jaune ce que personne ne couvre" loading="lazy"><figcaption>En jaune : ce que personne ne couvre.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">5</span>
+        <h3>Le brief rédige déjà ce qui doit être cité</h3>
+        <div class="row">
+          <div>
+            <p>H1 (52 caractères), title (50), meta (151), 7 H2 avec longueur et format, FAQ de 6 questions, 7 prompts IA et 10 sous-questions de fan-out, chacune rattachée à une section, 6 liens internes tirés du sitemap. Et la <b>réponse directe</b>, 53 mots, sous le H1 :</p>
+            <div class="quote">« Un audit GEO mesure si les assistants d'IA, ChatGPT, Claude, Gemini et Perplexity, citent votre marque quand vos clients leur posent les questions de votre marché. Il relève les marques citées à votre place et les sources sur lesquelles ces réponses s'appuient, puis fixe un point de départ chiffré pour mesurer vos progrès. »</div>
+          </div>
+          <div class="shots">
+            <figure><img src="assets/brief-05-plan.jpg" alt="Plan H1, H2 et H3 recommandé avec longueurs et formats" loading="lazy"><figcaption>Le plan Hn, avec longueurs et formats.</figcaption></figure>
+            <figure><img src="assets/brief-06-reponse-faq.jpg" alt="Réponse directe de 53 mots et questions de FAQ rédigées" loading="lazy"><figcaption>Réponse directe et FAQ prêtes à être reprises.</figcaption></figure>
+          </div>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">6</span>
+        <h3>Le skill, mis à jour pour vous</h3>
+        <div class="row">
+          <div><p>Le skill <code>seo-brief</code> de <code>decupler-seo</code> passe de 14 à <b>18 sections</b> : ordre de repli des sources SERP, entités et médias par page, matrice de gap, réponse directe rédigée, prompts IA & fan-out, données structurées, sources & E-E-A-T, checklist GEO, traçabilité de chaque chiffre. 8 tests ajoutés, 325 au vert.</p>
+          <div class="links"><a class="lnk" href="https://github.com/NathanFenina/decupler-seo/tree/main/skills/seo-brief" target="_blank" rel="noopener">Le skill seo-brief</a></div></div>
+          <figure><img src="assets/brief-07-skill.jpg" alt="SKILL.md de seo-brief : sections prompts IA, données structurées, sources" loading="lazy"><figcaption>Sections 13 à 15 du skill mis à jour.</figcaption></figure>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFONTE MOTRALEC -->
+<section class="slide" id="refonte">
+  <div class="wrap">
+    <p class="num">06 · Démo 2 · une page stratégique qui rank mal</p>
+    <div class="demo-head">
+      <div>
+        <h2>Motralec : « pompe de relevage », de la 21<sup>e</sup> place au plan de refonte</h2>
+        <p class="lede">Une catégorie e-commerce à 27 100 recherches par mois, invisible. On a fait le diagnostic à la main avec Claude Code, prouvé par les données, puis on l'a transformé en skill rejouable en une commande.</p>
+      </div>
+      <div class="links" style="margin:0"><a class="lnk" href="https://claude.ai/artifact/E3qGN4sYDhegizM4R2JQBM" target="_blank" rel="noopener">Le livrable 3 onglets</a><a class="lnk" href="https://nathanfenina.github.io/decupler-proposals/motralec/" target="_blank" rel="noopener">Cartographie express</a></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi rv"><b>27 100</b><span>recherches / mois sur « pompe de relevage »</span></div>
+      <div class="kpi crit rv"><b>20-21<sup>e</sup></b><span>page mère, sur la SERP « spécialistes »</span></div>
+      <div class="kpi rv"><b>6</b><span>relevés SERP (3 desktop + 3 mobile) : Google alterne 2 versions</span></div>
+      <div class="kpi geo rv"><b>5</b><span>chantiers chiffrés, de la cannibalisation au netlinking</span></div>
+    </div>
+
+    <ol class="steps">
+      <li class="step rv"><span class="n">1</span>
+        <h3>Le prompt de départ, tel quel</h3>
+        <div class="quote">« agis comme expert en SEO worldclass […] on va essayer d'améliorer cette page motralec.com/pompe-relevage […] on peut travailler le contenu, le design, entité, données structurées, ux, maillage, off page… tout ce que tu peux pour que la page soit hors norme […] tu as accès à data for seo et ubersuggest »</div>
+        <p>Claude collecte seul : HTML de la page, SERP live DataForSEO (profondeur 30 puis 100), mots-clés du domaine filtrés sur « relevage », backlinks, PageSpeed mobile. Les concurrents protégés par Cloudflare sont récupérés via Firecrawl.</p>
+      </li>
+      <li class="step rv"><span class="n">2</span>
+        <h3>Le moment clé : je conteste, Claude revérifie</h3>
+        <div class="row">
+          <div>
+            <p>Premier diagnostic : « 3<sup>e</sup> ». Sur mon navigateur, la page est absente des 3 premières pages. Je le dis :</p>
+            <div class="quote">« tu dis qu'il est 3ème, je ne suis pas sûr […] check à nouveau. »</div>
+            <p>Claude relève la SERP <b>6 fois</b> et découvre que Google sert deux versions de la page de résultats :</p>
+            <ul>
+              <li><b>« spécialistes »</b> (pompeaeau, labonnepompe, rs-pompes) : Motralec <b>20-21<sup>e</sup></b></li>
+              <li><b>« marchande »</b> (Leroy Merlin, Amazon, Motralec) : 3<sup>e</sup>, mais avec la sous-catégorie eaux pluviales</li>
+            </ul>
+            <div class="callout">La leçon est devenue une règle du skill : <b>toujours relever la SERP plusieurs fois, sur desktop et sur mobile</b>. Un seul relevé ment.</div>
+          </div>
+          <figure><img src="assets/motralec-livrable-analyse-serp.jpg" alt="Onglet Analyse du livrable Motralec : 4 KPI et tableau des 6 relevés SERP" loading="lazy"><figcaption>« 3<sup>e</sup> ou 21<sup>e</sup> ? » : les 6 relevés et l'encadré « Correction de notre première lecture ».</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span>
+        <h3>Le benchmark prouve ce qui n'est PAS la cause</h3>
+        <div class="tablewrap">
+        <table class="dt">
+          <thead><tr><th>Page</th><th class="r">Pos.</th><th class="r">Mots</th><th class="r">Densité</th><th>JSON-LD</th><th>Avis</th><th class="r">Domaines réf.</th></tr></thead>
+          <tbody>
+            <tr><td>pompeaeau.fr</td><td class="r">1</td><td class="r">4 480</td><td class="r">2,0 %</td><td>ItemList, FAQ, AggregateRating…</td><td>4,6/5 · 39 126 balisés</td><td class="r">84</td></tr>
+            <tr><td>labonnepompe.com</td><td class="r">2</td><td class="r">5 398</td><td class="r">1,6 %</td><td>aucun</td><td>widget</td><td class="r">11</td></tr>
+            <tr><td>rs-pompes.com</td><td class="r">3</td><td class="r">7 656</td><td class="r">0,8 %</td><td>aucun</td><td>—</td><td class="r">4</td></tr>
+            <tr class="you"><td>motralec.com</td><td class="r">20</td><td class="r">6 947</td><td class="r"><b>2,6 %</b></td><td>WebSite, Organization</td><td>4,8/5 · 602 avis <b>chargés en JS</b></td><td class="r">21</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="mt-s">Les n°2 et n°3 ont <b>moins de liens</b> et <b>zéro schema</b>. Ce n'est donc ni le netlinking ni les données structurées. Ce qui joue : l'utilité de la page, une densité trop forte (2,6 %, la plus haute), et des avis invisibles pour Google.</p>
+      </li>
+      <li class="step rv"><span class="n">4</span>
+        <h3>Le livrable : 3 onglets, dans la charte du client</h3>
+        <div class="row">
+          <div>
+            <ul>
+              <li><b>1 · Analyse</b> : 6 relevés, benchmark, 5 chantiers avec exemples réels du site (A cannibalisation · B suroptimisation · C confiance · D schema & entité · E maillage & netlinking)</li>
+              <li><b>2 · Page corrigée</b> : maquette dans la charte Motralec, 9 changements numérotés, vrais produits, vrais téléphones, <b>calculateur HMT interactif</b>, FAQ calée sur les « Autres questions posées »</li>
+              <li><b>3 · Données structurées</b> : JSON-LD <code>@graph</code> prêt à copier, qui réutilise l'Organization existante par <code>@id</code>, + <code>llms.txt</code></li>
+            </ul>
+            <div class="callout geo">Zéro donnée inventée : ce que seul le client sait reste en <code>[À COMPLÉTER]</code> (prénom du technicien, budget…).</div>
+          </div>
+          <div class="shots">
+            <figure><img src="assets/motralec-livrable-page-corrigee.jpg" alt="Onglet Page corrigée : maquette de la catégorie Motralec avec 9 annotations" loading="lazy"><figcaption>La page corrigée, chaque changement numéroté et relié à son chantier.</figcaption></figure>
+          </div>
+        </div>
+        <div class="shots two mt-s">
+          <figure><img src="assets/motralec-livrable-benchmark.jpg" alt="Benchmark des 3 pages qui passent devant Motralec" loading="lazy"><figcaption>Benchmark et « Ce que ça prouve ».</figcaption></figure>
+          <figure><img src="assets/motralec-livrable-jsonld.jpg" alt="JSON-LD CollectionPage, ItemList et FAQPage avec bouton Copier" loading="lazy"><figcaption>Le balisage prêt à coller.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">5</span>
+        <h3>On transforme le travail en skill</h3>
+        <div class="row">
+          <div>
+            <div class="quote">« on peut transformer ce beau travail en SKILL pour le proposer à quelques autres ? »</div>
+            <p>Claude écrit le skill <code>refonte-page-seo</code> : la méthode, les règles apprises sur Motralec, et <code>collect.py</code>, qui rejoue toute la collecte en une commande (≈ 3 min, quelques centimes de DataForSEO) :</p>
+            <ol style="padding-left:18px;font-size:15px">
+              <li>SERP × 3 desktop + 3 mobile, signature de version</li>
+              <li>benchmark du top 3 de chaque version</li>
+              <li>carte de cannibalisation du domaine</li>
+              <li>backlinks page + concurrents</li>
+              <li>lecture du HTML : densité, alt, title, JSON-LD, avis, llms.txt, PageSpeed</li>
+            </ol>
+          </div>
+          <div class="shots">
+            <figure><img src="assets/motralec-collect-config-serp.jpg" alt="Script collect.py : config Motralec et fonction de relevé SERP" loading="lazy"><figcaption>Une URL, une requête, 3 relevés par appareil : la config tient en 7 lignes.</figcaption></figure>
+            <figure><img src="assets/motralec-collect-densite.jpg" alt="Fonction analyse_page de collect.py : mots, occurrences, densité, avis" loading="lazy"><figcaption>La densité et les avis cachés ne sont pas estimés : ils sont comptés dans le HTML.</figcaption></figure>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- GEO READY -->
+<section class="slide alt" id="geoready">
+  <div class="wrap">
+    <p class="num">07 · Démo 3 · GEO Ready</p>
+    <div class="demo-head">
+      <div>
+        <h2>Réécrire une page pour qu'une IA la <span class="g">cite</span></h2>
+        <p class="lede">Une IA cite un passage, pas une page. GEO Ready note une page déjà publiée sur 26 règles, la réécrit dans la voix du client, puis la renote avec la même grille. Rien n'est inventé.</p>
+      </div>
+      <div class="links" style="margin:0"><a class="lnk" href="https://app.decupler.com/geo-ready" target="_blank" rel="noopener">Le simulateur public</a><a class="lnk" href="https://claude.ai/artifact/RSCGGfiKubz4vd2B35e8vP" target="_blank" rel="noopener">L'outil interne</a></div>
+    </div>
+
+    <ol class="steps">
+      <li class="step rv"><span class="n">1</span>
+        <h3>D'abord le référentiel : 26 règles, 100 points, 5 bloquants</h3>
+        <div class="row">
+          <div>
+            <div class="bars" id="bars">
+              <div class="barrow"><b>A · Extractibilité</b><div class="track"><div class="fill" data-w="30" style="--c:var(--geo)"></div></div><span class="v">30</span></div>
+              <div class="barrow"><b>B · Faits & fraîcheur</b><div class="track"><div class="fill" data-w="20" style="--c:var(--seo)"></div></div><span class="v">20</span></div>
+              <div class="barrow"><b>C · Entité & autorité</b><div class="track"><div class="fill" data-w="20" style="--c:var(--gold)"></div></div><span class="v">20</span></div>
+              <div class="barrow"><b>D · Données structurées</b><div class="track"><div class="fill" data-w="10" style="--c:var(--good)"></div></div><span class="v">10</span></div>
+              <div class="barrow"><b>E · Accès IA</b><div class="track"><div class="fill" data-w="10" style="--c:var(--crit)"></div></div><span class="v">10</span></div>
+              <div class="barrow"><b>F · Couverture</b><div class="track"><div class="fill" data-w="10" style="--c:var(--muted)"></div></div><span class="v">10</span></div>
+            </div>
+            <p class="mt-s"><b>Bloquants</b> (un seul suffit à classer la page « Non citable ») : A1 pas de réponse directe sous le H1 · B3 contenu daté de plus de 24 mois · E1 robots.txt qui bloque les bots IA · E3 corps absent sans JavaScript · E4 noindex.</p>
+            <p>Statuts : <span class="tag ko">Non citable</span> <span class="tag pa">Fragile &lt; 60</span> <span class="tag pa">En progrès 60-79</span> <span class="tag ok">GEO Ready ≥ 80</span> <span class="tag ok">Référence ≥ 90</span></p>
+          </div>
+          <figure><img src="assets/geoready-referentiel.jpg" alt="Référentiel GEO Ready : règles du bloc A avec points et bloquant" loading="lazy"><figcaption>Le fichier unique <code>regles-geo-ready.md</code>. Une règle qui change, change pour tous les clients.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">2</span>
+        <h3>Le score est du code, pas une impression</h3>
+        <div class="row">
+          <div>
+            <p>Chaque règle a sa <b>source de vérité</b> :</p>
+            <ul>
+              <li><b>le code</b> mesure le HTML (H2 en questions, dates, JSON-LD, robots.txt, 11 bots IA vérifiés : GPTBot, ClaudeBot, PerplexityBot, Google-Extended…)</li>
+              <li><b>Claude</b> juge ce qui est qualitatif (réponse directe, passages citables, sources), en recevant les mesures en entrée</li>
+              <li><b>le registre officiel des entreprises</b> vérifie la cohérence de l'entité (nom, ville, création, dirigeant)</li>
+            </ul>
+            <p>ok = 1, partiel = 0,5, ko = 0. Ce qui n'est pas vérifiable sort du calcul. La pondération change selon le type de page (service, comparatif, FAQ, homepage).</p>
+          </div>
+          <figure><img src="assets/geoready-score.jpg" alt="Fonctions weights et computeScore du moteur GEO Ready" loading="lazy"><figcaption><code>rules.js</code> : le même calcul dans l'outil interne et dans le simulateur public. Un test casse si les deux divergent.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span>
+        <h3>La réécriture suit un ordre imposé</h3>
+        <div class="pipe">
+          <div><i>1</i><b>Structure</b>H2 en questions</div>
+          <div><i>2</i><b>Passages</b>40-120 mots citables</div>
+          <div><i>3</i><b>Faits</b>chiffres sourcés, datés</div>
+          <div><i>4</i><b>Entité</b>marque + expertise</div>
+          <div><i>5</i><b>Formats</b>tableaux, listes</div>
+          <div><i>6</i><b>Voix</b>ton client + humanizer</div>
+          <div><i>7</i><b>Schema</b>JSON-LD</div>
+          <div><i>8</i><b>Maillage</b>2-4 liens</div>
+        </div>
+        <div class="row mt-s">
+          <div><p>Le skill ne demande que 3 choses au client : le domaine, le périmètre, le mode de livraison. Le reste est collecté seul : entité (JSON-LD, LinkedIn, Wikidata, registre), ton (3 pages de référence), priorité (GSC), concurrents cités (10 prompts neutres), accès IA.</p></div>
+          <figure><img src="assets/geoready-skill.jpg" alt="SKILL.md GEO Ready : score avant puis transformation en 8 étapes" loading="lazy"><figcaption>Le pipeline écrit dans le skill.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">4</span>
+        <h3>Un vrai avant / après : un article de crédit</h3>
+        <p>Article « Taux d'endettement trop élevé : que faire ? » d'un mandataire en crédit (client anonymisé), passé dans l'outil le 16/09/2026.</p>
+        <div class="score">
+          <div><div class="gauge"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" style="--c:var(--crit)" data-v="46"/></svg><b>46</b></div><div class="gauge-l">avant · Fragile</div></div>
+          <span class="arrow">→</span>
+          <div><div class="gauge"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" style="--c:var(--warn)" data-v="68"/></svg><b>68</b></div><div class="gauge-l">après · En progrès</div></div>
+          <div class="callout" style="flex:1;min-width:260px;margin:0">Score honnête : il reste sous 80, parce que l'article d'origine n'avait <b>ni donnée propriétaire ni retour d'expérience</b>. On ne les invente pas : 12 éléments sont renvoyés au client en <code>[À COMPLÉTER]</code>.</div>
+        </div>
+        <div class="ba">
+          <div class="card before"><span class="k">Avant · preuves de la grille</span>
+            <p><span class="tag pa">A1 partiel</span> la réponse arrive en 4 puces, sans nommer « taux d'endettement » ni la marque dans les 60 premiers mots</p>
+            <p><span class="tag ko">C4 ko</span> la marque n'apparaît que dans le footer : 0 passage sur 1 576 mots</p>
+            <p><span class="tag ko">B2 ko</span> 0 lien externe, aucune source (HCSF, Banque de France, loi)</p>
+          </div>
+          <div class="card after"><span class="k">Après · début réel du texte réécrit</span>
+            <p style="font-family:var(--disp);font-style:italic;color:var(--ink)">« Un taux d'endettement trop élevé dépasse 35 % de tes revenus nets, assurance emprunteur comprise. Chez [la marque], mandataire en opération de banque, l'ordre de priorité est toujours le même : solde tes petits crédits conso et ton crédit renouvelable […]. Le rachat de crédits arrive en dernier. »</p>
+            <p><span class="tag ok">A1 A3 A4 B2 C4 F1 F2 → ok</span> 4 sources officielles liées (décision HCSF, Légifrance), byline datée, « En résumé », 5 tableaux, FAQ de 6 questions, tutoiement d'origine conservé.</p>
+          </div>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">5</span>
+        <h3>Le simulateur public : le même moteur, en lead magnet</h3>
+        <div class="row">
+          <div>
+            <ol style="padding-left:18px">
+              <li><b>Entrée</b> : URL de la page, type de page, coordonnées</li>
+              <li><b>Récupération</b> : HTML direct (Firecrawl si le site bloque), robots.txt, llms.txt, Wikidata, registre</li>
+              <li><b>Mesures</b> par le code, puis <b>jugement</b> par Claude avec le référentiel en cache</li>
+              <li><b>Sortie</b> : score, statut, bloquants, grille des 26 règles, fan-out, 3 corrections prioritaires et le score potentiel</li>
+              <li><b>Réécriture offerte</b> par lien à usage unique ; le lead part dans le CRM</li>
+            </ol>
+            <p class="note">Garde-fous : 3 analyses par jour par email et par IP, budget de 270 s par requête. La preuve vendue au client, ce ne sont pas les points : ce sont les citations gagnées, mesurées par prompts neutres avant, à J+30 et à J+60.</p>
+            <div class="ask">Qui veut que je passe une de ses pages dans le simulateur, en direct ?</div>
+          </div>
+          <figure><img src="assets/geoready-artifact.jpg" alt="Outil interne GEO Ready : formulaire et exemple de sortie" loading="lazy"><figcaption>L'outil interne (artifact Claude). L'exemple affiché, « Cabinet Dupont », est une démo fictive intégrée à l'outil.</figcaption></figure>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- MOULINETTE -->
+<section class="slide" id="moulinette">
+  <div class="wrap">
+    <p class="num">08 · Démo 4 · la moulinette</p>
+    <div class="demo-head">
+      <div>
+        <h2>Une liste de domaines en entrée, des pré-audits <em>publiés</em> en sortie</h2>
+        <p class="lede">Né d'un pré-audit fait à la main (gestalt.fr), codifié en gabarit, puis passé à l'échelle sur des lots de 10 à 50 entreprises. Chaque audit devient une page publique et une ligne de cold mail.</p>
+      </div>
+      <div class="links" style="margin:0"><a class="lnk" href="https://nathanfenina.github.io/decupler-proposals/linxo/" target="_blank" rel="noopener">Exemple : Linxo</a><a class="lnk" href="https://nathanfenina.github.io/decupler-proposals/sorare/" target="_blank" rel="noopener">Sorare</a><a class="lnk" href="https://nathanfenina.github.io/decupler-proposals/gestalt/" target="_blank" rel="noopener">gestalt.fr</a></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi rv"><b>50</b><span>entreprises dans le lot du radar</span></div>
+      <div class="kpi rv"><b>1 500</b><span>réponses d'IA analysées (10 prompts × 3 IA × 50)</span></div>
+      <div class="kpi crit rv"><b>17 / 50</b><span>absentes des 3 IA (0 citation sur 30)</span></div>
+      <div class="kpi geo rv"><b>85</b><span>pré-audits publics sur GitHub Pages</span></div>
+    </div>
+    <div class="pipe rv">
+      <div><i>entrée</i><b>CSV d'entreprises</b>noms recopiés exactement, métier vérifié</div>
+      <div><i>SEO</i><b>Collecte</b>Ubersuggest, DataForSEO, PageSpeed, robots.txt</div>
+      <div class="on"><i>GEO</i><b>geo_run.py</b>10 prompts neutres × ChatGPT, Claude, Gemini</div>
+      <div><i>score</i><b>geo_parse.py</b>citée ?, rang, part de voix</div>
+      <div><i>page</i><b>build_preaudit.py</b>HTML au gabarit v8</div>
+      <div><i>public</i><b>GitHub Pages</b>commit + push, une URL par prospect</div>
+      <div><i>vente</i><b>Radar + Lemlist</b>priorisation, CSV de séquence</div>
+    </div>
+
+    <ol class="steps">
+      <li class="step rv"><span class="n">1</span>
+        <h3>10 prompts neutres, la marque n'est jamais nommée</h3>
+        <div class="row">
+          <div>
+            <p>Exemple réel (agrégation bancaire) :</p>
+            <ol style="font-size:15px;padding-left:20px">
+              <li>Quelle application choisir pour agréger tous ses comptes bancaires en France ?</li>
+              <li>Quelles applications de gestion de budget sont les plus utilisées en France ?</li>
+              <li>Quelle alternative à Bankin' pour suivre ses dépenses ?</li>
+              <li>Quel outil pour connecter plusieurs comptes de banques différentes sur une seule app ?</li>
+              <li>… 6 autres, du besoin général jusqu'au choix précis</li>
+            </ol>
+            <p>Chaque prompt part sur les 3 IA, « de mémoire » (sans recherche web), température 0,3. 30 appels en parallèle, avec reprise : ce qui est déjà fait n'est pas repayé.</p>
+          </div>
+          <figure><img src="assets/moulinette-geo-run-py.jpg" alt="Script geo_run.py : modèles, température, cache et appels parallèles" loading="lazy"><figcaption><code>geo_run.py</code> : 10 prompts × 3 IA = 30 appels.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">2</span>
+        <h3>De la réponse brute au classement</h3>
+        <div class="row">
+          <div>
+            <p>ChatGPT répond au prompt 1 : Bankin', Lydia, Budgea, <b>Linxo</b>, Yolt, Max. Le parseur extrait la liste ordonnée, filtre les faux positifs (les sous-titres « Points forts », « Prix »… que Gemini met en gras) et calcule : citée oui/non, position, part de voix.</p>
+            <p>Résultat Linxo : <b>15/30</b> (ChatGPT 7, Claude 3, Gemini 5), la meilleure performance du lot.</p>
+            <div class="callout">Les réponses brutes sont sauvegardées à côté de chaque page : n'importe quel chiffre se vérifie.</div>
+          </div>
+          <figure><img src="assets/moulinette-reponse-brute-classement.jpg" alt="Réponse brute de ChatGPT et classement extrait en JSON" loading="lazy"><figcaption>Linxo 4<sup>e</sup>, derrière Bankin'.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span>
+        <h3>La page publique, puis la ligne de cold mail</h3>
+        <div class="shots two">
+          <figure><img src="assets/moulinette-page-publique-linxo.jpg" alt="Haut de la page publique du pré-audit Linxo" loading="lazy"><figcaption>Le livrable public, généré et publié sans un clic de partage.</figcaption></figure>
+          <figure><img src="assets/moulinette-csv-lemlist.jpg" alt="CSV Lemlist : constat, chiffres, concurrent, lien vers l'audit" loading="lazy"><figcaption>Chaque audit devient une ligne : constat, chiffre, concurrent, lien. Contacts masqués.</figcaption></figure>
+        </div>
+        <div class="shots two mt-s">
+          <figure><img src="assets/radar-moulinette.jpg" alt="Radar visibilité IA : 50 entreprises, 17 absentes des 3 IA" loading="lazy"><figcaption>Le radar interne : quelles relances prioriser.</figcaption></figure>
+          <figure><img src="assets/sport-geo.jpg" alt="Pré-audit : qui les IA recommandent à la place du prospect, prompt par prompt" loading="lazy"><figcaption>Le détail par prompt, avec les logos des concurrents cités à la place.</figcaption></figure>
+        </div>
+        <p class="note">Coûts réels relevés : SERP DataForSEO ≈ 0,002 $ l'appel, analyse d'écart de contenu sur 12 domaines : 1,42 $. Ce qui coûte, c'est le temps : la machine le supprime.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- AUDIT ORATORS -->
+<section class="slide alt" id="audit">
+  <div class="wrap">
+    <p class="num">09 · L'audit GEO complet</p>
+    <div class="demo-head">
+      <div>
+        <h2>orators.fr : un audit qui commence par la <em>thèse business</em></h2>
+        <p class="lede">Agence de conférenciers. 12 onglets, 340 réponses d'IA mesurées, et un livrable vivant mis à jour de v0.6 à v1.5. Le skill <code>audit-seo-geo</code> orchestre 5 volets avec un fil rouge : les leads.</p>
+      </div>
+      <div class="links" style="margin:0"><a class="lnk" href="https://claude.ai/artifact/8GspQjgWfwTiVJ6wzYu32E" target="_blank" rel="noopener">L'audit (artifact)</a></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi good rv"><b>100 %</b><span>cité par les IA sur ses conférenciers (noms)</span></div>
+      <div class="kpi crit rv"><b>0 %</b><span>cité sur les questions de haut de tunnel</span></div>
+      <div class="kpi geo rv"><b>1<sup>er</sup> vs 13,5<sup>e</sup></b><span>cité 1<sup>er</sup> par Gemini, 13,5<sup>e</sup> sur Google (« agence de conférenciers »)</span></div>
+      <div class="kpi rv"><b>0,24 %</b><span>de CTR sur 550 287 impressions en 3 mois</span></div>
+    </div>
+    <div class="grid g2 mt">
+      <div class="card rv">
+        <span class="k">Comment il est construit</span>
+        <ul style="padding-left:18px;margin:0;font-size:15px">
+          <li><b>GSC + GA4</b> via Windsor.ai : mot-clé → page → conversion</li>
+          <li><b>Ubersuggest</b> + <b>DataForSEO</b> : mots-clés, SERP live, concurrents</li>
+          <li><b>Semrush</b> : crawl de 500 pages, santé 81 %</li>
+          <li><b>27 prompts</b> (thèmes × TOFU/MOFU/BOFU) × 3 moteurs × 2 passages = 161 réponses, 156 sous-requêtes de fan-out</li>
+          <li><b>Notion</b> : 35 mots-clés synchronisés, vue « Roadmap 12 mois »</li>
+          <li>Données datées et rejouables dans <code>data/</code> : chaque version est un refresh, pas un nouveau document</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <span class="k">Les 12 onglets</span>
+        <p style="font-size:15px">Le constat · Cartographie conférenciers · Cartographie mots-clés · Sémantique · Prompts & fan-out · Visibilité IA · Technique · Pages en erreur · Backlinks · Entité · Plan d'action · Roadmap 12 mois</p>
+        <div class="callout geo" style="margin-top:14px"><b>Le tunnel est inversé</b> : visible pour ceux qui connaissent déjà le nom, absent pour ceux qui découvrent leur problème. L'IA n'amène aucun client neuf.</div>
+      </div>
+    </div>
+    <div class="shots two mt">
+      <figure class="rv"><img src="assets/orators-constat.jpg" alt="Onglet Le constat de l'audit orators : thèse et KPI" loading="lazy"><figcaption>Le constat : la thèse avant la checklist.</figcaption></figure>
+      <figure class="rv"><img src="assets/orators-prompts.jpg" alt="27 prompts moteur par moteur : TOFU 0 %, MOFU 41 %, BOFU 40 %" loading="lazy"><figcaption>27 prompts, moteur par moteur, filtrables.</figcaption></figure>
+    </div>
+    <figure class="rv mt-s"><img src="assets/orators-roadmap.jpg" alt="Roadmap 12 mois : 35 mots-clés de T1 Récolter à T4 Mesurer" loading="lazy"><figcaption>La roadmap 12 mois sort de la cartographie, séquencée par retour sur investissement.</figcaption></figure>
+  </div>
+</section>
+
+<!-- CARTO -->
+<section class="slide" id="carto">
+  <div class="wrap">
+    <p class="num">10 · Cartographie & topical map</p>
+    <h2>On priorise en <em>euros</em>, jamais en volume brut</h2>
+    <p class="lede">Une base Notion vivante, au même schéma pour chaque client (20 colonnes), remplie par Ubersuggest, la Search Console et le MCP Notion. Le client ne voit qu'une vue : « Plan d'investissement ».</p>
+    <div class="grid g2 mt">
+      <div class="card rv">
+        <span class="k">La formule, transparente</span>
+        <div class="code"><div class="bar"><i></i><i></i><i></i><span>scoring business</span></div><pre>Trafic/mois    = Volume × CTR(position cible)
+                 <span class="c">pos1 ≈ 0,28 · top3 ≈ 0,15 · top10 ≈ 0,03</span>
+Potentiel €/an = Trafic × conv(intention)
+                 × valeur_lead × 12
+                 <span class="c">conv : transac 3 % · commercial 2 % · info 0,5 %</span></pre></div>
+      </div>
+      <div class="card rv">
+        <span class="k">Exemple réel · « conférencier intelligence artificielle »</span>
+        <table class="dt" style="font-size:14.5px">
+          <tbody>
+            <tr><td>Volume</td><td class="r">390 / mois</td></tr>
+            <tr><td>Position actuelle → cible</td><td class="r">9 → top 3</td></tr>
+            <tr><td>Trafic = 390 × 0,15</td><td class="r">58,5 visites</td></tr>
+            <tr><td>Leads = 58,5 × 2 %</td><td class="r">1,17 / mois</td></tr>
+            <tr class="you"><td>× 1 800 € × 12</td><td class="r"><b>25 272 € / an · P1</b></td></tr>
+          </tbody>
+        </table>
+        <p class="note">14 mots-clés cibles ≈ 120 852 €/an pour orators.fr (valeur de lead à confirmer avec le client).</p>
+      </div>
+    </div>
+    <div class="shots two mt">
+      <figure class="rv"><img src="assets/carto-schema.jpg" alt="Schéma standard de la base Notion de cartographie : 20 propriétés" loading="lazy"><figcaption>Même schéma pour chaque client : la cartographie devient un produit.</figcaption></figure>
+      <figure class="rv"><img src="assets/carto-orators.jpg" alt="Cartographie sémantique orators : silos classés par potentiel en euros" loading="lazy"><figcaption>Silos classés par potentiel €.</figcaption></figure>
+    </div>
+    <h3 class="mt">La topical map : le sitemap croisé avec 12 mois de Search Console</h3>
+    <div class="shots two mt-s">
+      <figure class="rv"><img src="assets/carto-carte-topique.jpg" alt="Carte topique Décupler : 143 URL, 376 clics, 3 pages font 42 % des clics" loading="lazy"><figcaption>decupler.com : 143 URL, 58 non indexées, 3 pages font 42 % des clics. L'autorité est là, au mauvais endroit.</figcaption></figure>
+      <figure class="rv"><img src="assets/carto-topical-map.jpg" alt="Graphe des silos de decupler.com et liaisons de maillage à créer" loading="lazy"><figcaption>Le graphe des silos : taille = nombre d'URL, en vert les liens qui rapportent le plus.</figcaption></figure>
+    </div>
+    <div class="links"><a class="lnk" href="https://claude.ai/artifact/RWXizqp7Rk3r4tiywkATv1" target="_blank" rel="noopener">Carte topique Décupler</a><a class="lnk" href="https://claude.ai/artifact/Si7134XoykFPfU5aELbAVP" target="_blank" rel="noopener">Topical map Décupler</a><a class="lnk" href="https://claude.ai/artifact/BKSkWe6XPRzLYkcNBTd66i" target="_blank" rel="noopener">Topical map Tunicab.com</a></div>
+  </div>
+</section>
+
+<!-- PILOTAGE -->
+<section class="slide alt" id="pilotage">
+  <div class="wrap">
+    <p class="num">11 · Pilotage & reporting</p>
+    <h2>20 minutes le vendredi. <em>Le reste tourne seul.</em></h2>
+    <p class="lede">Une routine cloud contrôle le site, mesure, exécute ce que j'ai validé, puis écrit le bilan dans une page de suivi. Moi, je ne fais que valider ou refuser.</p>
+    <ol class="steps">
+      <li class="step rv"><span class="n">0</span><h3>Partir propre</h3><p>Nouvelle branche, lecture de <code>CLAUDE.md</code>, des décisions et de la passation, journal de run ouvert tout de suite. Un statut vert dans la liste des routines veut dire « la session a tourné », pas « le travail est fait » : d'où le journal.</p></li>
+      <li class="step rv"><span class="n">1</span><h3>Contrôle du site, en lecture seule</h3><p>Pages en ligne, robots.txt, sitemap. Alerte prioritaire si le spam du piratage revient (casino, slot…).</p></li>
+      <li class="step rv"><span class="n">2</span><h3>Les chiffres, avant toute modification</h3>
+        <div class="row">
+          <div><p>Instantané Search Console par l'API (compte de service), puis mesure des modifications échues à J+28 contre un groupe témoin. Le classement des opportunités sort tout seul : requête, page, position, impressions, gain estimé.</p></div>
+          <figure><img src="assets/cc-quick-wins.jpg" alt="Claude Code sort les quick wins Search Console : requêtes en position 8 à 20" loading="lazy"><figcaption>Échange réel, mis en forme : les quick wins des 28 derniers jours.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span><h3>Exécuter seulement ce qui est validé</h3><p>La routine lit la page de suivi, prend les actions que j'ai validées, écrit dans WordPress en brouillon ou révision. Rien de validé ? Seulement le travail automatique (titles, metas, FAQ, schema, liens internes), dans ses plafonds. Jamais de page neuve sans feu vert.</p></li>
+      <li class="step rv"><span class="n">4</span><h3>Le bilan : un win est un fait mesuré, jamais une intention</h3>
+        <div class="row">
+          <figure><img src="assets/pilotage-04-decupler-septembre.jpg" alt="Page de suivi decupler.com, septembre : 71 clics contre 33, wins" loading="lazy"><figcaption>Septembre sur decupler.com : 71 clics contre 33 (+115 %), le spam sorti de Google.</figcaption></figure>
+          <figure><img src="assets/pilotage-05-semaine-chantiers.jpg" alt="Une semaine de chantiers SEO menés avec Claude Code : 21 pages, 350 URL en 410, 459 URL inspectées" loading="lazy"><figcaption>Une semaine de chantiers : 21 pages locales, 350 URL de spam en 410, 459 URL inspectées, 97 tests passés.</figcaption></figure>
+        </div>
+      </li>
+    </ol>
+    <div class="grid g3 mt">
+      <div class="card good rv"><span class="k">decupler.com</span><p><b>71</b> clics sur 4 semaines contre 33. Spam : <b>3 308</b> impressions en mai → <b>1</b>. 11 pages sur 149 en top 10.</p></div>
+      <div class="card gold rv"><span class="k">Tasis Partners · site trilingue</span><p>Premier mois en ligne : 81 URL indexées, cité sur <b>13 des 72</b> prompts IA suivis. Une routine le vendredi.</p></div>
+      <div class="card seo rv"><span class="k">TechMedias</span><p>Même dispositif : 52 liens internes réparés, sitemap de 17 à 36 URL, 30 pages indexées sur 34.</p></div>
+    </div>
+    <div class="links"><a class="lnk" href="https://claude.ai/artifact/Rb2sP3EQFzedk6G2Xau6KA" target="_blank" rel="noopener">Pilotage decupler.com</a><a class="lnk" href="https://claude.ai/artifact/MkDZXG4uhzv4J6WnpDbpmx" target="_blank" rel="noopener">Pilotage Tasis</a><a class="lnk" href="https://claude.ai/artifact/GarDZ2u7MDdbrGkvi1yw7L" target="_blank" rel="noopener">Pilotage TechMedias</a></div>
+  </div>
+</section>
+
+<!-- WORDPRESS -->
+<section class="slide" id="wordpress">
+  <div class="wrap">
+    <p class="num">12 · WordPress & indexation</p>
+    <h2>Publier sans copier-coller, corriger sans FTP</h2>
+    <p class="lede">Le contenu passe par l'API REST. Les correctifs serveur deviennent des plugins maison, versionnés, testés, avec le diagnostic chiffré dans leur en-tête.</p>
+    <div class="demo-head mt" style="align-items:start">
+      <div class="rv">
+        <h3>Les 4 règles de publication</h3>
+        <ul style="padding-left:18px">
+          <li><b>Brouillon par défaut</b>. Une page en ligne n'est modifiée en direct qu'avec l'accord du garde-fou ; sinon la modif part en révision.</li>
+          <li><b>Sauvegarde avant écriture</b>, restaurable en une commande.</li>
+          <li><b>Journal</b> de chaque modification, avec la valeur d'avant.</li>
+          <li><b>Contrôle du contenu</b> : promesse ou chiffre non sourcé = bloqué.</li>
+        </ul>
+        <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>skill seo-publication-cms</span></div><pre>python3 wp.py publier --html contenus/guide.html \
+  --titre <span class="y">"Audit SEO local : la méthode en 7 étapes"</span> \
+  --slug audit-seo-local --type post \
+  --meta-titre <span class="y">"…"</span> --meta-description <span class="y">"…"</span> \
+  --requete <span class="y">"audit seo local"</span> <span class="s">--simuler</span></pre></div>
+      </div>
+      <figure class="rv"><img src="assets/wp-01-plugins.jpg" alt="En-tête du plugin decupler-crawl-fix et mu-plugin Yoast REST" loading="lazy"><figcaption>Un correctif serveur = un plugin versionné, avec son diagnostic dans l'en-tête.</figcaption></figure>
+    </div>
+    <div class="tablewrap rv">
+    <table class="dt">
+      <thead><tr><th>Plugin écrit avec Claude Code</th><th>Ce qu'il a changé</th></tr></thead>
+      <tbody>
+        <tr><td>Budget de crawl</td><td>Chaque URL morte renvoyait ~151 Ko ; sur 12 787 URL non indexées, ≈ 1,9 Go téléchargés par Googlebot à chaque passage. Page d'erreur ramenée à <b>708 octets</b>, pagination hors limites en 404, <b>350 URL de spam en 410</b>, robots.txt écrit en fichier, llms.txt servi.</td></tr>
+        <tr><td>Entité</td><td>Nathan Fenina existait sous 3 identifiants différents. Le graphe schema.org ajoute l'Organisation (données du registre) et une Personne unique sur chaque page.</td></tr>
+        <tr><td>Yoast via l'API</td><td>Sans lui, WordPress répond 200 et <b>jette silencieusement</b> les titles et metas envoyés par l'API. Avec : Claude remplit title, meta et requête cible.</td></tr>
+        <tr><td>Pop-up</td><td>L'invitation à cette masterclass : bandeau sur mobile, une fois par visiteur, arrêt automatique le 8/10 à 12h30. 37 tests.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="grid g2 mt">
+      <div class="card seo rv">
+        <span class="k">Indexation · ce qui tourne déjà</span>
+        <p>Il n'existe <b>aucune API publique</b> pour « Demander l'indexation » (l'Indexing API ne couvre que les offres d'emploi et les événements diffusés). Claude fait le reste :</p>
+        <ul style="padding-left:18px;font-size:15px">
+          <li>inspection d'URL par l'API : 88 pages inspectées, 44 indexées</li>
+          <li>resoumission des sitemaps</li>
+          <li>une liste priorisée d'une dizaine d'URL par jour (le quota Search Console)</li>
+          <li>le vrai levier trouvé : un cluster de 25 pages sans aucun lien entrant, relié depuis le footer</li>
+        </ul>
+      </div>
+      <div class="card geo rv">
+        <span class="k">Astuce en test · Claude in Chrome</span>
+        <h3>La dizaine d'URL du jour, soumise sans y penser</h3>
+        <p>Claude Code + l'extension Claude in Chrome : il ouvre la Search Console et clique « Demander l'indexation » comme vous le feriez, à la main, pas par l'API. Avec une mémoire long terme (Obsidian), plus besoin de lui donner les URL.</p>
+        <p>L'étape suivante : <b>un skill + un cron</b>, et les pages publiées du jour partent toutes seules, dans la limite du quota.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITES -->
+<section class="slide alt" id="sites">
+  <div class="wrap">
+    <p class="num">13 · Sites générés par IA</p>
+    <h2>Montrer son futur site au prospect, <em>plutôt que de le décrire</em></h2>
+    <p class="lede">Le skill <code>vitrine-demo</code> part du site actuel, souvent daté, et construit une homepage moderne dans la charte du business, avec ses vraies infos et ses vraies photos. 14 démos produites.</p>
+    <div class="pipe rv">
+      <div><i>1</i><b>Cadrer</b>nom, ville, ce qui « crie site daté »</div>
+      <div><i>2</i><b>Auditer</b>captures + contenu réel (Firecrawl)</div>
+      <div><i>3</i><b>Identité</b>vraies photos > banque d'images > génération</div>
+      <div><i>4</i><b>Construire</b>charte du prospect + animations Lenis/GSAP</div>
+      <div><i>5</i><b>Alléger</b>images en fichiers, HTML ≤ 80 Ko</div>
+      <div><i>6</i><b>Publier</b>lien + message qui dit que c'est une démo</div>
+    </div>
+    <div class="shots mt">
+      <figure class="rv"><img src="assets/vitrine-01-martincouverture-avant-apres.jpg" alt="Martin Couverture : constats sur le site actuel à gauche, démo moderne à droite" loading="lazy"><figcaption>Couvreur à Nantes. Avant : page contact en erreur, 3 photos sur 6 qui ne sont pas ses chantiers, 35 avis Google non exploités. Après : sa photo, son slogan, ses avis réels, un formulaire de rappel. (Montage : constats à gauche, démo à droite.)</figcaption></figure>
+      <figure class="rv"><img src="assets/vitrine-02-insightsip-avant-apres.jpg" alt="Insight SiP : constats sur le site actuel et démo moderne" loading="lazy"><figcaption>B2B aussi : fabricant de modules radio, vraies photos produit mises en scène.</figcaption></figure>
+    </div>
+    <p class="note">Garde-fous : jamais d'horaires, de label ou d'avis non confirmés. Le message d'envoi dit clairement qu'il s'agit d'une démo.</p>
+  </div>
+</section>
+
+<!-- ACQUISITION -->
+<section class="slide" id="acquisition">
+  <div class="wrap">
+    <p class="num">14 · Acquisition</p>
+    <h2>Les outils que je me suis codés pour <em>trouver des clients</em></h2>
+    <div class="grid g2 mt">
+      <div class="card rv">
+        <span class="k">Setting LinkedIn · LinkedIn-app</span>
+        <h3>Signaux d'achat, qualification IA, séquences</h3>
+        <p>Une app Next.js (Supabase, API LinkedIn via Unipile, Gemini pour le scoring) : une recherche LinkedIn → profils notés selon l'ICP → invitation + note → message 1 → relance. Variantes de message tirées au hasard (A/B), aucun envoi le week-end, et jamais un faux nom d'entreprise dans un message.</p>
+        <div class="callout crit">Plafonds durs par compte et par 24 h : 15 invitations, 70 messages, 200 actions au total, délais humains aléatoires. Pour ne pas se faire bannir.</div>
+      </div>
+      <div class="card rv">
+        <span class="k">Cold mail · outbound machine</span>
+        <h3>Montrer la faille, pas la réparer</h3>
+        <p>39 exports Clay → <b>7 574 leads uniques</b> après dédoublonnage → enrichissement → split A/B 50/50 (seed 42, aucune personne dans deux cohortes) → Lemlist / Instantly. Aucune écriture réelle sans récapitulatif validé.</p>
+        <div class="code"><div class="bar"><i></i><i></i><i></i><span>framework « X-Ray GEO » · ~70 mots</span></div><pre>Objet : visibilité ia
+
+hello {prénom}, j'ai testé comment ChatGPT et
+Perplexity répondent quand on cherche {catégorie}.
+{concurrent} ressort, {entreprise} n'apparaît sur
+aucun des prompts que j'ai lancés.
+
+j'ai listé les 15 prompts exacts où vous êtes absents
++ ce qui fait que {concurrent} est cité à votre place.
+
+seriez-vous contre que je vous partage la liste ?</pre></div>
+      </div>
+    </div>
+    <div class="shots two mt">
+      <figure class="rv"><img src="assets/acq-01-linkedin.jpg" alt="Code de LinkedIn-app : plafonds anti-ban et crons" loading="lazy"><figcaption>Les plafonds anti-ban et les crons du setting.</figcaption></figure>
+      <figure class="rv"><img src="assets/acq-02-coldmail.jpg" alt="Framework X-Ray GEO et pipeline Clay, enrichissement, split A/B" loading="lazy"><figcaption>Le pipeline cold mail, de Clay à la séquence.</figcaption></figure>
+    </div>
+    <div class="callout geo mt">Et la boucle se ferme : la <a href="#moulinette">moulinette</a> fournit l'accroche (un pré-audit réel), le cold mail apporte le lien, le <a href="#geoready">simulateur GEO Ready</a> capte les leads entrants.</div>
+  </div>
+</section>
+
+<!-- RESULTATS -->
+<section class="slide alt" id="resultats">
+  <div class="wrap">
+    <p class="num">15 · Les résultats</p>
+    <h2>Ce que ça donne dans la <em>Search Console</em></h2>
+    <p class="lede">Des sites B2B que j'accompagne. Noms masqués, chiffres bruts.</p>
+    <div class="res rv">
+      <figure><img src="assets/gsc-site-neuf-12mois.webp" alt="Search Console sur 12 mois : 28 000 clics, 629 000 impressions, de zéro à 200 clics par jour" loading="lazy"></figure>
+      <div class="rk">
+        <p class="eyebrow">Site neuf · lancé en octobre 2025</p>
+        <div class="kpi good"><b>0 → 200</b><span>clics par jour en 12 mois</span></div>
+        <div class="kpi"><b>28 k · 629 k</b><span>clics · impressions</span></div>
+        <div class="kpi"><b>4,5 %</b><span>de CTR · position moyenne 10,8</span></div>
+      </div>
+    </div>
+    <div class="res rv">
+      <figure><img src="assets/gsc-b2b-gros-site-3mois.webp" alt="Search Console sur 3 mois : 320 000 clics et 17,1 millions d'impressions" loading="lazy"></figure>
+      <div class="rk">
+        <p class="eyebrow">Gros site B2B · mai → août 2026</p>
+        <div class="kpi good"><b>320 k</b><span>clics en 3 mois</span></div>
+        <div class="kpi"><b>17,1 M</b><span>impressions, courbe en hausse constante</span></div>
+      </div>
+    </div>
+    <div class="res rv">
+      <figure><img src="assets/gsc-2023-2024.webp" alt="Search Console avril 2023 à avril 2024 : 41 000 clics" loading="lazy"></figure>
+      <div class="rk">
+        <p class="eyebrow">Avant Claude Code · 2023 → 2024</p>
+        <div class="kpi"><b>41 k</b><span>clics sur un an, à la main</span></div>
+        <p class="note">Je savais déjà faire du SEO. Ce qui a changé avec Claude Code, ce n'est pas le savoir-faire : c'est le nombre de sites pilotés en même temps, et la vitesse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOP -->
 <section class="slide" id="sop">
   <div class="wrap">
-    <p class="num">08 · Les SOP</p>
+    <p class="num">16 · Les SOP</p>
     <h2>14 procédures, chacune reliée à <em>un skill</em></h2>
     <p class="lede">Une SOP dit quoi faire et dans quel ordre. Le skill le fait. C'est ce qui rend le résultat reproductible d'un site à l'autre.</p>
     <ol class="sop">
@@ -509,7 +1225,7 @@ body.present .slide{scroll-snap-align:start}
       <li><b>Données structurées</b><span>seo-schema-jsonld</span></li>
       <li><b>Design de page</b><span>seo-design-pages · seo-page-builder-html</span></li>
       <li><b>Intégration CMS</b><span>seo-publication-cms</span></li>
-      <li><b>Indexation</b><span>Claude in Chrome · skill + cron</span></li>
+      <li><b>Indexation</b><span>gsc inspect · sitemaps · Claude in Chrome</span></li>
       <li><b>Analyse GSC / GA4</b><span>seo-gsc-analyses · seo-quick-wins</span></li>
       <li><b>Visibilité IA</b><span>geo-share-of-model · geo-visibilite-ia</span></li>
       <li><b>Reporting</b><span>seo-dashboard · seo-pilotage-notion</span></li>
@@ -518,10 +1234,10 @@ body.present .slide{scroll-snap-align:start}
   </div>
 </section>
 
-<!-- 09 · QUESTIONS -->
-<section class="slide" id="questions">
+<!-- QUESTIONS -->
+<section class="slide alt" id="questions">
   <div class="wrap">
-    <p class="num">09 · Vos questions</p>
+    <p class="num">17 · Vos questions</p>
     <h2>À vous. Votre site, votre process, vos blocages.</h2>
     <p class="lede">Écrivez dans le chat. Si vous voulez un exemple pour démarrer :</p>
     <div class="qa">
@@ -535,7 +1251,7 @@ body.present .slide{scroll-snap-align:start}
   </div>
 </section>
 
-<!-- 10 · PROGRAMME -->
+<!-- PROGRAMME -->
 <section class="slide prog" id="programme">
   <div class="wrap">
     <p class="eyebrow">Pour ceux qui restent</p>
@@ -559,28 +1275,79 @@ body.present .slide{scroll-snap-align:start}
     <img src="../assets/nathan.png" alt="Nathan Fenina" loading="lazy" onerror="this.style.display='none'">
     <div><b>Nathan Fenina</b><span>Créateur d'infra de visibilité organique · <span class="decupler">Décupler</span> · plus de 15 mois de SEO et GEO avec Claude Code</span></div>
   </div>
-  <p class="legal">Captures Search Console : sites accompagnés, noms masqués. Les écrans « Claude Code » sont mis en forme à partir d'échanges réels ; aucun chiffre n'est inventé.</p>
+  <p class="legal">Captures Search Console : sites accompagnés, noms masqués. Les écrans de code et de terminal sont mis en forme à partir des fichiers et échanges réels ; aucun chiffre n'est inventé. Certains liens renvoient à des livrables partagés pour l'occasion.</p>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-label="Image agrandie"><img alt=""></div>
-<div class="keys">← → naviguer · P mode présentation</div>
+<div class="keys">← → sections · P présentation · clic = zoom</div>
 
 <script>
+document.body.classList.remove('no-js');
 (function(){
-  var slides=[].slice.call(document.querySelectorAll('.slide'));
-  var bar=document.getElementById('progress');
-  function cur(){var y=window.scrollY+90,i=0;slides.forEach(function(s,k){if(s.offsetTop<=y)i=k});return i}
-  function go(i){i=Math.max(0,Math.min(slides.length-1,i));window.scrollTo({top:slides[i].offsetTop-56,behavior:'smooth'})}
-  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
-  document.addEventListener('keydown',function(e){
-    if(e.target.closest('input,textarea'))return;
-    var lb=document.getElementById('lb');
+  /* reveal + counters + bars + gauges */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;el.classList.add('in');
+    el.querySelectorAll('[data-count]').forEach(count);if(el.hasAttribute('data-count'))count(el);
+    io.unobserve(el)})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  function count(el){if(el.dataset.done)return;el.dataset.done=1;var t=+el.dataset.count,s=performance.now();
+    (function f(n){var p=Math.min(1,(n-s)/1100);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(s)}
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+    e.target.querySelectorAll('.fill').forEach(function(b){b.style.width=(b.dataset.w/30*100)+'%'});
+    e.target.querySelectorAll('.fg').forEach(function(c){c.style.strokeDashoffset=314-314*c.dataset.v/100});
+    io2.unobserve(e.target)})},{threshold:.3});
+  document.querySelectorAll('#bars,.score').forEach(function(el){io2.observe(el)});
+
+  /* flow highlight */
+  var fn=[].slice.call(document.querySelectorAll('#flow .fnode')),fi=0;
+  setInterval(function(){fn.forEach(function(n,i){n.classList.toggle('hot',i===fi)});fi=(fi+1)%fn.length},1000);
+
+  /* tabs */
+  document.querySelectorAll('.tablist button').forEach(function(b){b.addEventListener('click',function(){
+    var root=b.closest('.tabs');root.querySelectorAll('.tablist button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+    root.querySelectorAll('.tabpanel').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.tab)})})});
+
+  /* MCP hub */
+  var N=[
+    ['googlesearchconsole','Search Console','positions, clics, index','g1'],
+    ['googleanalytics','GA4','sessions, leads par page','g1'],
+    [null,'Windsor.ai','GSC + GA4 clients','g1','W'],
+    [null,'DataForSEO','SERP live, volumes, backlinks','g2','D4'],
+    [null,'Ubersuggest','mots-clés, concurrents','g2','U'],
+    ['semrush','Semrush','crawl, gaps','g2'],
+    [null,'Firecrawl','scrape des concurrents','g2','🔥'],
+    ['openai','ChatGPT','prompts neutres','g3'],
+    ['googlegemini','Gemini','prompts + fan-out','g3'],
+    ['perplexity','Perplexity','sources citées','g3'],
+    ['reddit','Reddit','questions réelles','g3'],
+    ['wordpress','WordPress','API REST + Yoast','g4'],
+    ['webflow','Webflow','CMS','g4'],
+    ['notion','Notion','cartographie, roadmap','g4'],
+    ['obsidian','Obsidian','mémoire long terme','g4'],
+    ['github','GitHub','dépôts, routines, Pages','g4'],
+    ['googlechrome','Chrome','rendu, Web Vitals, Claude in Chrome','g5'],
+    [null,'Playwright','captures, formulaires','g5','PW'],
+  ];
+  var hub=document.getElementById('hub'),svg=document.getElementById('hubsvg'),list=document.getElementById('hublist');
+  N.forEach(function(n){var ic=n[0]?'<img src="assets/logos/'+n[0]+'.svg" alt="">':'<span class="mono">'+n[4]+'</span>';
+    var d=document.createElement('div');d.className='hnode';d.innerHTML='<div class="ic">'+ic+'</div><b>'+n[1]+'</b><small>'+n[2]+'</small>';hub.appendChild(d);n.el=d;
+    var l=document.createElement('div');l.innerHTML=(n[0]?'<img src="assets/logos/'+n[0]+'.svg" alt="">':'<span class="mono" style="font:800 13px var(--sans)">'+n[4]+'</span>')+'<span><b>'+n[1]+'</b>'+n[2]+'</span>';list.appendChild(l)});
+  function layout(){var w=hub.clientWidth,h=hub.clientHeight;if(!w)return;var cx=w/2,cy=h/2,rx=Math.min(w/2-70,470),ry=h/2-60;svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.innerHTML='';
+    N.forEach(function(n,i){var a=-Math.PI/2+i*2*Math.PI/N.length,x=cx+rx*Math.cos(a),y=cy+ry*Math.sin(a);n.el.style.left=x+'px';n.el.style.top=y+'px';
+      var ln=document.createElementNS('http://www.w3.org/2000/svg','line');ln.setAttribute('x1',cx);ln.setAttribute('y1',cy);ln.setAttribute('x2',x);ln.setAttribute('y2',y);ln.setAttribute('class',n[3]);ln.style.animationDelay=(i*-.13)+'s';svg.appendChild(ln)})}
+  layout();addEventListener('resize',layout);
+
+  /* nav + keys + progress */
+  var slides=[].slice.call(document.querySelectorAll('.slide')),bar=document.getElementById('progress'),links=[].slice.call(document.querySelectorAll('.top nav a'));
+  function cur(){var y=scrollY+90,i=0;slides.forEach(function(s,k){if(s.offsetTop<=y)i=k});return i}
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));scrollTo({top:slides[i].offsetTop-56,behavior:'smooth'})}
+  addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%';
+    var id=slides[cur()].id;links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)})},{passive:true});
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+  document.addEventListener('keydown',function(e){if(e.target.closest('input,textarea,button'))return;
     if(e.key==='Escape'){lb.classList.remove('on');return}
     if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(cur()+1)}
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur()-1)}
-    else if(e.key==='p'||e.key==='P'){document.body.classList.toggle('present')}
-  });
-  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+    else if(e.key==='p'||e.key==='P'){document.body.classList.toggle('present')}});
   document.querySelectorAll('figure img').forEach(function(im){im.addEventListener('click',function(){lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on')})});
   lb.addEventListener('click',function(){lb.classList.remove('on')});
 })();
