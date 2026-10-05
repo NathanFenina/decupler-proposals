@@ -270,6 +270,38 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.5}
 .btn:hover{background:#f1e7d1}
 .dl{font:600 14px var(--mono);color:#d9a24a}
 
+
+.prog h2 em{font-style:italic}
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;position:relative}
+.weeks::before{content:"";position:absolute;left:0;right:0;top:15px;height:2px;background:linear-gradient(90deg,#d9a24a,#9d86ff)}
+.wk{position:relative;padding:40px 18px 0 0}
+.wk::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid #d9a24a}
+.wk .wn{font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9a24a}
+.wk h3{margin:6px 0 8px;font-size:1.35rem}
+.wk p{font-size:14.5px;color:#cfc8b8;margin:0}
+.wb{display:inline-block;margin-top:10px;font:600 12px var(--sans);color:#ffd88a;background:rgba(217,162,74,.15);border:1px solid rgba(217,162,74,.4);border-radius:99px;padding:3px 10px}
+.offer{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin-top:48px;align-items:start}
+.incl{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px}
+.incl .k{display:block}
+.checks{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:12px}
+.checks li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.5;color:#d8d2c2}
+.checks li b{color:#fff}
+.checks li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:rgba(23,122,80,.35);color:#9be7c2;font:700 12px/20px var(--sans);text-align:center}
+.gift-l li::before{content:"★";background:rgba(217,162,74,.25);color:#ffd88a}
+.price{background:#fff;color:var(--body);border-radius:16px;padding:28px;box-shadow:0 0 0 1px rgba(255,255,255,.2),0 30px 80px rgba(0,0,0,.35);position:relative}
+.price .k{color:var(--gold)}
+.seats{position:absolute;top:-14px;right:22px;background:var(--crit);color:#fff;font:700 13px var(--sans);padding:6px 12px;border-radius:99px}
+.amount{font:600 3.4rem/1 var(--disp);color:var(--ink);margin:6px 0 6px}
+.amount small{font-size:1.1rem;color:var(--muted)}
+.pay{font-size:14px;color:var(--muted);margin:0 0 18px}
+.guar{border:1px solid var(--line);border-left:3px solid var(--good);border-radius:10px;padding:12px 14px;font-size:14.5px;margin-bottom:10px;background:var(--good-soft)}
+.guar b{display:block;color:var(--ink);font-size:14px;margin-bottom:3px}
+.price .btn{display:block;text-align:center;background:var(--ink);color:#fff;margin-top:18px}
+.price .btn:hover{background:var(--decupler)}
+.price .dl{display:block;text-align:center;margin-top:10px;color:var(--gold)}
+@media (max-width:980px){.weeks{grid-template-columns:1fr 1fr;row-gap:24px}.weeks::before{display:none}.offer{grid-template-columns:1fr}}
+@media (max-width:620px){.weeks{grid-template-columns:1fr}.amount{font-size:2.8rem}}
+
 /* footer */
 footer{padding:56px 24px 72px}
 .author{max-width:var(--maxw);margin:0 auto;display:flex;gap:22px;align-items:center}
@@ -1255,28 +1287,43 @@ seriez-vous contre que je vous partage la liste ?</pre></div>
 <!-- PROGRAMME -->
 <section class="slide prog" id="programme">
   <div class="wrap">
-    <p class="eyebrow">Pour ceux qui restent</p>
-    <h2>Créer votre premier projet Claude Code × SEO, accompagné</h2>
-    <p class="lede">Depuis un an, j'accompagne quelques personnes en 1:1 pour monter leur propre infra SEO avec Claude Code. J'ouvre un premier groupe, en petit comité. L'objectif : que vous repartiez avec votre infra qui tourne sur votre site ou vos clients, pas avec des notes.</p>
-    <div class="grid g2 mt">
-      <div class="card"><span class="k">Vous repartez avec</span><h3>Votre infra, branchée sur votre business</h3><p>Votre dépôt et votre <code>CLAUDE.md</code>, vos MCP connectés (Search Console, GA4, données marché, Notion, CMS), les SOP adaptées à votre activité, et vos premières routines qui tournent seules.</p></div>
-      <div class="card"><span class="k">Le format</span><h3>Workshops live + Q&A + Slack</h3><p>Des sessions de travail en direct sur vos propres sites, des sessions questions-réponses, et un Slack en petit comité pour ne jamais rester bloqué entre deux sessions.</p></div>
+    <p class="eyebrow">Pour ceux qui restent · premier groupe</p>
+    <h2>4 semaines pour que <em style="color:#c9b6ff">votre</em> infra SEO Claude Code tourne</h2>
+    <p class="lede">Depuis un an, j'accompagne quelques personnes en 1:1 pour monter leur propre infra SEO avec Claude Code. J'ouvre un premier groupe de 10 personnes. Vous ne repartez pas avec des notes : vous repartez avec votre infra branchée sur votre site ou vos clients.</p>
+
+    <div class="weeks">
+      <div class="wk rv"><span class="wn">Semaine 1</span><h3>Installer</h3><p>Claude Code, votre dépôt, votre <code>CLAUDE.md</code>, le plugin <code>decupler-seo</code>, et les branchements : Search Console, GA4, données mots-clés, Notion, CMS.</p><span class="wb">+ appel d'installation 1:1</span></div>
+      <div class="wk rv"><span class="wn">Semaine 2</span><h3>Produire</h3><p>Brief sur la SERP réelle, rédaction, optimisation, données structurées, maillage : sur vos pages, avec vos données.</p></div>
+      <div class="wk rv"><span class="wn">Semaine 3</span><h3>Publier & piloter</h3><p>Publication dans le CMS sans copier-coller, garde-fou, routine hebdomadaire, page de suivi et reporting.</p></div>
+      <div class="wk rv"><span class="wn">Semaine 4</span><h3>GEO & clients</h3><p>Mesure des citations dans ChatGPT, Claude, Gemini, réécriture GEO, et votre propre moulinette de pré-audits pour vos prospects.</p></div>
     </div>
-    <h3 class="mt">Ce qu'on construit ensemble, sur votre site</h3>
-    <div class="grid g4 mt-s">
-      <div class="card"><span class="k">Étape 1 · Installer</span><p>Claude Code, votre dépôt, votre <code>CLAUDE.md</code>, le plugin <code>decupler-seo</code>, et les branchements : Search Console, GA4, données mots-clés, Notion, votre CMS.</p></div>
-      <div class="card"><span class="k">Étape 2 · Produire</span><p>Brief sur la SERP réelle, rédaction, optimisation, données structurées, maillage : sur vos pages, avec vos données, pas sur un exemple.</p></div>
-      <div class="card"><span class="k">Étape 3 · Publier & piloter</span><p>Publication dans le CMS sans copier-coller, garde-fou, routine hebdomadaire, page de suivi et reporting.</p></div>
-      <div class="card"><span class="k">Étape 4 · GEO & clients</span><p>Mesure des citations dans ChatGPT, Claude, Gemini ; réécriture GEO ; et votre propre moulinette de pré-audits pour vos prospects.</p></div>
-    </div>
-    <div class="grid g3 mt-s">
-      <div class="card"><span class="k">Format</span><p><b>4 semaines.</b> Une session live d'une heure par semaine (workshop + questions-réponses), le Slack ouvert tout du long, et le dépôt complet.</p></div>
-      <div class="card"><span class="k">Bonus</span><p>Un pré-audit GEO de votre site passé dans la moulinette avant la première session, et l'installation de <code>decupler-seo</code> faite avec vous en direct.</p></div>
-      <div class="card"><span class="k">10 places maximum</span><p>Un groupe volontairement réduit, pour que chaque participant reparte avec son infra qui tourne. Les candidatures sont étudiées une par une.</p></div>
-    </div>
-    <div class="deadline">
-      <a class="btn" href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" rel="noopener">Candidater : appel de 15 min</a>
-      <span class="dl">Candidatures jusqu'au lundi 12 octobre, 20h</span>
+
+    <div class="offer">
+      <div class="incl rv">
+        <span class="k">Ce qui est inclus</span>
+        <ul class="checks">
+          <li><b>4 sessions live d'1 heure</b>, une par semaine : workshop sur vos sites + questions-réponses</li>
+          <li><b>Un Slack en petit comité</b>, ouvert pendant le programme et <b>30 jours après</b></li>
+          <li><b>Le dépôt complet</b> : skills, agents, scripts, MCP préconfigurés</li>
+          <li><b>Les replays</b> de chaque session</li>
+        </ul>
+        <span class="k" style="margin-top:22px">Bonus</span>
+        <ul class="checks gift-l">
+          <li><b>Appel d'installation 1:1 de 45 min</b> en semaine 1 : on branche votre dépôt, votre Search Console et votre CMS ensemble</li>
+          <li><b>Un pré-audit GEO de votre site</b>, passé dans la moulinette avant la première session</li>
+          <li><b>Mes modèles</b> : <code>CLAUDE.md</code> de projet, page de suivi, gabarit d'audit, prompt de routine</li>
+        </ul>
+      </div>
+      <div class="price rv">
+        <span class="seats"><b>10</b> places maximum</span>
+        <span class="k">Tarif premier groupe</span>
+        <div class="amount">990 €<small> HT</small></div>
+        <p class="pay">payable en 2 fois · le prochain groupe sera à <s>1 490 € HT</s></p>
+        <div class="guar"><b>Garantie d'installation</b>Si à la fin de la semaine 2 votre infra ne tourne pas sur votre site, je fais des sessions 1:1 en plus jusqu'à ce qu'elle tourne.</div>
+        <div class="guar"><b>Garantie d'essai</b>Remboursé intégralement si vous arrêtez après la première session.</div>
+        <a class="btn" href="https://calendly.com/fenina-nathan/consultationstrategique" target="_blank" rel="noopener">Candidater : appel de 15 min</a>
+        <span class="dl">Candidatures jusqu'au lundi 12 octobre, 20h</span>
+      </div>
     </div>
   </div>
 </section>
