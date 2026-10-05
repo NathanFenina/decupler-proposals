@@ -1199,6 +1199,50 @@ j'ai listé les 15 prompts exacts où vous êtes absents
 seriez-vous contre que je vous partage la liste ?</pre></div>
       </div>
     </div>
+    <h3 class="mt">Exemple réel : un post LinkedIn → la ressource en commentaire et en DM</h3>
+    <p class="lede" style="font-size:1.05rem">Le lead magnet de cette masterclass est distribué comme ça. Je donne une consigne à Claude Code, en une phrase ; l'outil fait le reste, dans une fenêtre d'envoi fixe.</p>
+    <ol class="steps">
+      <li class="step rv"><span class="n">1</span>
+        <h3>La consigne, telle que je l'ai écrite</h3>
+        <div class="row">
+          <div><p>Le post, la ressource à envoyer, la règle pour les 2<sup>e</sup> degré (on ne les ajoute pas : on leur demande de se connecter), l'invitation au workshop à la fin, et le créneau.</p><p>Claude transforme ça en campagne : il configure, je valide.</p></div>
+          <figure><img src="assets/acq-03-prompt-linkedin.png" alt="Consigne donnée à Claude Code pour distribuer la ressource d'un post LinkedIn en commentaire et en DM" loading="lazy"><figcaption>La consigne réelle, en français, sans une ligne de code.</figcaption></figure>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">2</span>
+        <h3>Ce que fait l'outil, pour chaque commentaire</h3>
+        <div class="row">
+          <div>
+            <ul>
+              <li><b>Contact de 1<sup>er</sup> degré</b> : la ressource part en DM, et il répond sous le commentaire « Envoyé en MP 📩 ».</li>
+              <li><b>2<sup>e</sup> degré</b> (DM impossible) : réponse sous le commentaire « ajoute-moi en contact et je t'envoie la ressource en MP ». Pas d'invitation automatique.</li>
+              <li><b>Ensuite</b> : l'invitation au workshop, jamais deux fois à la même personne, toutes campagnes confondues.</li>
+            </ul>
+          </div>
+          <div class="code"><div class="bar"><i></i><i></i><i></i><span>app/api/cron/lead-magnets/route.ts</span></div><pre><span class="kw">const</span> DEFAULT_COMMENT_REPLY =
+  <span class="y">'Envoyé en MP {prenom} 📩 (check tes messages 🙌)'</span>
+<span class="kw">const</span> DEFAULT_NOTCONNECTED_REPLY =
+  <span class="y">"Merci {prenom} 🙌 ajoute-moi en contact et je
+   t'envoie la ressource en MP direct !"</span>
+
+<span class="c">// Déjà invité au workshop par une autre campagne,</span>
+<span class="c">// ou « ne plus contacter » → on saute.</span>
+<span class="kw">if</span> (<span class="kw">await</span> alreadyInvitedOrBanned(db, providerId)) …</pre></div>
+        </div>
+      </li>
+      <li class="step rv"><span class="n">3</span>
+        <h3>Quand et à quel rythme</h3>
+        <div class="row">
+          <div><p>Une session par jour ouvré, <b>de 15h à 18h</b> (heure de Paris), <b>un envoi toutes les 2 à 4 minutes</b>, jamais le week-end, avec un plafond quotidien. Comme un humain, pas comme un robot.</p></div>
+          <div class="code"><div class="bar"><i></i><i></i><i></i><span>.github/workflows/cron-lead-magnets.yml</span></div><pre><span class="c"># Fenêtre d'envoi : 15h00 → 18h00 Paris, lun-ven.</span>
+start=$(TZ=Europe/Paris date -d <span class="y">'today 15:00'</span> +%s)
+end=$(TZ=Europe/Paris date -d <span class="y">'today 18:00'</span> +%s)
+…
+<span class="c"># Espacement aléatoire 2-4 min avant le prochain envoi.</span>
+sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
+        </div>
+      </li>
+    </ol>
     <div class="shots two mt">
       <figure class="rv"><img src="assets/acq-01-linkedin.jpg" alt="Code de LinkedIn-app : plafonds anti-ban et crons" loading="lazy"><figcaption>Les plafonds anti-ban et les crons du setting.</figcaption></figure>
       <figure class="rv"><img src="assets/acq-02-coldmail.jpg" alt="Framework X-Ray GEO et pipeline Clay, enrichissement, split A/B" loading="lazy"><figcaption>Le pipeline cold mail, de Clay à la séquence.</figcaption></figure>
