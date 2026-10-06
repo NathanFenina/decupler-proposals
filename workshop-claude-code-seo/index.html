@@ -243,6 +243,25 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.5}
 .rk{display:grid;gap:12px}
 .rk .kpi b{font-size:1.6rem}
 
+/* methode -> projets */
+.loopwrap{margin-top:56px;display:grid;grid-template-columns:1fr;gap:20px}
+.loopsvg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 14px}
+.loopsvg svg{display:block;width:100%;height:auto}
+.loopsvg .sm{display:none}
+.loopsvg .bx{fill:var(--surface2);stroke:var(--line2);stroke-width:1.2}
+.loopsvg .bx.src{fill:var(--surface);stroke:var(--gold);stroke-width:2}
+.loopsvg .t1{font:600 20px var(--disp);fill:var(--ink)}
+.loopsvg .t2{font:600 15px var(--sans);fill:var(--ink)}
+.loopsvg .t3{font:500 12.5px var(--mono);fill:var(--muted)}
+.loopsvg .lb1{font:700 14px var(--sans);fill:var(--seo)}
+.loopsvg .lb2{font:700 14px var(--sans);fill:var(--geo)}
+.loopsvg .lbs{font:500 13px var(--sans);fill:var(--body)}
+.loopsvg path.dn,.loopsvg path.up{fill:none;stroke-width:2.2;stroke-dasharray:6 6;animation:dash 1.2s linear infinite}
+.loopsvg path.dn{stroke:var(--seo)}
+.loopsvg path.up{stroke:var(--geo);animation-direction:normal}
+.loopsvg .ah1{fill:var(--seo)}.loopsvg .ah2{fill:var(--geo)}
+.news .card p{font-size:15px}
+
 /* sop */
 .sop{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px;counter-reset:s}
 .sop li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:34px 1fr;gap:4px 10px}
@@ -327,6 +346,8 @@ body.present .slide{min-height:100vh}
   .flow::before,.flow .pulse{display:none}
   .underbar{grid-template-columns:1fr}
   .hub{display:none}
+  .loopsvg .lg{display:none}
+  .loopsvg .sm{display:block;max-width:420px;margin:0 auto}
   .hublist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
   .hublist div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:center;font-size:14px}
   .hublist img{width:22px;height:22px}
@@ -355,7 +376,7 @@ body.present .slide{min-height:100vh}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .top .live,.flow .pulse,.hub svg line{animation:none}
+  .top .live,.flow .pulse,.hub svg line,.loopsvg path{animation:none}
 }
 </style>
 </head>
@@ -388,7 +409,7 @@ body.present .slide{min-height:100vh}
     </div>
     <div class="stats">
       <div class="stat rv"><b data-count="15">15</b><span>mois de SEO au quotidien avec Claude Code</span></div>
-      <div class="stat rv"><b data-count="50">50</b><span>skills SEO/GEO dans <code>decupler-seo</code></span></div>
+      <div class="stat rv"><b data-count="54">54</b><span>skills SEO/GEO dans <code>decupler-seo</code></span></div>
       <div class="stat rv"><b data-count="15">15</b><span>agents spécialisés en parallèle</span></div>
       <div class="stat rv"><b data-count="13">13</b><span>MCP branchés (GSC, GA4, Notion…)</span></div>
       <div class="stat rv"><b data-count="85">85</b><span>pré-audits GEO publiés par la moulinette</span></div>
@@ -406,7 +427,7 @@ body.present .slide{min-height:100vh}
     <h2>Une heure, et tout est montré de l'intérieur</h2>
     <ol class="toc">
       <li><a href="#pourquoi">Claude ≠ Claude Code<small>pourquoi c'est 10x plus fort</small></a></li>
-      <li><a href="#infra">L'anatomie de l'infra<small>mémoire, skills, agents, MCP, routines, hooks</small></a></li>
+      <li><a href="#infra">L'anatomie de l'infra<small>mémoire, skills, agents, MCP, routines, hooks, synchro des projets</small></a></li>
       <li><a href="#mcp">La carte des MCP<small>ce qui est branché, et à quoi</small></a></li>
       <li><a href="#brief">Démo · le brief SEO/GEO<small>SERP réelle, top 5 analysé</small></a></li>
       <li><a href="#refonte">Démo · une page qui rank mal<small>Motralec, de 21e au plan de refonte</small></a></li>
@@ -414,12 +435,12 @@ body.present .slide{min-height:100vh}
       <li><a href="#moulinette">Démo · la moulinette<small>85 pré-audits GEO, publiés seuls</small></a></li>
       <li><a href="#audit">L'audit GEO complet<small>orators.fr, 12 onglets</small></a></li>
       <li><a href="#carto">Cartographie & topical map<small>Notion, priorisée en euros</small></a></li>
-      <li><a href="#pilotage">Pilotage & reporting<small>la routine du vendredi</small></a></li>
+      <li><a href="#pilotage">Pilotage & reporting<small>la routine du mercredi</small></a></li>
       <li><a href="#wordpress">WordPress & indexation<small>plugins maison, API REST</small></a></li>
       <li><a href="#sites">Sites générés par IA<small>avant / après</small></a></li>
       <li><a href="#acquisition">Acquisition<small>setting LinkedIn, cold mail</small></a></li>
       <li><a href="#resultats">Résultats Search Console<small>sans filtre</small></a></li>
-      <li><a href="#sop">14 SOP + livre blanc<small>le bonus des présents</small></a></li>
+      <li><a href="#sop">17 SOP + livre blanc<small>le bonus des présents</small></a></li>
     </ol>
     <div class="stay"><b>Vous voulez créer votre premier projet Claude Code × SEO&nbsp;?</b> Après les questions, je présente en quelques minutes le programme d'accompagnement en petit groupe. Ceux que ça intéresse restent ; le livre blanc et les ressources sont envoyés à tous.</div>
   </div>
@@ -441,7 +462,7 @@ body.present .slide{min-height:100vh}
         <tr><td>Méthode</td><td class="no">un prompt à retaper</td><td class="yes">des skills : la même méthode rejouée à l'identique</td><td><a href="#geoready">référentiel GEO Ready</a></td></tr>
         <tr><td>Volume</td><td class="no">une page à la fois</td><td class="yes">7 agents en parallèle sur un audit, 50 sites dans un lot</td><td><a href="#moulinette">1 500 réponses d'IA</a></td></tr>
         <tr><td>Publication</td><td class="no">copier-coller dans WordPress</td><td class="yes">API REST, Yoast, brouillon + sauvegarde + journal</td><td><a href="#wordpress">plugins maison</a></td></tr>
-        <tr><td>Régularité</td><td class="no">quand vous y pensez</td><td class="yes">routine cloud chaque vendredi, ordinateur éteint</td><td><a href="#pilotage">routine hebdo</a></td></tr>
+        <tr><td>Régularité</td><td class="no">quand vous y pensez</td><td class="yes">routine cloud chaque mercredi, ordinateur éteint</td><td><a href="#pilotage">routine hebdo</a></td></tr>
       </tbody>
     </table>
     </div>
@@ -467,7 +488,7 @@ body.present .slide{min-height:100vh}
     <div class="underbar rv">
       <div class="ub"><b>Mémoire, en dessous de tout</b> · <code>CLAUDE.md</code> et <code>memoire/</code> sont lus avant chaque session : marque, décisions, pièges déjà payés.</div>
       <div class="ub"><b>Hook, avant toute écriture</b> · <code>garde-fou.sh</code> intercepte publication WordPress, robots.txt, redirections, emails : autorise, demande, ou bloque.</div>
-      <div class="ub"><b>Routine, quand vous n'êtes pas là</b> · le même enchaînement, lancé seul chaque vendredi à 7h07 dans le cloud.</div>
+      <div class="ub"><b>Routine, quand vous n'êtes pas là</b> · le même enchaînement, lancé seul chaque mercredi à 7 h dans le cloud.</div>
     </div>
 
     <div class="tabs rv" id="anatomy">
@@ -516,7 +537,7 @@ Vous êtes le chef d'orchestre. Vous ne faites pas l'analyse
 vous-même : vous collectez les faits, vous déléguez aux
 spécialistes, vous agrégez, vous priorisez.</pre></div>
         </div>
-        <figure><img src="assets/infra-02-skill.jpg" alt="Fichier SKILL.md du skill seo-audit-360 ouvert dans un éditeur" loading="lazy"><figcaption>50 skills dans le plugin : brief, rédaction, maillage, schema, GEO, migration, netlinking…</figcaption></figure>
+        <figure><img src="assets/infra-02-skill.jpg" alt="Fichier SKILL.md du skill seo-audit-360 ouvert dans un éditeur" loading="lazy"><figcaption>54 skills dans le plugin : brief, rédaction, humanisation, maillage, schema, GEO, LinkedIn, netlinking…</figcaption></figure>
       </div>
 
       <div class="tabpanel" id="t-agent" role="tabpanel">
@@ -572,30 +593,112 @@ spécialistes, vous agrégez, vous priorisez.</pre></div>
           <span class="k">Couche 7 · Routine</span>
           <h3>Le SEO qui tourne quand vous n'êtes pas là</h3>
           <p>Une routine est une session Claude Code planifiée dans le cloud, sur un dépôt. Son prompt fait 3 lignes : il dit d'aller lire la méthode dans le dépôt. Améliorer la routine = modifier un fichier.</p>
-          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>prompt de la routine « hebdo (vendredi) » · 7h07</span></div><pre>Routine de <span class="y">hebdo</span> de Décupler. Commence par
+          <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>prompt de la routine « hebdo (mercredi) » · 7 h</span></div><pre>Routine de <span class="y">hebdo</span> de Décupler. Commence par
 <span class="s">`git fetch origin main`</span>, puis lis les instructions
 à jour avec <span class="s">`git show origin/main:routines/hebdo.md`</span>
 et suis-les à la lettre, étape par étape.</pre></div>
-          <p class="note">Une routine cloud ne charge pas les plugins : chaque site a donc son propre dépôt, avec la méthode copiée dans <code>.claude/</code> et sa propre mémoire.</p>
+          <p class="note">Une routine cloud ne charge pas les plugins : chaque site a donc son propre dépôt, avec la méthode copiée dans <code>.claude/</code> et sa propre mémoire. Une seule routine par projet, le mercredi à 7 h ; elle lit aussi les notes <code>#a-traiter</code> déposées dans Obsidian.</p>
         </div>
-        <figure><img src="assets/pilotage-01-routine.jpg" alt="ROUTINES.md et routines/hebdo.md : prompt court et étapes de la routine" loading="lazy"><figcaption>La routine du vendredi : prompt court, méthode versionnée dans le dépôt. Détail dans <a href="#pilotage">Pilotage</a>.</figcaption></figure>
+        <figure><img src="assets/pilotage-01-routine.jpg" alt="ROUTINES.md et routines/hebdo.md : prompt court et étapes de la routine" loading="lazy"><figcaption>La routine hebdo : prompt court, méthode versionnée dans le dépôt. Détail dans <a href="#pilotage">Pilotage</a>.</figcaption></figure>
       </div>
 
       <div class="tabpanel" id="t-repo" role="tabpanel">
         <div>
           <span class="k">Tout assemblé · open source</span>
           <h3>decupler-seo : toute la méthode en plugin</h3>
-          <p>50 skills, 15 agents, 15 commandes <code>/seo</code>, 30 scripts Python (cœur sans dépendance), 13 MCP préconfigurés, 2 hooks optionnels, 310 tests. Licence MIT, en français.</p>
+          <p>Version 3.9.1 : 54 skills, 15 agents, 37 scripts Python (cœur sans dépendance), 13 MCP préconfigurés, 17 SOP, 2 hooks optionnels, 403 tests. Un manuel pour démarrer (<code>docs/MANUEL.md</code>). Licence MIT, en français.</p>
           <div class="code mt-s"><div class="bar"><i></i><i></i><i></i><span>dans Claude Code</span></div><pre><span class="p">&gt;</span> /plugin marketplace add NathanFenina/decupler-seo
 <span class="p">&gt;</span> /plugin install decupler-seo@decupler
 <span class="p">&gt;</span> /seo doctor
 <span class="c"># ce qui est branché, ce qui manque, la 1re action utile</span>
 <span class="p">&gt;</span> /seo audit · /seo quickwins · /seo brief · /seo onpage
-<span class="p">&gt;</span> /seo fix · /seo article · /seo geo · /seo rapport …</pre></div>
-          <div class="links"><a class="lnk" href="https://github.com/NathanFenina/decupler-seo" target="_blank" rel="noopener">github.com/NathanFenina/decupler-seo</a></div>
+<span class="p">&gt;</span> /seo fix · /seo article · /seo geo · /seo rapport …
+<span class="p">&gt;</span> /seo-maj
+<span class="c"># dans un projet : la méthode à jour</span></pre></div>
+          <div class="links"><a class="lnk" href="https://github.com/NathanFenina/decupler-seo" target="_blank" rel="noopener">github.com/NathanFenina/decupler-seo</a><a class="lnk" href="https://github.com/NathanFenina/decupler-seo/blob/main/docs/MANUEL.md" target="_blank" rel="noopener">Le manuel</a></div>
           <p class="note">La différence avec un pack de prompts : chaque modification publiée est inscrite au journal, puis remesurée à J+28 contre un groupe témoin. Après trois mesures du même type, la leçon entre dans la mémoire.</p>
         </div>
-        <figure><img src="assets/infra-01-arborescence.jpg" alt="Arborescence commentée du plugin decupler-seo" loading="lazy"><figcaption>Un plugin Claude Code, c'est un dossier.</figcaption></figure>
+        <figure><img src="assets/infra-01-arborescence.jpg" alt="Arborescence commentée du plugin decupler-seo" loading="lazy"><figcaption>Un plugin Claude Code, c'est un dossier. Capture de la version 3.7.1 ; la 3.9.1 compte 54 skills, 37 scripts et 403 tests.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="loopwrap">
+      <div class="rv">
+        <span class="k">Nouveau · versions 3.8 à 3.9.1</span>
+        <h3>Une méthode, des projets : <em style="color:var(--seo)">une infra, pas un prompt</em></h3>
+        <p class="lede" style="font-size:1.05rem">La méthode vit dans un seul dépôt public. Chaque site a son dépôt privé, avec une copie de la méthode tenue à jour toute seule. Et quand on trouve mieux chez un client, ça repart vers tous les autres.</p>
+      </div>
+      <figure class="loopsvg rv" aria-label="La méthode descend de decupler-seo vers chaque projet par une PR de synchro le lundi ; les améliorations trouvées dans un projet remontent vers decupler-seo avec projet.py remonter">
+        <svg class="lg" viewBox="0 0 1100 330" role="img" aria-hidden="true">
+          <defs>
+            <marker id="ahd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="ah1" d="M0 0L10 5L0 10z"/></marker>
+            <marker id="ahu" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="ah2" d="M0 0L10 5L0 10z"/></marker>
+          </defs>
+          <rect class="bx src" x="340" y="8" width="420" height="92" rx="14"/>
+          <text class="t1" x="550" y="44" text-anchor="middle">decupler-seo · la méthode</text>
+          <text class="t3" x="550" y="70" text-anchor="middle">17 SOP · 54 skills · 15 agents · 37 scripts</text>
+          <text class="t3" x="550" y="88" text-anchor="middle">public, MIT · registre des projets (projets.json)</text>
+          <text class="lb1" x="20" y="36">↓ La méthode descend</text>
+          <text class="lbs" x="20" y="58">chaque lundi, une PR de synchro</text>
+          <text class="lbs" x="20" y="78">dans chaque projet, ou /seo-maj</text>
+          <text class="lb2" x="1080" y="36" text-anchor="end">Les améliorations remontent ↑</text>
+          <text class="lbs" x="1080" y="58" text-anchor="end">projet.py remonter : un piège trouvé</text>
+          <text class="lbs" x="1080" y="78" text-anchor="end">chez un client sert tous les projets</text>
+          <path class="dn" d="M420 100 C 400 160, 190 170, 180 222" marker-end="url(#ahd)"/>
+          <path class="dn" d="M520 100 L 520 222" marker-end="url(#ahd)"/>
+          <path class="dn" d="M610 100 C 640 160, 840 160, 860 222" marker-end="url(#ahd)"/>
+          <path class="up" d="M990 226 C 990 150, 820 120, 762 76" marker-end="url(#ahu)"/>
+          <rect class="bx" x="30" y="226" width="300" height="92" rx="12"/>
+          <text class="t2" x="180" y="258" text-anchor="middle">Site client A · dépôt privé</text>
+          <text class="t3" x="180" y="282" text-anchor="middle">mémoire · journal · faits</text>
+          <text class="t3" x="180" y="302" text-anchor="middle">routine du mercredi, 7 h</text>
+          <rect class="bx" x="400" y="226" width="300" height="92" rx="12"/>
+          <text class="t2" x="550" y="258" text-anchor="middle">Site client B · dépôt privé</text>
+          <text class="t3" x="550" y="282" text-anchor="middle">mémoire · journal · faits</text>
+          <text class="t3" x="550" y="302" text-anchor="middle">routine du mercredi, 7 h</text>
+          <rect class="bx" x="770" y="226" width="300" height="92" rx="12"/>
+          <text class="t2" x="920" y="258" text-anchor="middle">Votre site · dépôt privé</text>
+          <text class="t3" x="920" y="282" text-anchor="middle">mémoire · journal · faits</text>
+          <text class="t3" x="920" y="302" text-anchor="middle">routine du mercredi, 7 h</text>
+        </svg>
+        <svg class="sm" viewBox="0 0 360 560" role="img" aria-hidden="true">
+          <defs>
+            <marker id="ahd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="ah1" d="M0 0L10 5L0 10z"/></marker>
+            <marker id="ahu2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="ah2" d="M0 0L10 5L0 10z"/></marker>
+          </defs>
+          <rect class="bx src" x="10" y="6" width="340" height="96" rx="14"/>
+          <text class="t1" x="180" y="40" text-anchor="middle">decupler-seo · la méthode</text>
+          <text class="t3" x="180" y="64" text-anchor="middle">17 SOP · 54 skills · 15 agents</text>
+          <text class="t3" x="180" y="84" text-anchor="middle">37 scripts · registre des projets</text>
+          <path class="dn" d="M40 104 L 40 330" marker-end="url(#ahd2)"/>
+          <text class="lb1" x="56" y="150">↓ Descend</text>
+          <text class="lbs" x="56" y="172">chaque lundi,</text>
+          <text class="lbs" x="56" y="192">une PR de synchro,</text>
+          <text class="lbs" x="56" y="212">ou /seo-maj</text>
+          <path class="up" d="M200 330 L 200 106" marker-end="url(#ahu2)"/>
+          <text class="lb2" x="214" y="150">↑ Remonte</text>
+          <text class="lbs" x="214" y="172">projet.py remonter :</text>
+          <text class="lbs" x="214" y="192">un piège trouvé</text>
+          <text class="lbs" x="214" y="212">chez un client</text>
+          <text class="lbs" x="214" y="232">sert tous les projets</text>
+          <rect class="bx" x="10" y="336" width="340" height="64" rx="12"/>
+          <text class="t2" x="180" y="362" text-anchor="middle">Site client A · dépôt privé</text>
+          <text class="t3" x="180" y="384" text-anchor="middle">mémoire · journal · routine du mercredi</text>
+          <rect class="bx" x="10" y="410" width="340" height="64" rx="12"/>
+          <text class="t2" x="180" y="436" text-anchor="middle">Site client B · dépôt privé</text>
+          <text class="t3" x="180" y="458" text-anchor="middle">mémoire · journal · routine du mercredi</text>
+          <rect class="bx" x="10" y="484" width="340" height="64" rx="12"/>
+          <text class="t2" x="180" y="510" text-anchor="middle">Votre site · dépôt privé</text>
+          <text class="t3" x="180" y="532" text-anchor="middle">mémoire · journal · routine du mercredi</text>
+        </svg>
+      </figure>
+      <div class="grid g3 news">
+        <div class="card seo rv"><span class="k">Méthode → projets</span><h3>Synchro et registre</h3><p>Chaque lundi, une PR de synchro ouvre dans chaque projet si la méthode a changé. <code>/seo-maj</code> explique ce qui change. <code>projet.py registre</code> liste la version embarquée de chaque projet.</p></div>
+        <div class="card geo rv"><span class="k">Projets → méthode</span><h3>Une amélioration sert tous</h3><p><code>projet.py remonter</code> renvoie vers decupler-seo, sur une branche, un fichier de méthode amélioré chez un client, sans aucune donnée du client. En 3.9.1, cinq skills d'un projet en production ont été fusionnés dans la méthode.</p></div>
+        <div class="card gold rv"><span class="k">17 SOP + manuel</span><h3>Qui fait quoi, dans quel ordre</h3><p>Trois nouvelles SOP : la semaine type, arbitrer les actions du mois, travailler avec un prestataire. Le manuel donne trois chemins : essayer, rejoindre un projet, piloter des projets.</p></div>
+        <div class="card good rv"><span class="k">Humanisation</span><h3>Les tics d'écriture IA, comptés</h3><p>Un score des tics d'écriture générée en français (8 familles), un avant/après qui bloque tout chiffre apparu. Le texte devient meilleur et reconnaissable comme celui du client. Aucune promesse d'être « indétectable ».</p></div>
+        <div class="card seo rv"><span class="k">Indexation propre</span><h3>Annoncer, puis vérifier</h3><p>Après chaque mise en ligne : IndexNow et sitemaps resoumis, contrôle à J+3, liste des URL à demander à la main. Jamais l'Indexing API hors de son usage (offres d'emploi, vidéos en direct).</p></div>
+        <div class="card crit rv"><span class="k">WordPress + Obsidian</span><h3>Prêts à installer</h3><p>Extensions génériques : métas par l'API pour Yoast, Rank Math et SEOPress, nettoyage après piratage, entité, IndexNow. Et chaque projet s'ouvre comme un coffre Obsidian : une note <code>#a-traiter</code> est lue par la routine.</p></div>
       </div>
     </div>
   </div>
@@ -1064,10 +1167,10 @@ Potentiel €/an = Trafic × conv(intention)
 <section class="slide alt" id="pilotage">
   <div class="wrap">
     <p class="num">11 · Pilotage & reporting</p>
-    <h2>20 minutes le vendredi. <em>Le reste tourne seul.</em></h2>
-    <p class="lede">Une routine cloud contrôle le site, mesure, exécute ce que j'ai validé, puis écrit le bilan dans une page de suivi. Moi, je ne fais que valider ou refuser.</p>
+    <h2>20 minutes le mercredi. <em>Le reste tourne seul.</em></h2>
+    <p class="lede">Une routine cloud par projet, le mercredi à 7 h, contrôle le site, mesure, exécute ce que j'ai validé, puis écrit le bilan dans une page de suivi. Moi, je ne fais que valider ou refuser.</p>
     <ol class="steps">
-      <li class="step rv"><span class="n">0</span><h3>Partir propre</h3><p>Nouvelle branche, lecture de <code>CLAUDE.md</code>, des décisions et de la passation, journal de run ouvert tout de suite. Un statut vert dans la liste des routines veut dire « la session a tourné », pas « le travail est fait » : d'où le journal.</p></li>
+      <li class="step rv"><span class="n">0</span><h3>Partir propre</h3><p>Nouvelle branche, lecture de <code>CLAUDE.md</code>, des décisions, de la passation et des notes <code>#a-traiter</code> du coffre Obsidian, journal de run ouvert tout de suite. Un statut vert dans la liste des routines veut dire « la session a tourné », pas « le travail est fait » : d'où le journal.</p></li>
       <li class="step rv"><span class="n">1</span><h3>Contrôle du site, en lecture seule</h3><p>Pages en ligne, robots.txt, sitemap. Alerte prioritaire si le spam du piratage revient (casino, slot…).</p></li>
       <li class="step rv"><span class="n">2</span><h3>Les chiffres, avant toute modification</h3>
         <div class="row">
@@ -1085,7 +1188,7 @@ Potentiel €/an = Trafic × conv(intention)
     </ol>
     <div class="grid g3 mt">
       <div class="card good rv"><span class="k">decupler.com</span><p><b>71</b> clics sur 4 semaines contre 33. Spam : <b>3 308</b> impressions en mai → <b>1</b>. 11 pages sur 149 en top 10.</p></div>
-      <div class="card gold rv"><span class="k">Site immobilier trilingue FR/EN/AR</span><p>Premier mois en ligne : 81 URL indexées, cité sur <b>13 des 72</b> prompts IA suivis. Une routine le vendredi.</p></div>
+      <div class="card gold rv"><span class="k">Site immobilier trilingue FR/EN/AR</span><p>Premier mois en ligne : 81 URL indexées, cité sur <b>13 des 72</b> prompts IA suivis. Une routine le mercredi.</p></div>
       <div class="card seo rv"><span class="k">Média tech B2B</span><p>Même dispositif, nom masqué : 52 liens internes réparés, sitemap de 17 à 36 URL, 30 pages indexées sur 34.</p></div>
     </div>
     <div class="links"><a class="lnk priv" href="https://claude.ai/artifact/Rb2sP3EQFzedk6G2Xau6KA" target="_blank" rel="noopener" title="Lien privé : à ouvrir depuis le compte de Nathan">Pilotage decupler.com</a><a class="lnk priv" href="https://claude.ai/artifact/MkDZXG4uhzv4J6WnpDbpmx" target="_blank" rel="noopener" title="Lien privé : à ouvrir depuis le compte de Nathan">Pilotage site trilingue</a><a class="lnk priv" href="https://claude.ai/artifact/GarDZ2u7MDdbrGkvi1yw7L" target="_blank" rel="noopener" title="Lien privé : à ouvrir depuis le compte de Nathan">Pilotage média tech</a></div>
@@ -1123,6 +1226,7 @@ Potentiel €/an = Trafic × conv(intention)
         <tr><td>Budget de crawl</td><td>Chaque URL morte renvoyait ~151 Ko ; sur 12 787 URL non indexées, ≈ 1,9 Go téléchargés par Googlebot à chaque passage. Page d'erreur ramenée à <b>708 octets</b>, pagination hors limites en 404, <b>350 URL de spam en 410</b>, robots.txt écrit en fichier, llms.txt servi.</td></tr>
         <tr><td>Entité</td><td>Nathan Fenina existait sous 3 identifiants différents. Le graphe schema.org ajoute l'Organisation (données du registre) et une Personne unique sur chaque page.</td></tr>
         <tr><td>Yoast via l'API</td><td>Sans lui, WordPress répond 200 et <b>jette silencieusement</b> les titles et metas envoyés par l'API. Avec : Claude remplit title, meta et requête cible.</td></tr>
+        <tr><td>Dans le plugin</td><td>Ces correctifs sont devenus des extensions génériques de <code>decupler-seo</code> (<code>templates/wordpress/</code>), testées sur un vrai WordPress : métas par l'API pour Yoast, Rank Math et SEOPress, nettoyage après piratage, entité, IndexNow à chaque publication.</td></tr>
         <tr><td>Pop-up</td><td>L'invitation à cette masterclass : bandeau sur mobile, une fois par visiteur, arrêt automatique le 8/10 à 12h30. 37 tests.</td></tr>
       </tbody>
     </table>
@@ -1139,10 +1243,10 @@ Potentiel €/an = Trafic × conv(intention)
         </ul>
       </div>
       <div class="card geo rv">
-        <span class="k">Astuce en test · Claude in Chrome</span>
-        <h3>La dizaine d'URL du jour, soumise sans y penser</h3>
-        <p>Claude Code + l'extension Claude in Chrome : il ouvre la Search Console et clique « Demander l'indexation » comme vous le feriez, à la main, pas par l'API. Avec une mémoire long terme (Obsidian), plus besoin de lui donner les URL.</p>
-        <p>L'étape suivante : <b>un skill + un cron</b>, et les pages publiées du jour partent toutes seules, dans la limite du quota.</p>
+        <span class="k">Dans le plugin depuis la 3.9 · indexation propre</span>
+        <h3>Annoncer chaque mise en ligne, vérifier à J+3</h3>
+        <p><code>indexation.py annoncer</code> envoie IndexNow et resoumet les sitemaps après chaque publication. <code>indexation.py suivre</code> inspecte les URL à J+3 et sort la liste de celles à demander à la main. La routine du mercredi fait le suivi.</p>
+        <p>Claude in Chrome (il ouvre la Search Console et clique « Demander l'indexation ») reste réservé à quelques URL, jamais en routine.</p>
       </div>
     </div>
   </div>
@@ -1289,25 +1393,29 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
 <section class="slide" id="sop">
   <div class="wrap">
     <p class="num">16 · Les SOP</p>
-    <h2>14 procédures, chacune reliée à <em>un skill</em></h2>
+    <h2>17 procédures, chacune reliée à <em>un skill</em></h2>
     <p class="lede">Une SOP dit quoi faire et dans quel ordre. Le skill le fait. C'est ce qui rend le résultat reproductible d'un site à l'autre.</p>
     <ol class="sop">
       <li><b>Topical map</b><span>seo-cartographie · seo-cocon-semantique</span></li>
       <li><b>Ligne éditoriale</b><span>seo-opportunites · seo-veille</span></li>
       <li><b>Brief SEO/GEO</b><span>seo-brief · seo-serp-analysis</span></li>
-      <li><b>Rédaction</b><span>seo-redaction · seo-eeat</span></li>
+      <li><b>Rédaction</b><span>seo-redaction · seo-eeat · seo-humanisation</span></li>
       <li><b>Optimisation on-page</b><span>seo-optimisation-onpage · seo-meta-serp</span></li>
       <li><b>Maillage interne</b><span>seo-maillage-interne</span></li>
-      <li><b>Entités</b><span>seo-eeat · geo-visibilite-ia</span></li>
+      <li><b>Entités</b><span>seo-entites-triplets · geo-llms-txt</span></li>
       <li><b>Données structurées</b><span>seo-schema-jsonld</span></li>
       <li><b>Design de page</b><span>seo-design-pages · seo-page-builder-html</span></li>
       <li><b>Intégration CMS</b><span>seo-publication-cms</span></li>
-      <li><b>Indexation</b><span>gsc inspect · sitemaps · Claude in Chrome</span></li>
+      <li><b>Indexation</b><span>seo-indexation · IndexNow · suivi à J+3</span></li>
       <li><b>Analyse GSC / GA4</b><span>seo-gsc-analyses · seo-quick-wins</span></li>
       <li><b>Visibilité IA</b><span>geo-share-of-model · geo-visibilite-ia</span></li>
-      <li><b>Reporting</b><span>seo-dashboard · seo-pilotage-notion</span></li>
+      <li><b>Reporting</b><span>seo-reporting · seo-dashboard · seo-pilotage</span></li>
+      <li><b>La semaine type</b><span>routine hebdo du mercredi · /seo-maj le lundi</span></li>
+      <li><b>Arbitrer les actions</b><span>seo-opportunites · seo-pilotage</span></li>
+      <li><b>Travailler avec un prestataire</b><span>/seo doctor · puis la SOP de la tâche</span></li>
     </ol>
-    <div class="gift"><span class="ic">🎁</span><p><b>Bonus des présents :</b> le livre blanc « L'infra SEO Claude Code » avec les 14 SOP détaillées, et le plugin <code>decupler-seo</code>. Envoyés par email à la fin du live.</p></div>
+    <p class="note">Les SOP vivent dans <code>decupler-seo/docs/sop/</code> : une SOP qui change, change pour tous les projets à la synchro du lundi. Le <a href="https://github.com/NathanFenina/decupler-seo/blob/main/docs/MANUEL.md" target="_blank" rel="noopener">manuel</a> dit par laquelle commencer.</p>
+    <div class="gift"><span class="ic">🎁</span><p><b>Bonus des présents :</b> le livre blanc « L'infra SEO Claude Code » avec les 17 SOP détaillées, et le plugin <code>decupler-seo</code>. Envoyés par email à la fin du live.</p></div>
   </div>
 </section>
 
@@ -1338,7 +1446,7 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
     <div class="weeks">
       <div class="wk rv"><span class="wn">Semaine 1</span><h3>Installer</h3><p>Claude Code, votre dépôt, votre <code>CLAUDE.md</code>, le plugin <code>decupler-seo</code>, et les branchements : Search Console, GA4, données mots-clés, Notion, CMS.</p><span class="wb">+ appel d'installation 1:1</span></div>
       <div class="wk rv"><span class="wn">Semaine 2</span><h3>Produire</h3><p>Brief sur la SERP réelle, rédaction, optimisation, données structurées, maillage : sur vos pages, avec vos données.</p></div>
-      <div class="wk rv"><span class="wn">Semaine 3</span><h3>Publier & piloter</h3><p>Publication dans le CMS sans copier-coller, garde-fou, routine hebdomadaire, page de suivi et reporting.</p></div>
+      <div class="wk rv"><span class="wn">Semaine 3</span><h3>Publier & piloter</h3><p>Publication dans le CMS sans copier-coller, garde-fou, routine du mercredi, page de suivi et reporting.</p></div>
       <div class="wk rv"><span class="wn">Semaine 4</span><h3>GEO & clients</h3><p>Mesure des citations dans ChatGPT, Claude, Gemini, réécriture GEO, et votre propre moulinette de pré-audits pour vos prospects.</p></div>
     </div>
 
@@ -1348,7 +1456,7 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
         <ul class="checks">
           <li><b>4 sessions live d'1 heure</b>, une par semaine : workshop sur vos sites + questions-réponses</li>
           <li><b>Un Slack en petit comité</b>, ouvert pendant le programme et <b>30 jours après</b></li>
-          <li><b>Le dépôt complet</b> : skills, agents, scripts, MCP préconfigurés</li>
+          <li><b>Le dépôt complet</b> : 54 skills, 15 agents, 37 scripts, 17 SOP, MCP préconfigurés, tenu à jour chaque lundi par PR</li>
           <li><b>Les replays</b> de chaque session</li>
         </ul>
         <span class="k" style="margin-top:22px">Bonus</span>
@@ -1426,7 +1534,7 @@ document.body.classList.remove('no-js');
     ['wordpress','WordPress','API REST + Yoast','g4'],
     ['webflow','Webflow','CMS','g4'],
     ['notion','Notion','cartographie, roadmap','g4'],
-    ['obsidian','Obsidian','mémoire long terme','g4'],
+    ['obsidian','Obsidian','un coffre par projet, notes #a-traiter','g4'],
     ['github','GitHub','dépôts, routines, Pages','g4'],
     ['googlechrome','Chrome','rendu, Web Vitals, Claude in Chrome','g5'],
     [null,'Playwright','captures, formulaires','g5','PW'],
