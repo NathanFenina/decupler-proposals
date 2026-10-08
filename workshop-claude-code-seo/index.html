@@ -345,6 +345,18 @@ footer{padding:56px 24px 72px}
 .prog .pause{background:rgba(255,255,255,.06);color:#ffd88a;border-color:rgba(217,162,74,.4)}
 
 /* ouverture : règles du jeu */
+.ask{margin-top:28px;background:var(--surface);border:2px solid var(--decupler);border-radius:14px;padding:20px 24px;font:600 1.15rem/1.4 var(--sans);color:var(--ink)}
+.ask small{display:block;font:500 14px/1.5 var(--sans);color:var(--muted);margin-top:6px}
+.check{display:inline-flex;align-items:center;gap:8px;margin:28px 12px 0 0;background:var(--surface);border:1px dashed var(--decupler);border-radius:99px;padding:8px 16px;font:600 14px var(--sans);color:var(--decupler)}
+.qrbox{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.qrbox img{width:170px;height:170px;border-radius:8px;flex:none}
+.qrbox p{margin:0;flex:1;min-width:220px}
+.notfor{margin-top:28px;border-radius:14px;padding:18px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)}
+.notfor b{color:#ffd88a}
+.obj{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.obj div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px;font-size:14px}
+.obj b{display:block;color:#fff;margin-bottom:4px}
+@media (max-width:860px){.obj{grid-template-columns:1fr}}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
 .rules div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:15px}
 .rules b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
@@ -569,8 +581,9 @@ body.present .slide{min-height:100vh}
     <div class="rules">
       <div class="rv"><i>💬</i><b>Tes questions, dans le chat, au fil de l'eau</b>Pas de main levée : écris-les dès qu'elles arrivent. Courtes pauses après les démos, puis un vrai temps de questions d'une dizaine de minutes à la fin. Tout le monde pourra poser les siennes.</div>
       <div class="rv"><i>🖥️</i><b>Que du réel</b>Mes vrais dossiers, mes vrais outils, mes vrais livrables. Aucun chiffre inventé : chaque chiffre de cette page a sa source.</div>
-      <div class="rv"><i>🎁</i><b>Tout est donné</b>Le plugin <code>decupler-seo</code> est open source, le livre blanc arrive par email à tout le monde. À la fin, 5 minutes pour ceux qui veulent être accompagnés.</div>
+      <div class="rv"><i>🎁</i><b>Tout est donné</b>Le plugin <code>decupler-seo</code> est open source, et pendant le live je montre un QR code pour récupérer le playbook complet et le kit. Pas de replay : ce qui compte t'arrive par email. À la fin, 5 minutes pour ceux qui veulent être accompagnés. Si ce n'est pas pour toi, aucun souci : tu repars quand même avec tout.</div>
     </div>
+    <div class="ask rv">✍️ Dans le chat, maintenant : <em>la chose avec laquelle tu veux repartir aujourd'hui.</em><small>Je les lis en direct et j'adapte les démos. Un seul usage du chat que je te demande d'éviter : les liens vers ton profil ou ton offre, pour garder un chat utile à tout le monde.</small></div>
     <div class="bridge rv"><span class="ar">→</span><p><b>La suite</b>Commençons par ce que tu vis sans doute tous les jours.</p></div>
   </div>
 </section>
@@ -649,6 +662,7 @@ body.present .slide{min-height:100vh}
       <div class="hot"><b>5 à 7 clients</b>possible, mais tu risques de saturer</div>
       <div><b>x10</b>de productivité face au setup classique</div>
     </div>
+    <span class="check">🔥 Tu te reconnais dans les 10 onglets ? Mets un 🔥 dans le chat.</span>
     <div class="bridge rv"><span class="ar">→</span><p><b>La suite</b>Il existe déjà plein d'outils SEO. Alors pourquoi construire le sien&nbsp;?</p></div>
   </div>
 </section>
@@ -743,6 +757,7 @@ body.present .slide{min-height:100vh}
         <text x="50" y="210">difficulté ↑ · temps →</text>
       </svg>
     </div>
+    <span class="check">✅ Prêt à ouvrir le capot ? Un « Y » dans le chat et on y va.</span>
     <div class="bridge rv"><span class="ar">→</span><p><b>La suite</b>Voilà ce qu'on va voir pendant l'heure.</p></div>
   </div>
 </section>
@@ -1795,6 +1810,7 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
       <li><b>Travailler avec un prestataire</b><span>/seo doctor · puis la SOP de la tâche</span></li>
     </ol>
     <p class="note">Les SOP vivent dans <code>decupler-seo/docs/sop/</code> : une SOP qui change, change pour tous les projets à la synchro du lundi. Le <a href="https://github.com/NathanFenina/decupler-seo/blob/main/docs/MANUEL.md" target="_blank" rel="noopener">manuel</a> dit par laquelle commencer.</p>
+    <div class="qrbox rv"><img src="assets/qr-playbook.svg" alt="QR code vers le playbook Claude Code SEO" width="170" height="170"><p><b>Le QR code promis au début.</b> Scanne-le : le playbook complet, les 17 SOP et le kit à télécharger..<br><span style="color:var(--muted);font-size:14px">decupler.com/claude-code-seo-os</span></p></div>
     <div class="gift"><span class="ic">🎁</span><p><b>Bonus des présents :</b> le livre blanc « L'infra SEO Claude Code » avec les 17 SOP détaillées, et le plugin <code>decupler-seo</code>. Envoyés par email à la fin du live.</p></div>
     <div class="bridge rv"><span class="ar">→</span><p><b>La suite</b>À toi maintenant : c'est le grand temps de questions.</p></div>
   </div>
@@ -1852,6 +1868,7 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
         </ul>
       </div>
     </div>
+    <div class="notfor rv"><b>Pour qui ce n'est pas.</b> Pour ceux qui cherchent un bouton magique sans mettre les mains dedans. Je t'installe le moteur et je t'apprends à le conduire, mais je ne peux pas faire le travail à ta place : il faut bloquer le temps des 4 sessions et l'utiliser entre deux.</div>
     <div class="bridge rv"><span class="ar">→</span><p><b>La suite</b>Et maintenant, le prix, et comment réserver ta place.</p></div>
   </div>
 </section>
@@ -1878,6 +1895,14 @@ sleep $(( ( RANDOM % 121 ) + 120 ))</pre></div>
         <a class="btn" href="https://buy.stripe.com/8x228q30NbAgglJ9ODfw40z" target="_blank" rel="noopener">Réserver ma place — 990 € HT</a>
         <span class="dl">Inscriptions jusqu'au lundi 12 octobre, 20h</span>
       </div>
+    </div>
+    <div class="obj">
+      <div class="rv"><b>« Je n'ai pas le temps. »</b>C'est le but : une fois installé, le moteur demande 10 minutes le lundi et 20 minutes le mercredi. La routine fait le reste.</div>
+      <div class="rv"><b>« Je ne suis pas technique. »</b>Session 1, on installe ensemble, avec les connecteurs en un clic. Et la garantie « ça tourne » couvre le reste.</div>
+      <div class="rv"><b>« Je ne suis pas sur WordPress. »</b>Webflow, Shopify, site en code ou statique : publication par API REST ou FTP, sinon une page prête à coller.</div>
+      <div class="rv"><b>« Mon secteur est trop niche. »</b>Couvreur, pompe de relevage industrielle, agence de conférenciers : la méthode s'adapte à ta marque, ton style et tes données.</div>
+      <div class="rv"><b>« Mon site est tout neuf. »</b>C'est le meilleur moment : le site neuf de la slide résultats est passé de 0 à 200 clics par jour en 12 mois.</div>
+      <div class="rv"><b>« Et si je bloque entre deux sessions ? »</b>Le Slack du groupe est là pour ça : tu poses ta question, tu repars.</div>
     </div>
     <p class="pause">⏸ Questions sur l'offre · dans le chat, je réponds à tout</p>
   </div>
