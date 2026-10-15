@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&display=swap">
 <style>
 /* Layout : continuité visuelle avec l'audit Natur'édéa — colonne éditoriale 1000px, sections numérotées dans l'ordre du raisonnement (constat → chemin → volume → projection → formules → démarrage) */
-/* Layout : charte decupler.com — fond clair ardoise, accent indigo → violet, titres Syne, texte DM Sans ; sections dans l'ordre du raisonnement (constat → chemin → volume → projection → formules → démarrage) */
+/* Layout : charte decupler.com — version claire uniquement (choix de charte), accent indigo → violet, titres Syne, texte DM Sans ; sections dans l'ordre du raisonnement (constat → chemin → volume → projection → formules → démarrage) */
 :root{
   --bg:#F8FAFC; --surface:#FFFFFF; --surface2:#F1F5F9;
   --line:#E2E8F0; --line2:#CBD5E1;
   --ink:#0F172A; --body:#475569; --muted:#64748B;
-  --gold:#5B5EF0; --gold-soft:rgba(99,102,241,.09); --gold-line:rgba(99,102,241,.34); --on-gold:#FFFFFF;
+  --gold:#6D4AE8; --gold-soft:rgba(99,102,241,.09); --gold-line:rgba(99,102,241,.34); --on-gold:#FFFFFF;
   --grad:linear-gradient(135deg,#6366F1 0%,#8B5CF6 100%);
   --geo:#7C3AED; --geo-soft:rgba(139,92,246,.1); --seo:#2563EB;
   --good:#059669; --good-soft:rgba(16,185,129,.1);
@@ -22,29 +22,8 @@
   --dm:"DM Sans",system-ui,sans-serif;
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
   --maxw:1000px;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0B1020; --surface:#121A2F; --surface2:#1A2340;
-  --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.3);
-  --ink:#F1F5F9; --body:#CBD5E1; --muted:#94A3B8;
-  --gold:#A5B4FC; --gold-soft:rgba(129,140,248,.14); --gold-line:rgba(129,140,248,.42); --on-gold:#FFFFFF;
-  --geo:#C4B5FD; --geo-soft:rgba(167,139,250,.14); --seo:#93C5FD;
-  --good:#34D399; --good-soft:rgba(52,211,153,.12);
-  --warn:#FBBF24; --warn-soft:rgba(251,191,36,.12);
-  --crit:#F87171; --crit-soft:rgba(248,113,113,.12);
-  --s-pru:#94A3B8; --s-cen:#818CF8; --s-amb:#C084FC; --s-now:#F87171;
-  color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0B1020; --surface:#121A2F; --surface2:#1A2340;
-  --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.3);
-  --ink:#F1F5F9; --body:#CBD5E1; --muted:#94A3B8;
-  --gold:#A5B4FC; --gold-soft:rgba(129,140,248,.14); --gold-line:rgba(129,140,248,.42); --on-gold:#FFFFFF;
-  --geo:#C4B5FD; --geo-soft:rgba(167,139,250,.14); --seo:#93C5FD;
-  --good:#34D399; --good-soft:rgba(52,211,153,.12);
-  --warn:#FBBF24; --warn-soft:rgba(251,191,36,.12);
-  --crit:#F87171; --crit-soft:rgba(248,113,113,.12);
-  --s-pru:#94A3B8; --s-cen:#818CF8; --s-amb:#C084FC; --s-now:#F87171;
-  color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -307,7 +286,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
 <nav><div class="wrap navrow">
   <span class="brand">Décupler</span>
   <div class="navlinks">
-    <a href="#constat">Constat</a><a href="#chemins">3 chemins</a><a href="#concurrents">Concurrents</a><a href="#volume">Volume</a><a href="#projection">Projection</a><a href="#strategie">Stratégie</a><a href="#formules">Formules</a><a href="#demarrer">Démarrer</a>
+    <a href="#constat">Constat</a><a href="#chemins">3 chemins</a><a href="#concurrents">Concurrents</a><a href="#volume">Volume</a><a href="#projection">Projection</a><a href="#strategie">Stratégie</a><a href="#formules">Formules</a><a href="#engagement">Engagement</a><a href="#demarrer">Démarrer</a>
   </div>
   <a class="navcta" href="#formules">Voir les formules</a>
 </div></nav>
@@ -452,7 +431,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
       <div class="pace-row"><div class="lab"><span>Aujourd'hui · 5 contenus/mois, sans technique</span><b>31 mois</b></div><div class="track"><div class="fill now" style="width:100%"></div></div></div>
       <div class="pace-row"><div class="lab"><span>Essentiel · 8 pages/mois</span><b>19 mois</b></div><div class="track"><div class="fill e" style="width:61%"></div></div></div>
       <div class="pace-row"><div class="lab"><span>Croissance · 16 pages/mois</span><b>10 mois</b></div><div class="track"><div class="fill c" style="width:32%"></div></div></div>
-      <div class="pace-row"><div class="lab"><span>Accélération · 16 pages/mois + liens</span><b>10 mois</b></div><div class="track"><div class="fill a" style="width:32%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Accélération · encore plus de pages + liens</span><b>&lt; 10 mois</b></div><div class="track"><div class="fill a" style="width:26%"></div></div></div>
       <h3 style="margin-top:6px">Et les liens vers votre site, sur 12 mois ?</h3>
       <div class="pace-row"><div class="lab"><span>Aujourd'hui · quelques annuaires</span><b>≈ 5</b></div><div class="track"><div class="fill now" style="width:7%"></div></div></div>
       <div class="pace-row"><div class="lab"><span>Croissance · 2 actions/mois</span><b>24</b></div><div class="track"><div class="fill c" style="width:33%"></div></div></div>
@@ -567,9 +546,10 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
       <span class="name">Accélération</span>
       <h3>Prendre la place des marques citées</h3>
       <div class="price"><b>1 990 €</b><span>HT / mois</span></div>
-      <div class="days"><strong>16 pages + 6 liens par mois</strong>, achats de liens compris</div>
+      <div class="days"><strong>Plus de 16 pages et 6 liens par mois</strong>, achats de liens compris</div>
       <ul>
         <li class="plus">Tout Croissance, et :</li>
+        <li>Encore plus de pages chaque mois, selon les priorités du trimestre</li>
         <li>Netlinking : 6 liens par mois vers vos pages piliers et fiches produits</li>
         <li>Dont 3 liens sponsorisés sur des sites santé et bien-être, achat inclus, sites validés avec vous</li>
         <li>Entrée dans les classements de marques et relations presse santé</li>
@@ -586,8 +566,23 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
   </div>
 </div></section>
 
+<section id="engagement"><div class="wrap">
+  <div class="chap"><span class="no">09</span><span class="kk">Engagement</span></div>
+  <h2>Un mois pour juger, puis douze pour récolter</h2>
+  <p class="lead">Le SEO paie sur la durée : une page publiée met 3 à 6 mois à se positionner. Un engagement court vous ferait payer la construction sans profiter des résultats. Le premier mois compte dans l'engagement.</p>
+  <div class="vs"><table>
+    <thead><tr><th>Engagement</th><th class="r">Mise en place</th><th class="r">Essentiel</th><th class="r">Croissance</th><th class="r">Accélération</th></tr></thead>
+    <tbody>
+      <tr><td>Sans engagement, au mois</td><td class="r">1 490 €</td><td class="r">890 €</td><td class="r">1 490 €</td><td class="r">1 990 €</td></tr>
+      <tr class="you"><td><strong>12 mois</strong> · le standard</td><td class="r"><strong>offerte</strong></td><td class="r">890 €</td><td class="r">1 490 €</td><td class="r">1 990 €</td></tr>
+      <tr><td><strong>24 mois</strong> · −10 %</td><td class="r"><strong>offerte</strong></td><td class="r">801 €</td><td class="r">1 341 €</td><td class="r">1 791 €</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small mt">Prix HT par mois. La mise en place couvre l'audit technique complet, la mesure de référence (50 réponses IA, positions, GA4), la fiche d'identité, l'atelier personas et le guide de style.</p>
+</div></section>
+
 <section id="bonus"><div class="wrap">
-  <div class="chap"><span class="no">09</span><span class="kk">Cadeaux & bonus</span></div>
+  <div class="chap"><span class="no">10</span><span class="kk">Cadeaux & bonus</span></div>
   <h2>Ce que vous recevez dès le premier mois</h2>
   <div class="gifts">
     <div class="gift"><span class="lbl">Offert · toutes formules</span><h3>Votre fiche d'identité, déjà rédigée</h3><p>Le bloc JSON-LD unique de l'audit, complété avec vous et mis en ligne la première semaine. Les trois noms de marque deviennent un seul.</p><span class="val">Mis en ligne semaine 1</span></div>
@@ -601,16 +596,16 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
 </div></section>
 
 <section id="demarrer"><div class="wrap">
-  <div class="chap"><span class="no">10</span><span class="kk">Démarrer</span></div>
+  <div class="chap"><span class="no">11</span><span class="kk">Démarrer</span></div>
   <h2>Un premier mois pour juger sur pièces, avant tout contrat</h2>
-  <p class="lead">Vous validez le premier mois en ligne. À la fin du mois, vous avez vu notre façon de travailler et les premières pages : vous décidez de continuer, et le contrat prend le relais.</p>
+  <p class="lead">Vous validez le premier mois en ligne, sans rien signer. À la fin du mois, vous avez vu notre façon de travailler et les premières pages : vous décidez de continuer, et l'engagement de 12 mois démarre, premier mois compris.</p>
   <ol class="timeline">
     <li class="key"><span class="when">Jeu. 22 oct. · 15 h</span><span class="what"><b>Deuxième rendez-vous</b><span>Vos questions, votre budget, le choix de la formule.</span></span></li>
     <li class="key"><span class="when">Jour 0</span><span class="what"><b>Vous validez le premier mois en ligne</b><span>Paiement par carte, sans contrat à signer pour commencer.</span></span></li>
     <li><span class="when">Semaine 1</span><span class="what"><b>Lancement</b><span>Accès Shopify, Search Console et GA4. Fiche d'identité, llms.txt et robots.txt mis en ligne.</span></span></li>
     <li><span class="when">Semaine 2</span><span class="what"><b>Atelier personas</b><span>1 heure avec la personne qui parle à vos clientes.</span></span></li>
     <li><span class="when">Semaine 3</span><span class="what"><b>Mesure de référence et premières pages</b><span>50 réponses IA archivées, positions, trafic. Premières pages envoyées pour validation.</span></span></li>
-    <li class="key"><span class="when">Fin du mois 1</span><span class="what"><b>Bilan et décision</b><span>Ce qui est fait, ce qui est en ligne, ce qui arrive. Vous choisissez la suite.</span></span></li>
+    <li class="key"><span class="when">Fin du mois 1</span><span class="what"><b>Bilan et décision</b><span>Ce qui est fait, ce qui est en ligne, ce qui arrive. Vous signez pour 12 mois (ou 24 avec −10 %), la mise en place reste offerte.</span></span></li>
   </ol>
   <div class="cta">
     <h3>On en parle jeudi ?</h3>
@@ -624,7 +619,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
 </div></section>
 
 <section id="confiance"><div class="wrap">
-  <div class="chap"><span class="no">11</span><span class="kk">Ils nous font confiance</span></div>
+  <div class="chap"><span class="no">12</span><span class="kk">Ils nous font confiance</span></div>
   <h2>Des marques qui demandaient, elles aussi, à voir des résultats</h2>
   <div class="clients">
     <span class="client"><span class="logoimg cl-sg"></span>Société Générale</span>
