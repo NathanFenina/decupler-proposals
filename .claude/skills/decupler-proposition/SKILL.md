@@ -40,7 +40,7 @@ Référence réelle : `naturedea-proposition/index.html` (Natur'édéa, oct. 202
 - **Coût par page vs aujourd'hui** : calculer prix ÷ pages et le comparer à ce que le prospect paie déjà par contenu non intégré. Argument le plus fort.
 - **Formule haute** : ne pas donner son nombre de pages (« encore plus »), elle se distingue par le **netlinking**, dont des **achats de liens inclus** (sites validés avec le client). Surveiller la marge : liens santé ≈ 100-250 € pièce ; si besoin préciser un plafond de budget d'achat inclus.
 - **Engagement** : 12 mois minimum (le mois 1 payé via Stripe compte dedans). Tableau en trois lignes pour ancrer le 12 mois :
-  - sans engagement : frais de mise en place élevés (≈ 1 mois de la formule médiane) ;
+  - sans engagement : frais de mise en place élevés (≈ 3 500 €, bien au-dessus d'un mois de formule) ;
   - 12 mois : mise en place offerte ;
   - 24 mois : mise en place offerte + −10 %.
   En négociation, céder sur la mise en place, **pas** sur le prix mensuel.
