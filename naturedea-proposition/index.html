@@ -2,54 +2,55 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,500&display=swap">
 <style>
 /* Layout : continuité visuelle avec l'audit Natur'édéa — colonne éditoriale 1000px, sections numérotées dans l'ordre du raisonnement (constat → chemin → volume → projection → formules → démarrage) */
+/* Layout : charte decupler.com — fond clair ardoise, accent indigo → violet, titres Syne, texte DM Sans ; sections dans l'ordre du raisonnement (constat → chemin → volume → projection → formules → démarrage) */
 :root{
-  --bg:#EDE8DA; --surface:#FFFFFF; --surface2:#F5F1E4;
-  --line:rgba(23,19,12,.11); --line2:rgba(23,19,12,.2);
-  --ink:#181510; --body:#4C463A; --muted:#7E7666;
-  --gold:#A9711C; --gold-soft:rgba(169,113,28,.12); --gold-line:rgba(169,113,28,.38); --on-gold:#1a1206;
-  --geo:#6F4FDB; --geo-soft:rgba(111,79,219,.1);
-  --seo:#3560C4;
-  --good:#177A50; --good-soft:rgba(23,122,80,.1);
-  --warn:#A5670A; --warn-soft:rgba(165,103,10,.1);
-  --crit:#C13327; --crit-soft:rgba(193,51,39,.09);
-  --s-pru:#8A8272; --s-cen:#A9711C; --s-amb:#6F4FDB; --s-now:#C13327;
-  --disp:"Fraunces",Georgia,"Times New Roman",serif;
-  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --dm:"DM Sans","Archivo",system-ui,sans-serif;
+  --bg:#F8FAFC; --surface:#FFFFFF; --surface2:#F1F5F9;
+  --line:#E2E8F0; --line2:#CBD5E1;
+  --ink:#0F172A; --body:#475569; --muted:#64748B;
+  --gold:#5B5EF0; --gold-soft:rgba(99,102,241,.09); --gold-line:rgba(99,102,241,.34); --on-gold:#FFFFFF;
+  --grad:linear-gradient(135deg,#6366F1 0%,#8B5CF6 100%);
+  --geo:#7C3AED; --geo-soft:rgba(139,92,246,.1); --seo:#2563EB;
+  --good:#059669; --good-soft:rgba(16,185,129,.1);
+  --warn:#B45309; --warn-soft:rgba(217,119,6,.1);
+  --crit:#DC2626; --crit-soft:rgba(220,38,38,.08);
+  --s-pru:#94A3B8; --s-cen:#6366F1; --s-amb:#A855F7; --s-now:#DC2626;
+  --disp:"Syne","DM Sans",system-ui,sans-serif;
+  --sans:"DM Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --dm:"DM Sans",system-ui,sans-serif;
   --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
   --maxw:1000px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#16140F; --surface:#201D17; --surface2:#2A261E;
-  --line:rgba(240,232,214,.1); --line2:rgba(240,232,214,.2);
-  --ink:#F3EDE0; --body:#CFC7B6; --muted:#968E7E;
-  --gold:#D9A04A; --gold-soft:rgba(217,160,74,.14); --gold-line:rgba(217,160,74,.42); --on-gold:#1a1206;
-  --geo:#A58CF5; --geo-soft:rgba(165,140,245,.13); --seo:#7FA0EC;
-  --good:#4FC08D; --good-soft:rgba(79,192,141,.12);
-  --warn:#E0A445; --warn-soft:rgba(224,164,69,.12);
-  --crit:#EE6E61; --crit-soft:rgba(238,110,97,.12);
-  --s-pru:#A39B8A; --s-cen:#D9A04A; --s-amb:#A58CF5; --s-now:#EE6E61;
+  --bg:#0B1020; --surface:#121A2F; --surface2:#1A2340;
+  --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.3);
+  --ink:#F1F5F9; --body:#CBD5E1; --muted:#94A3B8;
+  --gold:#A5B4FC; --gold-soft:rgba(129,140,248,.14); --gold-line:rgba(129,140,248,.42); --on-gold:#FFFFFF;
+  --geo:#C4B5FD; --geo-soft:rgba(167,139,250,.14); --seo:#93C5FD;
+  --good:#34D399; --good-soft:rgba(52,211,153,.12);
+  --warn:#FBBF24; --warn-soft:rgba(251,191,36,.12);
+  --crit:#F87171; --crit-soft:rgba(248,113,113,.12);
+  --s-pru:#94A3B8; --s-cen:#818CF8; --s-amb:#C084FC; --s-now:#F87171;
   color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#16140F; --surface:#201D17; --surface2:#2A261E;
-  --line:rgba(240,232,214,.1); --line2:rgba(240,232,214,.2);
-  --ink:#F3EDE0; --body:#CFC7B6; --muted:#968E7E;
-  --gold:#D9A04A; --gold-soft:rgba(217,160,74,.14); --gold-line:rgba(217,160,74,.42); --on-gold:#1a1206;
-  --geo:#A58CF5; --geo-soft:rgba(165,140,245,.13); --seo:#7FA0EC;
-  --good:#4FC08D; --good-soft:rgba(79,192,141,.12);
-  --warn:#E0A445; --warn-soft:rgba(224,164,69,.12);
-  --crit:#EE6E61; --crit-soft:rgba(238,110,97,.12);
-  --s-pru:#A39B8A; --s-cen:#D9A04A; --s-amb:#A58CF5; --s-now:#EE6E61;
+  --bg:#0B1020; --surface:#121A2F; --surface2:#1A2340;
+  --line:rgba(148,163,184,.16); --line2:rgba(148,163,184,.3);
+  --ink:#F1F5F9; --body:#CBD5E1; --muted:#94A3B8;
+  --gold:#A5B4FC; --gold-soft:rgba(129,140,248,.14); --gold-line:rgba(129,140,248,.42); --on-gold:#FFFFFF;
+  --geo:#C4B5FD; --geo-soft:rgba(167,139,250,.14); --seo:#93C5FD;
+  --good:#34D399; --good-soft:rgba(52,211,153,.12);
+  --warn:#FBBF24; --warn-soft:rgba(251,191,36,.12);
+  --crit:#F87171; --crit-soft:rgba(248,113,113,.12);
+  --s-pru:#94A3B8; --s-cen:#818CF8; --s-amb:#C084FC; --s-now:#F87171;
   color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--body);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .wrap{max-width:calc(var(--maxw) + 56px);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 @media (min-width:700px){.wrap{padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}}
-h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.12;text-wrap:balance}
+h1,h2,h3{color:var(--ink);font-family:var(--disp);font-weight:700;letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
 strong{color:var(--ink);font-weight:600}
 a{color:var(--gold)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
@@ -57,21 +58,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .navrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.brand{font-family:var(--dm);font-weight:700;font-size:15px;color:var(--geo);letter-spacing:-.02em}
-.brand::before{content:"◆ ";font-size:.7em;vertical-align:1px}
+.brand{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
 .navlinks{display:flex;gap:3px;flex-wrap:wrap}
 .navlinks a{font-family:var(--mono);font-size:10.5px;color:var(--muted);padding:5px 9px;border-radius:20px;border:1px solid transparent;text-decoration:none}
 .navlinks a:hover{color:var(--ink);border-color:var(--gold-line);background:var(--gold-soft)}
-.navcta{font-family:var(--sans);font-weight:700;font-size:12.5px;background:var(--gold);color:var(--on-gold);padding:7px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.navcta{font-family:var(--sans);font-weight:700;font-size:12.5px;background:var(--grad);color:var(--on-gold);padding:7px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
 @media (max-width:880px){.navlinks{display:none}}
 
 .hero{padding-block:60px 40px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
 .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-line)}
 .hero h1{font-size:clamp(2rem,5.4vw,3.35rem);margin-bottom:20px;max-width:20ch}
-.hero h1 em{font-style:italic;color:var(--gold)}
+.hero{background:radial-gradient(900px 420px at 85% -10%,var(--geo-soft),transparent 65%)}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero-sub{font-size:1.05rem;max-width:62ch;margin-bottom:30px}
-.quote-big{font-family:var(--disp);font-style:italic;font-size:1.25rem;color:var(--ink);border-left:2px solid var(--gold);padding-left:18px;max-width:58ch;margin-bottom:34px}
+.quote-big{font-family:var(--sans);font-style:italic;font-weight:500;font-size:1.25rem;color:var(--ink);border-left:2px solid var(--gold);padding-left:18px;max-width:58ch;margin-bottom:34px}
 .quote-big cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
 .strip>div{padding:18px 18px;border-right:1px solid var(--line)}
@@ -93,11 +95,11 @@ section h2{font-size:clamp(1.45rem,3.2vw,2rem);margin:4px 0 12px;max-width:30ch}
 .saids{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:720px){.saids{grid-template-columns:1fr}}
 .said{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.said q{font-family:var(--disp);font-style:italic;font-size:1.04rem;color:var(--ink);quotes:"« " " »"}
+.said q{font-family:var(--sans);font-style:italic;font-weight:500;font-size:1.04rem;color:var(--ink);quotes:"« " " »"}
 .said p{font-size:.88rem}
 .goal{margin-top:14px;background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:14px;padding:18px 20px}
 .goal .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
-.goal q{font-family:var(--disp);font-style:italic;font-size:1.12rem;color:var(--ink);quotes:"« " " »"}
+.goal q{font-family:var(--sans);font-style:italic;font-weight:500;font-size:1.12rem;color:var(--ink);quotes:"« " " »"}
 
 .paths{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:820px){.paths{grid-template-columns:1fr}}
@@ -218,8 +220,8 @@ td.gap{color:var(--crit);font-weight:700}
 .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
 @media (max-width:880px){.offers{grid-template-columns:1fr}}
 .offer{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;position:relative;min-width:0}
-.offer.reco{border:2px solid var(--gold)}
-.offer .flag{position:absolute;top:-12px;left:22px;background:var(--gold);color:var(--on-gold);font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.offer.reco{border:2px solid var(--gold);box-shadow:0 18px 40px rgba(99,102,241,.14)}
+.offer .flag{position:absolute;top:-12px;left:22px;background:var(--grad);color:var(--on-gold);font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
 .offer .name{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .offer h3{font-size:1.15rem}
 .price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
@@ -234,7 +236,7 @@ td.gap{color:var(--crit);font-weight:700}
 .offer .aim{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;font-size:.82rem}
 .offer .aim b{font-family:var(--mono)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.9rem;padding:13px 20px;border-radius:10px;font-family:var(--sans);text-decoration:none;border:1px solid transparent;text-align:center}
-.btn-v{background:var(--gold);color:var(--on-gold)}
+.btn-v{background:var(--grad);color:var(--on-gold);box-shadow:0 6px 18px rgba(99,102,241,.25)}
 .btn-ghost{background:transparent;border-color:var(--gold-line);color:var(--gold)}
 .extra{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:720px){.extra{grid-template-columns:1fr}}
@@ -257,7 +259,7 @@ td.gap{color:var(--crit);font-weight:700}
 .timeline li{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:0 0 22px 22px;position:relative;border-left:2px solid var(--line2)}
 .timeline li:last-child{border-left-color:transparent;padding-bottom:0}
 .timeline li::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--gold)}
-.timeline li.key::before{background:var(--gold)}
+.timeline li.key::before{background:var(--grad)}
 .timeline .when{font-family:var(--mono);font-size:11.5px;color:var(--gold);letter-spacing:.04em;padding-top:2px}
 .timeline .what b{color:var(--ink);display:block}
 .timeline .what span{font-size:.86rem}
@@ -312,7 +314,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
 
 <header class="hero"><div class="wrap">
   <div class="eyebrow">Proposition d'accompagnement · Natur'édéa · Octobre 2026</div>
-  <h1>Pour que le SEO vende, il faut <em>61 pages</em> et 8 chantiers. La question, c'est à quel rythme.</h1>
+  <h1>Pour que le SEO vende, il faut <em>151 pages</em> et 8 chantiers. La question, c'est à quel rythme.</h1>
   <p class="hero-sub">L'audit a posé le constat. Cette proposition chiffre le reste : le volume de travail qu'il faut abattre, le temps que ça prend selon le rythme choisi, ce que ça peut rapporter en 12 mois, et trois façons d'y aller ensemble.</p>
   <p class="quote-big">« En soi, si ça nous ramène des ventes, je ne serais pas contre. Mais pour le moment, le SEO, on galère un peu. »<cite>Alexandra, Natur'édéa · appel du 15 octobre 2026</cite></p>
   <div class="strip">
@@ -351,7 +353,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
     <div class="path mid">
       <span class="tag warn">Continuer comme aujourd'hui</span>
       <h3>500 € par mois, environ 1 journée</h3>
-      <ul><li>5 contenus par mois à réécrire et intégrer vous-mêmes</li><li>Peu de retours techniques, difficiles à challenger</li><li>Quelques annuaires, pas de stratégie de classements</li><li>Il faudrait plus d'un an pour couvrir les seules pages manquantes</li></ul>
+      <ul><li>5 contenus par mois à réécrire et intégrer vous-mêmes</li><li>Peu de retours techniques, difficiles à challenger</li><li>Quelques annuaires, pas de stratégie de classements</li><li>À 5 contenus par mois, il faudrait 2 ans et demi pour produire les 151 pages</li></ul>
       <div class="end">Trafic dans 12 mois<b>≈ 1 500 à 1 800</b>la tendance actuelle, au mieux stabilisée</div>
     </div>
     <div class="path us">
@@ -430,25 +432,32 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
 <section id="volume"><div class="wrap">
   <div class="chap"><span class="no">05</span><span class="kk">Le volume d'actions nécessaire</span></div>
   <h2>Le chantier, compté page par page, et le temps qu'il prend selon le rythme</h2>
-  <p class="lead">Chaque ligne vient de l'audit. Ce n'est pas un forfait abstrait : c'est la liste de ce qui manque pour que vos pages produits se positionnent et que les IA vous citent.</p>
+  <p class="lead">Chaque ligne part de l'audit et de la carte de vos univers. Ce n'est pas un forfait abstrait : c'est la liste de ce qu'il faut publier pour que vos pages produits se positionnent et que les IA vous citent. Dynveo, lui, est positionné sur 11 863 mots-clés.</p>
   <div class="backlog">
     <div class="bl-list">
       <div class="bl-row"><div><div class="t">Socle technique & identité</div><div class="d">Fiche Organization unique, llms.txt, robots.txt, données structurées sur tous les gabarits, vitesse mobile, nettoyage des 5 outils d'avis, avis balisés, auteur expert</div></div><div class="n">8 chantiers</div></div>
-      <div class="bl-row"><div><div class="t">Pages en zone de bascule à remonter</div><div class="d">Déjà positionnées entre la 7e et la 39e place : aphrodisiaque femme, draineur lymphatique, silicium organique, gelée royale…</div></div><div class="n">7</div></div>
-      <div class="bl-row"><div><div class="t">Fiches produits avec preuves en haut</div><div class="d">Composition dosée, études, fabrication, avis balisés : ce que Claude dit lui manquer</div></div><div class="n">20</div></div>
-      <div class="bl-row"><div><div class="t">Pages piliers par univers</div><div class="d">Ménopause, sommeil, drainage, articulations, libido, choisir une marque fiable</div></div><div class="n">6</div></div>
-      <div class="bl-row"><div><div class="t">Pages ingrédients</div><div class="d">Maca, ginseng, canneberge, D-mannose, curcuma, gelée royale, silicium, mélatonine…</div></div><div class="n">12</div></div>
-      <div class="bl-row"><div><div class="t">Articles de grappe manquants</div><div class="d">Les questions d'achat de vos clientes, reliées à leur page pilier</div></div><div class="n">10</div></div>
-      <div class="bl-row"><div><div class="t">Comparatifs et guides de choix</div><div class="d">« Gel ou gélules pour les articulations ? », « Comment choisir un complément fiable »…</div></div><div class="n">6</div></div>
-      <div class="bl-row total"><div><div class="t">Total à produire et intégrer</div><div class="d">Plus, en off-page : 6 classements de marques à intégrer et une quinzaine de sources tierces (annuaires qualité, presse santé, Marques de France)</div></div><div class="n">61 pages</div></div>
+      <div class="bl-row"><div><div class="t">Fiches produits avec preuves en haut</div><div class="d">Composition dosée, études, fabrication, avis balisés : ce que Claude dit lui manquer. Toute la gamme.</div></div><div class="n">25</div></div>
+      <div class="bl-row"><div><div class="t">Collections par besoin</div><div class="d">Ménopause, sommeil, drainage, articulations, libido femme, libido homme, minceur, confort urinaire</div></div><div class="n">8</div></div>
+      <div class="bl-row"><div><div class="t">Pages piliers par univers</div><div class="d">Le guide complet de chaque univers, relié aux collections et aux articles</div></div><div class="n">6</div></div>
+      <div class="bl-row"><div><div class="t">Pages ingrédients</div><div class="d">Maca, ginseng, canneberge, D-mannose, curcuma, gelée royale, silicium, mélatonine, sauge, onagre, glucomannane…</div></div><div class="n">25</div></div>
+      <div class="bl-row"><div><div class="t">Articles de grappe</div><div class="d">6 univers × 8 questions d'achat de vos clientes, chacun relié à sa page pilier</div></div><div class="n">48</div></div>
+      <div class="bl-row"><div><div class="t">Comparatifs et guides de choix</div><div class="d">« Gel ou gélules pour les articulations ? », « Comment choisir un complément fiable », plante contre plante…</div></div><div class="n">12</div></div>
+      <div class="bl-row"><div><div class="t">Pages en zone de bascule à remonter</div><div class="d">Déjà positionnées entre la 7e et la 39e place : aphrodisiaque femme, draineur lymphatique, silicium organique…</div></div><div class="n">7</div></div>
+      <div class="bl-row"><div><div class="t">Articles existants à remettre à niveau</div><div class="d">Chiffres, preuves, auteur, FAQ balisée, liens vers les fiches qui vendent</div></div><div class="n">20</div></div>
+      <div class="bl-row total"><div><div class="t">Total sur le site</div><div class="d">À rédiger, faire valider, intégrer sur Shopify et relier entre elles</div></div><div class="n">151 pages</div></div>
+      <div class="bl-row total"><div><div class="t">Hors du site</div><div class="d">6 classements de marques à intégrer, une soixantaine de liens et sources tierces pour réduire l'écart de 1 045 domaines avec Dynveo, presse santé</div></div><div class="n">≈ 70 actions</div></div>
     </div>
     <div class="pace">
-      <h3>À ce rythme, combien de mois pour finir les 61 pages ?</h3>
-      <div class="pace-row"><div class="lab"><span>Aujourd'hui · 5 contenus/mois, sans technique</span><b>13 mois</b></div><div class="track"><div class="fill now" style="width:100%"></div></div></div>
-      <div class="pace-row"><div class="lab"><span>Essentiel · 6 pages/mois</span><b>11 mois</b></div><div class="track"><div class="fill e" style="width:85%"></div></div></div>
-      <div class="pace-row"><div class="lab"><span>Croissance · 10 pages/mois</span><b>7 mois</b></div><div class="track"><div class="fill c" style="width:54%"></div></div></div>
-      <div class="pace-row"><div class="lab"><span>Accélération · 15 pages/mois</span><b>5 mois</b></div><div class="track"><div class="fill a" style="width:38%"></div></div></div>
-      <p class="note">Une page publiée met en général <strong>3 à 6 mois</strong> à trouver sa place sur Google. Au rythme actuel, la dernière page sortirait fin 2027 et ne produirait ses ventes qu'en 2028. Au rythme Croissance, tout est en ligne en mai 2027 et le reste de l'année sert aux classements, à la presse et aux nouvelles grappes.</p>
+      <h3>À ce rythme, combien de mois pour publier les 151 pages ?</h3>
+      <div class="pace-row"><div class="lab"><span>Aujourd'hui · 5 contenus/mois, sans technique</span><b>31 mois</b></div><div class="track"><div class="fill now" style="width:100%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Essentiel · 8 pages/mois</span><b>19 mois</b></div><div class="track"><div class="fill e" style="width:61%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Croissance · 16 pages/mois</span><b>10 mois</b></div><div class="track"><div class="fill c" style="width:32%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Accélération · 16 pages/mois + liens</span><b>10 mois</b></div><div class="track"><div class="fill a" style="width:32%"></div></div></div>
+      <h3 style="margin-top:6px">Et les liens vers votre site, sur 12 mois ?</h3>
+      <div class="pace-row"><div class="lab"><span>Aujourd'hui · quelques annuaires</span><b>≈ 5</b></div><div class="track"><div class="fill now" style="width:7%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Croissance · 2 actions/mois</span><b>24</b></div><div class="track"><div class="fill c" style="width:33%"></div></div></div>
+      <div class="pace-row"><div class="lab"><span>Accélération · 6 liens/mois</span><b>72</b></div><div class="track"><div class="fill a" style="width:100%"></div></div></div>
+      <p class="note">Une page publiée met en général <strong>3 à 6 mois</strong> à trouver sa place sur Google. Au rythme actuel, la dernière page sortirait mi-2029. Au rythme Croissance, tout est en ligne en septembre 2027, et les premières pages vendent déjà depuis le printemps.</p>
     </div>
   </div>
 </div></section>
@@ -502,8 +511,8 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
     <div class="drawer"><span class="kind ia">Pour les IA</span><h3>Identité & entité</h3><p>Un nom, une fiche Organization, des profils reliés, un llms.txt qui parle de vous, un expert nommé qui signe.</p><div class="who"><span class="y">E</span><span class="y">C</span><span class="y">A</span></div></div>
     <div class="drawer"><span class="kind on">Sur le site · vente</span><h3>Fiches produits qui prouvent</h3><p>Composition, études, fabrication et avis en haut de page. C'est là que se jouent vos ventes et les citations IA.</p><div class="who"><span>E</span><span class="y">C</span><span class="y">A</span></div></div>
     <div class="drawer"><span class="kind on">Sur le site · contenu</span><h3>Grappes & ingrédients</h3><p>Pages piliers ménopause, sommeil, drainage, articulations, pages ingrédients, comparatifs. Devenir la source citée.</p><div class="who"><span class="y">E</span><span class="y">C</span><span class="y">A</span></div></div>
-    <div class="drawer"><span class="kind off">Hors du site</span><h3>Classements & sources tierces</h3><p>Entrer dans les listes « meilleures marques », Marques de France, annuaires santé, puis la presse spécialisée.</p><div class="who"><span>E</span><span class="y">C</span><span class="y">A</span></div></div>
-    <div class="drawer"><span class="kind off">Hors du site</span><h3>Presse, expert & avis</h3><p>Relations presse santé, prises de parole de votre expert, collecte d'avis régulière et balisée.</p><div class="who"><span>E</span><span>C</span><span class="y">A</span></div></div>
+    <div class="drawer"><span class="kind off">Hors du site</span><h3>Classements & annuaires</h3><p>Entrer dans les listes « meilleures marques », Marques de France, annuaires santé de qualité.</p><div class="who"><span>E</span><span class="y">C</span><span class="y">A</span></div></div>
+    <div class="drawer"><span class="kind off">Hors du site</span><h3>Liens, presse & avis</h3><p>Netlinking sur des sites santé et bien-être, liens obtenus et achetés, relations presse, collecte d'avis balisée.</p><div class="who"><span>E</span><span>C</span><span class="y">A</span></div></div>
   </div>
   <p class="small mt">E : Essentiel · C : Croissance · A : Accélération. Tiroir surligné = inclus dans la formule.</p>
 
@@ -520,16 +529,16 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
   <div class="chap"><span class="no">08</span><span class="kk">Les formules</span></div>
   <h2>Trois rythmes, un même engagement : on fait, vous validez</h2>
   <p class="lead">Dans les trois formules, nous rédigeons, nous intégrons sur votre Shopify et nous mesurons. Votre temps : environ 1 heure par mois de validation.</p>
-  <div class="today"><span>Pour comparer, aujourd'hui :</span><b class="tab">500 € HT/mois</b><span>≈ 1 journée · 5 contenus à réécrire et intégrer vous-mêmes · peu de technique</span></div>
+  <div class="today"><span>Pour comparer, aujourd'hui :</span><b class="tab">500 € HT/mois</b><span>5 contenus à réécrire et intégrer vous-mêmes, soit <strong>100 € par contenu</strong>, sans le temps passé de votre côté</span></div>
   <div class="offers">
     <div class="offer">
       <span class="name">Essentiel</span>
       <h3>Remettre le socle d'aplomb</h3>
       <div class="price"><b>890 €</b><span>HT / mois</span></div>
-      <div class="days">≈ 2 jours de travail par mois</div>
+      <div class="days"><strong>8 pages par mois</strong>, soit 111 € la page rédigée, validée et intégrée</div>
       <ul>
         <li>Socle technique et identité IA traités en priorité</li>
-        <li>6 pages par mois rédigées, validées, intégrées par nous</li>
+        <li>8 pages ou articles par mois rédigés, validés, intégrés par nous</li>
         <li>Remontée des 7 pages en zone de bascule</li>
         <li>Suivi des positions et compte rendu mensuel d'une page</li>
         <li>Remesure IA (50 réponses) chaque trimestre</li>
@@ -542,11 +551,11 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
       <span class="name">Croissance</span>
       <h3>Faire vendre les fiches produits</h3>
       <div class="price"><b>1 490 €</b><span>HT / mois</span></div>
-      <div class="days">≈ 3 jours de travail par mois</div>
+      <div class="days"><strong>16 pages par mois</strong>, soit 93 € la page, moins cher qu'aujourd'hui et intégrée</div>
       <ul>
         <li class="plus">Tout Essentiel, et :</li>
-        <li>10 pages par mois, dont les fiches produits avec preuves</li>
-        <li>Pages ingrédients, piliers et guides de choix</li>
+        <li>16 pages par mois, dont les fiches produits avec preuves</li>
+        <li>Pages ingrédients, collections, piliers et guides de choix</li>
         <li>Atelier personas et guide de style : fini la réécriture</li>
         <li>2 actions off-page par mois : classements, annuaires, Marques de France</li>
         <li>Remesure IA chaque mois, point mensuel de 45 min</li>
@@ -558,13 +567,13 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
       <span class="name">Accélération</span>
       <h3>Prendre la place des marques citées</h3>
       <div class="price"><b>1 990 €</b><span>HT / mois</span></div>
-      <div class="days">≈ 4 à 5 jours de travail par mois</div>
+      <div class="days"><strong>16 pages + 6 liens par mois</strong>, achats de liens compris</div>
       <ul>
         <li class="plus">Tout Croissance, et :</li>
-        <li>15 pages par mois, dont les comparatifs</li>
-        <li>Off-page actif : 4 actions par mois, relations presse santé, prises de parole de votre expert</li>
+        <li>Netlinking : 6 liens par mois vers vos pages piliers et fiches produits</li>
+        <li>Dont 3 liens sponsorisés sur des sites santé et bien-être, achat inclus, sites validés avec vous</li>
+        <li>Entrée dans les classements de marques et relations presse santé</li>
         <li>Vitesse mobile et conversion des fiches produits</li>
-        <li>Collecte d'avis structurée</li>
         <li>Ligne directe WhatsApp, réponse sous 24 h ouvrées</li>
       </ul>
       <div class="aim">Scénario visé : <b>Ambitieux, trafic ×4,8</b></div>
@@ -573,7 +582,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
   </div>
   <div class="extra">
     <div class="panel"><h3>Ce qui est toujours compris</h3><p class="small" style="margin-top:6px">Accès à tous les documents de travail, reporting partagé, liste de ce qui a été fait, de ce qui bloque et de ce qui arrive. Aucun contenu publié sans votre validation.</p></div>
-    <div class="panel"><h3>Ce qui est en plus, si vous le voulez</h3><p class="small" style="margin-top:6px">Les articles sponsorisés et placements payants sur des sites tiers. Proposés ligne par ligne avec leur prix, jamais engagés sans votre accord.</p></div>
+    <div class="panel"><h3>Ce qui est en plus, si vous le voulez</h3><p class="small" style="margin-top:6px">En Essentiel et Croissance, les liens sponsorisés sont proposés à la ligne avec leur prix, jamais engagés sans votre accord. En Accélération, ils sont compris.</p></div>
   </div>
 </div></section>
 
@@ -632,7 +641,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
     <div><b>Mesure IA propre</b>Les mêmes 50 réponses de ChatGPT, Claude et Gemini, remesurées avec le même protocole.</div>
   </div>
   <div class="author">
-    <img src="data:image/jpeg;base64,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" alt="Nathan Fenina">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAEAAQAMBEQACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABQYHAwQCAf/EADAQAAEEAQIEAwYHAQAAAAAAAAEAAgMEBRESBgchMUFhgRNRdJGTshYiMzVVwdEU/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQGAgMFAQf/xAAsEQACAgIAAgcJAQAAAAAAAAAAAQIDBBEFQQYSEyEiMVEVMjNTYXGBkcGx/9oADAMBAAIRAxEAPwCnLiH1IIAgCAIAgCAIAgCAk6/D2atQMnrYq5LDINzHshJDh7wVmqptbSIk8/FhJxlYk0dPwtxB/C3/AKDl72VnoY+0sP5i/Z5beJydFhfdxtyBg7vlgc1vzI0WLrkvNG2vLx7HqE0/yeJYkgIAgCAIDUOUWZyNy5NjrNkyU61UexiLWjZ+YDuBr81OxbJN9V8iqdIMWmuMbYLUpPvNCzWXpYSibmRkMcAcGlwYXdT26BS5zUFtlfx8ezIn2da2z5wuaxudrOnxdls8bTtf0ILT7iD1CQnGa2hkY12NPq2x0yh80OEKkdB+bxkLYZInD/pjjbo17SdN2nvBPqomTStdeJ3uB8Ss7RY9j2n5fRmVqCW0IAgCA0Hkv+/X/hB94UvD95lc6SfBh9/4XfmTjbmV4ZfVx1d085mY4MaQDoD17qVkRcoaRw+EX10ZSnY9LT/wjOV3DGRwUd2xlGCGSyGNbCHAlobr1OnTxWvGqlBNyJPGs+rKlGNXeo8yX5jW4qvB2S9qQDLH7JgPi5x0H++i2XtKtkThVcp5leuT3+jA1yj6CEAQBAaDyX/fr/wg+8KXh+8yudJPgw+/8NTzOUr4bGzZC5v9hDpv2N1PUgdvVTpyUFtlWoonfYq4ebKfb5q4SOMmrWuzv8BsawepJ/pR3lw5HXh0eypPxNL8mccVcU3+JrTJLe2KCL9Kuw6tb5k+J81DttlY+8svD+HVYUfD3t+bIJajoBAEAQGococPkal2fI2azo6lmqBDKXNIf+YHsDqp2LCSbk13FU6QZVNkY1Qe5Rb2XLjujZyXCl+nRiM1iUN2MBA10cD4+QUi6LlBpHG4bdCnKhOb0kYljsFbu8RRYOTbWtPkMb9/URkAk9u/QFc2Nbc+oy8XZtdWM8mPeuX1O3FvDsvDOUbSlsMsB8QkZI1u3UEkdRqdOoKW1OuWjDh2cs2tzS1p6IRayeEAQBASlbiPN1YI69bK24oY27WMZKQGjyWxWzS0mRJ8PxZycpVptnX8V8Q/zV76xTtrPUx9mYfy0Rr7ll9w3H2JTaL95m3kP3e/XvqsHJ73zJKprVfZpeH0Py3bs3bDrFyeSeZ3eSRxcT6lHJye2e1VQqj1a1pHFeGYQBAEAQBAEAQBAEB//9k=" alt="Nathan Fenina">
     <div><div class="n">Nathan Fenina</div><div class="b">Fondateur de Décupler · SEO & visibilité dans les IA · votre interlocuteur direct</div></div>
     <div class="links"><a href="https://www.linkedin.com/in/nathan-fenina/" target="_blank" rel="noopener">LinkedIn</a><a href="https://decupler.com" target="_blank" rel="noopener">decupler.com</a></div>
   </div>
@@ -677,7 +686,7 @@ footer{padding-block:36px 44px;border-top:1px solid var(--line);text-align:cente
       el('circle',{cx:x(12),cy:y(v),r:sel?5:3.5,fill:cols[k]});
     });
     var v=S[f][4];
-    el('text',{x:x(12)-10,y:y(v)-10,'text-anchor':'end','font-size':13,'font-weight':700,fill:'var(--ink)','font-family':'Archivo,system-ui,sans-serif'},fmt(v)+' visites/mois');
+    el('text',{x:x(12)-10,y:y(v)-10,'text-anchor':'end','font-size':13,'font-weight':700,fill:'var(--ink)','font-family':'DM Sans,system-ui,sans-serif'},fmt(v)+' visites/mois');
     el('text',{x:x(12)-6,y:y(now[12])+18,'text-anchor':'end','font-size':11,fill:'var(--s-now)','font-family':'ui-monospace,Menlo,monospace'},'≈ '+fmt(now[12]));
   }
 
