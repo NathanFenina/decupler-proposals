@@ -156,13 +156,40 @@ td.kw{color:var(--ink);font-weight:500}
 .timeline b{color:var(--ink);display:block}
 .timeline span{font-size:.86rem}
 @media (max-width:600px){.timeline li{grid-template-columns:1fr;gap:2px}}
+.crit td.o{text-align:center;font-family:var(--mono);font-size:12px;white-space:nowrap}
+.crit th.o{text-align:center}
+.crit th.pick,.crit td.pick{background:var(--accent-soft)}
+.crit th.pick{color:var(--accent)}
+.g3{color:var(--good);font-weight:700}.g2{color:var(--warn);font-weight:700}.g1{color:var(--crit);font-weight:700}
+.verdict{margin-top:16px;background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:22px 24px;box-shadow:0 14px 34px rgba(99,102,241,.1)}
+.verdict .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.verdict h3{font-size:1.25rem;margin:6px 0 12px}
+.verdict ol{padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:.92rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.box h3{font-size:1rem;margin-bottom:8px}
+.box ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.86rem}
+.box li{padding-left:18px;position:relative}
+.box li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+.box.no{border-left:3px solid var(--crit)}
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
+@media (max-width:860px){.tracks{grid-template-columns:1fr}}
+.track{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;min-width:0;border-top:3px solid var(--accent)}
+.track.t2{border-top-color:var(--river)} .track.t3{border-top-color:var(--warn)}
+.track .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.track h3{font-size:1.05rem;margin:4px 0 8px}
+.track ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.85rem}
+.track li{display:grid;grid-template-columns:78px 1fr;gap:8px}
+.track li b{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600}
+.track .dep{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 footer{padding-block:34px 44px;border-top:1px solid var(--line);text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 
 <nav><div class="wrap navrow">
   <span class="brand">Décupler</span>
-  <div class="navlinks"><a href="#constat">Où vous en êtes</a><a href="#concurrence">Concurrence</a><a href="#action">1re action</a><a href="#architecture">Un site ou deux</a><a href="#systeme">Le système</a><a href="#questions">Questions</a><a href="#suite">Suite</a></div>
+  <div class="navlinks"><a href="#constat">Où vous en êtes</a><a href="#concurrence">Concurrence</a><a href="#action">1re action</a><a href="#architecture">Architecture</a><a href="#systeme">Le système</a><a href="#questions">Questions</a><a href="#suite">Suite</a></div>
   <span class="navtag">Séance du 16 oct. 2026</span>
 </div></nav>
 
@@ -258,9 +285,9 @@ footer{padding-block:34px 44px;border-top:1px solid var(--line);text-align:cente
       <span class="why">Pourquoi d'abord : sur « canoë Vézère » et « canoë Dordogne », les fiches s'affichent avant tous les sites. C'est rapide, peu coûteux, et ça prépare la saison.</span>
     </div>
     <div class="step">
-      <span class="when">Novembre · décembre</span><h3>2. Décider l'architecture</h3>
-      <ul><li>Un site ou deux : la décision à prendre avant de dessiner quoi que ce soit (section suivante)</li><li>Inventaire des pages qui rapportent, à garder ou à rediriger</li><li>Cahier des charges du système de réservation</li></ul>
-      <span class="why">Pourquoi : refaire le design avant cette décision, c'est risquer de le refaire deux fois et de perdre des positions.</span>
+      <span class="when">Novembre · décembre</span><h3>2. Fusionner Les 7 Rives cet hiver</h3>
+      <ul><li>Inventaire des pages qui rapportent sur les deux sites</li><li>Plan de redirection page par page vers canoevezere.com</li><li>Fusion en basse saison, suivi 90 jours</li></ul>
+      <span class="why">Pourquoi : la décision est prise (section suivante). La faire l'hiver laisse trois mois à Google avant les réservations d'avril.</span>
     </div>
     <div class="step">
       <span class="when">Janvier · mars</span><h3>3. La refonte et la destination Dordogne</h3>
@@ -271,37 +298,71 @@ footer{padding-block:34px 44px;border-top:1px solid var(--line);text-align:cente
 </div></section>
 
 <section id="architecture"><div class="wrap">
-  <div class="chap"><span class="no">04</span><span class="kk">Un site ou deux</span></div>
-  <h2>Trois architectures possibles, une question à trancher ensemble</h2>
-  <p class="lead">Un fait change la discussion : sur « canoë Montignac », vous occupez les places 1 et 2 avec vos deux sites. Fusionner tout de suite, c'est risquer d'en perdre une. Ne rien changer, c'est garder deux marques qui se diluent.</p>
-  <div class="scen">
-    <div class="sc">
-      <span class="tag">Scénario A</span><h3>Deux sites, une marque</h3>
-      <div class="schema">APA (charte commune)
-├─ canoevezere.com → Saint-Léon, Thonac
-└─ canoe-montignac.com → Montignac</div>
-      <div class="pc"><div class="p"><b>Pour</b><ul><li>Aucun risque SEO</li><li>Deux places sur Google à Montignac</li></ul></div><div class="c"><b>Contre</b><ul><li>Deux sites à maintenir</li><li>Contenus et avis éparpillés</li></ul></div></div>
+  <div class="chap"><span class="no">04</span><span class="kk">Un site, deux ou trois</span></div>
+  <h2>Notre décision : un seul site, sur canoevezere.com, sous la marque APA</h2>
+  <p class="lead">Oui, les redirections permettent de fusionner sans perdre le SEO, à condition de les faire page par page et au bon moment. Nous avons comparé les quatre options possibles sur les critères qui comptent pour vous : chiffre d'affaires, coût, risque et simplicité de gestion.</p>
+  <div class="tbl crit"><table>
+    <thead><tr><th>Critère</th><th class="o">Garder 2 sites</th><th class="o">3 sites, un par base</th><th class="o pick">1 site sur canoevezere.com</th><th class="o">1 site sur un nouveau domaine APA</th></tr></thead>
+    <tbody>
+      <tr><td>Capital SEO conservé</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g2">●●○</span></td><td class="o pick"><span class="g3">●●●</span> avec 301</td><td class="o"><span class="g1">●○○</span> deux migrations</td></tr>
+      <tr><td>Puissance future (autorité, contenus, avis réunis)</td><td class="o"><span class="g1">●○○</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g3">●●●</span></td><td class="o"><span class="g2">●●○</span> dans 1 à 2 ans</td></tr>
+      <tr><td>Coût de la refonte</td><td class="o"><span class="g2">●●○</span> deux sites</td><td class="o"><span class="g1">●○○</span> trois sites</td><td class="o pick"><span class="g3">●●●</span> un site</td><td class="o"><span class="g1">●○○</span> le plus cher</td></tr>
+      <tr><td>Coût et temps de gestion chaque année</td><td class="o"><span class="g2">●●○</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g3">●●●</span></td><td class="o"><span class="g3">●●●</span></td></tr>
+      <tr><td>Marque APA claire pour le client et les IA</td><td class="o"><span class="g1">●○○</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g3">●●●</span></td><td class="o"><span class="g3">●●●</span></td></tr>
+      <tr><td>Un seul panier, un seul outil de réservation</td><td class="o"><span class="g2">●●○</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g3">●●●</span></td><td class="o"><span class="g3">●●●</span></td></tr>
+      <tr><td>Risque pour la saison 2027</td><td class="o"><span class="g3">●●●</span> faible</td><td class="o"><span class="g2">●●○</span></td><td class="o pick"><span class="g3">●●●</span> si fait l'hiver</td><td class="o"><span class="g1">●○○</span> élevé</td></tr>
+      <tr><td>Places sur Google à Montignac</td><td class="o"><span class="g3">●●●</span> deux places</td><td class="o"><span class="g3">●●●</span></td><td class="o pick"><span class="g2">●●○</span> une place + fiche</td><td class="o"><span class="g2">●●○</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="verdict">
+    <span class="tag">Notre recommandation</span>
+    <h3>Fusionner Les 7 Rives dans canoevezere.com cet hiver, et porter la marque APA partout</h3>
+    <ol>
+      <li><strong>canoevezere.com est votre meilleur actif</strong> : autorité 26, 326 sites qui pointent vers lui, 170 mots-clés, et il a déjà des pages Montignac et Les Eyzies. Ses mots, « canoë » et « Vézère », sont exactement ce que les gens tapent, et vos trois bases sont sur la Vézère.</li>
+      <li><strong>La marque vit dans le logo, les titres, les fiches Google et le discours, pas dans le nom de domaine.</strong> Les gens qui cherchent « canoë Vézère » n'ont pas besoin de connaître APA pour vous trouver ; ils la découvrent en arrivant.</li>
+      <li><strong>Les 7 Rives est redirigé page par page</strong> vers une page Montignac complète. Son autorité (155 sites qui pointent vers lui) se transfère à canoevezere.com au lieu d'être perdue.</li>
+      <li><strong>On le fait entre novembre et janvier</strong>, quand le trafic est au plus bas. Google a trois mois pour digérer la fusion avant les réservations d'avril.</li>
+      <li><strong>Une seule refonte au lieu de deux</strong> : c'est aussi l'option la moins chère.</li>
+    </ol>
+  </div>
+
+  <div class="two">
+    <div class="box">
+      <h3>Comment on fusionne sans perdre le SEO</h3>
+      <ul>
+        <li>Une redirection 301 pour chaque page des 7 Rives vers son équivalent, jamais tout vers l'accueil</li>
+        <li>Les textes et la FAQ qui marchent sont repris sur la page Montignac</li>
+        <li>« Les 7 Rives » reste écrit sur la page Montignac pour la première saison, pour ceux qui cherchent ce nom</li>
+        <li>Le domaine canoe-montignac.com reste à vous et continue de rediriger, sans limite de durée</li>
+        <li>Suivi quotidien dans Search Console pendant 90 jours, avec un retour arrière possible</li>
+      </ul>
     </div>
-    <div class="sc">
-      <span class="tag">Scénario B</span><h3>Un seul site APA</h3>
-      <div class="schema">aventurepleinair (ou canoevezere.com)
-├─ /saint-leon
-├─ /montignac  ← 301 depuis les 7 Rives
-├─ /thonac
-└─ /groupes, /seminaires, /scolaires</div>
-      <div class="pc"><div class="p"><b>Pour</b><ul><li>Un site plus puissant</li><li>Un seul panier, un seul outil</li></ul></div><div class="c"><b>Contre</b><ul><li>Redirections à faire parfaitement</li><li>Risque de perdre une place à Montignac</li></ul></div></div>
+    <div class="box">
+      <h3>Ce qu'on perd, honnêtement</h3>
+      <ul>
+        <li>La double place sur « canoë Montignac » (320 recherches par mois). La deuxième place représente quelques dizaines de clics par mois.</li>
+        <li>On la compense là où se joue vraiment Montignac : la fiche Google de la base, ses avis, et une page Montignac plus forte que les deux actuelles.</li>
+        <li>Une baisse temporaire est possible pendant 4 à 8 semaines, d'où le choix de l'hiver.</li>
+      </ul>
     </div>
-    <div class="sc reco">
-      <span class="tag">Scénario C · notre hypothèse</span><h3>Un site principal, un satellite</h3>
-      <div class="schema">Site APA principal (toutes les bases,
-  la destination Dordogne, les groupes)
-└─ canoe-montignac.com gardé en porte
-   d'entrée locale, même charte,
-   même moteur de réservation</div>
-      <div class="pc"><div class="p"><b>Pour</b><ul><li>La puissance d'un site unique</li><li>On garde la place à Montignac</li><li>Fusion possible plus tard, mesures en main</li></ul></div><div class="c"><b>Contre</b><ul><li>Un satellite à garder à jour</li></ul></div></div>
+    <div class="box no">
+      <h3>Et trois sites, un par base ? Non</h3>
+      <ul>
+        <li>Thonac n'ouvre que l'été : une page suffit</li>
+        <li>Trois sites, c'est trois refontes, trois maintenances et une autorité divisée par trois</li>
+        <li>La présence par base se fait avec les trois fiches Google, pas avec trois sites</li>
+      </ul>
+    </div>
+    <div class="box no">
+      <h3>Et tout mettre sur un nouveau domaine APA ? Non plus</h3>
+      <ul>
+        <li>C'est l'option la plus chère et la plus risquée : on repartirait de zéro sur le domaine le plus fort</li>
+        <li>Deux migrations au lieu d'une, juste avant la saison</li>
+        <li>On peut acheter le domaine APA pour le protéger et le rediriger vers canoevezere.com</li>
+      </ul>
     </div>
   </div>
-  <p class="small mt">Dans les trois cas : une charte APA, un seul moteur de réservation et un seul back-office derrière. Le client voit une marque, l'équipe gère un outil.</p>
 </div></section>
 
 <section id="systeme"><div class="wrap">
@@ -343,13 +404,32 @@ footer{padding-block:34px 44px;border-top:1px solid var(--line);text-align:cente
     <div class="mod"><h3>Vente complémentaire et partenaires</h3><p>Pique-nique, boissons, photos, bons cadeaux. Lien et code par camping partenaire, commissions suivies.</p><span class="gain">Un panier moyen plus haut</span></div>
   </div>
 
-  <h3 style="font-size:1.1rem;margin-top:34px;margin-bottom:12px">Trois façons de le construire</h3>
-  <div class="paths">
-    <div class="sc"><span class="tag">Chemin 1</span><h3>WooCommerce enrichi</h3><p class="small">On garde votre WordPress et on ajoute réservation par créneau, caisse et automatisations. Le moins de changement pour l'équipe.</p></div>
-    <div class="sc"><span class="tag">Chemin 2</span><h3>Un logiciel de réservation dédié</h3><p class="small">Un outil spécialisé activités de loisirs (celui qu'utilise Lascaux Canoë en fait partie), branché au site. Rapide, mais un abonnement et moins de liberté.</p></div>
-    <div class="sc"><span class="tag">Chemin 3</span><h3>Une application interne sur mesure</h3><p class="small">Votre back-office à vous (météo, planning, devis, tableau du matin), relié à WooCommerce. Le plus adapté, à cadrer précisément.</p></div>
+  <h3 style="font-size:1.1rem;margin-top:34px;margin-bottom:12px">Trois façons de le construire, et celle que nous recommandons</h3>
+  <div class="tbl crit"><table>
+    <thead><tr><th>Critère</th><th class="o">1 · WooCommerce enrichi</th><th class="o">2 · Logiciel de réservation dédié</th><th class="o">3 · Application sur mesure seule</th><th class="o pick">1 + 3 · WooCommerce + modules sur mesure</th></tr></thead>
+    <tbody>
+      <tr><td>Prêt pour le 1er avril 2027</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g3">●●●</span> par étapes</td></tr>
+      <tr><td>Coût de départ</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g1">●○○</span></td><td class="o pick"><span class="g2">●●○</span></td></tr>
+      <tr><td>Coût chaque année</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g1">●○○</span> abonnement ou commission par réservation</td><td class="o"><span class="g2">●●○</span></td><td class="o pick"><span class="g3">●●●</span></td></tr>
+      <tr><td>Réservation sur votre site (SEO, conversion)</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g2">●●○</span> souvent dans une fenêtre externe</td><td class="o"><span class="g3">●●●</span></td><td class="o pick"><span class="g3">●●●</span></td></tr>
+      <tr><td>Météo, navettes, planning adaptés à vous</td><td class="o"><span class="g1">●○○</span></td><td class="o"><span class="g2">●●○</span> ce que l'outil prévoit</td><td class="o"><span class="g3">●●●</span></td><td class="o pick"><span class="g3">●●●</span></td></tr>
+      <tr><td>Caisse sur place reliée</td><td class="o"><span class="g2">●●○</span></td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g2">●●○</span></td><td class="o pick"><span class="g2">●●○</span> à valider</td></tr>
+      <tr><td>Partenaires hébergeurs et commissions</td><td class="o"><span class="g2">●●○</span></td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g2">●●○</span></td><td class="o pick"><span class="g2">●●○</span></td></tr>
+      <tr><td>Vos données et votre liberté</td><td class="o"><span class="g3">●●●</span></td><td class="o"><span class="g1">●○○</span></td><td class="o"><span class="g3">●●●</span></td><td class="o pick"><span class="g3">●●●</span></td></tr>
+      <tr><td>Changement pour l'équipe</td><td class="o"><span class="g3">●●●</span> faible</td><td class="o"><span class="g2">●●○</span></td><td class="o"><span class="g1">●○○</span> fort</td><td class="o pick"><span class="g3">●●●</span> progressif</td></tr>
+    </tbody>
+  </table></div>
+  <div class="verdict">
+    <span class="tag">Notre recommandation</span>
+    <h3>Garder WooCommerce comme socle, et construire votre back-office par modules</h3>
+    <ol>
+      <li><strong>WooCommerce encaisse déjà 150 000 € par an</strong> et l'équipe le connaît : on le garde pour la vente en ligne, les produits et les bons cadeaux.</li>
+      <li><strong>Avant avril, on ajoute ce qui rapporte tout de suite</strong> : réservation par créneau avec capacité de canoës et de navettes, feu météo et annulations par SMS, devis groupes.</li>
+      <li><strong>Après la saison 2027</strong>, avec le retour de l'équipe : planning, tableau du matin complet, partenaires hébergeurs, caisse si elle n'est pas déjà reliée.</li>
+      <li><strong>Pas de commission sur vos ventes</strong>, la réservation reste sur votre site, et vos données restent les vôtres.</li>
+    </ol>
+    <p class="small mt">Quand le logiciel dédié redevient le bon choix : si vos réponses montrent que la priorité est la vente par les offices de tourisme, les comparateurs et les plateformes, et que l'équipe ne veut aucun développement. On l'intégrerait alors sur canoevezere.com, pas dans une fenêtre à part.</p>
   </div>
-  <p class="small mt">Le cahier des charges servira justement à choisir : le bon chemin dépend de vos volumes, de votre caisse actuelle et de ce que l'équipe utilise vraiment en saison.</p>
 </div></section>
 
 <section id="questions"><div class="wrap">
@@ -362,13 +442,18 @@ footer{padding-block:34px 44px;border-top:1px solid var(--line);text-align:cente
 
 <section id="suite"><div class="wrap">
   <div class="chap"><span class="no">07</span><span class="kk">La suite</span></div>
-  <h2>Ouvrir le 1er avril 2027 avec le bon outil</h2>
+  <h2>Trois chantiers, un seul calendrier, ouverture le 1er avril 2027</h2>
+  <div class="tracks">
+    <div class="track"><span class="lbl">Chantier 1</span><h3>SEO et visibilité</h3><ul><li><b>Nov.</b>Fiches Google, inventaire, plan de redirection</li><li><b>Déc.-janv.</b>Fusion des 7 Rives, suivi</li><li><b>Févr.-mars</b>Pages Dordogne, groupes, IA</li><li><b>Saison</b>Suivi mensuel, avis, contenus</li></ul><p class="dep">Commence tout de suite : il ne dépend de rien.</p></div>
+    <div class="track t2"><span class="lbl">Chantier 2</span><h3>Refonte du site</h3><ul><li><b>Nov.</b>Architecture des pages validée</li><li><b>Déc.</b>Charte APA et maquettes</li><li><b>Janv.-févr.</b>Développement sur WordPress</li><li><b>Mars</b>Tests mobile, mise en ligne</li></ul><p class="dep">Dépend de la charte APA en cours, et de l'architecture décidée ici.</p></div>
+    <div class="track t3"><span class="lbl">Chantier 3</span><h3>Outil de gestion</h3><ul><li><b>Nov.</b>Cahier des charges</li><li><b>Janv.-mars</b>Version 1 : créneaux, météo, annulations, devis</li><li><b>Saison</b>Retours de l'équipe</li><li><b>Automne 2027</b>Version 2 : planning, partenaires, caisse</li></ul><p class="dep">Se branche sur le site refait, d'où la version 1 en mars.</p></div>
+  </div>
   <ol class="timeline">
     <li class="key"><span class="when">Aujourd'hui</span><span><b>Séance de projection</b><span>Vos priorités, vos réponses aux questions.</span></span></li>
-    <li><span class="when">Fin octobre</span><span><b>Cahier des charges et chiffrage</b><span>Architecture retenue, système de réservation, refonte, accompagnement SEO et fiches Google.</span></span></li>
-    <li><span class="when">Novembre</span><span><b>Fiches Google et inventaire SEO</b><span>Les trois bases au propre, la liste des pages à garder et à rediriger.</span></span></li>
-    <li><span class="when">Décembre · janvier</span><span><b>Charte APA et maquettes</b><span>Parcours de réservation testé sur mobile avant de développer.</span></span></li>
-    <li><span class="when">Février · mars</span><span><b>Développement, contenus, tests</b><span>Pages Dordogne, groupes, séminaires ; système testé avec l'équipe.</span></span></li>
+    <li><span class="when">Fin octobre</span><span><b>Cahier des charges et chiffrage</b><span>Les trois chantiers chiffrés séparément, pour choisir le rythme.</span></span></li>
+    <li><span class="when">Novembre</span><span><b>Fiches Google et plan de redirection</b><span>Les trois bases au propre, la liste des pages à garder et à rediriger.</span></span></li>
+    <li><span class="when">Décembre · janvier</span><span><b>Fusion des 7 Rives et maquettes APA</b><span>En basse saison, parcours de réservation testé sur mobile avant de développer.</span></span></li>
+    <li><span class="when">Février · mars</span><span><b>Développement, contenus, tests</b><span>Site refait, pages Dordogne, outil version 1 testé avec l'équipe.</span></span></li>
     <li class="key"><span class="when">1er avril 2027</span><span><b>Ouverture de saison</b><span>Site, réservation et fiches prêts avant les réservations de l'été.</span></span></li>
   </ol>
 </div></section>
