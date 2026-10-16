@@ -31,7 +31,7 @@ Référence réelle : `naturedea-proposition/index.html` (Natur'édéa, oct. 202
 9. **3 formules** (voir pricing).
 10. **Engagement** (tableau).
 11. **Cadeaux, bonus, FOMO** : cadeaux déjà prêts (livrables de l'audit mis en ligne semaine 1), bonus daté avec compte à rebours, exclusivité sectorielle si vraie.
-12. **Démarrer** : chronologie du 2e rendez-vous au bilan du mois 1 ; CTA **lien Stripe pour valider le premier mois avant tout contrat** (demander le lien à Nathan ; à défaut, Calendly `https://calendly.com/fenina-nathan/consultationstrategique` et le signaler).
+12. **Démarrer** : chronologie du prochain rendez-vous → signature 12 mois avant la date des cadeaux → semaine 1 (accès, analyse concurrentielle, feuille de route) → semaine 2 (atelier personas) → semaine 3 (tableau de bord, premières pages) → call du premier vendredi du mois. CTA Calendly `https://calendly.com/fenina-nathan/consultationstrategique`. Un lien Stripe pour valider le premier mois reste possible si Nathan le demande pour ce prospect.
 13. **Confiance** : logos clients (style Canva / Scalezia : vrais logos en data URI), cas similaires uniquement s'ils sont réels, carte auteur Nathan.
 
 ## Pricing
@@ -39,7 +39,7 @@ Référence réelle : `naturedea-proposition/index.html` (Natur'édéa, oct. 202
 - **Vendre des livrables, pas des jours** : afficher des pages par mois (ex. 8 / 16 / « plus de 16 »), jamais un équivalent en jours (évite la comparaison au TJM de l'agence en place).
 - **Coût par page vs aujourd'hui** : calculer prix ÷ pages et le comparer à ce que le prospect paie déjà par contenu non intégré. Argument le plus fort.
 - **Formule haute** : ne pas donner son nombre de pages (« encore plus »), elle se distingue par le **netlinking**, dont des **achats de liens inclus** (sites validés avec le client). Surveiller la marge : liens santé ≈ 100-250 € pièce ; si besoin préciser un plafond de budget d'achat inclus.
-- **Engagement** : 12 mois minimum (le mois 1 payé via Stripe compte dedans). Tableau en trois lignes pour ancrer le 12 mois :
+- **Engagement** : 12 mois minimum (les prix affichés sont des prix 12 mois). Tableau en trois lignes pour ancrer le 12 mois :
   - sans engagement : frais de mise en place élevés (≈ 3 500 €, bien au-dessus d'un mois de formule) ;
   - 12 mois : mise en place offerte ;
   - 24 mois : mise en place offerte + −10 %.
@@ -49,11 +49,23 @@ Référence réelle : `naturedea-proposition/index.html` (Natur'édéa, oct. 202
   2. fixe 500 €/mois + un montant par lead (appel) généré, suivi par numéro de tracking.
   Dans ce cas la projection et le calculateur raisonnent en appels/leads par mois.
 
+## Ce qui est toujours compris (bloc au-dessus des formules)
+Intégration sur Shopify/CMS par nous · feuille de route · tableau de bord mensuel · **call de 30 min avec Nathan le premier vendredi du mois** + Slack · transparence sur chaque action technique et chaque contenu · mots-clés proposés chaque mois (ou sujet du mois choisi par le client). Montrer que la formule d'entrée inclut déjà technique, vitesse, identité IA et fiches produits : « ce n'est jamais que du contenu ».
+
+## Contenu des formules (référence Natur'édéa)
+- Volumes en **minimum** (« 8 pages minimum ») et expliquer qu'un guide = 1 page, une fiche produit = 1 page.
+- Hors du site : entrée = 2 actions/mois ; médiane = jusqu'à 15 actions/mois **non payantes** (annuaires, forums, comparatifs, guest blog, classements) ; haute = + **liens achetés et relations presse** (uniquement là). La feuille de route doit tagger chaque action off-page avec les formules qui l'incluent : ne jamais promettre des RP à une formule qui ne les contient pas.
+- **Options sur devis** : pack de liens sponsorisés (argument : « si une page stagne malgré le contenu, c'est le plafond des backlinks ») ; Instagram / cold mail / newsletter **après la signature du SEO**.
+- Bloc « ce que vous faites de votre côté » : le SEO isolé décolle moins vite ; la marque relaie sur ses réseaux, partenariats, avis.
+
+## Cadeaux : règle
+Valeur perçue haute, coût réel faible, jamais récurrent ; total ≤ 2-3 jours de travail ; livrés seulement avec la signature 12 mois avant une date limite courte (≈ 1 semaine après le rendez-vous). Bons cadeaux : analyse concurrentielle SEO & GEO avant démarrage (points forts on/off-page des concurrents), template de page/fiche qui convertit réutilisé sur tout le site, livrables déjà prêts de l'audit. À ne pas offrir : mois gratuit, pages en plus, calls en plus, liens payants, RP. Pas de « premier mois sans contrat » : les frais de mise en place (3 500 € sans engagement, offerts à 12 mois) sont le levier.
+
 ## Design
 - Charte decupler.com, **version claire uniquement** (pas de mode sombre) : fond `#F8FAFC`, cartes blanches, bordures `#E2E8F0`, texte `#0F172A`/`#475569`, accent violet `#6D4AE8`, dégradé `linear-gradient(135deg,#6366F1,#8B5CF6)` sur boutons, mots clés du titre et marque. Titres **Syne** 700, texte **DM Sans**, chiffres en mono tabulaires.
-- Logos concurrents/clients en data URI (pas d'image externe : la CSP de l'artifact les bloque). Photo de Nathan : `assets/nathan.png` réduite en JPEG 160 px.
+- Logos concurrents/clients en data URI (pas d'image externe : la CSP de l'artifact les bloque). Photo de Nathan : `assets/nathan-face.jpg` (200 px, recadrée sur le visage), à embarquer en data URI.
 - Vérifier à 400 px de large (pas de scroll horizontal) avant de publier.
 
 ## Livraison
 - Fichier : `<client>-proposition/index.html` dans ce repo, commit + push sur la branche de travail, puis publication via l'outil Artifact (rappeler que l'artifact est privé tant que Nathan ne le partage pas).
-- Lister en fin de réponse ce qui reste à confirmer par Nathan : lien Stripe, date limite du bonus, exclusivité, hypothèses du calculateur, logos.
+- Lister en fin de réponse ce qui reste à confirmer par Nathan : date limite des cadeaux, exclusivité, hypothèses du calculateur, logos.
